@@ -96,7 +96,7 @@ export default function Hero() {
             href="#services"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-transparent text-white font-accent font-medium text-[0.82rem] tracking-[0.1em] uppercase border border-white/15 rounded-sm hover:border-gold hover:text-gold transition-all no-underline"
           >
-            Explore Services <i className="ri-arrow-down-s-line" />
+            Explore Services<i className="ri-arrow-down-s-line" />
           </Link>
         </motion.div>
 
