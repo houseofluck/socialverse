@@ -1,225 +1,135 @@
-# Social Verse - Website
+# Social Verse — Studio Site
 
-Premium digital marketing agency website built with Next.js, Tailwind CSS, and Framer Motion. All user inquiries route to WhatsApp via `wa.me` deep links with a backend API for lead capture.
+A Next.js 14 marketing site for Social Verse, a Mumbai-based creative studio. Built with the App Router, server components where possible, and custom SVG assets throughout.
 
-## Quick Start
+## Stack
 
-```bash
-# Install dependencies
-npm install
+- **Next.js 14.2** with App Router
+- **React 18**
+- **No CSS framework** — vanilla CSS with CSS variables and inline styles
+- **Google Fonts** — Fraunces, Archivo, JetBrains Mono (loaded via `@import`)
+- **No external images or video hosting** — all media lives in `/public/media`
 
-# Copy env file and configure
-cp .env.example .env.local
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Configuration
-
-### 1. WhatsApp Number (Required)
-
-Update in **two places**:
-
-- `.env.local` → `NEXT_PUBLIC_WHATSAPP_NUMBER=91XXXXXXXXXX`
-- `src/lib/config.ts` → fallback value in `WHATSAPP_NUMBER`
-
-Format: country code + number, no `+` or spaces. Example: `919876543210`
-
-### 2. Site Details
-
-Edit `src/lib/config.ts` → `SITE_CONFIG` object:
-
-```ts
-export const SITE_CONFIG = {
-  name: "Social Verse",
-  email: "info@thesocialverse.com",
-  instagram: "https://instagram.com/thesocialverse",
-  facebook: "https://facebook.com/thesocialverse",
-  linkedin: "https://linkedin.com/company/thesocialverse",
-};
-```
-
-### 3. Domain
-
-Set `SITE_URL` in `.env.local` for sitemap and OG tags.
-
-## Architecture
+## Project structure
 
 ```
-src/
+.
 ├── app/
-│   ├── api/lead/route.ts    ← POST/GET lead capture + webhook notifications
-│   ├── admin/
-│   │   ├── layout.tsx       ← Admin metadata (noindex)
-│   │   ├── loading.tsx      ← Admin loading state
-│   │   └── page.tsx         ← Lead dashboard with stats, search, CSV export
-│   ├── globals.css           ← Tailwind v4 theme + animations
-│   ├── layout.tsx            ← Root layout + SEO metadata + Analytics
-│   ├── page.tsx              ← Home page (composes sections)
-│   ├── not-found.tsx         ← Custom 404
-│   ├── sitemap.ts            ← Dynamic sitemap.xml
-│   └── robots.ts             ← robots.txt (blocks /api, /admin)
+│   ├── layout.jsx       # Root layout + metadata + Open Graph
+│   ├── page.jsx         # Composes all sections
+│   ├── globals.css      # Tokens, typography, responsive grid classes
+│   └── sitemap.js       # Auto-generated sitemap
+├── components/
+│   ├── layout/
+│   │   ├── Nav.jsx             # Responsive nav with mobile toggle
+│   │   ├── Footer.jsx
+│   │   └── StructuredData.jsx  # JSON-LD schema
+│   ├── sections/        # 11 section components
+│   ├── assets/          # SVG asset library (packaging, social, film, OOH)
+│   └── ui/              # Motion primitives, logo marks
 ├── lib/
-│   └── config.ts             ← All data, WA number, helper functions
-└── components/
-    ├── Analytics.tsx          ← GA4 + Meta Pixel + event tracking helpers
-    ├── Reveal.tsx             ← Scroll animation wrapper (Framer Motion)
-    ├── SectionLabel.tsx       ← Reusable "- LABEL" element
-    ├── Preloader.tsx          ← Loading screen
-    ├── Navbar.tsx             ← Sticky nav + mobile fullscreen menu
-    ├── Hero.tsx               ← Animated hero + WA CTA
-    ├── Marquee.tsx            ← Services ticker
-    ├── Stats.tsx              ← Animated counters
-    ├── About.tsx              ← About + 4 pillars
-    ├── Services.tsx           ← 7 service cards + per-service WA links
-    ├── Portfolio.tsx           ← Work showcase grid
-    ├── Process.tsx            ← 4-step process
-    ├── Testimonials.tsx       ← Client reviews
-    ├── WhyUs.tsx              ← 6 advantage cards
-    ├── FAQ.tsx                ← Accordion + WA fallback
-    ├── Contact.tsx            ← Form → API → WhatsApp redirect
-    ├── Footer.tsx             ← Footer + socials + WA button
-    └── FloatingButtons.tsx    ← Floating WA bubble + back-to-top
+│   ├── palette.js       # Design tokens + brand constants
+│   └── hooks.js         # useInView, useScroll, useTime, useMediaQuery
+├── public/media/        # All images + video
+│   ├── portraits/       # Testimonial headshots
+│   ├── social/          # Social feed post imagery
+│   ├── web/             # Web design screenshots
+│   ├── editorial/       # Journal essay covers
+│   └── video/           # App demo footage
+├── next.config.js       # Image optimization + security headers
+├── vercel.json          # Region: bom1 (Mumbai)
+└── package.json
 ```
 
-## WhatsApp Flow
-
-```
-User fills contact form
-  → POST /api/lead (saves to data/leads.json)
-  → Opens wa.me/{number}?text={structured_message}
-  → Conversation continues on WhatsApp
-```
-
-Every CTA on the site (hero, service cards, FAQ, footer, floating button) uses the same `openWhatsApp()` helper from `config.ts`.
-
-## Lead Capture API
-
-### Save a lead
-
-```
-POST /api/lead
-Content-Type: application/json
-
-{
-  "name": "John Doe",
-  "business": "Acme Corp",
-  "service": "Social Media Management",
-  "budget": "₹25K - ₹50K/mo",
-  "message": "Looking to grow our Instagram",
-  "source": "contact_form"
-}
-```
-
-### List all leads
-
-```
-GET /api/lead
-```
-
-> ⚠️ The GET endpoint is unprotected. Add auth middleware before deploying to production.
-
-### Storage
-
-Leads save to `data/leads.json` by default. For production, swap the file-based storage in `src/app/api/lead/route.ts` with your preferred database (PostgreSQL, MongoDB, Supabase, etc).
-
-### Lead Notifications
-
-Get instant alerts when a new lead comes in. Configure in `.env.local`:
-
-**Telegram** - set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`. Create a bot via @BotFather.
-
-**Slack** - set `LEAD_WEBHOOK_URL` to your Slack Incoming Webhook URL.
-
-**Discord / Custom** - set `LEAD_WEBHOOK_URL` to any POST endpoint. Receives `{ text, lead }`.
-
-Notifications are fire-and-forget - they never block the lead capture or WhatsApp redirect.
-
-## Admin Dashboard
-
-Access at `/admin`. Default password: `socialverse2026` (change via `NEXT_PUBLIC_ADMIN_PASSWORD` env var).
-
-Features:
-- Lead stats (total, today, this week, top service)
-- Searchable leads table
-- CSV export
-- Auto-refresh
-
-The admin page is blocked from search engine indexing via `robots.txt` and `<meta robots>`.
-
-## Analytics
-
-Google Analytics 4 and Meta Pixel are supported out of the box. Set env vars:
-
-```
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-NEXT_PUBLIC_META_PIXEL_ID=1234567890
-```
-
-Every WhatsApp click is tracked with the source (hero, service card, FAQ, footer, floating button, contact form). Custom events available via `analytics` helper in `src/components/Analytics.tsx`.
-
-## Deployment
-
-### Vercel (Recommended)
+## Local development
 
 ```bash
-npm install -g vercel
+# Install dependencies (use the package manager you prefer)
+pnpm install        # or npm install / yarn install
+
+# Run dev server (hot reload)
+pnpm dev
+# → http://localhost:3000
+
+# Build production
+pnpm build
+pnpm start
+```
+
+Requirements: **Node.js 18.17+**.
+
+## Deploy to Vercel
+
+### One-click
+
+1. Push this repo to GitHub / GitLab / Bitbucket.
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
+3. Vercel auto-detects Next.js. Click **Deploy**.
+4. Done. The Mumbai (`bom1`) region is already configured in `vercel.json` for Indian users.
+
+### Via CLI
+
+```bash
+npm i -g vercel
 vercel
 ```
 
-Set environment variables in Vercel dashboard:
-- `NEXT_PUBLIC_WHATSAPP_NUMBER`
-- `SITE_URL`
-- `NEXT_PUBLIC_GA_ID` (optional)
-- `NEXT_PUBLIC_META_PIXEL_ID` (optional)
-- `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` (optional)
-- `NEXT_PUBLIC_ADMIN_PASSWORD` (optional)
+## What's responsive
 
-> **Note:** The file-based lead storage (`data/leads.json`) won't persist on Vercel's serverless functions. Use a database for production lead capture, or pipe leads to a Google Sheet / Notion / webhook instead.
+Every section has explicit breakpoints defined in `app/globals.css`:
 
-### Railway / VPS
+- **Mobile (< 768px)** — single-column stacks, hamburger menu, reduced type scale, smaller section padding (80px vs 140px)
+- **Tablet (768–1023px)** — two-column grids where sensible, nav stays visible
+- **Desktop (≥ 1024px)** — full magazine layouts
 
-```bash
-npm run build
-npm start
-```
+Responsive classes used: `.sv-section-header`, `.sv-branding-grid`, `.sv-social-layout`, `.sv-digital-layout`, `.sv-content-grid`, `.sv-reels-grid`, `.sv-offline-3up`, `.sv-offline-2up`, `.sv-featured-metrics`, `.sv-studio-grid`, `.sv-studio-team`, `.sv-writing-grid`, `.sv-contact-grid`, `.sv-hero-trio`, `.sv-work-row`, `.sv-footer-grid`, `.sv-deliverables`, `.sv-nav-links`.
 
-Runs on port 3000 by default. File-based storage works fine on persistent servers.
+All typography uses `clamp()` for fluid scaling between breakpoints.
 
-## Tech Stack
+## Media
 
-- **Framework:** Next.js 16 (App Router, TypeScript)
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
-- **Icons:** Remix Icon (CDN)
-- **Fonts:** Playfair Display + Outfit + DM Sans (Google Fonts)
-- **Lead API:** Next.js Route Handlers (file-based, swap for DB)
+All uploaded media has been optimized:
 
-## Customization
+- **Portraits** — resized to 1600px max, JPEG quality 82
+- **Editorial illustrations** — resized to 1800px max, JPEG quality 85
+- **App demo video** — compressed from 153MB to 1.8MB (720p, CRF 28, H.264 + AAC, `+faststart` for streaming)
+- **Web screenshot** — JPEG quality 88
 
-### Add/Edit Services
+Total media weight: **~3.8MB**. Well within Vercel's edge limits.
 
-Edit the `SERVICES` array in `src/lib/config.ts`. Each service needs an icon (Remix Icon class), title, description, and tags array.
+## SEO
 
-### Add/Edit Testimonials
+- **Full metadata** in `app/layout.jsx` — title template, description, keywords, authors, Open Graph, Twitter cards, canonical URL
+- **JSON-LD structured data** (Organization + WebSite + Service catalog) in `components/layout/StructuredData.jsx`
+- **Sitemap** auto-generated at `/sitemap.xml` via `app/sitemap.js`
+- **Semantic HTML** — exactly one `<h1>`, proper heading hierarchy, ARIA labels on all SVGs, landmark roles (`banner`, `main`, `navigation`, `contentinfo`)
+- **Skip-to-content** link for keyboard users
+- **Reduced-motion** support via `prefers-reduced-motion` media query
 
-Edit the `TESTIMONIALS` array in `src/lib/config.ts`.
+## Customizing
 
-### Add/Edit FAQ
+- **Colors** — edit `lib/palette.js` (the `P` object) and matching CSS variables in `app/globals.css` `:root`
+- **Brand details** — `BRAND` object in `lib/palette.js` (email, phone, address, social links)
+- **Section order** — `app/page.jsx`
+- **Copy** — each section component in `components/sections/`
+- **SVG assets** — `components/assets/packaging-social.jsx` and `components/assets/film-ooh.jsx`
 
-Edit the `FAQ_ITEMS` array in `src/lib/config.ts`.
+## Replacing placeholder media
 
-### Colors
+Placeholder media from this build is stored by intent:
 
-Brand tokens are defined in `src/app/globals.css` under `@theme inline`. Key values:
-- `--color-gold: #C4A265` (primary accent)
-- `--color-black: #0A0A0A` (backgrounds)
-- `--color-cream: #F5F0E8` (light sections)
+- `/media/portraits/anika.jpg`, `rohan.jpg`, `ishita.jpg` → testimonial headshots. Used in `components/sections/Testimonial.jsx`.
+- `/media/social/online-to-offline.jpg`, `still-alone.jpg` → social feed post examples. Used in `DisciplineSocial` in `components/sections/Disciplines.jsx`.
+- `/media/web/annatar-forge.jpg` → web design portfolio screenshot. Used in `DisciplineDigital` + `WorkIndex`.
+- `/media/video/app-demo.mp4` → app demo, plays inside the phone frame when scrolled into view. Used in `DisciplineDigital`.
+- `/media/editorial/community.jpg`, `growth.jpg`, `isolation.jpg` → essay cover images. Used in `Writing.jsx`.
+
+To swap, just replace the files at those paths (or update the paths in the relevant component).
+
+## Fonts
+
+Fonts load from Google Fonts via `@import` at the top of `globals.css`. For better performance, migrate to `next/font` later — the setup is compatible but not yet wired up (would need a `fonts.js` module).
 
 ## License
 
-Private. All rights reserved.
-# socialverse
+© 2026 Social Verse Studio. All rights reserved.

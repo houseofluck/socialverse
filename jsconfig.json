@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "jsx": "preserve",
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true
+  },
+  "include": ["**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules", ".next"]
+}
