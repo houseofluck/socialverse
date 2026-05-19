@@ -661,9 +661,8 @@ export default function ServicesPage() {
 
 {/* HERO */}
 <section className="services-hero hero-gradient theme-purple">
-  <button className="back-btn" onClick={() => { history.back() }}>←</button>
   <h1 className="hero-title">Services</h1>
-  <p className="hero-tagline">Customer Satisfaction is our motto.</p>
+  <p className="hero-tagline">Digital solutions designed to grow your business.</p>
 </section>
 
 {/* BREADCRUMB */}
@@ -678,13 +677,13 @@ export default function ServicesPage() {
   <div className="capabilities-inner">
     <div>
       <p className="capabilities-eyebrow">CAPABILITIES</p>
-      <h2 className="capabilities-heading">Our Services</h2>
+      <h2 className="capabilities-heading">Digital Solutions Designed To Grow Your Business</h2>
     </div>
     <p className="capabilities-desc">
-      <strong>TheSocialVerse's</strong> digital services help brands grow through creative
-      storytelling, performance media, and full-funnel campaigns. Our strategy and
-      results-driven approach combines social, paid media, and content design — engineered
-      to build audiences and deliver measurable business outcomes.
+      <strong>The Social Verse</strong> delivers complete 360° marketing services —
+      combining creative strategy, performance marketing, branding, website development,
+      and content creation to help your business stand out, connect with the right
+      audience, and drive measurable growth.
     </p>
   </div>
 </section>
@@ -693,232 +692,249 @@ export default function ServicesPage() {
 <section className="services-listing">
   <div className="services-grid-large">
 
-    {/* 1: Digital Marketing */}
-    <article className="service-block" onClick={() => { window.location='/services/digital-marketing' }} style={{cursor: 'pointer'}}>
-      <div className="service-block-head">
-        <div className="service-icon">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="14" width="44" height="28" rx="2" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-            <rect x="2" y="42" width="52" height="3" rx="1.5" fill="#1a1a1a"/>
-            <path d="M36 22 L46 17 L46 33 L36 28 Z" fill="var(--accent)"/>
-            <circle cx="22" cy="26" r="6" fill="var(--accent)" opacity="0.3"/>
-            <path d="M16 30 Q22 32 28 30" stroke="var(--accent)" stroke-width="2" fill="none"/>
-          </svg>
-        </div>
-        <h3 className="service-icon-name">Digital Marketing</h3>
-      </div>
-      <div className="service-block-body">
-        <p className="service-block-desc">Stay on top of the web with a robust digital marketing strategy.</p>
-        <ul className="service-block-list">
-          <li>Google Ads</li>
-          <li>Social Media Marketing</li>
-          <li>Search Engine Optimization (SEO)</li>
-          <li>Email Marketing Service</li>
-          <li>Content Marketing</li>
-          <li>WhatsApp Marketing</li>
-          <li>Google Local Services</li>
-        </ul>
-      </div>
-    </article>
-
-    {/* 2: Website Development */}
-    <article className="service-block" onClick={() => { window.location='/services/website-development' }} style={{cursor: 'pointer'}}>
-      <div className="service-block-head">
-        <div className="service-icon">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="14" width="44" height="28" rx="2" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-            <rect x="2" y="42" width="52" height="3" rx="1.5" fill="#1a1a1a"/>
-            <line x1="6" y1="22" x2="50" y2="22" stroke="#1a1a1a" stroke-width="1.5"/>
-            <circle cx="11" cy="18" r="1" fill="var(--accent)"/>
-            <circle cx="15" cy="18" r="1" fill="var(--accent)"/>
-            <rect x="12" y="26" width="20" height="2" fill="var(--accent)"/>
-            <rect x="12" y="30" width="14" height="2" fill="var(--accent)" opacity="0.5"/>
-            <path d="M44 30 l-3 3 3 3" stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3 className="service-icon-name">Website Development</h3>
-      </div>
-      <div className="service-block-body">
-        <p className="service-block-desc">Create a unique virtual home for your business with a website that matters.</p>
-        <ul className="service-block-list">
-          <li>Shopify Website Development</li>
-          <li>Magento Website Development</li>
-          <li>WordPress Development</li>
-          <li>PHP Website Development</li>
-          <li>Custom Website Development</li>
-          <li>Website AMC</li>
-          <li>UI/UX Design</li>
-          <li>Landing Pages Design</li>
-        </ul>
-      </div>
-    </article>
-
-    {/* 3: Video Production */}
-    <article className="service-block" onClick={() => { window.location='/services/video-production' }} style={{cursor: 'pointer'}}>
-      <div className="service-block-head">
-        <div className="service-icon">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="14" width="44" height="28" rx="2" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-            <rect x="2" y="42" width="52" height="3" rx="1.5" fill="#1a1a1a"/>
-            <circle cx="28" cy="28" r="9" fill="#fff3d6"/>
-            <path d="M25 23 L25 33 L34 28 Z" fill="var(--accent)"/>
-          </svg>
-        </div>
-        <h3 className="service-icon-name">Video Production</h3>
-      </div>
-      <div className="service-block-body">
-        <p className="service-block-desc">Set your ideas and campaigns to motion with an impactful video.</p>
-        <ul className="service-block-list">
-          <li>Video Content Strategy</li>
-          <li>TV Ads Commercials</li>
-          <li>Corporate Videos</li>
-          <li>2D &amp; 3D Animations</li>
-          <li>Promotional Videos</li>
-          <li>Whiteboard Animation</li>
-        </ul>
-      </div>
-    </article>
-
-    {/* 4: Presentation Design */}
-    <article className="service-block" onClick={() => { window.location='/services/presentation-design' }} style={{cursor: 'pointer'}}>
-      <div className="service-block-head">
-        <div className="service-icon">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="14" width="44" height="28" rx="2" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-            <rect x="2" y="42" width="52" height="3" rx="1.5" fill="#1a1a1a"/>
-            <rect x="11" y="20" width="20" height="3" fill="var(--accent)"/>
-            <rect x="11" y="26" width="28" height="2" fill="#1a1a1a" opacity="0.4"/>
-            <rect x="11" y="30" width="22" height="2" fill="#1a1a1a" opacity="0.4"/>
-            <rect x="11" y="34" width="16" height="2" fill="#1a1a1a" opacity="0.4"/>
-            <rect x="38" y="26" width="8" height="10" fill="#fff3d6"/>
-          </svg>
-        </div>
-        <h3 className="service-icon-name">Presentation Design</h3>
-      </div>
-      <div className="service-block-body">
-        <p className="service-block-desc">We create clear &amp; effective presentations as per your requirement.</p>
-        <ul className="service-block-list">
-          <li>Investor Pitch Deck</li>
-          <li>Corporate Presentation Design</li>
-          <li>Sales Presentation</li>
-          <li>Financial Presentation Design</li>
-          <li>Slide Deck Design</li>
-          <li>Custom PowerPoint Design</li>
-        </ul>
-      </div>
-    </article>
-
-    {/* 5: Branding & Strategy */}
-    <article className="service-block" onClick={() => { window.location='/services/branding-strategy' }} style={{cursor: 'pointer'}}>
-      <div className="service-block-head">
-        <div className="service-icon">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="14" y="12" width="22" height="30" rx="2" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2"/>
-            <circle cx="20" cy="20" r="3" fill="var(--accent)"/>
-            <circle cx="30" cy="20" r="3" fill="#1a1a1a"/>
-            <rect x="18" y="28" width="14" height="2" fill="#1a1a1a"/>
-            <rect x="18" y="32" width="10" height="2" fill="#1a1a1a" opacity="0.5"/>
-            <path d="M40 18 L52 18 L52 34 L46 38 L40 34 Z" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2"/>
-            <path d="M44 24 L46 28 L48 24" stroke="var(--accent)" stroke-width="2" fill="none"/>
-          </svg>
-        </div>
-        <h3 className="service-icon-name">Branding &amp; Strategy</h3>
-      </div>
-      <div className="service-block-body">
-        <p className="service-block-desc">Our wide range of Branding Services is tailor-made for your brand to successfully scale up.</p>
-        <ul className="service-block-list">
-          <li>Brand Strategy</li>
-          <li>Logo &amp; Identity</li>
-          <li>Brand Style Guide</li>
-          <li>Naming &amp; Taglines</li>
-          <li>Messaging &amp; Positioning</li>
-          <li>Voice &amp; Tone</li>
-          <li>Corporate Identity</li>
-        </ul>
-      </div>
-    </article>
-
-    {/* 6: Print & Package Design */}
-    <article className="service-block" onClick={() => { window.location='/services/print-package-design' }} style={{cursor: 'pointer'}}>
-      <div className="service-block-head">
-        <div className="service-icon">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 22 L32 12 L52 22 L52 44 L32 54 L12 44 Z" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2"/>
-            <path d="M12 22 L32 32 L52 22" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-            <line x1="32" y1="32" x2="32" y2="54" stroke="#1a1a1a" stroke-width="2"/>
-            <path d="M22 17 L42 27" stroke="var(--accent)" stroke-width="2"/>
-          </svg>
-        </div>
-        <h3 className="service-icon-name">Print &amp; Package Design</h3>
-      </div>
-      <div className="service-block-body">
-        <p className="service-block-desc">We offer excellent Print &amp; Packaging Design Services with attractive packaging to our valuable clients.</p>
-        <ul className="service-block-list">
-          <li>Food Packaging Design</li>
-          <li>Box Packaging Design</li>
-          <li>Electronics Packaging Design</li>
-          <li>Brochure Design</li>
-          <li>Annual Report Design</li>
-          <li>Corporate Stationery Design</li>
-        </ul>
-      </div>
-    </article>
-
-    {/* 7: Social Media Marketing */}
+    {/* 1: Social Media Marketing */}
     <article className="service-block" onClick={() => { window.location='/services/social-media-marketing' }} style={{cursor: 'pointer'}}>
       <div className="service-block-head">
         <div className="service-icon">
           <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="14" width="22" height="22" rx="3" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2"/>
-            <circle cx="21" cy="25" r="4" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <rect x="10" y="14" width="22" height="22" rx="3" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <circle cx="21" cy="25" r="4" fill="none" stroke="var(--accent)" strokeWidth="2"/>
             <circle cx="27" cy="19" r="1.5" fill="var(--accent)"/>
-            <circle cx="42" cy="20" r="6" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2"/>
-            <text x="42" y="24" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="var(--accent)">!</text>
-            <path d="M34 38 L42 32 L52 38 L52 48 L42 54 L34 48 Z" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2"/>
-            <path d="M37 41 L42 38 L47 41 L47 47 L42 50 L37 47 Z" fill="var(--accent)" opacity="0.3"/>
+            <path d="M34 38 L42 32 L52 38 L52 48 L42 54 L34 48 Z" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <path d="M37 41 L42 38 L47 41 L47 47 L42 50 L37 47 Z" fill="var(--accent)" opacity="0.4"/>
           </svg>
         </div>
         <h3 className="service-icon-name">Social Media Marketing</h3>
       </div>
       <div className="service-block-body">
-        <p className="service-block-desc">We design engaging content for your Social Media to enhance your business presence.</p>
+        <p className="service-block-desc">Build a powerful digital presence with strategic social media management that increases awareness, engagement, and conversion.</p>
         <ul className="service-block-list">
-          <li>Facebook, Instagram &amp; LinkedIn</li>
-          <li>Social Media Management</li>
-          <li>Social Media Advertising</li>
-          <li>Social Media Brand Management</li>
-          <li>Reputation Management</li>
+          <li>Content Planning &amp; Strategy</li>
+          <li>Reels &amp; Short-Form Video</li>
+          <li>Creative Designs &amp; Carousels</li>
+          <li>Captions &amp; Copy</li>
+          <li>Platform Management</li>
+          <li>Community Management</li>
         </ul>
       </div>
     </article>
 
-    {/* 8: UI/UX Design */}
-    <article className="service-block" onClick={() => { window.location='/services/ui-ux-design' }} style={{cursor: 'pointer'}}>
+    {/* 2: Performance Marketing */}
+    <article className="service-block" onClick={() => { window.location='/services/performance-marketing' }} style={{cursor: 'pointer'}}>
       <div className="service-block-head">
         <div className="service-icon">
           <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="10" width="22" height="40" rx="3" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2"/>
-            <line x1="20" y1="16" x2="42" y2="16" stroke="#1a1a1a" stroke-width="1.5"/>
-            <line x1="20" y1="44" x2="42" y2="44" stroke="#1a1a1a" stroke-width="1.5"/>
+            <rect x="6" y="14" width="44" height="28" rx="2" fill="none" stroke="#1a1a1a" strokeWidth="2"/>
+            <rect x="2" y="42" width="52" height="3" rx="1.5" fill="#1a1a1a"/>
+            <path d="M12 34 L20 28 L28 30 L36 22 L46 20" stroke="var(--accent)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+            <circle cx="46" cy="20" r="3" fill="var(--accent)"/>
+          </svg>
+        </div>
+        <h3 className="service-icon-name">Performance Marketing</h3>
+      </div>
+      <div className="service-block-body">
+        <p className="service-block-desc">Data-driven advertising campaigns across Meta, Google, and YouTube — engineered for lead generation, sales, and ROI.</p>
+        <ul className="service-block-list">
+          <li>Meta Ads (Facebook &amp; Instagram)</li>
+          <li>Google Ads</li>
+          <li>YouTube Ads</li>
+          <li>Lead Generation Campaigns</li>
+          <li>Audience Targeting</li>
+          <li>Performance Analysis</li>
+        </ul>
+      </div>
+    </article>
+
+    {/* 3: Content Production */}
+    <article className="service-block" onClick={() => { window.location='/services/content-production' }} style={{cursor: 'pointer'}}>
+      <div className="service-block-head">
+        <div className="service-icon">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="14" width="44" height="28" rx="2" fill="none" stroke="#1a1a1a" strokeWidth="2"/>
+            <rect x="2" y="42" width="52" height="3" rx="1.5" fill="#1a1a1a"/>
+            <circle cx="28" cy="28" r="9" fill="#fff3d6"/>
+            <path d="M25 23 L25 33 L34 28 Z" fill="var(--accent)"/>
+          </svg>
+        </div>
+        <h3 className="service-icon-name">Content Production</h3>
+      </div>
+      <div className="service-block-body">
+        <p className="service-block-desc">Cinematic reels, brand films, product shoots, photography, and ad creatives that capture attention and strengthen identity.</p>
+        <ul className="service-block-list">
+          <li>Cinematic Reels</li>
+          <li>Brand Films &amp; Promo Videos</li>
+          <li>Product Photography</li>
+          <li>Ad Creatives</li>
+          <li>On-Location Shoots</li>
+          <li>Post-Production</li>
+        </ul>
+      </div>
+    </article>
+
+    {/* 4: Branding & Creative Strategy */}
+    <article className="service-block" onClick={() => { window.location='/services/branding-creative-strategy' }} style={{cursor: 'pointer'}}>
+      <div className="service-block-head">
+        <div className="service-icon">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="12" width="22" height="30" rx="2" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <circle cx="20" cy="20" r="3" fill="var(--accent)"/>
+            <circle cx="30" cy="20" r="3" fill="#1a1a1a"/>
+            <rect x="18" y="28" width="14" height="2" fill="#1a1a1a"/>
+            <rect x="18" y="32" width="10" height="2" fill="#1a1a1a" opacity="0.5"/>
+            <path d="M40 18 L52 18 L52 34 L46 38 L40 34 Z" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <path d="M44 24 L46 28 L48 24" stroke="var(--accent)" strokeWidth="2" fill="none"/>
+          </svg>
+        </div>
+        <h3 className="service-icon-name">Branding &amp; Creative Strategy</h3>
+      </div>
+      <div className="service-block-body">
+        <p className="service-block-desc">Develop a strong, memorable brand identity through strategic design, storytelling, and visual communication.</p>
+        <ul className="service-block-list">
+          <li>Logo &amp; Identity Design</li>
+          <li>Brand Aesthetics</li>
+          <li>Creative Direction</li>
+          <li>Marketing Visuals</li>
+          <li>Communication Strategy</li>
+          <li>Naming &amp; Messaging</li>
+        </ul>
+      </div>
+    </article>
+
+    {/* 5: Search Engine Optimization */}
+    <article className="service-block" onClick={() => { window.location='/services/search-engine-optimization' }} style={{cursor: 'pointer'}}>
+      <div className="service-block-head">
+        <div className="service-icon">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="26" cy="26" r="14" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <line x1="36" y1="36" x2="48" y2="48" stroke="#1a1a1a" strokeWidth="3" strokeLinecap="round"/>
+            <text x="26" y="30" textAnchor="middle" fontFamily="Arial" fontSize="11" fontWeight="bold" fill="var(--accent)">SEO</text>
+          </svg>
+        </div>
+        <h3 className="service-icon-name">Search Engine Optimization</h3>
+      </div>
+      <div className="service-block-body">
+        <p className="service-block-desc">Improve visibility and organic reach with strategic SEO — keyword optimization, technical SEO, and local SEO that compound.</p>
+        <ul className="service-block-list">
+          <li>Keyword Research</li>
+          <li>On-Page SEO</li>
+          <li>Technical SEO</li>
+          <li>Local SEO</li>
+          <li>Content Strategy</li>
+          <li>Performance Monitoring</li>
+        </ul>
+      </div>
+    </article>
+
+    {/* 6: Website Development */}
+    <article className="service-block" onClick={() => { window.location='/services/website-development' }} style={{cursor: 'pointer'}}>
+      <div className="service-block-head">
+        <div className="service-icon">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="14" width="44" height="28" rx="2" fill="none" stroke="#1a1a1a" strokeWidth="2"/>
+            <rect x="2" y="42" width="52" height="3" rx="1.5" fill="#1a1a1a"/>
+            <line x1="6" y1="22" x2="50" y2="22" stroke="#1a1a1a" strokeWidth="1.5"/>
+            <circle cx="11" cy="18" r="1" fill="var(--accent)"/>
+            <circle cx="15" cy="18" r="1" fill="var(--accent)"/>
+            <rect x="12" y="26" width="20" height="2" fill="var(--accent)"/>
+            <rect x="12" y="30" width="14" height="2" fill="var(--accent)" opacity="0.5"/>
+            <path d="M44 30 l-3 3 3 3" stroke="var(--accent)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
+        <h3 className="service-icon-name">Website Development</h3>
+      </div>
+      <div className="service-block-body">
+        <p className="service-block-desc">Modern, responsive, conversion-focused websites combining performance, aesthetics, and scalability.</p>
+        <ul className="service-block-list">
+          <li>Custom Website Development</li>
+          <li>WordPress &amp; Shopify</li>
+          <li>Landing Pages</li>
+          <li>UI/UX Design</li>
+          <li>Conversion Optimization</li>
+          <li>Maintenance &amp; AMC</li>
+        </ul>
+      </div>
+    </article>
+
+    {/* 7: App Development */}
+    <article className="service-block" onClick={() => { window.location='/services/app-development' }} style={{cursor: 'pointer'}}>
+      <div className="service-block-head">
+        <div className="service-icon">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="10" width="22" height="40" rx="3" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <line x1="20" y1="16" x2="42" y2="16" stroke="#1a1a1a" strokeWidth="1.5"/>
+            <line x1="20" y1="44" x2="42" y2="44" stroke="#1a1a1a" strokeWidth="1.5"/>
+            <circle cx="31" cy="47" r="1.5" fill="#1a1a1a"/>
             <rect x="24" y="20" width="14" height="2" fill="#1a1a1a"/>
             <rect x="24" y="24" width="10" height="2" fill="#1a1a1a" opacity="0.5"/>
             <rect x="24" y="30" width="6" height="6" fill="var(--accent)"/>
-            <text x="27" y="35" text-anchor="middle" font-family="Arial" font-size="6" fill="#fff">×</text>
-            <path d="M44 32 L52 24" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="52" cy="24" r="2" fill="var(--accent)"/>
+            <rect x="32" y="30" width="6" height="6" fill="#1a1a1a" opacity="0.3"/>
           </svg>
         </div>
-        <h3 className="service-icon-name">UI / UX Design</h3>
+        <h3 className="service-icon-name">App Development</h3>
       </div>
       <div className="service-block-body">
-        <p className="service-block-desc">Our user-centered design approach ensures the final product meets your users' needs and expectations.</p>
+        <p className="service-block-desc">Custom Android and iOS mobile applications with intuitive UI/UX and scalable functionality.</p>
         <ul className="service-block-list">
-          <li>User Flow</li>
-          <li>Prototype Design</li>
-          <li>Dashboard UI Design</li>
-          <li>Mobile App UI/UX</li>
-          <li>User Research &amp; Testing</li>
-          <li>Concept Ideate</li>
+          <li>iOS &amp; Android Apps</li>
+          <li>UI/UX Design</li>
+          <li>Cross-Platform Builds</li>
+          <li>API Integration</li>
+          <li>App Store Optimization</li>
+          <li>Maintenance &amp; Updates</li>
+        </ul>
+      </div>
+    </article>
+
+    {/* 8: Influencer Marketing */}
+    <article className="service-block" onClick={() => { window.location='/services/influencer-marketing' }} style={{cursor: 'pointer'}}>
+      <div className="service-block-head">
+        <div className="service-icon">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="22" r="6" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <path d="M10 40 Q10 30 20 30 Q30 30 30 40" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <circle cx="42" cy="20" r="5" fill="var(--accent)"/>
+            <path d="M34 38 Q34 30 42 30 Q50 30 50 38" fill="var(--accent)" opacity="0.4"/>
+            <path d="M28 44 L36 44" stroke="#1a1a1a" strokeWidth="2"/>
+          </svg>
+        </div>
+        <h3 className="service-icon-name">Influencer Marketing</h3>
+      </div>
+      <div className="service-block-body">
+        <p className="service-block-desc">Strategic influencer collaborations with relevant content creators to drive authentic visibility, engagement, and trust.</p>
+        <ul className="service-block-list">
+          <li>Creator Discovery</li>
+          <li>Campaign Planning</li>
+          <li>Content Execution</li>
+          <li>Performance Tracking</li>
+          <li>Creator Partnerships</li>
+          <li>Authentic Storytelling</li>
+        </ul>
+      </div>
+    </article>
+
+    {/* 9: Outdoor Marketing */}
+    <article className="service-block" onClick={() => { window.location='/services/outdoor-marketing' }} style={{cursor: 'pointer'}}>
+      <div className="service-block-head">
+        <div className="service-icon">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="14" width="48" height="26" rx="2" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2"/>
+            <rect x="12" y="18" width="40" height="18" fill="var(--accent)" opacity="0.3"/>
+            <text x="32" y="30" textAnchor="middle" fontFamily="Arial" fontSize="10" fontWeight="bold" fill="#1a1a1a">BRAND</text>
+            <line x1="20" y1="40" x2="20" y2="54" stroke="#1a1a1a" strokeWidth="2"/>
+            <line x1="44" y1="40" x2="44" y2="54" stroke="#1a1a1a" strokeWidth="2"/>
+          </svg>
+        </div>
+        <h3 className="service-icon-name">Outdoor Marketing</h3>
+      </div>
+      <div className="service-block-body">
+        <p className="service-block-desc">High-impact outdoor advertising — hoardings, billboards, transit branding, storefronts, and event activations.</p>
+        <ul className="service-block-list">
+          <li>Hoardings &amp; Billboards</li>
+          <li>Transit Branding</li>
+          <li>Storefront Advertising</li>
+          <li>Event Promotions</li>
+          <li>Large-Format Creatives</li>
+          <li>OOH Strategy</li>
         </ul>
       </div>
     </article>
@@ -926,89 +942,24 @@ export default function ServicesPage() {
   </div>
 </section>
 
-{/* CLIENTS */}
+{/* CLIENTELE */}
 <section className="clients-section">
   <div className="clients-header">
     <div className="clients-title-block">
-      <p className="section-eyebrow">TRUSTED BY THE WORLD'S LEADING BRANDS</p>
-      <h2>Our Clients</h2>
+      <p className="section-eyebrow">BRANDS WE WORK WITH</p>
+      <h2>Our Clientele</h2>
     </div>
-    <a href="#" className="view-all-btn">View All Our Clients</a>
+    <a href="/case-studies" className="view-all-btn">View Case Studies</a>
   </div>
 
   <div className="clients-grid">
-    <div className="client-logo"><span>BrandOne</span></div>
-    <div className="client-logo"><span>NovaCo</span></div>
-    <div className="client-logo"><span>Apex</span></div>
-    <div className="client-logo"><span>Stellar</span></div>
-    <div className="client-logo"><span>Vertex</span></div>
-    <div className="client-logo"><span>Orbit</span></div>
-    <div className="client-logo"><span>Lumen</span></div>
-    <div className="client-logo"><span>Pulse</span></div>
-    <div className="client-logo"><span>Forge</span></div>
-    <div className="client-logo"><span>Helix</span></div>
-    <div className="client-logo"><span>Atlas</span></div>
-    <div className="client-logo"><span>Beacon</span></div>
-    <div className="client-logo"><span>Quanta</span></div>
-    <div className="client-logo"><span>Zenith</span></div>
-    <div className="client-logo"><span>Nimbus</span></div>
-    <div className="client-logo"><span>Echo</span></div>
-    <div className="client-logo"><span>Crest</span></div>
-    <div className="client-logo"><span>Flint</span></div>
-    <div className="client-logo"><span>Mosaic</span></div>
-    <div className="client-logo"><span>Kindred</span></div>
-    <div className="client-logo"><span>Summit</span></div>
-    <div className="client-logo"><span>Aria</span></div>
-    <div className="client-logo"><span>Forge+</span></div>
-    <div className="client-logo"><span>Vista</span></div>
-  </div>
-</section>
-
-{/* TESTIMONIALS */}
-<section className="testimonials">
-  <h2 className="testimonials-heading">Clients Testimonials</h2>
-
-  <div className="testi-tabs">
-    <button className="testi-tab active" data-cat="dm">Digital Marketing</button>
-    <button className="testi-tab" data-cat="web">Website Development</button>
-    <button className="testi-tab" data-cat="seo">SEO</button>
-    <button className="testi-tab" data-cat="video">Video Production</button>
-    <button className="testi-tab" data-cat="package">Package Design</button>
-  </div>
-
-  <div className="testi-carousel">
-    <button className="testi-arrow prev" id="testiPrev" aria-label="Previous">←</button>
-
-    <div className="testi-slide active">
-      <div className="testi-author-pill">Sample Client A</div>
-      <p className="testi-quote">
-        Working with TheSocialVerse has been a seamless experience from start to finish.
-        Their team understood our brief immediately, brought sharp creative thinking, and delivered work
-        that genuinely connected with our audience. Highly recommended for any growing brand.
-      </p>
-    </div>
-    <div className="testi-slide">
-      <div className="testi-author-pill">Sample Client B</div>
-      <p className="testi-quote">
-        From kickoff to launch, every step was handled with care and precision. Our campaign hit every
-        target we set — and then some. A real partner, not just a vendor.
-      </p>
-    </div>
-    <div className="testi-slide">
-      <div className="testi-author-pill">Sample Client C</div>
-      <p className="testi-quote">
-        The strategic clarity they brought to our brand was exactly what we needed. The team listens,
-        iterates fast, and ships work that moves the needle. Looking forward to the next project.
-      </p>
-    </div>
-
-    <button className="testi-arrow next" id="testiNext" aria-label="Next">→</button>
-  </div>
-
-  <div className="testi-pagination">
-    <span className="num active" id="testiCurrent">1</span>
-    <span className="testi-line"></span>
-    <span className="num" id="testiTotal">3</span>
+    <div className="client-logo"><span>Olive Heights</span></div>
+    <div className="client-logo"><span>Olive Garden</span></div>
+    <div className="client-logo"><span>Awesome Palace</span></div>
+    <div className="client-logo"><span>Fix24</span></div>
+    <div className="client-logo"><span>Ahvi Gold</span></div>
+    <div className="client-logo"><span>Jewellery Hub</span></div>
+    <div className="client-logo"><span>Paxmeet</span></div>
   </div>
 </section>
 
@@ -1017,7 +968,7 @@ export default function ServicesPage() {
   <p className="quote-eyebrow">SAY HELLO</p>
   <h2 className="quote-heading">Request a Free Quote</h2>
 
-  <form className="quote-form" onSubmit={(e) => { e.preDefault(); alert('Thanks! We will get back to you shortly.'); }}>
+  <form className="quote-form" onSubmit={(e) => { e.preventDefault(); alert('Thanks! We will get back to you shortly.'); e.currentTarget.reset(); }}>
     <div className="form-row">
       <div className="form-field">
         <label>Name <span className="req">*</span></label>
@@ -1054,25 +1005,15 @@ export default function ServicesPage() {
     <div className="checkbox-group">
       <div className="group-label">What services can we provide you? <span className="req">*</span></div>
       <div className="checkbox-grid">
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Search Engine Optimization (SEO)</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Google Ads</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Email Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>SMS Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>WhatsApp Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Social Media Marketing (SMM)</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Content Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Google Local Services</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Print &amp; Packaging Design</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>UI &amp; UX Design</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Branding &amp; Rebranding</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Website Design &amp; Development</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Video Production</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>2D &amp; 3D Animation</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>TV Ads Commercials</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Photography</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>PowerPoint Presentation</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Social Media Design</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Logo Designing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Social Media Marketing" /><span className="box"></span>Social Media Marketing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Performance Marketing" /><span className="box"></span>Performance Marketing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Content Production" /><span className="box"></span>Content Production</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Branding & Creative Strategy" /><span className="box"></span>Branding &amp; Creative Strategy</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Search Engine Optimization (SEO)" /><span className="box"></span>Search Engine Optimization (SEO)</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Website Development" /><span className="box"></span>Website Development</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="App Development" /><span className="box"></span>App Development</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Influencer Marketing" /><span className="box"></span>Influencer Marketing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Outdoor Marketing" /><span className="box"></span>Outdoor Marketing</label>
       </div>
     </div>
 

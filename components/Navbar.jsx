@@ -5,13 +5,12 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const NAV_ITEMS = [
-  { label: "Work", href: "/works" },
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/works" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Services", href: "/services" },
-  { label: "Clients", href: "/#clients" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog/sample-post" },
-  { label: "Career", href: "/careers" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About us", href: "/about" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -53,9 +52,7 @@ export default function Navbar() {
             <span>VERSE</span>
           </div>
           <div className="logo-tagline">
-            Connect<span className="dot-accent">.</span> Create
-            <span className="dot-accent">.</span> Thrive
-            <span className="dot-accent">.</span>
+            All eyes on your brand<span className="dot-accent">.</span>
           </div>
         </Link>
 
@@ -71,7 +68,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <button className="cta-btn" type="button">Set a Meeting</button>
+            <Link href="/contact" className="cta-btn">Set a Meeting</Link>
           </li>
         </ul>
 

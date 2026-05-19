@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function HomePage() {
+  const initRef = useRef(false);
   useEffect(() => {
+    if (initRef.current) return;
+    initRef.current = true;
     // ---------- HOME TESTIMONIALS CAROUSEL ----------
       (function() {
         const slides = document.querySelectorAll('.ht-slide');
@@ -96,6 +99,45 @@ export default function HomePage() {
 
 
 
+
+  /* ---------- HOME INTRO ---------- */
+  .home-intro {
+    width: 100%;
+    padding: 100px 60px 80px;
+    background: #fff;
+  }
+  .home-intro-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .home-intro-heading {
+    font-size: 56px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -1px;
+    line-height: 1.05;
+  }
+  .home-intro-body p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #1a1a1a;
+    margin-bottom: 22px;
+  }
+  .home-intro-body p:last-child { margin-bottom: 0; }
+  @media (max-width: 900px) {
+    .home-intro { padding: 70px 24px 50px; }
+    .home-intro-inner { grid-template-columns: 1fr; gap: 24px; }
+    .home-intro-heading { font-size: 38px; }
+    .home-intro-body p { font-size: 16px; }
+  }
+  @media (max-width: 600px) {
+    .home-intro { padding: 50px 18px 40px; }
+    .home-intro-heading { font-size: 30px; }
+  }
 
   /* ---------- OUR WORKS SECTION ---------- */
   .works {
@@ -832,7 +874,7 @@ export default function HomePage() {
   }
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border-top: 1px dashed #c8c8c8;
     border-left: 1px dashed #c8c8c8;
@@ -1580,6 +1622,30 @@ export default function HomePage() {
   </video>
 </section>
 
+{/* HOME INTRO */}
+<section className="home-intro">
+  <div className="home-intro-inner">
+    <div>
+      <p className="section-eyebrow">SAY HELLO</p>
+      <h2 className="home-intro-heading">Your Complete Partner for Digital Growth.</h2>
+    </div>
+    <div className="home-intro-body">
+      <p>
+        In today&apos;s fast-moving digital world, your brand needs more than just
+        presence — it needs the right strategy, creativity, and visibility. The
+        Social Verse helps businesses build a strong digital identity and grow
+        with result-driven marketing solutions.
+      </p>
+      <p>
+        From building your brand from scratch to scaling it across digital
+        platforms, we provide complete <strong>360° marketing services</strong>{" "}
+        designed to help your business stand out, connect with the right
+        audience, and drive measurable growth.
+      </p>
+    </div>
+  </div>
+</section>
+
 {/* OUR WORKS / PORTFOLIO SECTION */}
 <section className="works">
   <div className="works-header">
@@ -1587,27 +1653,27 @@ export default function HomePage() {
       <p className="section-eyebrow">PORTFOLIO</p>
       <h2 className="section-heading">Our Works</h2>
     </div>
-    <a href="/works" className="view-all-btn">View All Our Works</a>
+    <a href="/works" className="view-all-btn">Know More</a>
   </div>
 
   <div className="works-grid">
-    {/* Card 1 */}
+    {/* Card 1 — Our Creativity */}
     <article className="work-card">
-      <a href="/projects/sample-project" className="work-card-image card-bg-1">
+      <a href="/works#our-creativity" className="work-card-image card-bg-1">
         <div className="work-mock work-mock-1">
           <div className="mock-cover">
-            <div className="mock-label">Project<br/>One</div>
+            <div className="mock-label">Our<br/>Creativity</div>
             <div className="mock-year">2025</div>
           </div>
         </div>
       </a>
-      <h3 className="work-title">Project One</h3>
-      <p className="work-meta">Brand Identity, Campaign</p>
+      <h3 className="work-title">Our Creativity</h3>
+      <p className="work-meta">Creative designs built to capture attention</p>
     </article>
 
-    {/* Card 2 */}
+    {/* Card 2 — Hoarding Designs */}
     <article className="work-card">
-      <a href="/projects/sample-project" className="work-card-image card-bg-2">
+      <a href="/works#hoarding-designs" className="work-card-image card-bg-2">
         <div className="work-mock work-mock-2">
           <div className="mock-spread">
             <div className="spread-page left"></div>
@@ -1615,24 +1681,22 @@ export default function HomePage() {
           </div>
         </div>
       </a>
-      <h3 className="work-title">Project Two</h3>
-      <a href="/projects/sample-project" className="work-link">
-        Show project <span className="work-link-line"></span>
-      </a>
+      <h3 className="work-title">Hoarding Designs</h3>
+      <p className="work-meta">Outdoor designs that stand out</p>
     </article>
 
-    {/* Card 3 */}
+    {/* Card 3 — Ticket Designs */}
     <article className="work-card">
-      <a href="/projects/sample-project" className="work-card-image card-bg-3">
+      <a href="/works#ticket-designs" className="work-card-image card-bg-3">
         <div className="work-mock work-mock-3">
           <div className="mock-stack stack-back"></div>
           <div className="mock-stack stack-front">
-            <div className="mock-stack-label">Project<br/>Three</div>
+            <div className="mock-stack-label">Ticket<br/>Designs</div>
           </div>
         </div>
       </a>
-      <h3 className="work-title">Project Three</h3>
-      <p className="work-meta">Digital Report, Strategy</p>
+      <h3 className="work-title">Ticket Designs</h3>
+      <p className="work-meta">Designed to make every entry special</p>
     </article>
   </div>
 </section>
@@ -1646,86 +1710,64 @@ export default function HomePage() {
       <p className="section-eyebrow">CAPABILITIES</p>
       <h2 className="section-heading">Our Services</h2>
     </div>
-    <a href="/services" className="view-all-btn">View All Services <span className="arrow">→</span></a>
+    <a href="/services" className="view-all-btn">Know More <span className="arrow">→</span></a>
   </div>
 
   <div className="services-grid">
-    {/* Service 1 */}
+    {/* Service 1 — Social Media Marketing */}
     <article className="service-card">
       <div className="service-card-head">
-        <h3 className="service-title">Digital Marketing</h3>
+        <h3 className="service-title">Social Media Marketing</h3>
       </div>
       <div className="service-card-body">
-        <p className="service-desc">Stay on top of the web with a robust digital marketing strategy.</p>
+        <p className="service-desc">Build a powerful digital presence with strategic social media management designed to increase brand awareness, engagement, and conversion.</p>
         <ul className="service-list">
+          <li>Content Planning &amp; Strategy</li>
+          <li>Reels &amp; Short-Form Video</li>
+          <li>Creative Designs &amp; Carousels</li>
+          <li>Captions &amp; Copy</li>
+          <li>Platform Management</li>
+          <li>Community Management</li>
+        </ul>
+        <a href="/services/social-media-marketing" className="service-link">KNOW MORE <span className="arrow">→</span></a>
+      </div>
+    </article>
+
+    {/* Service 2 — Performance Marketing */}
+    <article className="service-card">
+      <div className="service-card-head">
+        <h3 className="service-title">Performance Marketing</h3>
+      </div>
+      <div className="service-card-body">
+        <p className="service-desc">Drive measurable business growth through data-driven advertising campaigns built for lead generation, sales, and maximum ROI.</p>
+        <ul className="service-list">
+          <li>Meta Ads (Facebook &amp; Instagram)</li>
           <li>Google Ads</li>
-          <li>Social Media Marketing</li>
-          <li>Search Engine Optimization (SEO)</li>
-          <li>Email Marketing Service</li>
-          <li>Content Marketing</li>
-          <li>WhatsApp Marketing</li>
-          <li>Google Local Services</li>
+          <li>YouTube Ads</li>
+          <li>Lead Generation Campaigns</li>
+          <li>Audience Targeting</li>
+          <li>Performance Analysis</li>
         </ul>
-        <a href="/services/digital-marketing" className="service-link">KNOW MORE <span className="arrow">→</span></a>
+        <a href="/services/performance-marketing" className="service-link">KNOW MORE <span className="arrow">→</span></a>
       </div>
     </article>
 
-    {/* Service 2 */}
+    {/* Service 3 — Branding & Creative Strategy */}
     <article className="service-card">
       <div className="service-card-head">
-        <h3 className="service-title">Website Development</h3>
+        <h3 className="service-title">Branding &amp; Creative Strategy</h3>
       </div>
       <div className="service-card-body">
-        <p className="service-desc">Create a unique virtual home for your business with a website that matters.</p>
+        <p className="service-desc">Develop a strong, memorable brand identity through strategic design, storytelling, and visual communication.</p>
         <ul className="service-list">
-          <li>Shopify Website Development</li>
-          <li>Magento Website Development</li>
-          <li>WordPress Development</li>
-          <li>PHP Website Development</li>
-          <li>Custom Website Development</li>
-          <li>Website AMC</li>
-          <li>UI/UX Design</li>
-          <li>Landing Pages Design</li>
+          <li>Logo &amp; Identity Design</li>
+          <li>Brand Aesthetics</li>
+          <li>Creative Direction</li>
+          <li>Marketing Visuals</li>
+          <li>Communication Strategy</li>
+          <li>Naming &amp; Messaging</li>
         </ul>
-        <a href="/services/website-development" className="service-link">KNOW MORE <span className="arrow">→</span></a>
-      </div>
-    </article>
-
-    {/* Service 3 */}
-    <article className="service-card">
-      <div className="service-card-head">
-        <h3 className="service-title">Video Production</h3>
-      </div>
-      <div className="service-card-body">
-        <p className="service-desc">Set your ideas and campaigns to motion with an impactful video.</p>
-        <ul className="service-list">
-          <li>Video Content Strategy</li>
-          <li>TV Ads Commercials</li>
-          <li>Corporate Videos</li>
-          <li>2D &amp; 3D Animations</li>
-          <li>Promotional Videos</li>
-          <li>Whiteboard Animation</li>
-        </ul>
-        <a href="/services/video-production" className="service-link">KNOW MORE <span className="arrow">→</span></a>
-      </div>
-    </article>
-
-    {/* Service 4 */}
-    <article className="service-card">
-      <div className="service-card-head">
-        <h3 className="service-title">Presentation Design</h3>
-      </div>
-      <div className="service-card-body">
-        <p className="service-desc">We create clear &amp; effective presentations as per your requirement.</p>
-        <ul className="service-list">
-          <li>Investor Pitch Deck</li>
-          <li>Corporate Presentation Design</li>
-          <li>Sales Presentation</li>
-          <li>Financial Presentation Design</li>
-          <li>Slide Deck Design</li>
-          <li>Custom PowerPoint Design</li>
-        </ul>
-        <a href="/services/presentation-design" className="service-link">KNOW MORE <span className="arrow">→</span></a>
+        <a href="/services/branding-creative-strategy" className="service-link">KNOW MORE <span className="arrow">→</span></a>
       </div>
     </article>
   </div>
@@ -1733,34 +1775,23 @@ export default function HomePage() {
 
 
 
-{/* OUR CLIENTS SECTION */}
-<section className="home-clients">
+{/* OUR CLIENTELE SECTION */}
+<section className="home-clients" id="clients">
   <div className="home-clients-header">
     <div>
-      <p className="section-eyebrow">TRUSTED BY THE WORLD'S LEADING BRANDS</p>
-      <h2 className="section-heading">Our Clients</h2>
+      <p className="section-eyebrow">BRANDS WE WORK WITH</p>
+      <h2 className="section-heading">Our Clientele</h2>
     </div>
-    <a href="#all-clients" className="view-all-btn">View All Clients</a>
+    <a href="/case-studies" className="view-all-btn">Case Studies</a>
   </div>
   <div className="home-clients-grid">
-    <div className="hc-logo"><span>BrandOne</span></div>
-    <div className="hc-logo"><span>NovaCo</span></div>
-    <div className="hc-logo"><span>Apex</span></div>
-    <div className="hc-logo"><span>Stellar</span></div>
-    <div className="hc-logo"><span>Vertex</span></div>
-    <div className="hc-logo"><span>Orbit</span></div>
-    <div className="hc-logo"><span>Lumen</span></div>
-    <div className="hc-logo"><span>Pulse</span></div>
-    <div className="hc-logo"><span>Forge</span></div>
-    <div className="hc-logo"><span>Helix</span></div>
-    <div className="hc-logo"><span>Atlas</span></div>
-    <div className="hc-logo"><span>Beacon</span></div>
-    <div className="hc-logo"><span>Quanta</span></div>
-    <div className="hc-logo"><span>Zenith</span></div>
-    <div className="hc-logo"><span>Nimbus</span></div>
-    <div className="hc-logo"><span>Echo</span></div>
-    <div className="hc-logo"><span>Crest</span></div>
-    <div className="hc-logo"><span>Flint</span></div>
+    <div className="hc-logo"><span>Olive Heights</span></div>
+    <div className="hc-logo"><span>Olive Garden</span></div>
+    <div className="hc-logo"><span>Awesome Palace</span></div>
+    <div className="hc-logo"><span>Fix24</span></div>
+    <div className="hc-logo"><span>Ahvi Gold</span></div>
+    <div className="hc-logo"><span>Jewellery Hub</span></div>
+    <div className="hc-logo"><span>Paxmeet</span></div>
   </div>
 </section>
 
@@ -1771,149 +1802,42 @@ export default function HomePage() {
       <p className="section-eyebrow">SHOWCASING CLIENT SUCCESS STORIES</p>
       <h2 className="section-heading">Case Studies</h2>
     </div>
-    <a href="/works" className="view-all-btn">View All Projects</a>
+    <a href="/case-studies" className="view-all-btn">Know More</a>
   </div>
   <div className="case-studies-grid">
     <article className="case-card">
-      <a href="/case-studies/sample-case" className="case-card-image" style={{background: '#fde6f0'}}>
-        <div className="case-logo-mark"><span>HopCharge</span></div>
-        <div className="case-bar" style={{background: '#f7c4d6'}}></div>
+      <a href="/case-studies/olive-heights" className="case-card-image" style={{background: '#f1ead3'}}>
+        <div className="case-logo-mark"><span>Olive Heights</span></div>
+        <div className="case-bar" style={{background: '#d4793c'}}></div>
       </a>
-      <h3 className="case-title">HopCharge — A Digital Marketing Success Story</h3>
-      <p className="case-meta">Case Studies</p>
+      <h3 className="case-title">Olive Heights — How We Helped Build A Strong Digital Presence</h3>
+      <p className="case-meta">Hospitality · Rooftop Dining</p>
     </article>
     <article className="case-card">
-      <a href="/case-studies/sample-case" className="case-card-image" style={{background: '#e6f5d4'}}>
-        <div className="case-logo-mark"><span>Wisdom</span></div>
-        <div className="case-bar" style={{background: '#cce8a8'}}></div>
+      <a href="/case-studies/awesome-palace" className="case-card-image" style={{background: '#e6ecf3'}}>
+        <div className="case-logo-mark"><span>Awesome Palace</span></div>
+        <div className="case-bar" style={{background: '#1a3b5d'}}></div>
       </a>
-      <h3 className="case-title">Wisdom Global School — A Proven Google Ads Case Study</h3>
-      <a href="/case-studies/sample-case" className="case-link">Show project <span className="case-link-line"></span></a>
+      <h3 className="case-title">Awesome Palace — A Strong Luxury Hospitality Presence</h3>
+      <a href="/case-studies/awesome-palace" className="case-link">Show project <span className="case-link-line"></span></a>
     </article>
     <article className="case-card">
-      <a href="/case-studies/sample-case" className="case-card-image" style={{background: '#ededed'}}>
-        <div className="case-logo-mark"><span>Hoopr</span></div>
-        <div className="case-bar" style={{background: '#d0d0d0'}}></div>
+      <a href="/case-studies/ahvi-gold" className="case-card-image" style={{background: '#faf1d8'}}>
+        <div className="case-logo-mark"><span>Ahvi Gold</span></div>
+        <div className="case-bar" style={{background: '#caa14a'}}></div>
       </a>
-      <h3 className="case-title">Hoopr — Case Study | Google Analytics GA4</h3>
-      <p className="case-meta">Case Studies</p>
-    </article>
-  </div>
-</section>
-
-{/* TESTIMONIALS SECTION */}
-<section className="home-testimonials">
-  <div className="ht-grid">
-    <div className="ht-left">
-      <p className="section-eyebrow">TESTIMONIALS</p>
-      <h2 className="section-heading">What our clients say</h2>
-    </div>
-    <div className="ht-right">
-      <button className="ht-arrow ht-prev" aria-label="Previous">‹</button>
-      <div className="ht-content">
-        <div className="ht-slide active">
-          <div className="ht-photo" data-initial="A"></div>
-          <div className="ht-body">
-            <p className="ht-quote">"Working with TheSocialVerse has been a transformative experience. Their team brought ingenuity, creativity, and execution under one roof — combining sharp strategy with a friendly, collaborative approach. From campaign planning to lead generation, every initiative was handled with care and delivered remarkable results. Truly grateful for their partnership."</p>
-            <div className="ht-stars">★ ★ ★ ★ ★</div>
-            <div className="ht-author">Sample Client A</div>
-            <div className="ht-author-meta">Founder, Sample Company</div>
-          </div>
-        </div>
-        <div className="ht-slide">
-          <div className="ht-photo" data-initial="B"></div>
-          <div className="ht-body">
-            <p className="ht-quote">"From kickoff to launch, every step was handled with precision and care. Our brand was reborn with a sharper voice, smarter visuals, and campaigns that genuinely resonated with our audience. The team's attention to detail and commitment to outcomes is something we deeply value."</p>
-            <div className="ht-stars">★ ★ ★ ★ ★</div>
-            <div className="ht-author">Sample Client B</div>
-            <div className="ht-author-meta">Marketing Lead, Sample Brand</div>
-          </div>
-        </div>
-        <div className="ht-slide">
-          <div className="ht-photo" data-initial="C"></div>
-          <div className="ht-body">
-            <p className="ht-quote">"The strategic clarity TheSocialVerse brought to our brand was exactly what we needed. They listen, iterate fast, and ship work that moves the needle. Our engagement metrics doubled in the first quarter alone. Looking forward to many more projects together."</p>
-            <div className="ht-stars">★ ★ ★ ★ ★</div>
-            <div className="ht-author">Sample Client C</div>
-            <div className="ht-author-meta">CEO, Sample Startup</div>
-          </div>
-        </div>
-      </div>
-      <button className="ht-arrow ht-next" aria-label="Next">›</button>
-    </div>
-  </div>
-  <div className="ht-dots">
-    <span className="ht-dot active" data-i="0"></span>
-    <span className="ht-dot" data-i="1"></span>
-    <span className="ht-dot" data-i="2"></span>
-  </div>
-</section>
-
-{/* OUR BLOGS SECTION */}
-<section className="home-blogs">
-  <div className="home-blogs-header">
-    <div>
-      <p className="section-eyebrow">EXPERT INSIGHTS</p>
-      <h2 className="section-heading">Our Blogs</h2>
-    </div>
-    <a href="#all-blogs" className="view-all-btn">View All Our Blogs</a>
-  </div>
-  <div className="home-blogs-grid">
-    <article className="blog-card">
-      <a href="/blog/sample-post" className="blog-image" style={{background: '#fde0c8'}}>
-        <div className="blog-mock-1">
-          <div className="blog-bubble" style={{background: '#3498db', color: '#fff'}}>SEO</div>
-          <div className="blog-bubble" style={{background: '#9b59b6', color: '#fff'}}>AEO</div>
-          <div className="blog-bubble" style={{background: '#e67e22', color: '#fff'}}>GEO</div>
-        </div>
-      </a>
-      <div className="blog-body">
-        <p className="blog-meta">15 min read</p>
-        <h3 className="blog-title">SEO vs AEO vs GEO: The Complete 2026 Guide to Winning Visibility</h3>
-        <span className="blog-tag">SEO</span>
-      </div>
-    </article>
-    <article className="blog-card">
-      <a href="/blog/sample-post" className="blog-image" style={{background: '#fde6cc'}}>
-        <div className="blog-mock-2">
-          <div className="vs-bubble vs-1"><span>C</span></div>
-          <div className="vs-divider">VS</div>
-          <div className="vs-bubble vs-2"><span>G</span></div>
-        </div>
-      </a>
-      <div className="blog-body">
-        <p className="blog-meta">29 min read</p>
-        <h3 className="blog-title">Claude vs ChatGPT 2026: Which AI Tool Is Actually Better for Your Business?</h3>
-        <span className="blog-tag">AI</span>
-      </div>
-    </article>
-    <article className="blog-card">
-      <a href="/blog/sample-post" className="blog-image" style={{background: '#fbe9b8'}}>
-        <div className="blog-mock-3">
-          <div className="bm-circle"></div>
-          <div className="bm-line bm-line-1"></div>
-          <div className="bm-line bm-line-2"></div>
-          <div className="bm-line bm-line-3"></div>
-          <div className="bm-icon bm-icon-1">📊</div>
-          <div className="bm-icon bm-icon-2">🤖</div>
-          <div className="bm-icon bm-icon-3">⚙️</div>
-        </div>
-      </a>
-      <div className="blog-body">
-        <p className="blog-meta">7 min read</p>
-        <h3 className="blog-title">How AI is Revolutionizing SEO Tools and Techniques for 2026</h3>
-        <span className="blog-tag">SEO</span>
-      </div>
+      <h3 className="case-title">Ahvi Gold — Transforming Into A Recognizable Gold Buying Brand</h3>
+      <p className="case-meta">Financial Services · Bullion</p>
     </article>
   </div>
 </section>
 
 {/* LET'S HAVE A TALK */}
-<section className="home-talk">
+<section className="home-talk" id="contact">
   <p className="section-eyebrow">SAY HELLO</p>
-  <h2 className="talk-heading">Let's have a talk!</h2>
+  <h2 className="talk-heading">Let&apos;s have a talk!</h2>
 
-  <form className="talk-form" onSubmit={(e) => { e.preDefault(); alert('Thanks! We will get back to you shortly.'); }}>
+  <form className="talk-form" onSubmit={(e) => { e.preventDefault(); alert('Thanks! We will get back to you shortly.'); e.currentTarget.reset(); }}>
     <div className="form-row">
       <div className="form-field">
         <label>Name <span className="req">*</span></label>
@@ -1947,25 +1871,15 @@ export default function HomePage() {
     <div className="checkbox-group">
       <div className="group-label">What services can we provide you? <span className="req">*</span></div>
       <div className="checkbox-grid">
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Search Engine Optimization (SEO)</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Google Ads</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Email Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>SMS Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>WhatsApp Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Social Media Marketing (SMM)</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Content Marketing</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Google Local Services</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Print &amp; Packaging Design</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>UI &amp; UX Design</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Branding &amp; Rebranding</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Website Design &amp; Development</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Video Production</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>2D &amp; 3D Animation</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>TV Ads Commercials</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Photography</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>PowerPoint Presentation</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Social Media Design</label>
-        <label className="check-item"><input type="checkbox" name="svc" /><span className="box"></span>Logo Designing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Social Media Marketing" /><span className="box"></span>Social Media Marketing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Performance Marketing" /><span className="box"></span>Performance Marketing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Content Production" /><span className="box"></span>Content Production</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Branding & Creative Strategy" /><span className="box"></span>Branding &amp; Creative Strategy</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Search Engine Optimization (SEO)" /><span className="box"></span>Search Engine Optimization (SEO)</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Website Development" /><span className="box"></span>Website Development</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="App Development" /><span className="box"></span>App Development</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Influencer Marketing" /><span className="box"></span>Influencer Marketing</label>
+        <label className="check-item"><input type="checkbox" name="svc" value="Outdoor Marketing" /><span className="box"></span>Outdoor Marketing</label>
       </div>
     </div>
     <div className="form-field" style={{marginBottom: '32px'}}>
@@ -1975,24 +1889,6 @@ export default function HomePage() {
     <button type="submit" className="submit-btn">Submit</button>
   </form>
 </section>
-
-{/* CAREERS SECTION */}
-<section className="home-careers">
-  <div className="careers-grid">
-    <div className="careers-text">
-      <p className="section-eyebrow">JOIN OUR CREW</p>
-      <h2 className="section-heading">Careers</h2>
-      <p className="careers-desc">
-        TheSocialVerse is a fast-growing creative and digital marketing studio with offices
-        across India. We're always on the lookout for ambitious, curious people who want to
-        build great work with great teams. If that sounds like you — find a role and apply.
-      </p>
-    </div>
-    <a href="#careers" className="join-btn">Join Us</a>
-  </div>
-</section>
-
-
 
 {/* ==== FOOTER END ==== */}
 

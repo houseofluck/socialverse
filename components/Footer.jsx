@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const CITIES = [
-  "Mumbai", "Bengaluru", "Delhi", "Hyderabad", "Chennai", "Pune",
-  "Kolkata", "Ahmedabad", "Jaipur", "Lucknow", "Chandigarh", "Indore",
-  "Kochi", "Coimbatore", "Surat", "Nagpur", "Bhopal", "Patna",
-  "Goa", "Dehradun", "Visakhapatnam", "Vadodara", "Gurgaon", "Noida",
-];
-
 export default function Footer() {
-  const [citiesOpen, setCitiesOpen] = useState(false);
   const [year, setYear] = useState("");
 
   useEffect(() => {
@@ -28,15 +20,13 @@ export default function Footer() {
               <span>VERSE</span>
             </div>
             <div className="logo-tagline">
-              Connect<span className="dot-accent">.</span> Create
-              <span className="dot-accent">.</span> Thrive
-              <span className="dot-accent">.</span>
+              All eyes on your brand<span className="dot-accent">.</span>
             </div>
           </Link>
           <p className="footer-desc">
-            TheSocialVerse is a digital marketing and creative agency, helping
-            brands grow through strategy, design, video, and performance
-            marketing across India and beyond.
+            Social Verse is a full-service digital marketing agency helping
+            brands grow through creative strategy, performance marketing,
+            branding, website development, and content creation.
           </p>
           <div className="trust-badges">
             <div className="trust-badge">
@@ -65,67 +55,44 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Mumbai</h4>
+          <h4 className="footer-heading">Phone</h4>
           <ul className="footer-list">
-            <li className="footer-text">
-              123 Business Tower, Andheri East,<br />
-              Mumbai, Maharashtra 400069
-            </li>
+            <li><a href="tel:+916000955672">+91 60009 55672</a></li>
+            <li><a href="tel:+918099531944">+91 80995 31944</a></li>
           </ul>
-          <h4 className="footer-heading" style={{ marginTop: "32px" }}>Bengaluru</h4>
+          <h4 className="footer-heading" style={{ marginTop: "32px" }}>Email</h4>
           <ul className="footer-list">
-            <li className="footer-text">
-              45 Innovation Park, Koramangala,<br />
-              Bengaluru, Karnataka 560034
-            </li>
+            <li><a href="mailto:info@thesocialverse.co.in">info@thesocialverse.co.in</a></li>
           </ul>
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Phone</h4>
+          <h4 className="footer-heading">Services</h4>
           <ul className="footer-list">
-            <li><a href="tel:+919876543210">+91 98765 43210</a></li>
-            <li><a href="tel:+919876543211">+91 98765 43211</a></li>
-          </ul>
-          <h4 className="footer-heading" style={{ marginTop: "32px" }}>Work Inquiries</h4>
-          <ul className="footer-list">
-            <li><a href="mailto:hello@thesocialverse.com">hello@thesocialverse.com</a></li>
-            <li><a href="mailto:work@thesocialverse.com">work@thesocialverse.com</a></li>
+            <li><Link href="/services/social-media-marketing">Social Media Marketing</Link></li>
+            <li><Link href="/services/performance-marketing">Performance Marketing</Link></li>
+            <li><Link href="/services/content-production">Content Production</Link></li>
+            <li><Link href="/services/branding-creative-strategy">Branding &amp; Creative Strategy</Link></li>
+            <li><Link href="/services/website-development">Website Development</Link></li>
+            <li><Link href="/services/outdoor-marketing">Outdoor Marketing</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4 className="footer-heading">Quick Links</h4>
           <ul className="footer-list">
-            <li><Link href="/about">About Us</Link></li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/works">Portfolio</Link></li>
+            <li><Link href="/case-studies">Case Studies</Link></li>
             <li><Link href="/services">Services</Link></li>
-            <li><Link href="/works">Our Work</Link></li>
-            <li><Link href="/careers">Careers</Link></li>
-            <li><Link href="/blog/sample-post">Blog</Link></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><Link href="/about">About us</Link></li>
+            <li><Link href="/contact">Contact us</Link></li>
           </ul>
         </div>
       </div>
 
-      <div className="cities-section">
-        <button
-          className="accordion-toggle"
-          aria-expanded={citiesOpen}
-          onClick={() => setCitiesOpen((v) => !v)}
-        >
-          <span>Our Services Across India</span>
-          <span className="arrow">▾</span>
-        </button>
-        <div className={`accordion-panel${citiesOpen ? " open" : ""}`}>
-          <div className="accordion-panel-inner">
-            {CITIES.map((c) => (<span key={c}>{c}</span>))}
-          </div>
-        </div>
-      </div>
-
       <div className="copyright-bar">
-        © {year} TheSocialVerse. All rights reserved.
+        © {year} The Social Verse. All rights reserved.
       </div>
     </footer>
   );

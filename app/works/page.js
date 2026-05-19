@@ -1,31 +1,48 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function WorksPage() {
+  const initRef = useRef(false);
   useEffect(() => {
+    // Strict-mode dev double-invoke guard: only run once per mount
+    if (initRef.current) return;
+    initRef.current = true;
+
     // ---------- DATA ----------
-      // Demo dataset — replace with your real projects (or fetch from an API).
-      // Each project has: title, meta, category, mockType, bgStyle
+      // Portfolio dataset organized by category per Social Verse content spec.
       const allProjects = [
-        { title: "Project Alpha",   meta: "Annual Report",   cat: "annual",   mock: "cover",    bg: "linear-gradient(135deg, #d9756c 0%, #c44a3f 100%)" },
-        { title: "Brand Studio",    meta: "Branding",        cat: "branding", mock: "abstract", bg: "linear-gradient(135deg, #2c3e50, #4a6278)" },
-        { title: "Impact Story",    meta: "Impact Report",   cat: "impact",   mock: "spread",   bg: "#d6443a" },
-        { title: "Vision Reel",     meta: "Video Production",cat: "video",    mock: "abstract", bg: "linear-gradient(135deg, #1a1410 0%, #c97a3c 100%)" },
-        { title: "Web Refresh",     meta: "Website",         cat: "website",  mock: "abstract", bg: "linear-gradient(135deg, #0f4c75, #3282b8)" },
-        { title: "Yearly Insights", meta: "Annual Report",   cat: "annual",   mock: "stack",    bg: "linear-gradient(135deg, #1a1410 0%, #6b1a1a 100%)" },
-        { title: "Identity Kit",    meta: "Branding",        cat: "branding", mock: "abstract", bg: "linear-gradient(135deg, #6a4c93, #8a5fbf)" },
-        { title: "Change Report",   meta: "Impact Report",   cat: "impact",   mock: "spread",   bg: "#a93226" },
-        { title: "Story Reel",      meta: "Video Production",cat: "video",    mock: "abstract", bg: "linear-gradient(135deg, #2d3436, #636e72)" },
-        { title: "Digital Hub",     meta: "Website",         cat: "website",  mock: "abstract", bg: "linear-gradient(135deg, #16a085, #1abc9c)" },
-        { title: "Vision 2025",     meta: "Annual Report",   cat: "annual",   mock: "cover",    bg: "linear-gradient(135deg, #5d4037, #8d6e63)" },
-        { title: "Logo System",     meta: "Branding",        cat: "branding", mock: "abstract", bg: "linear-gradient(135deg, #c0392b, #e74c3c)" },
-        { title: "Outcome Brief",   meta: "Impact Report",   cat: "impact",   mock: "stack",    bg: "linear-gradient(135deg, #34495e, #2c3e50)" },
-        { title: "Brand Film",      meta: "Video Production",cat: "video",    mock: "abstract", bg: "linear-gradient(135deg, #d35400, #e67e22)" },
-        { title: "E-commerce Site", meta: "Website",         cat: "website",  mock: "abstract", bg: "linear-gradient(135deg, #2980b9, #3498db)" },
-        { title: "Sustain Report",  meta: "Annual Report",   cat: "annual",   mock: "cover",    bg: "linear-gradient(135deg, #27ae60, #2ecc71)" },
-        { title: "Visual Identity", meta: "Branding",        cat: "branding", mock: "abstract", bg: "linear-gradient(135deg, #8e44ad, #9b59b6)" },
-        { title: "Field Findings",  meta: "Impact Report",   cat: "impact",   mock: "spread",   bg: "#7f1d1d" }
+        // Our Creativity
+        { title: "Editorial Layout",   meta: "Olive Heights · Creative Design",      cat: "creativity",  mock: "cover",    bg: "linear-gradient(135deg, #d4793c 0%, #8a3e1a 100%)" },
+        { title: "Festive Campaign",   meta: "Awesome Palace · Creative Design",     cat: "creativity",  mock: "abstract", bg: "linear-gradient(135deg, #1a3b5d 0%, #c8a35c 100%)" },
+        { title: "Product Launch",     meta: "Ahvi Gold · Creative Design",          cat: "creativity",  mock: "stack",    bg: "linear-gradient(135deg, #1a1410 0%, #caa14a 100%)" },
+        { title: "Seasonal Edit",      meta: "Olive Garden · Creative Design",       cat: "creativity",  mock: "abstract", bg: "linear-gradient(135deg, #4a5d3a, #8aa86a)" },
+
+        // Hoarding Designs
+        { title: "Highway Hoarding",   meta: "Olive Heights · Hoarding Design",      cat: "hoarding",    mock: "abstract", bg: "linear-gradient(135deg, #c44a3f 0%, #6b1a1a 100%)" },
+        { title: "Airport Approach",   meta: "Awesome Palace · Hoarding Design",     cat: "hoarding",    mock: "abstract", bg: "linear-gradient(135deg, #0a1a2e, #1a3b5d)" },
+        { title: "City Centre Display",meta: "Ahvi Gold · Hoarding Design",          cat: "hoarding",    mock: "stack",    bg: "linear-gradient(135deg, #caa14a 0%, #1a1410 100%)" },
+        { title: "Festival Hoarding",  meta: "Jewellery Hub · Hoarding Design",      cat: "hoarding",    mock: "abstract", bg: "linear-gradient(135deg, #6a4c93, #8a5fbf)" },
+
+        // Ticket Designs
+        { title: "New Year Bash",      meta: "Olive Heights · Ticket Design",        cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #d4793c, #6b1a1a)" },
+        { title: "Live Music Night",   meta: "Olive Garden · Ticket Design",         cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #2d3436, #636e72)" },
+        { title: "Festive Gala",       meta: "Awesome Palace · Ticket Design",       cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #1a3b5d, #c8a35c)" },
+        { title: "Cocktail Night",     meta: "Olive Heights · Ticket Design",        cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #8e44ad, #c0392b)" },
+
+        // Creative Videos
+        { title: "Rooftop Cinematic",  meta: "Olive Heights · Video Production",     cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #1a1410 0%, #c97a3c 100%)" },
+        { title: "Hotel Walkthrough",  meta: "Awesome Palace · Video Production",    cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #0f4c75 0%, #3282b8 100%)" },
+        { title: "Product Reel",       meta: "Ahvi Gold · Video Production",         cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #1a1410 0%, #d4a017 100%)" },
+        { title: "Brand Story",        meta: "Jewellery Hub · Video Production",     cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #6a4c93, #2980b9)" },
+
+        // Social Media Creatives
+        { title: "Instagram Grid",     meta: "Olive Heights · Social Media",         cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #d4793c, #f5c46a)" },
+        { title: "Festive Grid",       meta: "Awesome Palace · Social Media",        cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #c8a35c, #1a3b5d)" },
+        { title: "Gold Edit",          meta: "Ahvi Gold · Social Media",             cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #caa14a, #1a1410)" },
+        { title: "Carousel Series",    meta: "Jewellery Hub · Social Media",         cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #8e44ad, #d4a017)" },
+        { title: "Story Highlights",   meta: "Olive Garden · Social Media",          cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #16a085, #1abc9c)" },
+        { title: "Promo Carousel",     meta: "Paxmeet · Social Media",               cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #2980b9, #3498db)" },
       ];
 
       // ---------- STATE ----------
@@ -80,9 +97,9 @@ export default function WorksPage() {
           card.className = 'work-card';
           card.style.animationDelay = (i * 60) + 'ms';
           card.innerHTML = `
-            <a href="/projects/sample-project" class="work-card-image" style="background: ${p.bg};">
+            <div class="work-card-image" style="background: ${p.bg};">
               ${buildMock(p.mock)}
-            </a>
+            </div>
             <h3 class="work-title">${p.title}</h3>
             <p class="work-meta">${p.meta}</p>
           `;
@@ -149,6 +166,20 @@ export default function WorksPage() {
 
       // ---------- INITIAL LOAD ----------
       loadNextPage();
+
+      // ---------- DEEP-LINK: filter from URL hash ----------
+      const hashMap = {
+        'our-creativity': 'creativity',
+        'hoarding-designs': 'hoarding',
+        'ticket-designs': 'tickets',
+        'creative-videos': 'videos',
+        'social-media-creatives': 'social',
+      };
+      const hash = window.location.hash.replace('#', '');
+      if (hash && hashMap[hash]) {
+        const btn = document.querySelector(`.filter-btn[data-cat="${hashMap[hash]}"]`);
+        if (btn) btn.click();
+      }
   }, []);
 
   return (
@@ -861,22 +892,22 @@ export default function WorksPage() {
 {/* PAGE HEADER */}
 <header className="page-header">
   <p className="section-eyebrow">PORTFOLIO</p>
-  <h1>Our Works</h1>
+  <h1>A Showcase of Brands, Campaigns &amp; Creativity</h1>
 </header>
 
 {/* CATEGORY FILTERS */}
 <div className="filters-bar" id="filtersBar">
   <div className="filter-item"><button className="filter-btn active" data-cat="all">All</button></div>
   <span className="filter-sep">/</span>
-  <div className="filter-item"><button className="filter-btn" data-cat="annual">Annual Report</button></div>
+  <div className="filter-item"><button className="filter-btn" data-cat="creativity" id="our-creativity">Our Creativity</button></div>
   <span className="filter-sep">/</span>
-  <div className="filter-item"><button className="filter-btn" data-cat="branding">Branding</button></div>
+  <div className="filter-item"><button className="filter-btn" data-cat="hoarding" id="hoarding-designs">Hoarding Designs</button></div>
   <span className="filter-sep">/</span>
-  <div className="filter-item"><button className="filter-btn" data-cat="impact">Impact Report</button></div>
+  <div className="filter-item"><button className="filter-btn" data-cat="tickets" id="ticket-designs">Ticket Designs</button></div>
   <span className="filter-sep">/</span>
-  <div className="filter-item"><button className="filter-btn" data-cat="video">Video Production</button></div>
+  <div className="filter-item"><button className="filter-btn" data-cat="videos">Creative Videos</button></div>
   <span className="filter-sep">/</span>
-  <div className="filter-item"><button className="filter-btn" data-cat="website">Website</button></div>
+  <div className="filter-item"><button className="filter-btn" data-cat="social">Social Media Creatives</button></div>
 </div>
 
 {/* WORKS GRID */}

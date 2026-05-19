@@ -867,8 +867,8 @@ export default function BlogSlugPage() {
     <aside className="toc-card" id="tocCard">
       <div className="toc-toggle" id="tocToggle">
         <span>Table of Contents</span>
-        <svg className="toc-chevron" viewBox="0 0 20 20" fill="none" stroke="#111" stroke-width="2.5">
-          <path d="M5 8 L10 13 L15 8" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg className="toc-chevron" viewBox="0 0 20 20" fill="none" stroke="#111" strokeWidth="2.5">
+          <path d="M5 8 L10 13 L15 8" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
       <ul className="toc-list">
@@ -944,32 +944,32 @@ export default function BlogSlugPage() {
         <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
           {/* Four nodes in a cycle */}
           <circle cx="300" cy="80" r="60" fill="#27c878"/>
-          <text x="300" y="76" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">1</text>
-          <text x="300" y="100" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Step One</text>
+          <text x="300" y="76" textAnchor="middle" fill="#fff" fontSize="20" fontWeight="700">1</text>
+          <text x="300" y="100" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600">Step One</text>
 
           <circle cx="490" cy="200" r="60" fill="#9bc53d"/>
-          <text x="490" y="196" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">2</text>
-          <text x="490" y="220" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Step Two</text>
+          <text x="490" y="196" textAnchor="middle" fill="#fff" fontSize="20" fontWeight="700">2</text>
+          <text x="490" y="220" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600">Step Two</text>
 
           <circle cx="300" cy="320" r="60" fill="#f5c518"/>
-          <text x="300" y="316" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">3</text>
-          <text x="300" y="340" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Step Three</text>
+          <text x="300" y="316" textAnchor="middle" fill="#fff" fontSize="20" fontWeight="700">3</text>
+          <text x="300" y="340" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600">Step Three</text>
 
           <circle cx="110" cy="200" r="60" fill="#e67e22"/>
-          <text x="110" y="196" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">4</text>
-          <text x="110" y="220" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">Step Four</text>
+          <text x="110" y="196" textAnchor="middle" fill="#fff" fontSize="20" fontWeight="700">4</text>
+          <text x="110" y="220" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="600">Step Four</text>
 
           {/* Curved arrows */}
-          <path d="M360 100 Q450 110 460 160" stroke="#27c878" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M360 100 Q450 110 460 160" stroke="#27c878" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
           <polygon points="455,160 460,150 470,162" fill="#27c878"/>
 
-          <path d="M460 240 Q420 290 360 305" stroke="#9bc53d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M460 240 Q420 290 360 305" stroke="#9bc53d" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
           <polygon points="370,300 358,308 367,312" fill="#9bc53d"/>
 
-          <path d="M240 305 Q165 290 145 245" stroke="#f5c518" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M240 305 Q165 290 145 245" stroke="#f5c518" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
           <polygon points="146,250 140,238 152,240" fill="#f5c518"/>
 
-          <path d="M140 160 Q175 110 240 100" stroke="#e67e22" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M140 160 Q175 110 240 100" stroke="#e67e22" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
           <polygon points="232,103 244,98 240,110" fill="#e67e22"/>
         </svg>
         <figcaption>A simple four-stage cycle illustrating the loop described above.</figcaption>

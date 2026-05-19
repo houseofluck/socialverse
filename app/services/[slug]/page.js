@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ServicesSlugPage() {
+  const initRef = useRef(false);
   useEffect(() => {
+    // Strict-mode dev double-invoke guard: only run once per mount
+    if (initRef.current) return;
+    initRef.current = true;
+
     // ============================================================
       //  SERVICE DATA
       //  Each service has a unique slug. The page reads ?service=<slug>
@@ -11,14 +16,327 @@ export default function ServicesSlugPage() {
       //  Add or modify services here.
       // ============================================================
       const SERVICE_DATA = {
-        'digital-marketing': {
-          titleStatic: 'Digital Marketing ',
-          titleAccent: 'Services',
-          pageTitle: 'Digital Marketing — TheSocialVerse',
-          boostTitle: 'With The Help Of Digital Marketing Services',
-          boostText: "In today's age, just having an online presence isn't enough. You need a dynamic strategy that helps you stand out in a crowded digital landscape. Our team partners with you to design and execute campaigns that drive real growth — combining creative storytelling with data-led decisions to scale your brand and connect with the right audience at the right time.",
-          capsTitle: 'Our Digital Marketing Services',
-          capsDesc: 'We offer a wide range of digital marketing services to meet all your needs:',
+        'social-media-marketing': {
+          titleStatic: 'Social Media ',
+          titleAccent: 'Marketing',
+          pageTitle: 'Social Media Marketing — The Social Verse',
+          boostTitle: 'Build A Powerful Digital Presence',
+          boostText: "Build a powerful digital presence with strategic social media management designed to increase brand awareness, audience engagement, and customer conversion. From content planning and creative designs to reels, captions, and platform management, we help brands stay relevant and impactful across Instagram, Facebook, LinkedIn, and other digital platforms.",
+          capsTitle: 'Our Social Media Marketing Services',
+          capsDesc: 'Strategy, content, paid media, and community — full-service social marketing.',
+          caps: [
+            { title: 'Content Planning',     body: 'Monthly content calendars, content pillars, and platform-specific planning aligned to business goals.' },
+            { title: 'Creative Design',      body: 'On-brand carousels, static posts, and story creatives designed to stop the scroll.' },
+            { title: 'Reels & Short-Form',   body: 'Trend-driven reels that maximise reach, retention, and organic visibility.' },
+            { title: 'Community Management', body: 'Real-time comment, DM, and engagement management to build audience trust.' },
+            { title: 'Platform Management',  body: 'End-to-end management across Instagram, Facebook, LinkedIn, and more.' },
+            { title: 'Reporting & Insights', body: "Monthly performance reports with metrics, learnings, and the next month's plan." }
+          ],
+          whyTitle: 'Why Run Social With The Social Verse?',
+          elevateTitle: 'Grow Faster With Strategic Social Marketing',
+          elevate: [
+            { title: 'Platform-Native Creative', body: 'No more recycled assets. We build content for the platform it lives on — Reels look like Reels, LinkedIn looks like LinkedIn.' },
+            { title: 'Paid + Organic, Together', body: 'We run paid amplification and organic content side-by-side — so your best content gets seen and your best ads feel native.' },
+            { title: 'Reporting You Can Use',    body: 'Weekly snapshots and monthly reviews focused on what matters — reach, engagement, leads, and revenue.' }
+          ],
+          faqs: [
+            { q: 'Which platforms should I be on?',
+              a: 'It depends on your audience. Most B2C brands win on Instagram and YouTube; most B2B brands win on LinkedIn. We help you pick the right two or three to focus on rather than spreading thin.' },
+            { q: 'How often will you post?',
+              a: 'Cadence depends on platform and goal. A typical brand we manage publishes 3–5 times per week per priority channel, plus daily stories and weekly Reels.' },
+            { q: 'Do you also handle paid social?',
+              a: 'Yes. Paid and organic are run by the same team so creative and targeting stay tightly integrated — that integration is where most of the performance comes from.' },
+            { q: 'How do you measure success?',
+              a: 'We agree KPIs upfront — usually a mix of reach/engagement, lead volume, and downstream revenue. Reporting maps directly to those metrics each month.' }
+          ]
+        },
+        'performance-marketing': {
+          titleStatic: 'Performance ',
+          titleAccent: 'Marketing',
+          pageTitle: 'Performance Marketing — The Social Verse',
+          boostTitle: 'Drive Measurable Business Growth',
+          boostText: "Drive measurable business growth through data-driven advertising campaigns across Meta, Google, YouTube, and other digital platforms. We create and optimise high-performing campaigns focused on lead generation, sales, website traffic, customer acquisition, and maximum return on investment through strategic audience targeting and performance analysis.",
+          capsTitle: 'Our Performance Marketing Services',
+          capsDesc: 'Strategic, data-driven advertising across every paid channel that matters.',
+          caps: [
+            { title: 'Meta Ads',             body: 'Facebook and Instagram campaigns with creative testing, audience segmentation, and bid optimisation.' },
+            { title: 'Google Ads',           body: 'Search, display, and shopping campaigns engineered for intent-driven conversion.' },
+            { title: 'YouTube Ads',          body: 'Skippable, bumper, and in-feed video campaigns to drive awareness and consideration.' },
+            { title: 'Lead Generation',      body: 'Lead-form campaigns with CRM integration and lead-quality optimisation.' },
+            { title: 'Retargeting',          body: 'Multi-stage retargeting to convert warm audiences across platforms.' },
+            { title: 'Performance Analytics',body: 'Dashboards, attribution analysis, and ongoing CAC and ROAS optimisation.' }
+          ],
+          whyTitle: 'Why Run Performance Media With Us?',
+          elevateTitle: 'Maximise ROI With Performance Marketing',
+          elevate: [
+            { title: 'Always-On Testing',   body: 'Continuous creative and audience testing — we never let campaigns coast on yesterday’s winners.' },
+            { title: 'Full-Funnel Thinking',body: 'Awareness, consideration, conversion — every campaign mapped to where your audience is in the journey.' },
+            { title: 'Transparent Reporting',body: 'Clean weekly dashboards with the numbers that actually matter — spend, leads, CPL, and downstream revenue.' }
+          ],
+          faqs: [
+            { q: 'How much should I spend on ads to see results?',
+              a: 'Minimum effective spend depends on your category and goal. For most local businesses we recommend starting at ₹50k–1L/month across Meta + Google to gather enough data to optimise.' },
+            { q: 'How long before I see results?',
+              a: 'Meta and Google campaigns typically show signal within 7–14 days. Sustainable performance with reduced CPL usually takes 60–90 days of optimisation.' },
+            { q: 'Do you handle creative for ads?',
+              a: 'Yes — performance + creative live under one roof. We test ad creatives weekly to keep CTR high and creative fatigue low.' },
+            { q: 'How do you report on performance?',
+              a: 'Weekly snapshot reports plus a monthly review meeting. KPIs are agreed upfront and tracked transparently throughout.' }
+          ]
+        },
+        'content-production': {
+          titleStatic: 'Content ',
+          titleAccent: 'Production',
+          pageTitle: 'Content Production — The Social Verse',
+          boostTitle: 'Cinematic. Scroll-Stopping. On-Brand.',
+          boostText: "Create visually engaging and high-quality content tailored for modern digital audiences. From cinematic reels and promotional videos to product shoots, brand films, photography, and ad creatives, we produce content that strengthens brand identity, captures attention, and enhances audience engagement across digital platforms.",
+          capsTitle: 'Our Content Production Services',
+          capsDesc: 'Full-stack content production — concept, shoot, edit, and delivery.',
+          caps: [
+            { title: 'Cinematic Reels',       body: 'Brand-aligned reels shot and edited for premium storytelling.' },
+            { title: 'Brand Films',           body: 'Long-form brand films that capture vision, story, and product narrative.' },
+            { title: 'Product Photography',   body: 'Studio and lifestyle product photography optimised for catalog and ads.' },
+            { title: 'Ad Creatives',          body: 'Performance-tested static and video ad creatives for every funnel stage.' },
+            { title: 'Behind-The-Scenes',     body: 'Authentic BTS content that humanises the brand and earns audience trust.' },
+            { title: 'On-Location Shoots',    body: 'Full pre-production, direction, and post-production for any location.' }
+          ],
+          whyTitle: 'Why Produce Content With Us?',
+          elevateTitle: 'Create Content That Performs',
+          elevate: [
+            { title: 'End-to-End Production',   body: 'From script to final cut — one team, one timeline, one accountable partner.' },
+            { title: 'Platform-Native Thinking',body: 'Vertical for Reels, square for feed, 16:9 for YouTube — we shoot for the destination platform.' },
+            { title: 'Story-First Craft',       body: 'Beautiful visuals matter, but story matters more. Every project starts with what you are trying to say.' }
+          ],
+          faqs: [
+            { q: 'How long does content production take?',
+              a: 'A simple promo reel takes 2–3 weeks. Larger brand films with shoot days, casting, and complex post can take 6–10 weeks. We map the timeline to your launch date.' },
+            { q: 'Do you handle scripting?',
+              a: 'Yes. Most projects start with scripting and storyboarding before we shoot — but we are equally happy to execute an existing script.' },
+            { q: 'Can you shoot on location?',
+              a: 'Yes. We handle location scouting, permits, talent, crew, and equipment anywhere we are licensed to operate.' },
+            { q: 'What deliverables do I get at the end?',
+              a: 'Master files in the formats you need (broadcast, social, web), short cutdowns for paid campaigns, and source files where appropriate.' }
+          ]
+        },
+        'branding-creative-strategy': {
+          titleStatic: 'Branding & ',
+          titleAccent: 'Creative Strategy',
+          pageTitle: 'Branding & Creative Strategy — The Social Verse',
+          boostTitle: 'Brands That Stand For Something',
+          boostText: "Develop a strong and memorable brand identity through strategic design, storytelling, and visual communication. We help businesses build consistent branding through logo design, brand aesthetics, creative direction, marketing visuals, and communication strategies that establish credibility and create long-term audience connection.",
+          capsTitle: 'Our Branding Services',
+          capsDesc: 'Full-stack brand work — strategy, identity, and applied design.',
+          caps: [
+            { title: 'Logo & Identity',         body: 'Logo systems, colour palettes, and visual marks built to scale across every surface.' },
+            { title: 'Brand Guidelines',        body: 'Comprehensive guidelines covering visual, verbal, and motion identity.' },
+            { title: 'Creative Direction',      body: 'Art direction for campaigns, photography, and platform-native content.' },
+            { title: 'Marketing Visuals',       body: 'On-brand creatives across pitch decks, social, web, and print.' },
+            { title: 'Naming & Messaging',      body: 'Brand names, taglines, and messaging frameworks for clarity and recall.' },
+            { title: 'Voice & Tone',            body: 'Voice guidelines so every channel sounds like one consistent brand.' }
+          ],
+          whyTitle: 'Why Brand With The Social Verse?',
+          elevateTitle: 'Build A Brand That Lasts',
+          elevate: [
+            { title: 'Strategy First',           body: 'We never start with a logo. Strategy comes first — what your brand stands for shapes how it looks.' },
+            { title: 'Systems, Not Just Assets', body: 'You leave with reusable design systems your team can extend — not a folder of one-off files.' },
+            { title: 'Built To Last',            body: 'Brands designed for a decade, not a season. Identities that age well and scale across channels.' }
+          ],
+          faqs: [
+            { q: 'How long does a branding project take?',
+              a: 'A focused identity project takes 4–6 weeks. Full brand work with strategy, naming, identity, and guidelines typically runs 8–12 weeks.' },
+            { q: 'Do you offer logo-only design?',
+              a: "Logos work best as part of a system. We're happy to discuss a small identity package if a full project isn't a fit." },
+            { q: 'What deliverables do I receive?',
+              a: 'A typical brand kit includes the logo (all formats and variants), colour and type system, brand guidelines PDF, and starter templates.' },
+            { q: 'Can you also build the website with the new brand?',
+              a: 'Yes — we can roll the new identity directly into a website project so launch day is fully aligned end-to-end.' }
+          ]
+        },
+        'search-engine-optimization': {
+          titleStatic: 'Search Engine ',
+          titleAccent: 'Optimization',
+          pageTitle: 'SEO Services — The Social Verse',
+          boostTitle: 'Rank Higher. Earn Organic. Compound Forever.',
+          boostText: "Improve your online visibility and organic reach with strategic SEO solutions designed to help your business rank higher on search engines. Our SEO approach focuses on keyword optimization, technical improvements, content strategy, local SEO, and performance enhancements to increase website traffic and attract potential customers organically.",
+          capsTitle: 'Our SEO Services',
+          capsDesc: 'Technical, on-page, and content SEO that compounds month after month.',
+          caps: [
+            { title: 'Keyword Research',     body: 'Topic clustering, intent mapping, and high-opportunity keyword targeting.' },
+            { title: 'On-Page SEO',          body: 'Title, meta, schema, internal linking, and content optimisation.' },
+            { title: 'Technical SEO',        body: 'Site speed, Core Web Vitals, crawlability, and indexation fixes.' },
+            { title: 'Local SEO',            body: 'Google Business Profile, citations, and local search wins.' },
+            { title: 'Content Strategy',     body: 'SEO-aligned blog and resource content that ranks and converts.' },
+            { title: 'Reporting',            body: 'Monthly rank tracking, traffic analysis, and conversion attribution.' }
+          ],
+          whyTitle: 'Why Run SEO With Us?',
+          elevateTitle: 'Compound Organic Growth With SEO',
+          elevate: [
+            { title: 'Audit-Led Strategy',     body: 'Every engagement starts with a technical, content, and backlink audit. No assumptions.' },
+            { title: 'Content + Technical',    body: 'We treat content and technical SEO as one system — both are required for sustainable growth.' },
+            { title: 'Transparent Reporting',  body: 'Monthly reports showing exactly what was shipped, what moved, and what is next.' }
+          ],
+          faqs: [
+            { q: 'How long does SEO take to work?',
+              a: 'Most clients see meaningful organic growth in 3–6 months. SEO compounds — month 12 results are typically 2–3× month 6.' },
+            { q: 'Do you guarantee #1 rankings?',
+              a: 'No reputable SEO partner can. We commit to a clear roadmap, measurable monthly progress, and transparent reporting on rankings, traffic, and conversions.' },
+            { q: 'Do you also write content?',
+              a: 'Yes. Most SEO engagements include monthly content production aligned to the keyword roadmap.' },
+            { q: 'Will SEO work alongside paid ads?',
+              a: 'Absolutely — SEO and paid work best together. We often share keyword learnings between teams to compound results.' }
+          ]
+        },
+        'website-development': {
+          titleStatic: 'Website ',
+          titleAccent: 'Development',
+          pageTitle: 'Website Development — The Social Verse',
+          boostTitle: 'Build A Website That Actually Performs',
+          boostText: "Build modern, responsive, and conversion-focused websites designed to deliver seamless user experiences across all devices. We create websites that combine performance, aesthetics, functionality, and scalability while helping businesses establish a professional online presence, generate leads, and improve customer interaction.",
+          capsTitle: 'Our Website Development Services',
+          capsDesc: 'From landing pages to full e-commerce — modern web stacks built to convert.',
+          caps: [
+            { title: 'Custom Development',      body: 'Bespoke websites built for speed, scale, and conversion.' },
+            { title: 'WordPress',               body: 'Custom WordPress sites with bespoke themes and editor experiences your team will love.' },
+            { title: 'Shopify Development',     body: 'Beautiful, conversion-focused Shopify stores built for performance and easy merchandising.' },
+            { title: 'Landing Pages',           body: 'High-converting landing pages purpose-built for paid campaigns and launches.' },
+            { title: 'UI / UX Design',          body: 'User research, wireframes, and design systems that make every interaction feel intentional.' },
+            { title: 'Maintenance & AMC',       body: 'Ongoing performance, security, and content support after launch.' }
+          ],
+          whyTitle: 'Why Build With The Social Verse?',
+          elevateTitle: 'Build Better Web Experiences',
+          elevate: [
+            { title: 'Performance-First Engineering', body: 'Sites built to load fast, score green on Core Web Vitals, and convert.' },
+            { title: 'Conversion-Focused Design',     body: "Every page is designed around the user's journey — clear hierarchy and friction-free flows." },
+            { title: 'Reliable Long-Term Support',    body: 'We do not disappear after launch — our AMC plans keep your site secure and current.' }
+          ],
+          faqs: [
+            { q: 'How long does it take to build a website?',
+              a: 'A typical marketing website takes 4–8 weeks from kickoff to launch. E-commerce and custom builds can take 8–16 weeks.' },
+            { q: 'Which platform should I choose?',
+              a: 'It depends on your goals. WordPress for content-heavy sites, Shopify for retail e-commerce, custom builds when off-the-shelf platforms cannot meet specific needs.' },
+            { q: 'Will my website be mobile-friendly?',
+              a: 'Yes. Every site we ship is fully responsive and tested on real phones, tablets, and desktops before going live.' },
+            { q: 'Do you provide ongoing maintenance?',
+              a: 'Yes — our AMC plans cover security updates, backups, performance monitoring, and content changes on an ongoing basis.' }
+          ]
+        },
+        'app-development': {
+          titleStatic: 'App ',
+          titleAccent: 'Development',
+          pageTitle: 'App Development — The Social Verse',
+          boostTitle: 'Native Experiences. Scalable Architecture.',
+          boostText: "Design and develop custom mobile applications tailored to your business needs and customer experience goals. From intuitive UI/UX design to scalable functionality, we create user-friendly Android and iOS applications that help businesses improve accessibility, streamline operations, increase customer engagement, and strengthen digital growth.",
+          capsTitle: 'Our App Development Services',
+          capsDesc: 'iOS, Android, and cross-platform apps engineered for scale.',
+          caps: [
+            { title: 'iOS & Android',            body: 'Native and cross-platform apps that look and feel right on every device.' },
+            { title: 'UI / UX Design',           body: 'Mobile-first user experience design from research to handoff.' },
+            { title: 'API Integration',          body: 'Third-party integrations, payment gateways, and backend connectivity.' },
+            { title: 'Cross-Platform Builds',    body: 'React Native and Flutter builds for faster time-to-market.' },
+            { title: 'App Store Optimization',   body: 'ASO, screenshots, and listing strategy to drive downloads.' },
+            { title: 'Maintenance',              body: 'Updates, bug fixes, and feature releases on an ongoing basis.' }
+          ],
+          whyTitle: 'Why Build Your App With Us?',
+          elevateTitle: 'Ship Apps Users Love',
+          elevate: [
+            { title: 'Product-Led Discovery', body: 'We start by understanding the user, the job-to-be-done, and the business goals — then design the right app.' },
+            { title: 'Engineering For Scale', body: 'Modern stacks, clean architecture, and CI/CD pipelines that let your app grow without rewrites.' },
+            { title: 'Post-Launch Partnership', body: 'Updates, monitoring, and feature releases on an ongoing basis — long after the initial launch.' }
+          ],
+          faqs: [
+            { q: 'How long does it take to build an app?',
+              a: 'An MVP typically takes 10–16 weeks. Larger apps with complex features can take 4–8 months. We always share a clear roadmap upfront.' },
+            { q: 'Do you build for iOS, Android, or both?',
+              a: 'Both. We build native iOS, native Android, and cross-platform apps (React Native / Flutter) depending on what fits your product and budget.' },
+            { q: 'Do you handle App Store submission?',
+              a: 'Yes — we manage Apple App Store and Google Play submissions, including ASO, screenshots, and listing copy.' },
+            { q: 'What happens after launch?',
+              a: 'We offer ongoing maintenance plans covering bug fixes, performance monitoring, and feature releases as your product evolves.' }
+          ]
+        },
+        'influencer-marketing': {
+          titleStatic: 'Influencer ',
+          titleAccent: 'Marketing',
+          pageTitle: 'Influencer Marketing — The Social Verse',
+          boostTitle: 'Authentic Reach. Trusted Voices.',
+          boostText: "Expand your brand reach and build audience trust through strategic influencer collaborations. We connect brands with relevant content creators, influencers, and digital personalities to create authentic promotional campaigns that increase visibility, engagement, credibility, and customer connection across social media platforms.",
+          capsTitle: 'Our Influencer Marketing Services',
+          capsDesc: 'From creator discovery to campaign reporting — end-to-end influencer marketing.',
+          caps: [
+            { title: 'Creator Discovery',       body: 'Vetted creators matched to your brand, audience, and category.' },
+            { title: 'Campaign Planning',       body: 'Briefs, content angles, and timeline planning aligned to launch goals.' },
+            { title: 'Negotiation & Contracts', body: 'Rates, deliverables, and usage rights handled end-to-end.' },
+            { title: 'Content Execution',       body: 'On-brand creator content with quality control and brand safety.' },
+            { title: 'Performance Tracking',    body: 'Reach, engagement, and conversion attribution per creator.' },
+            { title: 'Long-Term Partnerships',  body: 'Always-on ambassador programs that compound trust over time.' }
+          ],
+          whyTitle: 'Why Run Influencer Campaigns With Us?',
+          elevateTitle: 'Amplify Reach With Trusted Voices',
+          elevate: [
+            { title: 'Audience-Fit Creators', body: 'We match creators on audience overlap and brand fit — not just follower count.' },
+            { title: 'Brand-Safe Execution',  body: 'Briefing, content QA, and approval workflows that keep every collaboration on-brand.' },
+            { title: 'Measurable Impact',     body: 'Performance reporting per creator — reach, engagement, click-through, and conversion attribution.' }
+          ],
+          faqs: [
+            { q: 'How do you choose the right influencers?',
+              a: 'We start with your audience and goals, then shortlist creators on audience overlap, engagement quality, and brand fit — not just follower count.' },
+            { q: 'How much does an influencer campaign cost?',
+              a: 'Influencer costs vary widely by creator tier and platform. We build a recommendation around your budget and the outcomes you care about.' },
+            { q: 'Do you handle contracts and payments?',
+              a: 'Yes. We manage negotiation, contracts, content approvals, and payments end-to-end so you only deal with one partner.' },
+            { q: 'How do you measure success?',
+              a: 'We track reach, engagement, click-through, and conversion per creator — then optimise the mix for the next round of campaigns.' }
+          ]
+        },
+        'outdoor-marketing': {
+          titleStatic: 'Outdoor ',
+          titleAccent: 'Marketing',
+          pageTitle: 'Outdoor Marketing — The Social Verse',
+          boostTitle: 'Real-World Visibility. High-Recall Impact.',
+          boostText: "Strengthen your brand visibility beyond digital platforms with impactful outdoor advertising solutions designed to capture public attention. From hoardings, billboards, transit branding, and storefront advertising to event promotions and large-format creatives, we help businesses create strong offline brand presence and high-recall marketing campaigns that maximize reach and audience exposure.",
+          capsTitle: 'Our Outdoor Marketing Services',
+          capsDesc: 'High-impact OOH placements engineered to capture attention.',
+          caps: [
+            { title: 'Hoardings & Billboards',   body: 'High-impact placements at strategic, high-traffic locations.' },
+            { title: 'Transit Branding',         body: 'Bus, metro, and airport branding to reach commuters at scale.' },
+            { title: 'Storefront Advertising',   body: 'Window displays, signage, and in-store branding moments.' },
+            { title: 'Event Promotions',         body: 'Branded experiences and on-ground activation for events.' },
+            { title: 'Large-Format Creatives',   body: 'Creatives designed for distance visibility and high recall.' },
+            { title: 'OOH Strategy',             body: 'Media planning across cities, formats, and audience targeting.' }
+          ],
+          whyTitle: 'Why Run OOH With Us?',
+          elevateTitle: 'Build High-Recall Brand Visibility',
+          elevate: [
+            { title: 'Strategic Placements',    body: 'Location scouting and audience mapping that put your message where it counts.' },
+            { title: 'Distance-Ready Design',   body: 'Large-format creatives engineered to land in three seconds at 50 metres.' },
+            { title: 'End-to-End Execution',    body: 'Design, print, install, and verification — handled across cities and formats.' }
+          ],
+          faqs: [
+            { q: 'How much does outdoor advertising cost?',
+              a: 'Costs vary by city, format, and location. We build a tailored OOH plan around your goals and budget — get in touch for a quote.' },
+            { q: 'Can you handle media planning across cities?',
+              a: 'Yes. We plan and execute multi-city OOH campaigns across hoardings, billboards, transit, and storefront formats.' },
+            { q: 'Do you handle printing and installation?',
+              a: 'Yes — we manage design, print production, installation, and verification end-to-end across our partner network.' },
+            { q: 'How do you measure OOH performance?',
+              a: 'We combine impressions data, location footfall analysis, and complementary digital measurement (geo-targeted ads, branded search lift) to measure campaign impact.' }
+          ]
+        }
+      };
+
+      // legacy slug → new slug aliases
+      const SLUG_ALIASES = {
+        'digital-marketing': 'social-media-marketing',
+        'video-production': 'content-production',
+        'branding-strategy': 'branding-creative-strategy',
+        'print-package-design': 'outdoor-marketing',
+        'presentation-design': 'branding-creative-strategy',
+        'ui-ux-design': 'website-development',
+      };
+
+      // strip the rest — placeholder block below is unused
+      const __UNUSED__ = {
+        '_': {
           caps: [
             { title: 'Digital Marketing',  body: 'A comprehensive strategy that ties together every channel — paid, organic, and owned — so every campaign works harder for your business.' },
             { title: 'Google Ads',          body: 'High-intent leads delivered through tightly targeted Google Ads campaigns, optimised continuously for cost per acquisition and ROI.' },
@@ -400,13 +718,15 @@ export default function ServicesSlugPage() {
       //  POPULATE PAGE
       // ============================================================
       function getServiceSlug() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get('service') || 'digital-marketing';
+        const path = window.location.pathname;
+        const parts = path.split('/').filter(Boolean);
+        const last = parts[parts.length - 1] || 'social-media-marketing';
+        return SLUG_ALIASES[last] || last;
       }
 
       function populate() {
         const slug = getServiceSlug();
-        const data = SERVICE_DATA[slug] || SERVICE_DATA['digital-marketing'];
+        const data = SERVICE_DATA[slug] || SERVICE_DATA['social-media-marketing'];
 
         document.title = data.pageTitle;
         document.getElementById('heroTitleStatic').textContent = data.titleStatic;

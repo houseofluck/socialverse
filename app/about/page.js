@@ -17,9 +17,79 @@ export default function AboutPage() {
 
 
 
+  /* ---------- ABOUT HERO ---------- */
+  .about-hero {
+    margin-top: 90px;
+    padding: 100px 60px 80px;
+    background: #ededed;
+    text-align: center;
+  }
+  .about-hero .section-eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 2px;
+    color: #111; margin-bottom: 18px;
+  }
+  .about-hero h1 {
+    font-size: 64px; font-weight: 700; color: #111;
+    letter-spacing: -1.5px; line-height: 1.05;
+    max-width: 1000px; margin: 0 auto 24px;
+  }
+  .about-hero p {
+    font-size: 18px; line-height: 1.7;
+    color: #1a1a1a; max-width: 800px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .about-hero { margin-top: 80px; padding: 70px 24px 60px; }
+    .about-hero h1 { font-size: 44px; }
+  }
+  @media (max-width: 600px) {
+    .about-hero { margin-top: 72px; padding: 50px 18px 40px; }
+    .about-hero h1 { font-size: 32px; letter-spacing: -0.5px; }
+    .about-hero p { font-size: 15px; }
+  }
+
+  /* ---------- MANIFESTO ---------- */
+  .about-manifesto {
+    padding: 100px 60px;
+    background: #fff;
+  }
+  .about-manifesto-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 70px; align-items: start;
+  }
+  .about-manifesto h2 {
+    font-size: 48px; font-weight: 700; color: #111;
+    letter-spacing: -1px; line-height: 1.1;
+  }
+  .about-manifesto p {
+    font-size: 18px; line-height: 1.75;
+    color: #1a1a1a; margin-bottom: 20px;
+  }
+  .about-manifesto p:last-child { margin-bottom: 0; }
+  .about-manifesto strong { color: #111; font-weight: 700; }
+  .about-punchline {
+    margin-top: 28px;
+    padding: 24px 28px;
+    background: #fff5d6;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    font-size: 18px; font-style: italic;
+    color: #1a1a1a; line-height: 1.5;
+  }
+  .about-punchline strong { color: #111; font-style: normal; }
+  @media (max-width: 1000px) {
+    .about-manifesto-inner { grid-template-columns: 1fr; gap: 30px; }
+    .about-manifesto h2 { font-size: 38px; }
+  }
+  @media (max-width: 600px) {
+    .about-manifesto { padding: 60px 18px; }
+    .about-manifesto h2 { font-size: 28px; }
+    .about-manifesto p { font-size: 16px; }
+  }
+
   /* ---------- WHY CHOOSE SECTION ---------- */
   .why-choose {
-    margin-top: 90px;
     background: #fff;
     padding: 100px 60px 120px;
     text-align: center;
@@ -83,6 +153,49 @@ export default function AboutPage() {
     font-size: 17px;
     line-height: 1.65;
     color: #1a1a1a;
+  }
+
+  /* ---------- BUILD TOGETHER CTA ---------- */
+  .build-cta {
+    background: #f5f5f5;
+    padding: 100px 60px;
+    text-align: center;
+  }
+  .build-cta-inner { max-width: 900px; margin: 0 auto; }
+  .build-cta .section-eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 2px;
+    color: #111; margin-bottom: 18px;
+  }
+  .build-cta h2 {
+    font-size: 56px; font-weight: 700; color: #111;
+    letter-spacing: -1px; line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .build-cta p {
+    font-size: 18px; line-height: 1.7;
+    color: #1a1a1a; max-width: 760px;
+    margin: 0 auto 20px;
+  }
+  .build-cta .meeting-btn {
+    display: inline-block;
+    background: #0d0d0d; color: #fff;
+    padding: 18px 40px; border-radius: 8px;
+    text-decoration: none; font-weight: 600;
+    font-size: 16px; margin-top: 24px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .build-cta .meeting-btn:hover {
+    background: #000; transform: translateY(-2px);
+  }
+  @media (max-width: 900px) {
+    .build-cta { padding: 70px 24px; }
+    .build-cta h2 { font-size: 42px; }
+  }
+  @media (max-width: 600px) {
+    .build-cta { padding: 50px 18px; }
+    .build-cta h2 { font-size: 30px; }
+    .build-cta p { font-size: 16px; }
+    .build-cta .meeting-btn { width: 100%; text-align: center; }
   }
 
   /* ---------- CORE STRENGTH SECTION ---------- */
@@ -365,7 +478,7 @@ export default function AboutPage() {
   }
   @media (max-width: 900px) {
 
-    .why-choose { margin-top: 80px; padding: 70px 24px 80px; }
+    .why-choose { padding: 70px 24px 80px; }
     .core-strength { padding: 50px 24px 80px; }
     .wc-heading, .cs-heading { font-size: 44px; margin-bottom: 50px; }
     .wc-card { padding: 44px 30px 36px; border-radius: 20px; }
@@ -382,7 +495,7 @@ export default function AboutPage() {
 
   @media (max-width: 600px) {
 
-    .why-choose { margin-top: 72px; padding: 50px 18px 60px; }
+    .why-choose { padding: 50px 18px 60px; }
     .core-strength { padding: 40px 18px 60px; }
     .wc-heading, .cs-heading { font-size: 34px; letter-spacing: -0.5px; margin-bottom: 36px; }
     .wc-eyebrow, .cs-eyebrow { font-size: 12px; letter-spacing: 2px; }
@@ -418,13 +531,47 @@ export default function AboutPage() {
 
       `}} />
 
-{/* NAVBAR */}
+{/* ABOUT HERO */}
+<section className="about-hero">
+  <p className="section-eyebrow">ABOUT US</p>
+  <h1>Built For Brands That Want More Than Just Reach.</h1>
+  <p>
+    The Social Verse is a modern digital marketing agency focused on helping
+    businesses scale through impactful branding, strategic advertising, and content
+    that actually connects.
+  </p>
+</section>
 
+{/* MANIFESTO */}
+<section className="about-manifesto">
+  <div className="about-manifesto-inner">
+    <div>
+      <h2>Marketing should do more than look good. It should perform.</h2>
+    </div>
+    <div>
+      <p>
+        From <strong>startups</strong> to <strong>established brands</strong>, we
+        create tailored marketing strategies that increase visibility, generate
+        quality leads, and drive measurable business growth.
+      </p>
+      <p>
+        At Social Verse, we believe successful marketing is built through a balance
+        of <strong>creativity, strategy, and performance</strong>. Every brand has a
+        unique story, and our approach focuses on transforming that story into
+        impactful digital experiences that connect with the right audience.
+      </p>
+      <div className="about-punchline">
+        We combine innovative ideas with data-driven execution — <strong>so every campaign
+        we ship is built to generate real business results, not just look good.</strong>
+      </div>
+    </div>
+  </div>
+</section>
 
 {/* WHY CHOOSE */}
 <section className="why-choose">
   <p className="wc-eyebrow">WHY CHOOSE</p>
-  <h1 className="wc-heading">TheSocialVerse</h1>
+  <h1 className="wc-heading">Social Verse</h1>
 
   <div className="wc-grid">
 
@@ -452,19 +599,19 @@ export default function AboutPage() {
             {/* body */}
             <path d="M120 200 Q120 150 140 150 Q160 150 160 200 L160 250 L120 250 Z" fill="#1a1a1a"/>
             {/* head */}
-            <circle cx="140" cy="125" r="32" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="140" cy="125" r="32" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
             {/* hair */}
             <path d="M108 110 Q108 90 140 90 Q172 90 172 115 Q150 105 130 110 Q120 110 108 110 Z" fill="#1a1a1a"/>
             {/* glasses */}
-            <circle cx="130" cy="128" r="7" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
-            <circle cx="148" cy="128" r="7" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
-            <line x1="137" y1="128" x2="141" y2="128" stroke="var(--accent)" stroke-width="2.5"/>
+            <circle cx="130" cy="128" r="7" fill="none" stroke="var(--accent)" strokeWidth="2.5"/>
+            <circle cx="148" cy="128" r="7" fill="none" stroke="var(--accent)" strokeWidth="2.5"/>
+            <line x1="137" y1="128" x2="141" y2="128" stroke="var(--accent)" strokeWidth="2.5"/>
             {/* arms raised */}
-            <path d="M120 165 Q90 150 80 105" stroke="#1a1a1a" stroke-width="6" fill="none" stroke-linecap="round"/>
-            <path d="M160 165 Q190 150 200 105" stroke="#1a1a1a" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M120 165 Q90 150 80 105" stroke="#1a1a1a" strokeWidth="6" fill="none" strokeLinecap="round"/>
+            <path d="M160 165 Q190 150 200 105" stroke="#1a1a1a" strokeWidth="6" fill="none" strokeLinecap="round"/>
             {/* hands */}
-            <circle cx="80" cy="105" r="9" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
-            <circle cx="200" cy="105" r="9" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="80" cy="105" r="9" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
+            <circle cx="200" cy="105" r="9" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
           </g>
           {/* lightbulb top left */}
           <g transform="translate(70 80)">
@@ -474,12 +621,11 @@ export default function AboutPage() {
           </g>
         </svg>
       </div>
-      <h3>Why We Do!</h3>
+      <h3>Strategic &amp; Creative Execution</h3>
       <p>
-        The marketing landscape is changing fast. As a digital agency, we know how to
-        connect the right content to the right audience. We believe each brand has a
-        unique story — and we're passionate about bringing those stories into the world
-        with clarity, craft, and conviction.
+        We combine modern creative design with performance-focused marketing
+        strategies to deliver impactful campaigns — sharp ideas backed by clear
+        positioning, smart targeting, and content built to convert.
       </p>
     </article>
 
@@ -495,16 +641,16 @@ export default function AboutPage() {
           <rect x="100" y="220" width="80" height="4" rx="2" fill="#333"/>
           {/* person 1 (left) */}
           <g>
-            <circle cx="105" cy="135" r="22" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="105" cy="135" r="22" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
             <path d="M85 130 Q85 110 105 110 Q125 110 125 132 Q115 124 105 126 Q95 126 85 130 Z" fill="#1a1a1a"/>
             {/* body in red */}
             <path d="M85 158 Q85 175 105 175 Q125 175 125 158 L130 200 L80 200 Z" fill="var(--accent)"/>
             {/* arm */}
-            <path d="M100 175 Q95 185 110 195" stroke="#1a1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M100 175 Q95 185 110 195" stroke="#1a1a1a" strokeWidth="4" fill="none" strokeLinecap="round"/>
           </g>
           {/* person 2 (right) leaning over */}
           <g>
-            <circle cx="180" cy="115" r="22" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="180" cy="115" r="22" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
             <path d="M160 110 Q160 90 180 90 Q200 90 200 113 Q193 100 180 102 Q170 102 160 110 Z" fill="#1a1a1a"/>
             {/* speech bubble */}
             <ellipse cx="208" cy="80" rx="20" ry="14" fill="var(--accent)"/>
@@ -512,16 +658,15 @@ export default function AboutPage() {
             {/* body */}
             <path d="M160 138 Q160 158 180 158 L195 175 Q200 178 200 200 L150 200 L155 175 Q150 165 160 138 Z" fill="var(--accent)"/>
             {/* pointing arm */}
-            <path d="M165 165 Q145 175 130 195" stroke="#1a1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M165 165 Q145 175 130 195" stroke="#1a1a1a" strokeWidth="4" fill="none" strokeLinecap="round"/>
           </g>
         </svg>
       </div>
-      <h3>What we do!</h3>
+      <h3>Result-Driven Approach</h3>
       <p>
-        We are a digital marketing and creative agency, supporting brands as they grow.
-        We deliver end-to-end solutions across video production, creative design, website
-        and UI/UX, performance marketing, branding, and presentations — covering the full
-        journey from concept through to delivery.
+        Every campaign is planned with clear objectives focused on engagement,
+        leads, visibility, and business growth. We measure what matters and
+        optimise relentlessly — so the work actually moves the needle.
       </p>
     </article>
 
@@ -535,20 +680,20 @@ export default function AboutPage() {
             <path d="M0 0 L0 -32 A32 32 0 0 1 28 16 Z" fill="#1a1a1a"/>
           </g>
           {/* dotted arrows */}
-          <path d="M105 75 Q140 50 170 60" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="3 4" fill="none"/>
+          <path d="M105 75 Q140 50 170 60" stroke="#1a1a1a" strokeWidth="2" strokeDasharray="3 4" fill="none"/>
           {/* lightbulb top right */}
           <g transform="translate(210 70)">
-            <circle cx="0" cy="0" r="14" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="0" cy="0" r="14" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
             <circle cx="0" cy="0" r="6" fill="var(--accent)"/>
-            <line x1="-18" y1="0" x2="-25" y2="0" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-            <line x1="18" y1="0" x2="25" y2="0" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-            <line x1="-13" y1="-13" x2="-19" y2="-19" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-            <line x1="13" y1="-13" x2="19" y2="-19" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+            <line x1="-18" y1="0" x2="-25" y2="0" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="18" y1="0" x2="25" y2="0" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="-13" y1="-13" x2="-19" y2="-19" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="13" y1="-13" x2="19" y2="-19" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
           </g>
           {/* character sitting */}
           <g>
             {/* head */}
-            <circle cx="140" cy="155" r="26" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="140" cy="155" r="26" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
             {/* hair */}
             <path d="M115 145 Q115 130 140 130 Q165 130 165 148 Q150 140 140 142 Q128 142 115 145 Z" fill="#1a1a1a"/>
             {/* ear */}
@@ -556,9 +701,9 @@ export default function AboutPage() {
             {/* body in red */}
             <path d="M118 178 Q118 200 140 200 Q162 200 162 178 L172 220 Q140 230 108 220 Z" fill="var(--accent)"/>
             {/* left arm holding pie */}
-            <path d="M118 200 Q90 200 80 95" stroke="#1a1a1a" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M118 200 Q90 200 80 95" stroke="#1a1a1a" strokeWidth="6" fill="none" strokeLinecap="round"/>
             {/* right arm reaching */}
-            <path d="M162 200 Q200 200 215 90" stroke="#1a1a1a" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M162 200 Q200 200 215 90" stroke="#1a1a1a" strokeWidth="6" fill="none" strokeLinecap="round"/>
             {/* legs in red */}
             <path d="M115 222 Q105 245 95 250 L115 250 L130 232 Z" fill="var(--accent)"/>
             <path d="M165 222 Q175 245 185 250 L165 250 L150 232 Z" fill="var(--accent)"/>
@@ -568,12 +713,11 @@ export default function AboutPage() {
           </g>
         </svg>
       </div>
-      <h3>How we do!</h3>
+      <h3>Complete Digital Solutions</h3>
       <p>
-        We bring 50+ years of combined experience and provide tailored solutions to every
-        client's needs. Our value of excellence — together with the diversity of work we
-        deliver and our commitment to on-time delivery — is what consistently sets us
-        apart from our competitors.
+        From social media management and branding to website development,
+        advertising, and content production — we provide end-to-end digital
+        services under one roof, tailored to each brand we work with.
       </p>
     </article>
 
@@ -582,8 +726,8 @@ export default function AboutPage() {
 
 {/* CORE STRENGTH */}
 <section className="core-strength">
-  <p className="cs-eyebrow">WHAT'S OUR</p>
-  <h2 className="cs-heading">Core Strength</h2>
+  <p className="cs-eyebrow">OUR APPROACH</p>
+  <h2 className="cs-heading">Our Core Strengths</h2>
 
   <div className="cs-grid">
     {/* LEFT (tall) — Strategy */}
@@ -591,19 +735,19 @@ export default function AboutPage() {
       <div className="cs-icon">
         {/* strategy icon: doc with magnifier */}
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <rect x="14" y="10" width="32" height="42" rx="3" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
-          <line x1="20" y1="20" x2="40" y2="20" stroke="#1a1a1a" stroke-width="2"/>
-          <line x1="20" y1="26" x2="40" y2="26" stroke="#1a1a1a" stroke-width="2"/>
-          <line x1="20" y1="32" x2="34" y2="32" stroke="#1a1a1a" stroke-width="2"/>
+          <rect x="14" y="10" width="32" height="42" rx="3" fill="#fff" stroke="#1a1a1a" strokeWidth="2.5"/>
+          <line x1="20" y1="20" x2="40" y2="20" stroke="#1a1a1a" strokeWidth="2"/>
+          <line x1="20" y1="26" x2="40" y2="26" stroke="#1a1a1a" strokeWidth="2"/>
+          <line x1="20" y1="32" x2="34" y2="32" stroke="#1a1a1a" strokeWidth="2"/>
           {/* chart line */}
-          <path d="M20 42 L26 38 L32 41 L40 34" stroke="var(--accent)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M20 42 L26 38 L32 41 L40 34" stroke="var(--accent)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
           {/* magnifier */}
-          <circle cx="44" cy="44" r="9" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
-          <line x1="51" y1="51" x2="56" y2="56" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="44" cy="44" r="9" fill="#fff" stroke="#1a1a1a" strokeWidth="2.5"/>
+          <line x1="51" y1="51" x2="56" y2="56" stroke="#1a1a1a" strokeWidth="3" strokeLinecap="round"/>
         </svg>
       </div>
       <h3>Strategy</h3>
-      <p>We help brands connect with the right people through strategy that drives sales — clear positioning, sharp messaging, and channel plans built to deliver outcomes that matter.</p>
+      <p>We help brands connect with the right audience through strategy that drives growth — clear positioning, sharp messaging, and channel plans built around measurable business outcomes.</p>
       <div className="cs-image cs-image-1"></div>
     </article>
 
@@ -613,7 +757,7 @@ export default function AboutPage() {
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           {/* two interlocking gears */}
           <g transform="translate(24 24)">
-            <circle cx="0" cy="0" r="11" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+            <circle cx="0" cy="0" r="11" fill="none" stroke="#1a1a1a" strokeWidth="2.5"/>
             <circle cx="0" cy="0" r="3" fill="#1a1a1a"/>
             <g fill="#1a1a1a">
               <rect x="-2" y="-16" width="4" height="5" rx="1"/>
@@ -623,7 +767,7 @@ export default function AboutPage() {
             </g>
           </g>
           <g transform="translate(42 40)">
-            <circle cx="0" cy="0" r="9" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+            <circle cx="0" cy="0" r="9" fill="none" stroke="var(--accent)" strokeWidth="2.5"/>
             <circle cx="0" cy="0" r="2.5" fill="var(--accent)"/>
             <g fill="var(--accent)">
               <rect x="-1.5" y="-13" width="3" height="4" rx="1"/>
@@ -634,8 +778,8 @@ export default function AboutPage() {
           </g>
         </svg>
       </div>
-      <h3>Technology</h3>
-      <p>We're huge fans of new technology and we invest in staying ahead of every shift — so the work we ship is always built on the most current tools.</p>
+      <h3>Storytelling</h3>
+      <p>Premium visual storytelling — reels, films, and creatives designed to strengthen brand identity and audience connection.</p>
     </article>
 
     {/* RIGHT (tall) — Result */}
@@ -648,17 +792,17 @@ export default function AboutPage() {
           <circle cx="26" cy="32" r="3" fill="#1a1a1a"/>
           <circle cx="38" cy="22" r="3" fill="#1a1a1a"/>
           <circle cx="50" cy="14" r="3" fill="#1a1a1a"/>
-          <line x1="14" y1="40" x2="26" y2="32" stroke="#1a1a1a" stroke-width="2"/>
-          <line x1="26" y1="32" x2="38" y2="22" stroke="#1a1a1a" stroke-width="2"/>
-          <line x1="38" y1="22" x2="50" y2="14" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="14" y1="40" x2="26" y2="32" stroke="#1a1a1a" strokeWidth="2"/>
+          <line x1="26" y1="32" x2="38" y2="22" stroke="#1a1a1a" strokeWidth="2"/>
+          <line x1="38" y1="22" x2="50" y2="14" stroke="#1a1a1a" strokeWidth="2"/>
           {/* magnifier with red dot inside */}
-          <circle cx="44" cy="36" r="11" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
+          <circle cx="44" cy="36" r="11" fill="#fff" stroke="#1a1a1a" strokeWidth="2.5"/>
           <circle cx="44" cy="36" r="4" fill="var(--accent)"/>
-          <line x1="52" y1="44" x2="58" y2="50" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="52" y1="44" x2="58" y2="50" stroke="#1a1a1a" strokeWidth="3" strokeLinecap="round"/>
         </svg>
       </div>
-      <h3>Result</h3>
-      <p>Our method is proven and practical. We're here to help you achieve your goals — with measurable outcomes, clear reporting, and an obsession with what actually moves the needle.</p>
+      <h3>Performance</h3>
+      <p>Every campaign is planned with clear KPIs and measurable outcomes — engagement, leads, footfall, and ROI. We optimise relentlessly so spend turns into real business growth, not vanity metrics.</p>
       <div className="cs-image cs-image-2"></div>
     </article>
 
@@ -667,27 +811,39 @@ export default function AboutPage() {
       <div className="cs-icon">
         {/* speech bubble with idea/lightbulb */}
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="22" cy="28" rx="14" ry="11" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
-          <path d="M16 38 L18 44 L24 38 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
-          <text x="22" y="33" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1a1a1a">?</text>
-          <ellipse cx="44" cy="36" rx="14" ry="11" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2.5"/>
-          <path d="M50 46 L48 52 L42 46 Z" fill="#fff3d6" stroke="#1a1a1a" stroke-width="2.5"/>
+          <ellipse cx="22" cy="28" rx="14" ry="11" fill="none" stroke="#1a1a1a" strokeWidth="2.5"/>
+          <path d="M16 38 L18 44 L24 38 Z" fill="#fff" stroke="#1a1a1a" strokeWidth="2.5"/>
+          <text x="22" y="33" textAnchor="middle" fontFamily="Arial" fontSize="14" fontWeight="700" fill="#1a1a1a">?</text>
+          <ellipse cx="44" cy="36" rx="14" ry="11" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2.5"/>
+          <path d="M50 46 L48 52 L42 46 Z" fill="#fff3d6" stroke="#1a1a1a" strokeWidth="2.5"/>
           {/* lightbulb */}
           <path d="M44 30 Q40 30 40 35 Q40 38 42 39 L42 42 L46 42 L46 39 Q48 38 48 35 Q48 30 44 30 Z" fill="var(--accent)"/>
         </svg>
       </div>
-      <h3>Innovative</h3>
-      <p>We specialise in creating innovative digital strategies to grow your business — combining sharp creative thinking with a willingness to experiment and learn fast.</p>
+      <h3>Collaboration</h3>
+      <p>We work closely with brands to understand their goals and create customised marketing strategies tailored to their business — no two engagements look the same.</p>
     </article>
   </div>
 </section>
 
-{/* ==== FOOTER START ==== */}
-
-{/* ==== FOOTER END ==== */}
-
-
-{/* WHATSAPP */}
+{/* LET'S BUILD TOGETHER CTA */}
+<section className="build-cta">
+  <div className="build-cta-inner">
+    <p className="section-eyebrow">LET&apos;S BUILD YOUR BRAND TOGETHER</p>
+    <h2>Let&apos;s create something meaningful, impactful, and growth-driven.</h2>
+    <p>
+      Whether you are launching a new business, growing an existing brand, or
+      looking to strengthen your digital presence — Social Verse helps transform
+      your ideas into impactful digital experiences.
+    </p>
+    <p>
+      Through strategic marketing, creative storytelling, performance advertising,
+      and innovative content creation, we help brands connect with audiences and
+      achieve sustainable growth.
+    </p>
+    <a href="/contact" className="meeting-btn">Let&apos;s Work Together</a>
+  </div>
+</section>
     </>
   );
 }

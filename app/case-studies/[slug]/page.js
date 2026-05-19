@@ -1,38 +1,198 @@
 "use client";
 
-import { useEffect } from "react";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { useParams } from "next/navigation";
+
+const CASE_STUDIES = {
+  "olive-heights": {
+    brand: "Olive Heights",
+    title: "Olive Heights — How We Helped Build A Strong Digital Presence",
+    category: "Case Studies · Hospitality · Rooftop Dining",
+    theme: "theme-green",
+    about: [
+      "Olive Heights is a premium rooftop restaurant and bar located in Guwahati, offering a blend of multi-cuisine dining, handcrafted beverages, and a sophisticated rooftop ambiance.",
+      "Known for its scenic rooftop experience, vibrant nightlife, and modern dining atmosphere, Olive Heights delivers a memorable experience for food lovers, couples, families, and social gatherings.",
+    ],
+    objectivesIntro:
+      "Our mission was to build a premium digital identity for Olive Heights and drive measurable footfall through content-led and performance-driven marketing.",
+    objectives: [
+      { strong: "Premium Digital Identity:", text: "Build a visually appealing and luxury-aligned digital identity across all platforms." },
+      { strong: "Brand Awareness:", text: "Increase brand awareness and online visibility within the Guwahati audience." },
+      { strong: "Customer Engagement:", text: "Drive higher engagement through cinematic reels, premium creatives, and consistent storytelling." },
+      { strong: "Footfall Generation:", text: "Convert online attention into restaurant visits through targeted Meta advertising campaigns." },
+    ],
+    resultsBlurb:
+      "Significant uplift in social media engagement, premium brand perception, and footfall — driven by a consistent content strategy and performance-focused Meta campaigns.",
+    stats: [
+      { num: "3.2×", label: "Engagement Growth" },
+      { num: "4.8×", label: "Reach Increase" },
+      { num: "+62%", label: "Customer Inquiries" },
+      { num: "+45%", label: "Restaurant Footfall" },
+    ],
+    challenges: [
+      { q: "Standing Out In A Saturated Market", a: "Rooftop cafés and restaurants are a highly discussed category among Guwahati audiences. Creating a distinct identity required sharp aesthetics and a clear point of view." },
+      { q: "Maintaining A Premium Visual Identity", a: "Every post, reel, and creative had to feel cohesive and premium — consistent across the Instagram grid, ad creatives, and content drops." },
+      { q: "Balancing Luxury With Engagement", a: "Luxury aesthetics often feel cold. We had to balance polished visuals with warm, audience-engaging content that drove real interactions." },
+      { q: "Driving Real Footfall, Not Just Likes", a: "The goal was real restaurant visits, reservations, and inquiries — not vanity metrics. That meant tight creative + funnel optimization on Meta ads." },
+    ],
+    strategiesIntro:
+      "To strengthen Olive Heights' digital presence we executed a complete content-driven and performance-oriented marketing strategy.",
+    strategies: [
+      { h: "Premium Visual Branding", p: "High-quality cinematic reels showcasing the rooftop ambiance, signature dishes, cocktails, nightlife, sunsets, and customer experiences." },
+      { h: "Engaging Social Media Grid", p: "A visually consistent and aesthetically aligned Instagram grid that established a premium and recognizable brand identity." },
+      { h: "Reels & Short-Form Content", p: "Trend-based and storytelling-driven reels produced to maximize reach, audience engagement, and organic visibility." },
+      { h: "Performance Marketing", p: "Targeted Meta ad campaigns focused on increasing restaurant footfall, brand awareness, and promoting offers, events, and nightlife experiences." },
+      { h: "Audience-Centric Content", p: "Content strategically planned around customer psychology — food cravings, rooftop ambiance, weekend experiences, and cocktail culture." },
+    ],
+    achievements: [
+      { strong: "Social Reach & Engagement:", text: "Increased social media reach and profile engagement through consistent, high-quality storytelling." },
+      { strong: "Audience Retention:", text: "Improved content interaction and audience retention via trend-driven reels and event-based content." },
+      { strong: "Premium Brand Perception:", text: "Enhanced premium brand perception online — Olive Heights now reads as a destination, not just a restaurant." },
+      { strong: "Footfall Generation:", text: "Better footfall generation through optimized Meta advertising campaigns targeting dining and nightlife audiences." },
+    ],
+    conclusion:
+      "Through premium visual storytelling, strategic content creation, engaging social media management, and performance-driven advertising, Social Verse helped Olive Heights establish a stronger and more impactful digital presence. The campaign improved online engagement and visibility, and contributed to building a recognizable rooftop dining brand that resonates with modern audiences seeking premium experiences.",
+    related: [
+      { slug: "awesome-palace", brand: "Awesome Palace", title: "Awesome Palace — A Strong Luxury Hospitality Presence", bg: "#e6ecf3", bar: "#1a3b5d" },
+      { slug: "ahvi-gold", brand: "Ahvi Gold", title: "Ahvi Gold — Transforming Into A Recognizable Brand", bg: "#faf1d8", bar: "#caa14a" },
+    ],
+    next: { slug: "awesome-palace", brand: "Awesome Palace" },
+  },
+
+  "awesome-palace": {
+    brand: "Awesome Palace",
+    title: "Awesome Palace — Creating A Strong Luxury Hospitality Presence",
+    category: "Case Studies · Hospitality · Luxury Hotel",
+    theme: "theme-blue",
+    about: [
+      "Awesome Palace is a luxury hotel and hospitality destination located near Guwahati Airport in Borjhar, offering premium accommodations, elegant interiors, fine dining experiences, banquet facilities, and modern hospitality services for business and leisure travelers.",
+      "With a focus on comfort, convenience, and premium guest experiences, the hotel caters to travelers seeking luxury stays close to the airport while maintaining a sophisticated hospitality experience.",
+    ],
+    objectivesIntro:
+      "Our mission was to position Awesome Palace as the preferred luxury stay near Guwahati Airport through premium visuals, consistent identity, and strategic Meta advertising.",
+    objectives: [
+      { strong: "Premium Brand Presence:", text: "Build a strong and premium digital brand presence across social media platforms." },
+      { strong: "Hotel Visibility:", text: "Increase hotel visibility and position Awesome Palace as a preferred luxury stay near the airport." },
+      { strong: "Guest Inquiries:", text: "Drive guest inquiries, bookings, and direct engagement through performance campaigns." },
+      { strong: "Luxury Positioning:", text: "Enhance audience perception through premium visuals and consistent storytelling." },
+    ],
+    resultsBlurb:
+      "Strong growth in social media reach, engagement, and inquiries — anchored by premium content and a luxury-aligned brand identity.",
+    stats: [
+      { num: "2.7×", label: "Reach Growth" },
+      { num: "+58%", label: "Engagement" },
+      { num: "+48%", label: "Guest Inquiries" },
+      { num: "+39%", label: "Booking Intent" },
+    ],
+    challenges: [
+      { q: "Saturated Hospitality Market", o: "The luxury hospitality industry near transit zones is highly competitive — guests have many accommodation options." },
+      { q: "Establishing Trust & Premium Identity", a: "Building a premium and trustworthy digital identity in a category where social proof and visual polish drive booking decisions." },
+      { q: "Visually Appealing Content At Scale", a: "Creating visually appealing content consistently — rooms, dining, banquets, services — required disciplined production." },
+      { q: "Driving Real Inquiries", a: "Converting engagement into actual guest inquiries and bookings meant tight Meta funnel design and ongoing creative iteration." },
+    ],
+    strategiesIntro:
+      "We implemented a complete content + performance marketing strategy focused on luxury branding and audience engagement.",
+    strategies: [
+      { h: "Premium Visual Production", p: "High-quality reels, cinematic walkthroughs, professional photography, and visually refined creatives highlighting rooms, dining, banquets, and guest experiences." },
+      { h: "Engaging Social Media Grid", p: "A modern and aesthetically aligned content grid that reinforced the hotel's premium identity across every channel." },
+      { h: "Reels & Storytelling", p: "Short-form content and trend-driven reels strategically created to maximize reach, engagement, and audience retention." },
+      { h: "Meta Advertising Campaigns", p: "Targeted campaigns focused on hotel visibility, guest inquiries, luxury stays, and reaching travelers and local premium audiences." },
+      { h: "Audience-Focused Branding", p: "Content emphasized luxury lifestyle experiences, airport convenience, elegant aesthetics, trust, and credibility." },
+    ],
+    achievements: [
+      { strong: "Brand Visibility:", text: "Increased brand visibility and audience reach across social media platforms." },
+      { strong: "Premium Engagement:", text: "Higher engagement through premium visual content and storytelling-led reels." },
+      { strong: "Luxury Positioning:", text: "Improved luxury brand positioning online — Awesome Palace now reads as a destination, not a transit hotel." },
+      { strong: "Inquiries & Interactions:", text: "Growth in inquiries and customer interactions through optimized Meta campaigns." },
+    ],
+    conclusion:
+      "Through premium content creation, strategic branding, engaging social media management, and performance-focused Meta advertising, Social Verse enhanced Awesome Palace's digital presence and luxury positioning. The campaign created stronger audience engagement, improved visibility, and a more refined online identity that reflects the premium hospitality experience offered by the hotel.",
+    related: [
+      { slug: "olive-heights", brand: "Olive Heights", title: "Olive Heights — How We Helped Build A Strong Digital Presence", bg: "#f1ead3", bar: "#d4793c" },
+      { slug: "ahvi-gold", brand: "Ahvi Gold", title: "Ahvi Gold — Transforming Into A Recognizable Brand", bg: "#faf1d8", bar: "#caa14a" },
+    ],
+    next: { slug: "ahvi-gold", brand: "Ahvi Gold" },
+  },
+
+  "ahvi-gold": {
+    brand: "Ahvi Gold",
+    title: "Ahvi Gold — Transforming Into A Recognizable Gold Buying Brand",
+    category: "Case Studies · Financial Services · Bullion",
+    theme: "theme-orange",
+    about: [
+      "Ahvi Gold is a trusted gold and silver buying company specializing in transparent valuation, instant payments, and secure transactions for customers looking to sell their precious metals.",
+      "The brand focuses on providing customers with a professional, trustworthy, and hassle-free experience through accurate purity testing, fair market pricing, and customer-centric service.",
+    ],
+    objectivesIntro:
+      "Our mission was to build trust and credibility for Ahvi Gold through educational, transparent content and lead-driving Meta advertising.",
+    objectives: [
+      { strong: "Trust & Credibility:", text: "Build trust and credibility through professional digital branding in a sensitive financial category." },
+      { strong: "Service Awareness:", text: "Increase awareness about gold and silver buying services and educate audiences on transparent valuation." },
+      { strong: "Footfall & Inquiries:", text: "Drive higher footfall and customer inquiries through targeted Meta campaigns." },
+      { strong: "Quality Lead Flow:", text: "Generate quality leads via educational creatives and trust-led messaging." },
+    ],
+    resultsBlurb:
+      "Strong gains in trust, reach, and customer inquiries — driven by an educational content strategy and trust-based Meta campaigns.",
+    stats: [
+      { num: "+74%", label: "Trust Score" },
+      { num: "3.5×", label: "Reach" },
+      { num: "+82%", label: "Customer Inquiries" },
+      { num: "+51%", label: "Store Footfall" },
+    ],
+    challenges: [
+      { q: "High-Trust Financial Category", a: "Building trust in a highly sensitive category — gold and silver buying — required transparent, educational, and credible content." },
+      { q: "Customer Hesitation", a: "Overcoming customer hesitation around gold selling services through clear communication of valuation, purity, and payment processes." },
+      { q: "Differentiation From Local Buyers", a: "Standing out from traditional local gold buyers required a modern, professional, and digitally-led brand identity." },
+      { q: "Simplifying Technical Processes", a: "Translating complex valuation and purity-testing processes into engaging, easy-to-understand visual content." },
+    ],
+    strategiesIntro:
+      "We developed a strategic content and advertising approach focused on trust, transparency, and engagement.",
+    strategies: [
+      { h: "Premium Visual Branding", p: "Professional visuals, premium reels, and informative creatives showcasing gold purity testing, transparent valuation, and modern service environment." },
+      { h: "Educational Content Strategy", p: "Informative content educating audiences about how gold valuation works, benefits of selling through trusted buyers, and pricing transparency." },
+      { h: "Engaging Social Creatives", p: "A visually consistent and premium social media feed that strengthened brand perception and audience trust." },
+      { h: "Reels & Short-Form Videos", p: "Trend-driven reels used to improve engagement, increase reach, and simplify complex information through visual storytelling." },
+      { h: "Meta Advertising Campaigns", p: "Targeted Meta campaigns to increase local brand awareness, generate customer inquiries, drive footfall, and promote trust-based messaging." },
+    ],
+    achievements: [
+      { strong: "Engagement Lift:", text: "Increased engagement across social media platforms through consistent, educational content." },
+      { strong: "Audience Awareness:", text: "Improved audience awareness about gold buying services and valuation processes." },
+      { strong: "Trust Through Education:", text: "Enhanced trust through educational and transparent content that demystified the gold buying process." },
+      { strong: "Footfall & Recognition:", text: "Growth in customer inquiries, store visits, and recognition among local target audiences." },
+    ],
+    conclusion:
+      "Through premium visual storytelling, educational content strategies, creative social media management, and performance-driven Meta advertising, Social Verse helped Ahvi Gold strengthen its digital presence and customer trust. The campaign contributed towards building a more professional, transparent, and recognizable brand identity while increasing visibility, engagement, and customer interaction for the business.",
+    related: [
+      { slug: "olive-heights", brand: "Olive Heights", title: "Olive Heights — How We Helped Build A Strong Digital Presence", bg: "#f1ead3", bar: "#d4793c" },
+      { slug: "awesome-palace", brand: "Awesome Palace", title: "Awesome Palace — A Strong Luxury Hospitality Presence", bg: "#e6ecf3", bar: "#1a3b5d" },
+    ],
+    next: { slug: "olive-heights", brand: "Olive Heights" },
+  },
+};
 
 export default function CaseStudyPage() {
+  const params = useParams();
+  const slug = params?.slug;
+  const cs = slug && CASE_STUDIES[slug] ? CASE_STUDIES[slug] : null;
+  const initRef = useRef(false);
+
   useEffect(() => {
+    if (initRef.current) return;
+    initRef.current = true;
     // ---------- CHALLENGES ACCORDION ----------
       document.querySelectorAll('.ch-toggle').forEach(btn => {
         btn.addEventListener('click', () => {
           const item = btn.parentElement;
-          // Close other items, open this one (single-open behavior)
           const isOpen = item.classList.contains('open');
           document.querySelectorAll('.ch-item').forEach(i => i.classList.remove('open'));
           if (!isOpen) item.classList.add('open');
         });
       });
 
-      // ---------- PROVEN RESULTS PAGINATION ----------
-      // For now this is a 2-page indicator with arrow placeholders.
-      // When you have multiple slides per "page", expand this logic.
-      let provenPage = 1;
-      const provenTotal = 2;
-      const provenCurrent = document.getElementById('provenCurrent');
-      document.getElementById('provenPrev')?.addEventListener('click', () => {
-        provenPage = provenPage === 1 ? provenTotal : provenPage - 1;
-        provenCurrent.textContent = provenPage;
-      });
-      document.getElementById('provenNext')?.addEventListener('click', () => {
-        provenPage = provenPage === provenTotal ? 1 : provenPage + 1;
-        provenCurrent.textContent = provenPage;
-      });
-
       // ---------- HIDE FLOATING NEXT WHEN FOOTER VISIBLE ----------
       const float = document.getElementById('nextProjectFloat');
-      window.addEventListener('scroll', () => {
+      const onScroll = () => {
         const footer = document.querySelector('.site-footer');
         if (!footer || !float) return;
         const rect = footer.getBoundingClientRect();
@@ -41,8 +201,30 @@ export default function CaseStudyPage() {
         } else {
           float.style.transform = 'translateY(0)';
         }
-      });
-  }, []);
+      };
+      window.addEventListener('scroll', onScroll);
+      return () => window.removeEventListener('scroll', onScroll);
+  }, [slug]);
+
+  if (!cs) {
+    return (
+      <div style={{
+        marginTop: 90, minHeight: '60vh',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        padding: '60px 24px', textAlign: 'center',
+      }}>
+        <h1 style={{ fontSize: 36, marginBottom: 16 }}>Case study not found</h1>
+        <Link href="/case-studies" style={{
+          background: 'var(--accent)', color: '#fff',
+          padding: '14px 28px', borderRadius: 8,
+          textDecoration: 'none', fontWeight: 600,
+        }}>
+          All Case Studies
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -931,77 +1113,47 @@ export default function CaseStudyPage() {
 
       `}} />
 
-{/* NAVBAR */}
-
-
 {/* HERO */}
-<section className="cs-hero hero-gradient theme-green">
-  <button className="back-btn" onClick={() => { history.back() }}>←</button>
-  <p className="cs-category">Case Studies</p>
-  <h1 className="cs-title">Sample Project — A Digital Marketing Success Story</h1>
+<section className={`cs-hero hero-gradient ${cs.theme}`}>
+  <Link href="/case-studies" className="back-btn" style={{textDecoration: 'none', display: 'inline-block'}}>←</Link>
+  <p className="cs-category">{cs.category}</p>
+  <h1 className="cs-title">{cs.title}</h1>
 </section>
 
 {/* BREADCRUMB */}
 <div className="breadcrumb">
-  <a href="/">Home</a>
+  <Link href="/">Home</Link>
   <span className="sep">›</span>
-  <a href="/works">Portfolio</a>
+  <Link href="/case-studies">Case Studies</Link>
   <span className="sep">›</span>
-  <span className="current">Sample Project — A Digital Marketing Success Story</span>
+  <span className="current">{cs.brand}</span>
 </div>
 
 {/* INTRO + RESULTS */}
 <section className="cs-intro">
   <div>
-    <h2>About Company</h2>
-    <p>
-      Sample Client was founded in 2019 and is based in a major metropolitan hub. They
-      operate in a fast-growing industry with their on-demand product offering and have
-      quickly built a reputation for convenience, quality, and reliability with customers
-      across multiple cities.
-    </p>
-    <p>
-      Replace this section with the real client background — what they do, where they're
-      based, and the broader context of the business.
-    </p>
+    <h2>About {cs.brand}</h2>
+    {cs.about.map((para, i) => (<p key={i}>{para}</p>))}
 
     <h2 className="spaced">Campaign Objectives</h2>
-    <p>
-      Our mission was to boost the client's digital footprint, expand market share, and
-      increase online sales through tailored digital marketing strategies.
-    </p>
+    <p>{cs.objectivesIntro}</p>
     <ul className="objective-list">
-      <li><span><strong>Boost Online Visibility:</strong> Increase traffic across the client's digital platforms by emphasising their unique product proposition and standing out in a competitive landscape.</span></li>
-      <li><span><strong>Franchise Recruitment:</strong> Attract potential franchisees through targeted campaigns and qualified lead generation.</span></li>
-      <li><span><strong>Market Penetration:</strong> Expand consumer adoption across priority cities and emerging markets.</span></li>
-      <li><span><strong>Customer Engagement:</strong> Build a community-driven presence that turns first-time buyers into loyal repeat customers.</span></li>
+      {cs.objectives.map((o, i) => (
+        <li key={i}><span><strong>{o.strong}</strong> {o.text}</span></li>
+      ))}
     </ul>
   </div>
 
   <aside className="cs-results-card">
     <h3>Results</h3>
-    <p>
-      Achieved a 60% increase in website traffic and a 70% increase in social media
-      engagement. Grew the franchisee network by 45%, significantly exceeding initial
-      targets.
-    </p>
+    <p>{cs.resultsBlurb}</p>
     <div className="stats-grid">
-      <div className="stat-card">
-        <div className="stat-num">60K</div>
-        <div className="stat-label">Website Traffic</div>
-      </div>
-      <div className="stat-card">
-        <div className="stat-num">45%</div>
-        <div className="stat-label">Franchise Network</div>
-      </div>
-      <div className="stat-card">
-        <div className="stat-num">40%</div>
-        <div className="stat-label">Increase Customer Base</div>
-      </div>
-      <div className="stat-card">
-        <div className="stat-num">70%</div>
-        <div className="stat-label">Increase in Social Media</div>
-      </div>
+      {cs.stats.map((s, i) => (
+        <div key={i} className="stat-card">
+          <div className="stat-num">{s.num}</div>
+          <div className="stat-label">{s.label}</div>
+        </div>
+      ))}
     </div>
   </aside>
 </section>
@@ -1012,50 +1164,17 @@ export default function CaseStudyPage() {
     <div className="challenges-left">
       <h2>Challenges Faced</h2>
       <div className="ch-accordion">
-        <div className="ch-item open">
-          <button type="button" className="ch-toggle">
-            <span>Emerging Market Education</span>
-            <span className="ch-icon"></span>
-          </button>
-          <div className="ch-answer">
-            <div className="ch-answer-inner">
-              Educating a market unfamiliar with the client's category and product proposition required clear, consistent messaging and lots of supporting content.
+        {cs.challenges.map((c, i) => (
+          <div key={i} className={`ch-item${i === 0 ? ' open' : ''}`}>
+            <button type="button" className="ch-toggle">
+              <span>{c.q}</span>
+              <span className="ch-icon"></span>
+            </button>
+            <div className="ch-answer">
+              <div className="ch-answer-inner">{c.a || c.o}</div>
             </div>
           </div>
-        </div>
-        <div className="ch-item">
-          <button type="button" className="ch-toggle">
-            <span>Brand Differentiation</span>
-            <span className="ch-icon"></span>
-          </button>
-          <div className="ch-answer">
-            <div className="ch-answer-inner">
-              Standing out in a crowded category meant doubling down on a sharp brand point of view and visual identity that was consistently applied across every channel.
-            </div>
-          </div>
-        </div>
-        <div className="ch-item">
-          <button type="button" className="ch-toggle">
-            <span>Conversion Optimisation</span>
-            <span className="ch-icon"></span>
-          </button>
-          <div className="ch-answer">
-            <div className="ch-answer-inner">
-              Turning paid traffic into qualified conversions called for tight funnel design, ongoing creative testing, and aggressive landing-page optimisation.
-            </div>
-          </div>
-        </div>
-        <div className="ch-item">
-          <button type="button" className="ch-toggle">
-            <span>Cross-City Consistency</span>
-            <span className="ch-icon"></span>
-          </button>
-          <div className="ch-answer">
-            <div className="ch-answer-inner">
-              Running campaigns across multiple cities required regional creative variants while keeping the core brand voice and visual system tightly consistent.
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
     <div className="challenges-image"></div>
@@ -1065,157 +1184,57 @@ export default function CaseStudyPage() {
 {/* CAMPAIGN STRATEGIES */}
 <section className="cs-strategies">
   <h2>Campaign Strategies</h2>
-  <p className="cs-strategies-desc">
-    To address the challenges above and meet the campaign objectives, we devised the
-    following strategies and implemented appropriate solutions:
-  </p>
+  <p className="cs-strategies-desc">{cs.strategiesIntro}</p>
   <div className="strategies-grid">
-    <div className="strategy-card">
-      <h3>Google Ads &amp; Meta Marketing</h3>
-      <p>Leveraged high-impact pay-per-click (PPC) campaigns and social media advertising to target both potential franchisees and end-users with sharp creative and tight audience segmentation.</p>
-    </div>
-    <div className="strategy-card">
-      <h3>Data Driven Targeting</h3>
-      <p>Utilised advanced analytics to refine audience targeting on a weekly basis, increasing campaign relevance and effectiveness while bringing down cost per acquisition.</p>
-    </div>
-    <div className="strategy-card">
-      <h3>Conversion Tracking &amp; Funnel Analysis</h3>
-      <p>Deployed advanced attribution models and full-funnel analysis to optimise campaign flow and budget allocation across every stage of the customer journey.</p>
-    </div>
-  </div>
-</section>
-
-{/* PROVEN RESULTS CAROUSEL */}
-<section className="cs-proven">
-  <h2>Proven Results</h2>
-  <div className="proven-stage">
-    <button className="proven-arrow prev" id="provenPrev" aria-label="Previous">←</button>
-
-    <div className="proven-laptop">
-      <div className="proven-mini">
-        <div className="proven-screen">
-          <div className="pscreen-top">
-            <span></span><span></span><span></span>
-            <em style={{marginLeft: '8px', fontStyle: 'normal'}}>Google Ads · Campaign</em>
-          </div>
-          <div className="pscreen-content">
-            <div className="pbar"></div>
-            <div className="pbar s"></div>
-            <div className="pbar r"></div>
-            <div className="pbar b"></div>
-            <div className="pbar s"></div>
-            <div className="pchart"></div>
-          </div>
-        </div>
+    {cs.strategies.slice(0, 3).map((s, i) => (
+      <div key={i} className="strategy-card">
+        <h3>{s.h}</h3>
+        <p>{s.p}</p>
       </div>
-      <div className="proven-keyboard"></div>
-    </div>
-
-    <div className="proven-laptop">
-      <div className="proven-mini">
-        <div className="proven-screen">
-          <div className="pscreen-top">
-            <span></span><span></span><span></span>
-            <em style={{marginLeft: '8px', fontStyle: 'normal'}}>Analytics · Realtime</em>
-          </div>
-          <div className="pscreen-content">
-            <div className="pbar"></div>
-            <div className="pbar s"></div>
-            <div className="pbar b"></div>
-            <div className="pbar s"></div>
-            <div className="pbar r"></div>
-            <div className="pchart"></div>
-          </div>
+    ))}
+  </div>
+  {cs.strategies.length > 3 && (
+    <div className="strategies-grid" style={{marginTop: 28}}>
+      {cs.strategies.slice(3).map((s, i) => (
+        <div key={i} className="strategy-card">
+          <h3>{s.h}</h3>
+          <p>{s.p}</p>
         </div>
-      </div>
-      <div className="proven-keyboard"></div>
+      ))}
     </div>
-
-    <button className="proven-arrow next" id="provenNext" aria-label="Next">→</button>
-  </div>
-  <div className="proven-pagination">
-    <span className="pnum active" id="provenCurrent">1</span>
-    <span className="pline"></span>
-    <span className="pnum" id="provenTotal">2</span>
-  </div>
+  )}
 </section>
 
 {/* RESULTS ACHIEVED */}
 <section className="cs-results">
-  <h2>Results Achieved</h2>
+  <h2>Key Achievements</h2>
   <ul className="results-list">
-    <li><span><strong>Digital Engagement:</strong> Achieved a 60% increase in website traffic and a 70% increase in social media engagement.</span></li>
-    <li><span><strong>Franchise Network Expansion:</strong> Grew the franchisee network by 45%, significantly exceeding initial targets.</span></li>
-    <li><span><strong>Increased Service Uptake:</strong> Registered a 55% rise in user adoption rate, thanks to precise market targeting and compelling call-to-action strategies.</span></li>
-    <li><span><strong>Improved ROAS:</strong> Reduced cost per acquisition by 32% over the first quarter through continuous creative testing and audience refinement.</span></li>
+    {cs.achievements.map((a, i) => (
+      <li key={i}><span><strong>{a.strong}</strong> {a.text}</span></li>
+    ))}
   </ul>
-</section>
-
-{/* TESTIMONIAL */}
-<section className="cs-testi">
-  <div className="cs-testi-grid">
-    <div>
-      <p className="cs-testi-eyebrow">TESTIMONIALS</p>
-      <h2 className="cs-testi-heading">What our clients say about us</h2>
-    </div>
-    <div className="cs-testi-quote">
-      <p className="cs-testi-quote-text">
-        TheSocialVerse played a pivotal role in amplifying our lead generation
-        efforts. Their expertise in crafting targeted campaigns is unparalleled, and
-        their ability to communicate effectively ensures that we're always aligned on
-        our goals. The professionalism and deep understanding of digital marketing they
-        bring to the table have greatly enhanced our outreach, making them a key asset
-        in our marketing strategy.
-      </p>
-      <div className="cs-testi-stars">★ ★ ★ ★ ★</div>
-      <div className="cs-testi-author">Sample Client Name</div>
-      <div className="cs-testi-author-meta">Vice President, Strategic Partnerships</div>
-    </div>
-    <div className="cs-testi-photo"></div>
-  </div>
 </section>
 
 {/* CONCLUSION */}
 <section className="cs-conclusion">
   <h2>Conclusion</h2>
-  <p>
-    TheSocialVerse's targeted digital marketing campaign for our client showcases a
-    stellar example of how tailored digital strategies can substantially elevate a brand's
-    presence and commercial success in a niche market. Our work not only amplified their
-    digital footprint but also expanded their business operations through effective
-    franchisee recruitment and customer conversion strategies, setting a benchmark in the
-    industry.
-  </p>
+  <p>{cs.conclusion}</p>
 </section>
 
 {/* RELATED CASE STUDIES */}
 <section className="cs-related">
   <h2 className="cs-related-heading">Related Case Studies</h2>
   <div className="cs-related-grid">
-    <article className="cs-related-card">
-      <a href="/case-studies/sample-case" className="cs-related-image" style={{background: '#fde6f0'}}>
-        <div className="cs-related-mark">Sample One</div>
-        <div className="cs-related-bar" style={{background: '#f7c4d6'}}></div>
-      </a>
-      <h3 className="cs-related-title">Sample One — A Digital Marketing Success Story</h3>
-      <p className="cs-related-meta">Case Studies</p>
-    </article>
-    <article className="cs-related-card">
-      <a href="/case-studies/sample-case" className="cs-related-image" style={{background: '#e6f5d4'}}>
-        <div className="cs-related-mark">Sample Two</div>
-        <div className="cs-related-bar" style={{background: '#cce8a8'}}></div>
-      </a>
-      <h3 className="cs-related-title">Sample Two — A Proven Google Ads Case Study</h3>
-      <p className="cs-related-meta">Case Studies</p>
-    </article>
-    <article className="cs-related-card">
-      <a href="/case-studies/sample-case" className="cs-related-image" style={{background: '#ededed'}}>
-        <div className="cs-related-mark">Sample Three</div>
-        <div className="cs-related-bar" style={{background: '#d0d0d0'}}></div>
-      </a>
-      <h3 className="cs-related-title">Sample Three — Case Study | Google Analytics GA4</h3>
-      <p className="cs-related-meta">Case Studies</p>
-    </article>
+    {cs.related.map((r) => (
+      <article key={r.slug} className="cs-related-card">
+        <Link href={`/case-studies/${r.slug}`} className="cs-related-image" style={{background: r.bg}}>
+          <div className="cs-related-mark">{r.brand}</div>
+          <div className="cs-related-bar" style={{background: r.bar}}></div>
+        </Link>
+        <h3 className="cs-related-title">{r.title}</h3>
+        <p className="cs-related-meta">Case Studies</p>
+      </article>
+    ))}
   </div>
 </section>
 
@@ -1223,22 +1242,11 @@ export default function CaseStudyPage() {
 <div className="next-project-float" id="nextProjectFloat">
   <div className="np-label">
     <span>Next Project</span>
-    <div className="np-arrows">
-      <button className="prev" aria-label="Previous">←</button>
-      <button className="next" aria-label="Next">→</button>
-    </div>
   </div>
   <div className="np-title">
-    <a href="/case-studies/sample-case">Sample Next Project — Case Study</a>
+    <Link href={`/case-studies/${cs.next.slug}`}>{cs.next.brand} — Case Study →</Link>
   </div>
 </div>
-
-{/* ==== FOOTER START ==== */}
-
-{/* ==== FOOTER END ==== */}
-
-
-{/* WHATSAPP */}
     </>
   );
 }

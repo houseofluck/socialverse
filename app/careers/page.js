@@ -302,7 +302,7 @@ export default function CareersPage() {
   .apply-form select {
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='%23111' stroke-width='2'><path d='M3 5 L7 9 L11 5'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='%23111' strokeWidth='2'><path d='M3 5 L7 9 L11 5'/></svg>");
     background-repeat: no-repeat;
     background-position: right 18px center;
     padding-right: 44px;
@@ -734,17 +734,17 @@ export default function CareersPage() {
       <div className="why-us-illustration">
         <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
           <g>
-            <circle cx="100" cy="140" r="26" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="100" cy="140" r="26" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
             <path d="M78 135 Q78 115 100 115 Q122 115 122 138 Q112 128 100 130 Q90 130 78 135 Z" fill="#1a1a1a"/>
             <path d="M78 168 Q78 195 100 195 Q122 195 122 168 L130 230 L70 230 Z" fill="var(--accent)"/>
             <ellipse cx="160" cy="100" rx="22" ry="16" fill="var(--accent)"/>
             <path d="M148 113 L150 122 L162 113 Z" fill="var(--accent)"/>
           </g>
           <g>
-            <circle cx="180" cy="155" r="26" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+            <circle cx="180" cy="155" r="26" fill="#fff" stroke="#1a1a1a" strokeWidth="3"/>
             <path d="M158 150 Q158 130 180 130 Q202 130 202 153 Q193 142 180 144 Q170 144 158 150 Z" fill="#1a1a1a"/>
             <path d="M158 180 Q158 200 180 200 L195 215 Q200 220 200 240 L150 240 L155 215 Q150 200 158 180 Z" fill="var(--accent)"/>
-            <path d="M165 195 Q140 200 130 220" stroke="#1a1a1a" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M165 195 Q140 200 130 220" stroke="#1a1a1a" strokeWidth="5" fill="none" strokeLinecap="round"/>
           </g>
           <rect x="105" y="218" width="70" height="44" rx="3" fill="#1a1a1a"/>
           <rect x="110" y="223" width="60" height="34" rx="2" fill="#fff"/>
