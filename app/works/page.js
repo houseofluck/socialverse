@@ -10,39 +10,37 @@ export default function WorksPage() {
     initRef.current = true;
 
     // ---------- DATA ----------
-      // Portfolio dataset organized by category per Social Verse content spec.
+      // Portfolio dataset — real client work, interleaved for a diverse "All" view.
       const allProjects = [
-        // Our Creativity
-        { title: "Editorial Layout",   meta: "Olive Heights · Creative Design",      cat: "creativity",  mock: "cover",    bg: "linear-gradient(135deg, #d4793c 0%, #8a3e1a 100%)" },
-        { title: "Festive Campaign",   meta: "Awesome Palace · Creative Design",     cat: "creativity",  mock: "abstract", bg: "linear-gradient(135deg, #1a3b5d 0%, #c8a35c 100%)" },
-        { title: "Product Launch",     meta: "Ahvi Gold · Creative Design",          cat: "creativity",  mock: "stack",    bg: "linear-gradient(135deg, #1a1410 0%, #caa14a 100%)" },
-        { title: "Seasonal Edit",      meta: "Olive Garden · Creative Design",       cat: "creativity",  mock: "abstract", bg: "linear-gradient(135deg, #4a5d3a, #8aa86a)" },
+        { title: "Sundays Are For Indulgence", meta: "Olive Heights · Creative Reel",  cat: "videos",     type: "video", src: "/work/reels/reel-olive-heights-1.mp4", poster: "/work/reels/posters/reel-olive-heights-1.jpg" },
+        { title: "Old Gold, Instant Value",    meta: "Ahvi Gold · Our Creativity",      cat: "creativity", type: "image", src: "/work/creatives/showcase-01.jpg" },
+        { title: "New Beginnings",             meta: "Ahvi Gold · Social Media",        cat: "social",     type: "image", src: "/work/creatives/creative-01.jpg" },
+        { title: "Backstage Siblings",         meta: "Jewellery Hub · Hoarding Design", cat: "hoarding",   type: "image", src: "/work/hoarding.jpg" },
+        { title: "Elegance In Every Detail",   meta: "Awesome Palace · Creative Reel",  cat: "videos",     type: "video", src: "/work/reels/reel-awesome-palace.mp4", poster: "/work/reels/posters/reel-awesome-palace.jpg" },
+        { title: "Silver Pass",                meta: "Jewellery Hub · Ticket Design",   cat: "tickets",    type: "image", src: "/work/tickets/ticket-1.jpg", fit: "contain" },
 
-        // Hoarding Designs
-        { title: "Highway Hoarding",   meta: "Olive Heights · Hoarding Design",      cat: "hoarding",    mock: "abstract", bg: "linear-gradient(135deg, #c44a3f 0%, #6b1a1a 100%)" },
-        { title: "Airport Approach",   meta: "Awesome Palace · Hoarding Design",     cat: "hoarding",    mock: "abstract", bg: "linear-gradient(135deg, #0a1a2e, #1a3b5d)" },
-        { title: "City Centre Display",meta: "Ahvi Gold · Hoarding Design",          cat: "hoarding",    mock: "stack",    bg: "linear-gradient(135deg, #caa14a 0%, #1a1410 100%)" },
-        { title: "Festival Hoarding",  meta: "Jewellery Hub · Hoarding Design",      cat: "hoarding",    mock: "abstract", bg: "linear-gradient(135deg, #6a4c93, #8a5fbf)" },
+        { title: "Sunset Dining Rhythm",       meta: "Olive Heights · Our Creativity",  cat: "creativity", type: "image", src: "/work/creatives/showcase-03.jpg" },
+        { title: "Apple Tart Elegance",        meta: "Olive Heights · Social Media",    cat: "social",     type: "image", src: "/work/creatives/creative-05.jpg" },
+        { title: "The Feed That Stops Scroll", meta: "Olive Heights · Social Media",    cat: "social",     type: "image", src: "/work/creatives/social-grid.jpg" },
+        { title: "Plated To Perfection",       meta: "Olive Garden · Creative Reel",    cat: "videos",     type: "video", src: "/work/reels/reel-olive-garden.mp4", poster: "/work/reels/posters/reel-olive-garden.jpg" },
+        { title: "Events, Made Magic",         meta: "Awesome Palace · Our Creativity", cat: "creativity", type: "image", src: "/work/creatives/showcase-04.jpg" },
+        { title: "You Deserve Comfort",        meta: "Awesome Palace · Social Media",   cat: "social",     type: "image", src: "/work/creatives/creative-02.jpg" },
 
-        // Ticket Designs
-        { title: "New Year Bash",      meta: "Olive Heights · Ticket Design",        cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #d4793c, #6b1a1a)" },
-        { title: "Live Music Night",   meta: "Olive Garden · Ticket Design",         cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #2d3436, #636e72)" },
-        { title: "Festive Gala",       meta: "Awesome Palace · Ticket Design",       cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #1a3b5d, #c8a35c)" },
-        { title: "Cocktail Night",     meta: "Olive Heights · Ticket Design",        cat: "tickets",     mock: "spread",   bg: "linear-gradient(135deg, #8e44ad, #c0392b)" },
+        { title: "Event Pass — Gold",          meta: "Jewellery Hub · Ticket Design",   cat: "tickets",    type: "image", src: "/work/tickets/ticket-2.jpg", fit: "contain" },
+        { title: "Your Dream Home, Funded",    meta: "Ahvi Gold · Creative Reel",       cat: "videos",     type: "video", src: "/work/reels/reel-ahvi-gold.mp4", poster: "/work/reels/posters/reel-ahvi-gold.jpg" },
+        { title: "Cocktail Elegance",          meta: "Olive Garden · Our Creativity",   cat: "creativity", type: "image", src: "/work/creatives/showcase-02.jpg" },
+        { title: "Limited Edition Grills",     meta: "Olive Garden · Social Media",     cat: "social",     type: "image", src: "/work/creatives/creative-07.jpg" },
+        { title: "Lingering Sips",             meta: "Awesome Palace · Our Creativity", cat: "creativity", type: "image", src: "/work/creatives/showcase-05.jpg" },
+        { title: "Sounds Of The Kitchen",      meta: "Olive Heights · Creative Reel",   cat: "videos",     type: "video", src: "/work/reels/reel-olive-heights-2.mp4", poster: "/work/reels/posters/reel-olive-heights-2.jpg" },
 
-        // Creative Videos
-        { title: "Rooftop Cinematic",  meta: "Olive Heights · Video Production",     cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #1a1410 0%, #c97a3c 100%)" },
-        { title: "Hotel Walkthrough",  meta: "Awesome Palace · Video Production",    cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #0f4c75 0%, #3282b8 100%)" },
-        { title: "Product Reel",       meta: "Ahvi Gold · Video Production",         cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #1a1410 0%, #d4a017 100%)" },
-        { title: "Brand Story",        meta: "Jewellery Hub · Video Production",     cat: "videos",      mock: "cover",    bg: "linear-gradient(135deg, #6a4c93, #2980b9)" },
-
-        // Social Media Creatives
-        { title: "Instagram Grid",     meta: "Olive Heights · Social Media",         cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #d4793c, #f5c46a)" },
-        { title: "Festive Grid",       meta: "Awesome Palace · Social Media",        cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #c8a35c, #1a3b5d)" },
-        { title: "Gold Edit",          meta: "Ahvi Gold · Social Media",             cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #caa14a, #1a1410)" },
-        { title: "Carousel Series",    meta: "Jewellery Hub · Social Media",         cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #8e44ad, #d4a017)" },
-        { title: "Story Highlights",   meta: "Olive Garden · Social Media",          cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #16a085, #1abc9c)" },
-        { title: "Promo Carousel",     meta: "Paxmeet · Social Media",               cat: "social",      mock: "abstract", bg: "linear-gradient(135deg, #2980b9, #3498db)" },
+        { title: "Premium Rooftop",            meta: "Awesome Palace · Social Media",   cat: "social",     type: "image", src: "/work/creatives/creative-06.jpg" },
+        { title: "Event Pass",                 meta: "Jewellery Hub · Ticket Design",   cat: "tickets",    type: "image", src: "/work/tickets/ticket-3.jpg", fit: "contain" },
+        { title: "Timeless Classic",           meta: "Awesome Palace · Our Creativity", cat: "creativity", type: "image", src: "/work/creatives/showcase-06.jpg" },
+        { title: "Minutes From The Airport",   meta: "Awesome Palace · Social Media",   cat: "social",     type: "image", src: "/work/creatives/creative-03.jpg" },
+        { title: "Rich Neapolitan",            meta: "Olive Heights · Social Media",    cat: "social",     type: "image", src: "/work/creatives/creative-08.jpg" },
+        { title: "Golden Herb Crusted",        meta: "Olive Garden · Our Creativity",   cat: "creativity", type: "image", src: "/work/creatives/showcase-07.jpg" },
+        { title: "Gold Into Dreams",           meta: "Ahvi Gold · Social Media",        cat: "social",     type: "image", src: "/work/creatives/creative-04.jpg" },
+        { title: "Pure Sophistication",        meta: "Olive Heights · Social Media",    cat: "social",     type: "image", src: "/work/creatives/creative-09.jpg" },
       ];
 
       // ---------- STATE ----------
@@ -60,35 +58,19 @@ export default function WorksPage() {
         return allProjects.filter(p => p.cat === currentCategory);
       }
 
-      function buildMock(type) {
-        if (type === 'cover') {
-          return `<div class="work-mock"><div class="mock-cover">
-            <div class="mock-label">Brand<br/>Story</div>
-            <div class="mock-year">2025</div>
-          </div></div>`;
-        }
-        if (type === 'spread') {
-          return `<div class="work-mock"><div class="mock-spread">
-            <div class="spread-page left"></div>
-            <div class="spread-page right"></div>
-          </div></div>`;
-        }
-        if (type === 'stack') {
-          return `<div class="work-mock">
-            <div class="mock-stack stack-back"></div>
-            <div class="mock-stack stack-front">
-              <div class="mock-stack-label">Annual<br/>Report</div>
-            </div>
+      function buildMedia(p) {
+        const fitClass = p.fit === 'contain' ? ' fit-contain' : '';
+        if (p.type === 'video') {
+          return `<div class="work-card-image is-video">
+            <video src="${p.src}" poster="${p.poster}" muted loop playsinline preload="metadata"></video>
+            <span class="play-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
           </div>`;
         }
-        // abstract
-        return `<div class="work-mock"><div class="mock-abstract">
-          <div class="bar accent"></div>
-          <div class="bar"></div>
-          <div class="bar short"></div>
-          <div class="bar"></div>
-          <div class="bar short"></div>
-        </div></div>`;
+        return `<div class="work-card-image${fitClass}">
+          <img src="${p.src}" alt="${p.title}" loading="lazy" />
+        </div>`;
       }
 
       function renderCards(items) {
@@ -97,12 +79,17 @@ export default function WorksPage() {
           card.className = 'work-card';
           card.style.animationDelay = (i * 60) + 'ms';
           card.innerHTML = `
-            <div class="work-card-image" style="background: ${p.bg};">
-              ${buildMock(p.mock)}
-            </div>
+            ${buildMedia(p)}
             <h3 class="work-title">${p.title}</h3>
             <p class="work-meta">${p.meta}</p>
           `;
+          // Hover-to-play for video cards
+          const video = card.querySelector('video');
+          if (video) {
+            const wrap = card.querySelector('.work-card-image');
+            wrap.addEventListener('mouseenter', () => { video.play().catch(() => {}); });
+            wrap.addEventListener('mouseleave', () => { video.pause(); });
+          }
           grid.appendChild(card);
         });
       }
@@ -275,15 +262,46 @@ export default function WorksPage() {
 
   .work-card-image {
     display: block; width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
     border-radius: 18px;
     overflow: hidden;
     position: relative;
     margin-bottom: 24px;
     text-decoration: none;
-    transition: transform 0.4s ease;
+    background: #111;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-  .work-card-image:hover { transform: translateY(-4px); }
+  .work-card-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.16);
+  }
+  .work-card-image img,
+  .work-card-image video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+  .work-card-image:hover img { transform: scale(1.04); }
+  /* Tickets are landscape — show the full design, no crop */
+  .work-card-image.fit-contain { background: #161616; }
+  .work-card-image.fit-contain img { object-fit: contain; }
+  /* Video play badge */
+  .work-card-image .play-badge {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(0,0,0,0.42);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1.5px solid rgba(255,255,255,0.65);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    padding-left: 3px; z-index: 2; pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .work-card-image.is-video:hover .play-badge {
+    opacity: 0; transform: translate(-50%, -50%) scale(0.8);
+  }
 
   .work-title {
     font-size: 28px; font-weight: 700; color: #111;
@@ -689,7 +707,7 @@ export default function WorksPage() {
     /* Works */
     .works { padding: 50px 18px 60px; }
     .works-grid { grid-template-columns: 1fr; gap: 32px; row-gap: 40px; }
-    .work-card-image { aspect-ratio: 16 / 11; }
+    .work-card-image { aspect-ratio: 4 / 5; }
     .work-title { font-size: 24px; }
 
     /* Works page */

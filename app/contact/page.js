@@ -2,7 +2,45 @@
 
 import Link from "next/link";
 
+// First number listed in the footer (WhatsApp-enabled).
+const WHATSAPP_NUMBER = "916000955672";
+
+function buildWhatsAppMessage(form) {
+  const fd = new FormData(form);
+  const get = (n) => (fd.get(n) || "").toString().trim();
+  const name = [get("firstName"), get("lastName")].filter(Boolean).join(" ");
+  const website = get("website");
+  const message = get("message");
+  const services = fd.getAll("svc").filter(Boolean).join(", ");
+
+  const lines = [
+    "*New Inquiry — The Social Verse*",
+    "",
+    `*Name:* ${name || "—"}`,
+    `*Email:* ${get("email") || "—"}`,
+    `*Phone:* ${get("phone") || "—"}`,
+    `*Company:* ${get("company") || "—"}`,
+  ];
+  if (website) lines.push(`*Website:* ${website}`);
+  lines.push(`*Services Needed:* ${services || "—"}`);
+  if (message) lines.push("", `*Message:* ${message}`);
+
+  return lines.join("\n");
+}
+
 export default function ContactPage() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const text = encodeURIComponent(buildWhatsAppMessage(form));
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+    form.reset();
+  };
+
   return (
     <>
       <style dangerouslySetInnerHTML={{__html: `
@@ -296,14 +334,7 @@ export default function ContactPage() {
             </ul>
           </div>
 
-          <form
-            className="contact-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thanks! We will get back to you shortly.");
-              e.currentTarget.reset();
-            }}
-          >
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-field">
                 <label>Name <span className="req">*</span></label>

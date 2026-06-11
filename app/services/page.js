@@ -2,7 +2,36 @@
 
 import { useEffect } from "react";
 
+// First number listed in the footer (WhatsApp-enabled).
+const WHATSAPP_NUMBER = "916000955672";
+
+function sendFormToWhatsApp(form) {
+  const fd = new FormData(form);
+  const get = (n) => (fd.get(n) || "").toString().trim();
+  const name = [get("firstName"), get("lastName")].filter(Boolean).join(" ");
+  const website = get("website");
+  const message = get("message");
+  const services = fd.getAll("svc").filter(Boolean).join(", ");
+
+  const lines = [
+    "*New Quote Request — The Social Verse*",
+    "",
+    `*Name:* ${name || "—"}`,
+    `*Email:* ${get("email") || "—"}`,
+    `*Phone:* ${get("phone") || "—"}`,
+    `*Company:* ${get("company") || "—"}`,
+  ];
+  if (website) lines.push(`*Website:* ${website}`);
+  lines.push(`*Services Needed:* ${services || "—"}`);
+  if (message) lines.push("", `*Message:* ${message}`);
+
+  const text = encodeURIComponent(lines.join("\n"));
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
+  form.reset();
+}
+
 export default function ServicesPage() {
+  const handleQuoteSubmit = (e) => { e.preventDefault(); sendFormToWhatsApp(e.currentTarget); };
   useEffect(() => {
     // ---------- TESTIMONIALS ----------
       const testiSlides = document.querySelectorAll('.testi-slide');
@@ -212,6 +241,15 @@ export default function ServicesPage() {
     font-size: 22px; font-weight: 700;
     color: #6a6a6a; letter-spacing: 0.5px;
     text-align: center;
+  }
+  .client-logo img {
+    max-width: 100%;
+    max-height: 64px;
+    object-fit: contain;
+  }
+  .client-logo.dark {
+    background: #161616;
+    border-color: #161616;
   }
 
   /* ---------- TESTIMONIALS ---------- */
@@ -953,13 +991,13 @@ export default function ServicesPage() {
   </div>
 
   <div className="clients-grid">
-    <div className="client-logo"><span>Olive Heights</span></div>
-    <div className="client-logo"><span>Olive Garden</span></div>
-    <div className="client-logo"><span>Awesome Palace</span></div>
-    <div className="client-logo"><span>Fix24</span></div>
-    <div className="client-logo"><span>Ahvi Gold</span></div>
-    <div className="client-logo"><span>Jewellery Hub</span></div>
-    <div className="client-logo"><span>Paxmeet</span></div>
+    <div className="client-logo"><img src="/clients/olive-heights.png" alt="Olive Heights" /></div>
+    <div className="client-logo"><img src="/clients/olive-garden.png" alt="Olive Garden" /></div>
+    <div className="client-logo"><img src="/clients/awesome-palace.png" alt="Awesome Palace" /></div>
+    <div className="client-logo dark"><img src="/clients/fix24.png" alt="Fix24" /></div>
+    <div className="client-logo"><img src="/clients/ahvi-gold.png" alt="Ahvi Gold" /></div>
+    <div className="client-logo dark"><img src="/clients/jewellery-hub.png" alt="Jewellery Hub" /></div>
+    <div className="client-logo"><img src="/clients/paxmeet.png" alt="Paxmeet" /></div>
   </div>
 </section>
 
@@ -968,13 +1006,13 @@ export default function ServicesPage() {
   <p className="quote-eyebrow">SAY HELLO</p>
   <h2 className="quote-heading">Request a Free Quote</h2>
 
-  <form className="quote-form" onSubmit={(e) => { e.preventDefault(); alert('Thanks! We will get back to you shortly.'); e.currentTarget.reset(); }}>
+  <form className="quote-form" onSubmit={handleQuoteSubmit}>
     <div className="form-row">
       <div className="form-field">
         <label>Name <span className="req">*</span></label>
         <div className="name-row">
-          <input type="text" placeholder="First name" required />
-          <input type="text" placeholder="Last name" />
+          <input type="text" name="firstName" placeholder="First name" required />
+          <input type="text" name="lastName" placeholder="Last name" />
         </div>
       </div>
       <div className="form-field"></div>
@@ -983,22 +1021,22 @@ export default function ServicesPage() {
     <div className="form-row">
       <div className="form-field">
         <label>Email <span className="req">*</span></label>
-        <input type="email" placeholder="Enter your email id" required />
+        <input type="email" name="email" placeholder="Enter your email id" required />
       </div>
       <div className="form-field">
         <label>Phone <span className="req">*</span></label>
-        <input type="tel" placeholder="Enter your contact number" required />
+        <input type="tel" name="phone" placeholder="Enter your contact number" required />
       </div>
     </div>
 
     <div className="form-row">
       <div className="form-field">
         <label>Company <span className="req">*</span></label>
-        <input type="text" placeholder="Please enter your business name" required />
+        <input type="text" name="company" placeholder="Please enter your business name" required />
       </div>
       <div className="form-field">
         <label>Website</label>
-        <input type="url" placeholder="https://www.example.com" />
+        <input type="url" name="website" placeholder="https://www.example.com" />
       </div>
     </div>
 
@@ -1019,7 +1057,7 @@ export default function ServicesPage() {
 
     <div className="form-field" style={{marginBottom: '32px'}}>
       <label>Message</label>
-      <textarea placeholder="Enter your message"></textarea>
+      <textarea name="message" placeholder="Enter your message"></textarea>
     </div>
 
     <button type="submit" className="submit-btn">Submit</button>

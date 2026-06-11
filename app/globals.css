@@ -129,7 +129,8 @@ img, video, svg { max-width: 100%; height: auto; }
 .logo { display: flex; flex-direction: column; line-height: 1; user-select: none; text-decoration: none; }
 .logo-main { font-weight: 800; font-size: 26px; letter-spacing: 0.5px; color: var(--ink); }
 .logo-main .thin { font-weight: 500; }
-.logo-tagline { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: var(--ink); margin-top: 6px; }
+.logo-img { height: 46px; width: auto; max-width: none; display: block; align-self: flex-start; object-fit: contain; }
+.logo-tagline { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: var(--ink); margin-top: 8px; }
 .logo-tagline .dot-accent { color: var(--accent); }
 
 .nav-links { display: flex; align-items: center; gap: 42px; list-style: none; }
@@ -193,6 +194,7 @@ img, video, svg { max-width: 100%; height: auto; }
 }
 .footer-col .logo { color: #fff; margin-bottom: 24px; }
 .footer-col .logo-main { color: #fff; font-size: 22px; }
+.footer-col .logo-img { height: 42px; filter: brightness(0) invert(1); }
 .footer-col .logo-tagline { color: #fff; font-size: 10px; }
 .footer-col .logo-tagline .dot-accent { color: var(--accent); }
 .footer-desc {
@@ -336,6 +338,7 @@ img, video, svg { max-width: 100%; height: auto; }
   .hamburger { display: flex; }
   .navbar { padding: 0 24px; height: 80px; }
   .logo-main { font-size: 22px; }
+  .logo-img { height: 40px; }
   .logo-tagline { font-size: 10px; }
 
   .breadcrumb { padding: 16px 24px; font-size: 14px; }
@@ -346,6 +349,7 @@ img, video, svg { max-width: 100%; height: auto; }
 @media (max-width: 600px) {
   .navbar { padding: 0 18px; height: 72px; }
   .logo-main { font-size: 18px; }
+  .logo-img { height: 34px; }
   .logo-tagline { font-size: 9px; letter-spacing: 1.2px; }
   .breadcrumb { padding: 14px 18px; font-size: 13px; gap: 6px; }
   .site-footer { padding: 50px 18px 0; }

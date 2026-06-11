@@ -781,14 +781,6 @@ export default function ServicesSlugPage() {
       }
 
       populate();
-
-      // Testimonials dots (simple visual toggle)
-      document.querySelectorAll('.testi-dots .dot').forEach((dot, idx) => {
-        dot.addEventListener('click', () => {
-          document.querySelectorAll('.testi-dots .dot').forEach(d => d.classList.remove('active'));
-          dot.classList.add('active');
-        });
-      });
   }, []);
 
   return (
@@ -1116,6 +1108,15 @@ export default function ServicesSlugPage() {
     font-size: 22px; font-weight: 700;
     color: #6a6a6a; letter-spacing: 0.5px;
     text-align: center;
+  }
+  .client-logo img {
+    max-width: 100%;
+    max-height: 64px;
+    object-fit: contain;
+  }
+  .client-logo.dark {
+    background: #161616;
+    border-color: #161616;
   }
 
   /* ---------- ELEVATE ---------- */
@@ -1663,28 +1664,23 @@ export default function ServicesSlugPage() {
   <div className="why-image"></div>
 </section>
 
-{/* CLIENTS */}
+{/* CLIENTELE */}
 <section className="clients-section">
   <div className="clients-header">
     <div className="clients-title-block">
-      <p className="clients-eyebrow">TRUSTED BY THE WORLD'S LEADING BRANDS</p>
-      <h2>Our Clients</h2>
+      <p className="clients-eyebrow">BRANDS WE WORK WITH</p>
+      <h2>Our Clientele</h2>
     </div>
-    <a href="#" className="view-all-btn">View All Clients</a>
+    <a href="/case-studies" className="view-all-btn">View Case Studies</a>
   </div>
   <div className="clients-grid">
-    <div className="client-logo"><span>BrandOne</span></div>
-    <div className="client-logo"><span>NovaCo</span></div>
-    <div className="client-logo"><span>Apex</span></div>
-    <div className="client-logo"><span>Stellar</span></div>
-    <div className="client-logo"><span>Vertex</span></div>
-    <div className="client-logo"><span>Orbit</span></div>
-    <div className="client-logo"><span>Lumen</span></div>
-    <div className="client-logo"><span>Pulse</span></div>
-    <div className="client-logo"><span>Forge</span></div>
-    <div className="client-logo"><span>Helix</span></div>
-    <div className="client-logo"><span>Atlas</span></div>
-    <div className="client-logo"><span>Beacon</span></div>
+    <div className="client-logo"><img src="/clients/olive-heights.png" alt="Olive Heights" /></div>
+    <div className="client-logo"><img src="/clients/olive-garden.png" alt="Olive Garden" /></div>
+    <div className="client-logo"><img src="/clients/awesome-palace.png" alt="Awesome Palace" /></div>
+    <div className="client-logo dark"><img src="/clients/fix24.png" alt="Fix24" /></div>
+    <div className="client-logo"><img src="/clients/ahvi-gold.png" alt="Ahvi Gold" /></div>
+    <div className="client-logo dark"><img src="/clients/jewellery-hub.png" alt="Jewellery Hub" /></div>
+    <div className="client-logo"><img src="/clients/paxmeet.png" alt="Paxmeet" /></div>
   </div>
 </section>
 
@@ -1701,45 +1697,6 @@ export default function ServicesSlugPage() {
   </div>
 </section>
 
-{/* TESTIMONIALS */}
-<section className="testi-section">
-  <div className="testi-grid">
-    <div>
-      <p className="testi-eyebrow">Testimonials</p>
-      <h2 className="testi-heading">What our clients say</h2>
-    </div>
-    <div>
-      <div className="testi-cards">
-        <div className="testi-card">
-          <p className="testi-quote-text">
-            "TheSocialVerse is fantastic to work with. The team communicates clearly and
-            consistently goes the extra mile to make sure every deliverable is on point.
-            They took the time to understand our goals and built a strategy that actually
-            worked for our business — recommending them to everyone."
-          </p>
-          <div className="testi-stars">★ ★ ★ ★ ★</div>
-          <div className="testi-author">Sample Client A</div>
-          <div className="testi-author-meta">Sample Company</div>
-        </div>
-        <div className="testi-card">
-          <p className="testi-quote-text">
-            "Working with TheSocialVerse has been a real pleasure. The team delivered
-            sharp results with clear, effective strategies. Special thanks to the leads
-            for their ongoing support and crisp communication. Highly recommended."
-          </p>
-          <div className="testi-stars">★ ★ ★ ★ ★</div>
-          <div className="testi-author">Sample Client B</div>
-          <div className="testi-author-meta">Sample Company</div>
-        </div>
-      </div>
-      <div className="testi-dots">
-        <span className="dot active"></span>
-        <span className="dot"></span>
-        <span className="dot"></span>
-      </div>
-    </div>
-  </div>
-</section>
 
 {/* FAQ */}
 <section className="faq-section">

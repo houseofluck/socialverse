@@ -8,7 +8,7 @@ const CASE_STUDIES = [
     brand: "Olive Heights",
     title: "How We Helped Build A Strong Digital Presence",
     meta: "Hospitality · Rooftop Dining · Guwahati",
-    bg: "#f1ead3",
+    img: "/work/creatives/showcase-03.jpg",
     bar: "#d4793c",
   },
   {
@@ -16,7 +16,7 @@ const CASE_STUDIES = [
     brand: "Awesome Palace",
     title: "Creating A Strong Luxury Hospitality Presence",
     meta: "Hospitality · Luxury Hotel · Borjhar",
-    bg: "#e6ecf3",
+    img: "/work/creatives/showcase-04.jpg",
     bar: "#1a3b5d",
   },
   {
@@ -24,7 +24,7 @@ const CASE_STUDIES = [
     brand: "Ahvi Gold",
     title: "Transforming Ahvi Gold Into A Recognizable Brand",
     meta: "Financial Services · Bullion · Guwahati",
-    bg: "#faf1d8",
+    img: "/work/case/ahvi-storefront.jpg",
     bar: "#caa14a",
   },
 ];
@@ -73,17 +73,20 @@ export default function CaseStudiesIndexPage() {
     aspect-ratio: 4 / 3; border-radius: 18px;
     overflow: hidden; position: relative;
     margin-bottom: 24px; text-decoration: none;
-    transition: transform 0.4s ease;
+    background: #111;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-  .case-card-image:hover { transform: translateY(-4px); }
-  .case-logo-mark {
+  .case-card-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.16);
+  }
+  .case-card-image img {
     position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
   }
-  .case-logo-mark span {
-    font-size: 32px; font-weight: 800;
-    color: #1a1a1a; letter-spacing: -0.5px;
-  }
+  .case-card-image:hover img { transform: scale(1.04); }
   .case-bar {
     position: absolute; left: 0; right: 0; bottom: 0;
     height: 14%;
@@ -177,9 +180,8 @@ export default function CaseStudiesIndexPage() {
               <Link
                 href={`/case-studies/${cs.slug}`}
                 className="case-card-image"
-                style={{ background: cs.bg }}
               >
-                <div className="case-logo-mark"><span>{cs.brand}</span></div>
+                <img src={cs.img} alt={cs.brand} loading="lazy" />
                 <div className="case-bar" style={{ background: cs.bar }}></div>
               </Link>
               <h3 className="case-title">{cs.brand} — {cs.title}</h3>

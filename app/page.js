@@ -2,8 +2,37 @@
 
 import { useEffect, useRef } from "react";
 
+// First number listed in the footer (WhatsApp-enabled).
+const WHATSAPP_NUMBER = "916000955672";
+
+function sendFormToWhatsApp(form) {
+  const fd = new FormData(form);
+  const get = (n) => (fd.get(n) || "").toString().trim();
+  const name = [get("firstName"), get("lastName")].filter(Boolean).join(" ");
+  const website = get("website");
+  const message = get("message");
+  const services = fd.getAll("svc").filter(Boolean).join(", ");
+
+  const lines = [
+    "*New Inquiry — The Social Verse*",
+    "",
+    `*Name:* ${name || "—"}`,
+    `*Email:* ${get("email") || "—"}`,
+    `*Phone:* ${get("phone") || "—"}`,
+    `*Company:* ${get("company") || "—"}`,
+  ];
+  if (website) lines.push(`*Website:* ${website}`);
+  lines.push(`*Services Needed:* ${services || "—"}`);
+  if (message) lines.push("", `*Message:* ${message}`);
+
+  const text = encodeURIComponent(lines.join("\n"));
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
+  form.reset();
+}
+
 export default function HomePage() {
   const initRef = useRef(false);
+  const handleTalkSubmit = (e) => { e.preventDefault(); sendFormToWhatsApp(e.currentTarget); };
   useEffect(() => {
     if (initRef.current) return;
     initRef.current = true;
@@ -215,7 +244,15 @@ export default function HomePage() {
 
   .work-card-image:hover {
     transform: translateY(-4px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.16);
   }
+  .work-card-image img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+  .work-card-image:hover img { transform: scale(1.04); }
 
   /* Card backgrounds — matching the reference vibe */
   .card-bg-1 {
@@ -1028,6 +1065,17 @@ export default function HomePage() {
     text-align: center;
     white-space: nowrap;
   }
+  .hc-logo img {
+    max-width: 100%;
+    max-height: 60px;
+    object-fit: contain;
+  }
+  /* White-on-transparent logos need a dark tile to be visible */
+  .hc-logo.dark {
+    background: #161616;
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
 
   /* ======================================================
      HOME — CASE STUDIES
@@ -1061,7 +1109,20 @@ export default function HomePage() {
     text-decoration: none;
     transition: transform 0.4s ease;
   }
-  .case-card-image:hover { transform: translateY(-4px); }
+  .case-card-image {
+    background: #111;
+  }
+  .case-card-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.16);
+  }
+  .case-card-image img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+  .case-card-image:hover img { transform: scale(1.04); }
   .case-logo-mark {
     position: absolute;
     inset: 0;
@@ -1659,13 +1720,8 @@ export default function HomePage() {
   <div className="works-grid">
     {/* Card 1 — Our Creativity */}
     <article className="work-card">
-      <a href="/works#our-creativity" className="work-card-image card-bg-1">
-        <div className="work-mock work-mock-1">
-          <div className="mock-cover">
-            <div className="mock-label">Our<br/>Creativity</div>
-            <div className="mock-year">2025</div>
-          </div>
-        </div>
+      <a href="/works#our-creativity" className="work-card-image">
+        <img src="/work/creatives/showcase-03.jpg" alt="Our Creativity — premium brand creatives" loading="lazy" />
       </a>
       <h3 className="work-title">Our Creativity</h3>
       <p className="work-meta">Creative designs built to capture attention</p>
@@ -1673,13 +1729,8 @@ export default function HomePage() {
 
     {/* Card 2 — Hoarding Designs */}
     <article className="work-card">
-      <a href="/works#hoarding-designs" className="work-card-image card-bg-2">
-        <div className="work-mock work-mock-2">
-          <div className="mock-spread">
-            <div className="spread-page left"></div>
-            <div className="spread-page right"></div>
-          </div>
-        </div>
+      <a href="/works#hoarding-designs" className="work-card-image">
+        <img src="/work/hoarding.jpg" alt="Hoarding Designs — outdoor advertising" loading="lazy" />
       </a>
       <h3 className="work-title">Hoarding Designs</h3>
       <p className="work-meta">Outdoor designs that stand out</p>
@@ -1687,13 +1738,8 @@ export default function HomePage() {
 
     {/* Card 3 — Ticket Designs */}
     <article className="work-card">
-      <a href="/works#ticket-designs" className="work-card-image card-bg-3">
-        <div className="work-mock work-mock-3">
-          <div className="mock-stack stack-back"></div>
-          <div className="mock-stack stack-front">
-            <div className="mock-stack-label">Ticket<br/>Designs</div>
-          </div>
-        </div>
+      <a href="/works#ticket-designs" className="work-card-image">
+        <img src="/work/tickets/ticket-1.jpg" alt="Ticket Designs — event passes" loading="lazy" />
       </a>
       <h3 className="work-title">Ticket Designs</h3>
       <p className="work-meta">Designed to make every entry special</p>
@@ -1785,13 +1831,13 @@ export default function HomePage() {
     <a href="/case-studies" className="view-all-btn">Case Studies</a>
   </div>
   <div className="home-clients-grid">
-    <div className="hc-logo"><span>Olive Heights</span></div>
-    <div className="hc-logo"><span>Olive Garden</span></div>
-    <div className="hc-logo"><span>Awesome Palace</span></div>
-    <div className="hc-logo"><span>Fix24</span></div>
-    <div className="hc-logo"><span>Ahvi Gold</span></div>
-    <div className="hc-logo"><span>Jewellery Hub</span></div>
-    <div className="hc-logo"><span>Paxmeet</span></div>
+    <div className="hc-logo"><img src="/clients/olive-heights.png" alt="Olive Heights" /></div>
+    <div className="hc-logo"><img src="/clients/olive-garden.png" alt="Olive Garden" /></div>
+    <div className="hc-logo"><img src="/clients/awesome-palace.png" alt="Awesome Palace" /></div>
+    <div className="hc-logo dark"><img src="/clients/fix24.png" alt="Fix24" /></div>
+    <div className="hc-logo"><img src="/clients/ahvi-gold.png" alt="Ahvi Gold" /></div>
+    <div className="hc-logo dark"><img src="/clients/jewellery-hub.png" alt="Jewellery Hub" /></div>
+    <div className="hc-logo"><img src="/clients/paxmeet.png" alt="Paxmeet" /></div>
   </div>
 </section>
 
@@ -1806,24 +1852,24 @@ export default function HomePage() {
   </div>
   <div className="case-studies-grid">
     <article className="case-card">
-      <a href="/case-studies/olive-heights" className="case-card-image" style={{background: '#f1ead3'}}>
-        <div className="case-logo-mark"><span>Olive Heights</span></div>
+      <a href="/case-studies/olive-heights" className="case-card-image">
+        <img src="/work/creatives/showcase-03.jpg" alt="Olive Heights" loading="lazy" />
         <div className="case-bar" style={{background: '#d4793c'}}></div>
       </a>
       <h3 className="case-title">Olive Heights — How We Helped Build A Strong Digital Presence</h3>
       <p className="case-meta">Hospitality · Rooftop Dining</p>
     </article>
     <article className="case-card">
-      <a href="/case-studies/awesome-palace" className="case-card-image" style={{background: '#e6ecf3'}}>
-        <div className="case-logo-mark"><span>Awesome Palace</span></div>
+      <a href="/case-studies/awesome-palace" className="case-card-image">
+        <img src="/work/creatives/showcase-04.jpg" alt="Awesome Palace" loading="lazy" />
         <div className="case-bar" style={{background: '#1a3b5d'}}></div>
       </a>
       <h3 className="case-title">Awesome Palace — A Strong Luxury Hospitality Presence</h3>
       <a href="/case-studies/awesome-palace" className="case-link">Show project <span className="case-link-line"></span></a>
     </article>
     <article className="case-card">
-      <a href="/case-studies/ahvi-gold" className="case-card-image" style={{background: '#faf1d8'}}>
-        <div className="case-logo-mark"><span>Ahvi Gold</span></div>
+      <a href="/case-studies/ahvi-gold" className="case-card-image">
+        <img src="/work/case/ahvi-storefront.jpg" alt="Ahvi Gold" loading="lazy" />
         <div className="case-bar" style={{background: '#caa14a'}}></div>
       </a>
       <h3 className="case-title">Ahvi Gold — Transforming Into A Recognizable Gold Buying Brand</h3>
@@ -1837,13 +1883,13 @@ export default function HomePage() {
   <p className="section-eyebrow">SAY HELLO</p>
   <h2 className="talk-heading">Let&apos;s have a talk!</h2>
 
-  <form className="talk-form" onSubmit={(e) => { e.preventDefault(); alert('Thanks! We will get back to you shortly.'); e.currentTarget.reset(); }}>
+  <form className="talk-form" onSubmit={handleTalkSubmit}>
     <div className="form-row">
       <div className="form-field">
         <label>Name <span className="req">*</span></label>
         <div className="name-row">
-          <input type="text" placeholder="First name" required />
-          <input type="text" placeholder="Last name" />
+          <input type="text" name="firstName" placeholder="First name" required />
+          <input type="text" name="lastName" placeholder="Last name" />
         </div>
       </div>
       <div className="form-field"></div>
@@ -1851,21 +1897,21 @@ export default function HomePage() {
     <div className="form-row">
       <div className="form-field">
         <label>Email <span className="req">*</span></label>
-        <input type="email" placeholder="Enter your email id" required />
+        <input type="email" name="email" placeholder="Enter your email id" required />
       </div>
       <div className="form-field">
         <label>Phone <span className="req">*</span></label>
-        <input type="tel" placeholder="Enter your contact number" required />
+        <input type="tel" name="phone" placeholder="Enter your contact number" required />
       </div>
     </div>
     <div className="form-row">
       <div className="form-field">
         <label>Company <span className="req">*</span></label>
-        <input type="text" placeholder="Please enter your business name" required />
+        <input type="text" name="company" placeholder="Please enter your business name" required />
       </div>
       <div className="form-field">
         <label>Website</label>
-        <input type="url" placeholder="https://www.example.com" />
+        <input type="url" name="website" placeholder="https://www.example.com" />
       </div>
     </div>
     <div className="checkbox-group">
@@ -1884,7 +1930,7 @@ export default function HomePage() {
     </div>
     <div className="form-field" style={{marginBottom: '32px'}}>
       <label>Message</label>
-      <textarea placeholder="Enter your message"></textarea>
+      <textarea name="message" placeholder="Enter your message"></textarea>
     </div>
     <button type="submit" className="submit-btn">Submit</button>
   </form>

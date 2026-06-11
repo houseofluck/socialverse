@@ -47,10 +47,11 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <Link href="/" className="logo">
-          <div className="logo-main">
-            <span className="thin">THE SOCIAL</span>
-            <span>VERSE</span>
-          </div>
+          <img
+            src="/brand/social-verse-wordmark.png"
+            alt="The Social Verse"
+            className="logo-img"
+          />
           <div className="logo-tagline">
             All eyes on your brand<span className="dot-accent">.</span>
           </div>

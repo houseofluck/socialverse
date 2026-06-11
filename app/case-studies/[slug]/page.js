@@ -10,6 +10,8 @@ const CASE_STUDIES = {
     title: "Olive Heights — How We Helped Build A Strong Digital Presence",
     category: "Case Studies · Hospitality · Rooftop Dining",
     theme: "theme-green",
+    heroImg: "/work/creatives/showcase-03.jpg",
+    challengesImg: "/work/creatives/creative-08.jpg",
     about: [
       "Olive Heights is a premium rooftop restaurant and bar located in Guwahati, offering a blend of multi-cuisine dining, handcrafted beverages, and a sophisticated rooftop ambiance.",
       "Known for its scenic rooftop experience, vibrant nightlife, and modern dining atmosphere, Olive Heights delivers a memorable experience for food lovers, couples, families, and social gatherings.",
@@ -25,10 +27,10 @@ const CASE_STUDIES = {
     resultsBlurb:
       "Significant uplift in social media engagement, premium brand perception, and footfall — driven by a consistent content strategy and performance-focused Meta campaigns.",
     stats: [
-      { num: "3.2×", label: "Engagement Growth" },
-      { num: "4.8×", label: "Reach Increase" },
-      { num: "+62%", label: "Customer Inquiries" },
-      { num: "+45%", label: "Restaurant Footfall" },
+      { num: "Stronger", label: "Engagement" },
+      { num: "Wider", label: "Organic Reach" },
+      { num: "More", label: "Inquiries" },
+      { num: "Higher", label: "Footfall" },
     ],
     challenges: [
       { q: "Standing Out In A Saturated Market", a: "Rooftop cafés and restaurants are a highly discussed category among Guwahati audiences. Creating a distinct identity required sharp aesthetics and a clear point of view." },
@@ -39,11 +41,11 @@ const CASE_STUDIES = {
     strategiesIntro:
       "To strengthen Olive Heights' digital presence we executed a complete content-driven and performance-oriented marketing strategy.",
     strategies: [
-      { h: "Premium Visual Branding", p: "High-quality cinematic reels showcasing the rooftop ambiance, signature dishes, cocktails, nightlife, sunsets, and customer experiences." },
-      { h: "Engaging Social Media Grid", p: "A visually consistent and aesthetically aligned Instagram grid that established a premium and recognizable brand identity." },
-      { h: "Reels & Short-Form Content", p: "Trend-based and storytelling-driven reels produced to maximize reach, audience engagement, and organic visibility." },
-      { h: "Performance Marketing", p: "Targeted Meta ad campaigns focused on increasing restaurant footfall, brand awareness, and promoting offers, events, and nightlife experiences." },
-      { h: "Audience-Centric Content", p: "Content strategically planned around customer psychology — food cravings, rooftop ambiance, weekend experiences, and cocktail culture." },
+      { h: "Standing Out In A Crowded Rooftop Scene", p: "Guwahati's rooftop dining space is fiercely competitive, so we built a distinct visual signature for Olive Heights — cinematic reels of the rooftop ambiance, sunsets, signature dishes, cocktails, and nightlife that set it apart from every other rooftop in the city." },
+      { h: "A Premium, Recognizable Instagram Grid", p: "We designed a consistent, aesthetically aligned grid that turned the profile into a destination feed — communicating the luxury rooftop experience at a glance, before a guest ever walks in." },
+      { h: "Trend-Driven Reels That Travel", p: "Storytelling reels built around food cravings, weekend plans, and cocktail culture were engineered for reach and saves — putting Olive Heights in front of new local audiences organically." },
+      { h: "Footfall-Focused Meta Campaigns", p: "Because the real goal was visits, not just likes, targeted Meta ads promoted offers, events, and nightlife to dining and nightlife audiences nearby — converting attention into reservations and walk-ins." },
+      { h: "Content Built Around The Craving", p: "Every post was planned around customer psychology — the craving, the occasion, the weekend mood — so the content didn't just look premium, it drove the decision to book a table." },
     ],
     achievements: [
       { strong: "Social Reach & Engagement:", text: "Increased social media reach and profile engagement through consistent, high-quality storytelling." },
@@ -54,8 +56,8 @@ const CASE_STUDIES = {
     conclusion:
       "Through premium visual storytelling, strategic content creation, engaging social media management, and performance-driven advertising, Social Verse helped Olive Heights establish a stronger and more impactful digital presence. The campaign improved online engagement and visibility, and contributed to building a recognizable rooftop dining brand that resonates with modern audiences seeking premium experiences.",
     related: [
-      { slug: "awesome-palace", brand: "Awesome Palace", title: "Awesome Palace — A Strong Luxury Hospitality Presence", bg: "#e6ecf3", bar: "#1a3b5d" },
-      { slug: "ahvi-gold", brand: "Ahvi Gold", title: "Ahvi Gold — Transforming Into A Recognizable Brand", bg: "#faf1d8", bar: "#caa14a" },
+      { slug: "awesome-palace", brand: "Awesome Palace", title: "Awesome Palace — A Strong Luxury Hospitality Presence", img: "/work/creatives/showcase-04.jpg", bar: "#1a3b5d" },
+      { slug: "ahvi-gold", brand: "Ahvi Gold", title: "Ahvi Gold — Transforming Into A Recognizable Brand", img: "/work/case/ahvi-storefront.jpg", bar: "#caa14a" },
     ],
     next: { slug: "awesome-palace", brand: "Awesome Palace" },
   },
@@ -63,6 +65,8 @@ const CASE_STUDIES = {
   "awesome-palace": {
     brand: "Awesome Palace",
     title: "Awesome Palace — Creating A Strong Luxury Hospitality Presence",
+    heroImg: "/work/creatives/showcase-04.jpg",
+    challengesImg: "/work/creatives/creative-02.jpg",
     category: "Case Studies · Hospitality · Luxury Hotel",
     theme: "theme-blue",
     about: [
@@ -80,10 +84,10 @@ const CASE_STUDIES = {
     resultsBlurb:
       "Strong growth in social media reach, engagement, and inquiries — anchored by premium content and a luxury-aligned brand identity.",
     stats: [
-      { num: "2.7×", label: "Reach Growth" },
-      { num: "+58%", label: "Engagement" },
-      { num: "+48%", label: "Guest Inquiries" },
-      { num: "+39%", label: "Booking Intent" },
+      { num: "Wider", label: "Reach" },
+      { num: "Stronger", label: "Engagement" },
+      { num: "More", label: "Guest Inquiries" },
+      { num: "Greater", label: "Booking Interest" },
     ],
     challenges: [
       { q: "Saturated Hospitality Market", o: "The luxury hospitality industry near transit zones is highly competitive — guests have many accommodation options." },
@@ -94,11 +98,11 @@ const CASE_STUDIES = {
     strategiesIntro:
       "We implemented a complete content + performance marketing strategy focused on luxury branding and audience engagement.",
     strategies: [
-      { h: "Premium Visual Production", p: "High-quality reels, cinematic walkthroughs, professional photography, and visually refined creatives highlighting rooms, dining, banquets, and guest experiences." },
-      { h: "Engaging Social Media Grid", p: "A modern and aesthetically aligned content grid that reinforced the hotel's premium identity across every channel." },
-      { h: "Reels & Storytelling", p: "Short-form content and trend-driven reels strategically created to maximize reach, engagement, and audience retention." },
-      { h: "Meta Advertising Campaigns", p: "Targeted campaigns focused on hotel visibility, guest inquiries, luxury stays, and reaching travelers and local premium audiences." },
-      { h: "Audience-Focused Branding", p: "Content emphasized luxury lifestyle experiences, airport convenience, elegant aesthetics, trust, and credibility." },
+      { h: "Showcasing The Property, Cinematically", p: "Travelers book what they can see, so cinematic walkthroughs and professional photography of rooms, interiors, fine dining, and banquet spaces let guests experience the hotel before reserving — answering the 'what's it actually like?' question that drives bookings." },
+      { h: "A Trustworthy, Luxury-First Identity", p: "In an airport zone where guests judge options in seconds, a modern, aesthetically aligned content grid established Awesome Palace as a premium, credible stay worth choosing over the alternatives." },
+      { h: "Owning 'Luxury Near The Airport'", p: "Content consistently paired elegance with the hotel's single biggest advantage — minutes from Guwahati Airport — positioning it as the obvious premium choice for business and leisure travelers." },
+      { h: "Inquiry & Booking Meta Campaigns", p: "Targeted Meta ads reached travelers, tourists, and local premium audiences with luxury stays, amenities, and events — generating direct guest inquiries and booking interest rather than passive engagement." },
+      { h: "Storytelling Reels For Reach", p: "Short-form, trend-driven reels of guest experiences, dining, and ambiance maximized reach and retention, keeping Awesome Palace top-of-mind across platforms." },
     ],
     achievements: [
       { strong: "Brand Visibility:", text: "Increased brand visibility and audience reach across social media platforms." },
@@ -109,8 +113,8 @@ const CASE_STUDIES = {
     conclusion:
       "Through premium content creation, strategic branding, engaging social media management, and performance-focused Meta advertising, Social Verse enhanced Awesome Palace's digital presence and luxury positioning. The campaign created stronger audience engagement, improved visibility, and a more refined online identity that reflects the premium hospitality experience offered by the hotel.",
     related: [
-      { slug: "olive-heights", brand: "Olive Heights", title: "Olive Heights — How We Helped Build A Strong Digital Presence", bg: "#f1ead3", bar: "#d4793c" },
-      { slug: "ahvi-gold", brand: "Ahvi Gold", title: "Ahvi Gold — Transforming Into A Recognizable Brand", bg: "#faf1d8", bar: "#caa14a" },
+      { slug: "olive-heights", brand: "Olive Heights", title: "Olive Heights — How We Helped Build A Strong Digital Presence", img: "/work/creatives/showcase-03.jpg", bar: "#d4793c" },
+      { slug: "ahvi-gold", brand: "Ahvi Gold", title: "Ahvi Gold — Transforming Into A Recognizable Brand", img: "/work/case/ahvi-storefront.jpg", bar: "#caa14a" },
     ],
     next: { slug: "ahvi-gold", brand: "Ahvi Gold" },
   },
@@ -120,6 +124,8 @@ const CASE_STUDIES = {
     title: "Ahvi Gold — Transforming Into A Recognizable Gold Buying Brand",
     category: "Case Studies · Financial Services · Bullion",
     theme: "theme-orange",
+    heroImg: "/work/creatives/showcase-01.jpg",
+    challengesImg: "/work/case/ahvi-storefront.jpg",
     about: [
       "Ahvi Gold is a trusted gold and silver buying company specializing in transparent valuation, instant payments, and secure transactions for customers looking to sell their precious metals.",
       "The brand focuses on providing customers with a professional, trustworthy, and hassle-free experience through accurate purity testing, fair market pricing, and customer-centric service.",
@@ -135,10 +141,10 @@ const CASE_STUDIES = {
     resultsBlurb:
       "Strong gains in trust, reach, and customer inquiries — driven by an educational content strategy and trust-based Meta campaigns.",
     stats: [
-      { num: "+74%", label: "Trust Score" },
-      { num: "3.5×", label: "Reach" },
-      { num: "+82%", label: "Customer Inquiries" },
-      { num: "+51%", label: "Store Footfall" },
+      { num: "Higher", label: "Customer Trust" },
+      { num: "Wider", label: "Reach" },
+      { num: "More", label: "Inquiries" },
+      { num: "Greater", label: "Store Footfall" },
     ],
     challenges: [
       { q: "High-Trust Financial Category", a: "Building trust in a highly sensitive category — gold and silver buying — required transparent, educational, and credible content." },
@@ -149,11 +155,11 @@ const CASE_STUDIES = {
     strategiesIntro:
       "We developed a strategic content and advertising approach focused on trust, transparency, and engagement.",
     strategies: [
-      { h: "Premium Visual Branding", p: "Professional visuals, premium reels, and informative creatives showcasing gold purity testing, transparent valuation, and modern service environment." },
-      { h: "Educational Content Strategy", p: "Informative content educating audiences about how gold valuation works, benefits of selling through trusted buyers, and pricing transparency." },
-      { h: "Engaging Social Creatives", p: "A visually consistent and premium social media feed that strengthened brand perception and audience trust." },
-      { h: "Reels & Short-Form Videos", p: "Trend-driven reels used to improve engagement, increase reach, and simplify complex information through visual storytelling." },
-      { h: "Meta Advertising Campaigns", p: "Targeted Meta campaigns to increase local brand awareness, generate customer inquiries, drive footfall, and promote trust-based messaging." },
+      { h: "Building Trust In A Sensitive Category", p: "Selling gold is an emotional, high-trust decision, so professional visuals and premium reels showcased purity testing, transparent valuation, instant payments, and a modern service environment — replacing customer hesitation with confidence." },
+      { h: "Educating, Not Just Advertising", p: "Informative content explained how valuation actually works, the benefits of selling through a trusted buyer, and market-based pricing transparency — demystifying the process and lowering the barrier to walking in." },
+      { h: "Standing Apart From Local Buyers", p: "A consistent, premium social feed positioned Ahvi Gold as a modern, professional, and credible brand — clearly differentiated from the traditional local gold buyers it competes with." },
+      { h: "Simplifying The Complex With Reels", p: "Trend-driven short-form videos broke down technical valuation and purity-testing into clear, engaging stories — building reach and customer understanding at the same time." },
+      { h: "Lead-Generating Meta Campaigns", p: "Trust-led Meta ad campaigns drove local awareness, customer inquiries, and store footfall — reaching audiences actively considering selling their gold and silver." },
     ],
     achievements: [
       { strong: "Engagement Lift:", text: "Increased engagement across social media platforms through consistent, educational content." },
@@ -164,8 +170,8 @@ const CASE_STUDIES = {
     conclusion:
       "Through premium visual storytelling, educational content strategies, creative social media management, and performance-driven Meta advertising, Social Verse helped Ahvi Gold strengthen its digital presence and customer trust. The campaign contributed towards building a more professional, transparent, and recognizable brand identity while increasing visibility, engagement, and customer interaction for the business.",
     related: [
-      { slug: "olive-heights", brand: "Olive Heights", title: "Olive Heights — How We Helped Build A Strong Digital Presence", bg: "#f1ead3", bar: "#d4793c" },
-      { slug: "awesome-palace", brand: "Awesome Palace", title: "Awesome Palace — A Strong Luxury Hospitality Presence", bg: "#e6ecf3", bar: "#1a3b5d" },
+      { slug: "olive-heights", brand: "Olive Heights", title: "Olive Heights — How We Helped Build A Strong Digital Presence", img: "/work/creatives/showcase-03.jpg", bar: "#d4793c" },
+      { slug: "awesome-palace", brand: "Awesome Palace", title: "Awesome Palace — A Strong Luxury Hospitality Presence", img: "/work/creatives/showcase-04.jpg", bar: "#1a3b5d" },
     ],
     next: { slug: "olive-heights", brand: "Olive Heights" },
   },
@@ -251,7 +257,15 @@ export default function CaseStudyPage() {
     color: #fff;
     overflow: hidden;
   }
-  
+  .cs-hero-media {
+    position: absolute; inset: 0; z-index: 0;
+    background-size: cover; background-position: center;
+  }
+  .cs-hero-media::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(12,12,14,0.42) 0%, rgba(12,12,14,0.82) 100%);
+  }
+
   .back-btn {
     background: none; border: none; color: #fff;
     font-size: 24px; cursor: pointer; margin-bottom: 60px;
@@ -347,13 +361,14 @@ export default function CaseStudyPage() {
     box-shadow: 0 10px 24px rgba(0,0,0,0.08);
   }
   .stat-num {
-    font-size: 38px; font-weight: 800; color: #111;
-    letter-spacing: -1px;
+    font-size: 26px; font-weight: 800; color: #111;
+    letter-spacing: -0.5px;
     margin-bottom: 8px;
-    line-height: 1;
+    line-height: 1.05;
   }
   .stat-label {
-    font-size: 14px; color: var(--accent); font-weight: 600;
+    font-size: 13px; color: var(--accent); font-weight: 700;
+    letter-spacing: 0.3px;
   }
 
   /* ---------- CHALLENGES ---------- */
@@ -772,7 +787,18 @@ export default function CaseStudyPage() {
     text-decoration: none;
     transition: transform 0.4s ease;
   }
-  .cs-related-image:hover { transform: translateY(-4px); }
+  .cs-related-image { background: #111; }
+  .cs-related-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.16);
+  }
+  .cs-related-image img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s ease;
+  }
+  .cs-related-image:hover img { transform: scale(1.04); }
   .cs-related-mark {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
@@ -1002,7 +1028,7 @@ export default function CaseStudyPage() {
     .cs-related-heading { font-size: 36px; }
     .cs-results-card { padding: 36px 30px; }
     .cs-results-card h3 { font-size: 28px; }
-    .stat-num { font-size: 32px; }
+    .stat-num { font-size: 24px; }
 
     .cs-challenges { padding: 70px 24px; }
     .challenges-grid-cs { grid-template-columns: 1fr; gap: 36px; }
@@ -1052,8 +1078,8 @@ export default function CaseStudyPage() {
     .cs-results-card { padding: 30px 24px; }
     .stats-grid { gap: 12px; }
     .stat-card { padding: 24px 18px; }
-    .stat-num { font-size: 28px; }
-    .stat-label { font-size: 13px; }
+    .stat-num { font-size: 22px; }
+    .stat-label { font-size: 12px; }
 
     .cs-challenges { padding: 50px 18px; }
     .ch-toggle { padding: 16px 20px; font-size: 15px; }
@@ -1115,6 +1141,13 @@ export default function CaseStudyPage() {
 
 {/* HERO */}
 <section className={`cs-hero hero-gradient ${cs.theme}`}>
+  {cs.heroImg && (
+    <div
+      className="cs-hero-media"
+      style={{ backgroundImage: `url('${cs.heroImg}')` }}
+      aria-hidden="true"
+    />
+  )}
   <Link href="/case-studies" className="back-btn" style={{textDecoration: 'none', display: 'inline-block'}}>←</Link>
   <p className="cs-category">{cs.category}</p>
   <h1 className="cs-title">{cs.title}</h1>
@@ -1177,7 +1210,10 @@ export default function CaseStudyPage() {
         ))}
       </div>
     </div>
-    <div className="challenges-image"></div>
+    <div
+      className="challenges-image"
+      style={cs.challengesImg ? { backgroundImage: `url('${cs.challengesImg}')`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+    ></div>
   </div>
 </section>
 
@@ -1227,8 +1263,8 @@ export default function CaseStudyPage() {
   <div className="cs-related-grid">
     {cs.related.map((r) => (
       <article key={r.slug} className="cs-related-card">
-        <Link href={`/case-studies/${r.slug}`} className="cs-related-image" style={{background: r.bg}}>
-          <div className="cs-related-mark">{r.brand}</div>
+        <Link href={`/case-studies/${r.slug}`} className="cs-related-image">
+          <img src={r.img} alt={r.brand} loading="lazy" />
           <div className="cs-related-bar" style={{background: r.bar}}></div>
         </Link>
         <h3 className="cs-related-title">{r.title}</h3>
