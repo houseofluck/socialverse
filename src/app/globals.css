@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * The Social Verse — Light Luxury Editorial + Acid Lime
+ * ------------------------------------------------------------------ */
+
+@theme {
+  /* Surfaces */
+  --color-paper: #f1ede3; /* warm bone — primary background */
+  --color-paper-2: #e8e1d3; /* slightly deeper alt sections */
+  --color-ink: #16150f; /* near-black warm — primary text */
+  --color-ink-2: #2b2921; /* softer heading ink */
+  --color-stone: #726b5a; /* muted body / captions */
+  --color-line: #16150f; /* hairlines (used at low opacity) */
+
+  /* Accent — deep burgundy / wine (premium editorial) */
+  --color-accent: #a61e42; /* fills, marks on paper */
+  --color-accent-deep: #7d1631; /* deeper — tiny marks on paper */
+  --color-accent-bright: #ef8aa2; /* lighter — accent text/marks on dark surfaces */
+  --color-accent-ink: #f7f2ec; /* text/icons placed ON an accent fill */
+
+  /* Radii */
+  --radius-pill: 999px;
+}
+
+@theme inline {
+  --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
+    serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+/* ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+/* Focus ring — accessible + on-brand */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Fraunces optical sizing for big display text */
+.font-display {
+  font-optical-sizing: auto;
+}
+
+/* ------------------------------------------------------------------ *
+ * Utilities
+ * ------------------------------------------------------------------ */
+
+@utility hairline {
+  border-color: color-mix(in srgb, var(--color-ink) 14%, transparent);
+}
+
+/* Balanced multi-line headings */
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Subtle paper grain to keep large flat areas from feeling digital */
+@utility grain {
+  position: relative;
+}
+@utility grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Marquee track */
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: inline-flex;
+  min-width: 100%;
+  flex-shrink: 0;
+  gap: var(--marquee-gap, 3.5rem);
+  padding-right: var(--marquee-gap, 3.5rem);
+  will-change: transform;
+  animation: marquee-x var(--marquee-duration, 32s) linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Animated underline reveal on links */
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

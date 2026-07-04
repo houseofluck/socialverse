@@ -1,107 +1,36 @@
-# TheSocialVerse — Next.js
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is the TheSocialVerse agency website, wired together as a Next.js 14 project (App Router).
+## Getting Started
 
-## Quick start
+First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-The site runs at <http://localhost:3000>.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## What changed from the static HTML build
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### 1. Routing
-All HTML pages are now Next.js routes:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-| Static file | Next.js route |
-|---|---|
-| `index.html` | `/` |
-| `about.html` | `/about` |
-| `services.html` | `/services` |
-| `service-detail.html?service=X` | `/services/[slug]` |
-| `works.html` | `/works` |
-| `project.html` | `/projects/[slug]` |
-| `case-study.html` | `/case-studies/[slug]` |
-| `blog-post.html` | `/blog/[slug]` |
-| `career.html` | `/careers` |
+## Learn More
 
-### 2. Theme: red → gold
-Single source of truth for colors is in `app/globals.css`:
+To learn more about Next.js, take a look at the following resources:
 
-```css
-:root {
-  --accent:      #d4a017;            /* gold (was #e60028 red) */
-  --accent-dark: #b8860b;            /* hover (was #c40023)    */
-  --accent-soft: #fff5d6;            /* soft tint              */
-  --accent-glow: rgba(212,160,23,.35);
-}
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Change `--accent` and `--accent-dark` to re-skin the entire site. Every CTA, link hover, eyebrow, focus ring, and active state pulls from these variables.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### 3. Per-page hero gradient themes
-Each page that previously had the red→purple gradient now has its own palette. The themes are defined as utility classes in `globals.css`:
+## Deploy on Vercel
 
-| Page | Theme class | Palette |
-|---|---|---|
-| `/services`, `/services/[slug]` | `.theme-purple` | violet → magenta |
-| `/projects/[slug]` | `.theme-blue` | navy → teal |
-| `/case-studies/[slug]` | `.theme-green` | emerald → mint |
-| `/careers` | `.theme-orange` | sunset orange |
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-To add a new theme, copy the pattern in `globals.css`:
-
-```css
-.hero-gradient.theme-XXX {
-  background: ...;
-}
-.hero-gradient.theme-XXX::before {
-  background: radial-gradient(...);
-}
-```
-
-Then add `hero-gradient theme-XXX` to your hero `<section>`.
-
-## Project structure
-
-```
-.
-├── app/
-│   ├── layout.js                    Root layout (Inter font, Navbar, Footer)
-│   ├── globals.css                  Theme tokens + shared component CSS
-│   ├── page.js                      Home
-│   ├── about/page.js
-│   ├── services/page.js
-│   ├── services/[slug]/page.js      Service detail (dynamic)
-│   ├── works/page.js                Portfolio listing
-│   ├── projects/[slug]/page.js      Single project (dynamic)
-│   ├── case-studies/[slug]/page.js  Case study (dynamic)
-│   ├── blog/[slug]/page.js          Blog post (dynamic)
-│   └── careers/page.js
-├── components/
-│   ├── Navbar.jsx                   Active route detection, hamburger menu
-│   ├── Footer.jsx                   Cities accordion, social icons
-│   └── WhatsAppFloat.jsx            Bottom-right floating button
-├── public/
-│   └── hero.mp4                     Homepage hero video
-├── package.json
-├── next.config.mjs
-├── jsconfig.json                    `@/` alias
-└── .gitignore
-```
-
-## Notes & next steps
-
-- **Dynamic routes (`[slug]`)** currently render the same content regardless of the slug. To wire them up to a CMS or data file, use `generateStaticParams` in each `[slug]/page.js`, then fetch the right item by slug from your data source.
-- **Forms** call `event.preventDefault()` and show a placeholder `alert()`. Wire them to your real backend (or a service like Formspree, Resend, or a Lambda).
-- **Hero video** lives at `public/hero.mp4`. Replace with your own.
-- **WhatsApp link** is `https://wa.me/` — add your phone number.
-- **Trust badges** in the footer are styled placeholders. Replace with real Trustpilot/Glassdoor embeds or remove.
-- **Per-page CSS** is currently embedded in each page component as a `<style>{`…`}</style>` block. As you refactor, you can move repeated rules into `globals.css` or convert each page to use a CSS module (`page.module.css`).
-
-## License
-
-Yours to use however you want.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
