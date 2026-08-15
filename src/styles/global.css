@@ -1,0 +1,44 @@
+
+    :root {
+      --color-bg: #f6f3ec; --color-surface: #ece7db; --color-text: #1d1a14;
+      --color-accent: #ab905c; --color-accent-2: #ab905c;
+      --color-divider: color-mix(in srgb, #1d1a14 30%, transparent);
+      --color-accent-100: #f7f0e1; --color-accent-200: #ecdfc4; --color-accent-300: #dcc89d;
+      --color-accent-400: #c3a970; --color-accent-500: #ab905c; --color-accent-600: #92794a;
+      --color-accent-700: #745f38; --color-accent-800: #55452a; --color-accent-900: #3a2f1e;
+      --color-neutral-100: #f1ede4; --color-neutral-200: #e5e0d4; --color-neutral-300: #d3ccbc;
+      --color-neutral-400: #b5ad9a; --color-neutral-500: #968e7b; --color-neutral-600: #78715f;
+      --color-neutral-700: #5c5647; --color-neutral-800: #413d32; --color-neutral-900: #2b2820;
+      --shadow-sm: 0 1px 2px rgba(43,40,32,.14); --shadow-md: 0 3px 10px rgba(43,40,32,.16); --shadow-lg: 0 12px 32px rgba(43,40,32,.22);
+    }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #0f0d0a; color: var(--color-text); font-family: var(--font-body); text-wrap: pretty; overflow-x: hidden; }
+    a { color: var(--color-text); } a:hover { color: var(--color-accent-600); }
+    ::selection { background: rgba(171,144,92,.35); }
+    @keyframes mq { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  
+
+
+    :root {
+      --color-bg: #f6f3ec; --color-surface: #ece7db; --color-text: #1d1a14;
+      --color-accent: #ab905c; --color-accent-2: #ab905c;
+      --color-divider: color-mix(in srgb, #1d1a14 30%, transparent);
+      --color-accent-100: #f7f0e1; --color-accent-200: #ecdfc4; --color-accent-300: #dcc89d;
+      --color-accent-400: #c3a970; --color-accent-500: #ab905c; --color-accent-600: #92794a;
+      --color-accent-700: #745f38; --color-accent-800: #55452a; --color-accent-900: #3a2f1e;
+      --color-neutral-100: #f1ede4; --color-neutral-200: #e5e0d4; --color-neutral-300: #d3ccbc;
+      --color-neutral-400: #b5ad9a; --color-neutral-500: #968e7b; --color-neutral-600: #78715f;
+      --color-neutral-700: #5c5647; --color-neutral-800: #413d32; --color-neutral-900: #2b2820;
+      --shadow-sm: 0 1px 2px rgba(43,40,32,.14); --shadow-md: 0 3px 10px rgba(43,40,32,.16); --shadow-lg: 0 12px 32px rgba(43,40,32,.22);
+    }
+    html { scroll-behavior: smooth; scrollbar-width: none; }
+    html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
+    [data-scrollrow] { scrollbar-width: none; -ms-overflow-style: none; }
+    [data-scrollrow]::-webkit-scrollbar { display: none; height: 0; }
+    body { margin: 0; background: #0f0d0a; color: var(--color-text); font-family: var(--font-body); text-wrap: pretty; overflow-x: hidden; }
+    a { color: var(--color-text); } a:not(.btn):hover { color: var(--color-accent-600); }
+    a.btn-primary, a.btn-primary:hover, a.btn-primary:active { color: var(--color-bg); }
+    ::selection { background: rgba(171,144,92,.35); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  
