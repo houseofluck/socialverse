@@ -7,7 +7,7 @@ class Component extends DCLogic {
         { t: 'Social Media Marketing', href: 'services.html#s-smm', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Performance Marketing', href: 'services.html#s-perf', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Content Production', href: 'services.html#s-content', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' },
-        { t: 'Branding & Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
+        { t: 'Branding and Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
         { t: 'SEO', href: 'services.html#s-seo', sq: 'width:10px; height:10px; flex:none; background:#ab905c;' },
         { t: 'Website Development', href: 'services.html#s-web', sq: 'width:10px; height:10px; flex:none; background:#1d1a14;' },
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
@@ -188,11 +188,11 @@ export default function AboutPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative — drop an image" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case — drop an image" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Case studies</span>
         </a>
       </div>
@@ -203,60 +203,77 @@ export default function AboutPage() {
 <header data-screen-label="Hero" style={{"position": "relative", "overflow": "hidden", "background": "var(--color-bg)", "color": "var(--color-text)", "padding": "clamp(70px,9vw,140px) clamp(24px,6vw,96px)"}}>
   <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}>About us</div>
   <h1 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(34px,5vw,84px)", "lineHeight": "1.02", "letterSpacing": "-.025em", "margin": "0", "maxWidth": "20ch", "color": "inherit"}}>
-    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Built For Brands That Want More Than Just Reach</span></span>
+    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>We're Not A Very Big Agency.</span></span>
   </h1>
-  <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(20px,3vh,32px) 0 0", "maxWidth": "56ch", "opacity": ".85"}}>The Social Verse is a modern digital marketing agency focused on helping businesses scale through impactful branding, strategic advertising, and content that actually connects. From startups to established brands, we create tailored marketing strategies that increase visibility, generate quality leads, and drive measurable business growth.</p>
+  <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(20px,3vh,32px) 0 0", "maxWidth": "56ch", "opacity": ".85"}}>And honestly, we like it that way. The Social Verse started with a simple idea: good marketing doesn't need a huge team. It needs good people who care about the work.</p>
 </header><section data-screen-label="Statement" style={{"background": "#1d1a14", "color": "#f6f3ec", "padding": "clamp(64px,8vw,120px) clamp(24px,6vw,96px)", "borderTop": "2px solid var(--color-divider)"}}>
   <h2 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(30px,4.4vw,68px)", "lineHeight": "1.08", "letterSpacing": "-.022em", "margin": "0", "maxWidth": "22ch"}}>
-    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Marketing should do more</span></span>
-    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="1" style={{"display": "block"}}>than just look good. <span style={{"color": "#ffd23f"}}>It should perform.</span></span></span>
+    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>We'd rather throw out a bad idea</span></span>
+    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="1" style={{"display": "block"}}>in the room than put a bad campaign</span></span>
+    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="2" style={{"display": "block"}}><span style={{"color": "#ffd23f"}}>in front of your audience.</span></span></span>
   </h2>
+  <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "20px 0 0", "maxWidth": "62ch", "opacity": ".85"}}>We're a small, hands on team working across strategy, content, design, advertising and digital. We work closely with the brands we take on. We ask questions. We try things. We change things when they don't work. And yes, sometimes the first idea is terrible. That's fine.</p>
 </section>
 <section data-screen-label="Our Approach" style={{"padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)", "borderTop": "2px solid var(--color-divider)", "display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(300px,1fr))", "gap": "clamp(28px,4.5vw,72px)", "alignItems": "start"}}>
-  <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(26px,3.2vw,46px)", "letterSpacing": "-.02em", "margin": "0", "maxWidth": "12ch"}}>Our Approach</h2>
+  <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(26px,3.2vw,46px)", "letterSpacing": "-.02em", "margin": "0", "maxWidth": "12ch"}}>We Start With The Brand. Not The Trend.</h2>
   <div style={{"display": "flex", "flexDirection": "column", "gap": "18px"}}>
-    <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0", "maxWidth": "60ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>At Social Verse, we believe successful marketing is built through a balance of creativity, strategy, and performance. Every brand has a unique story, and our approach focuses on transforming that story into impactful digital experiences that connect with the right audience.</p>
-    <p data-rv data-rvd="1" style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0", "maxWidth": "60ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>From content creation and branding to advertising and digital growth strategies, we combine innovative ideas with data-driven execution. Our goal is not just to create visually appealing campaigns, but to deliver marketing solutions that generate real business results.</p>
+    <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0", "maxWidth": "60ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>There's always a new trend. A new audio. A new format. A new &ldquo;hack&rdquo; someone says every brand needs to try. We'll use it if it makes sense. And ignore it if it doesn't.</p>
+    <div style={{"display": "grid", "borderBottom": "2px solid var(--color-divider)", "maxWidth": "60ch"}}>
+      <div data-rv data-rvd="1" style={{"borderTop": "2px solid var(--color-divider)", "padding": "13px 0", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>Who are you?</div>
+      <div data-rv data-rvd="2" style={{"borderTop": "2px solid var(--color-divider)", "padding": "13px 0", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>Who are you talking to?</div>
+      <div data-rv data-rvd="3" style={{"borderTop": "2px solid var(--color-divider)", "padding": "13px 0", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>What are you trying to achieve?</div>
+      <div data-rv data-rvd="4" style={{"borderTop": "2px solid var(--color-divider)", "padding": "13px 0", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>And why should anyone care?</div>
+    </div>
+    <p data-rv data-rvd="5" style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0", "maxWidth": "60ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>Once we know that, the creative becomes much easier.</p>
   </div>
 </section>
 <section data-screen-label="Why choose" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
-  <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(26px,3.2vw,46px)", "letterSpacing": "-.02em", "margin": "0 0 8px"}}>Why Choose Social Verse</h2>
-  <p data-rv style={{"fontSize": "15px", "lineHeight": "1.65", "margin": "0 0 26px", "maxWidth": "56ch", "color": "color-mix(in srgb, var(--color-text) 65%, transparent)"}}>More than a digital marketing agency — a creative growth partner for brands looking to stand out in the digital world.</p>
+  <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(26px,3.2vw,46px)", "letterSpacing": "-.02em", "margin": "0 0 34px"}}>Why Social Verse?</h2>
   <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(240px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
     <div data-case data-rv style={{"transition": "border-color .3s", "background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "gap": "12px", "minHeight": "200px", "position": "relative", "overflow": "hidden"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "80px", "lineHeight": ".8", "opacity": ".16"}}>01</span>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>Strategic &amp; Creative Execution</span>
-      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>We combine modern creative design with performance-focused marketing strategies to deliver impactful campaigns.</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>We're Hands On</span>
+      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>You won't disappear into a WhatsApp group after signing the contract. We're involved in the work.</span>
     </div>
     <div data-case data-rv style={{"transition": "border-color .3s", "background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "gap": "12px", "minHeight": "200px", "position": "relative", "overflow": "hidden"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "80px", "lineHeight": ".8", "opacity": ".16"}}>02</span>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>Result-Driven Approach</span>
-      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>Every campaign is planned with clear objectives focused on engagement, leads, visibility, and business growth.</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>We Care About The Actual Business</span>
+      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>A nice feed is great. But if the business isn't getting anything from it, what's the point?</span>
     </div>
     <div data-case data-rv style={{"transition": "border-color .3s", "background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "gap": "12px", "minHeight": "200px", "position": "relative", "overflow": "hidden"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "80px", "lineHeight": ".8", "opacity": ".16"}}>03</span>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>Complete Digital Solutions</span>
-      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>From social media management and branding to website development, advertising, and content production — end-to-end digital services under one roof.</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>We're Creative, But Not Just For The Sake Of It</span>
+      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>We like good design. We also like ideas that have a reason behind them.</span>
     </div>
     <div data-case data-rv style={{"transition": "border-color .3s", "background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "gap": "12px", "minHeight": "200px", "position": "relative", "overflow": "hidden"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "80px", "lineHeight": ".8", "opacity": ".16"}}>04</span>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>Premium Visual Storytelling</span>
-      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>High-quality visuals, reels, and creative content designed to strengthen brand identity and audience connection.</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>We Don't Believe In One Size Fits All</span>
+      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>A restaurant doesn't need the same strategy as a gold buyer. A hotel doesn't need the same content as a tech company. So why would we give them the same marketing?</span>
     </div>
     <div data-case data-rv style={{"transition": "border-color .3s", "background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "gap": "12px", "minHeight": "200px", "position": "relative", "overflow": "hidden"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "80px", "lineHeight": ".8", "opacity": ".16"}}>05</span>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>Client-Focused Collaboration</span>
-      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>We work closely with brands to understand their goals and create customized marketing strategies tailored to their business needs.</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(16px,1.6vw,20px)", "lineHeight": "1.15", "letterSpacing": "-.01em"}}>We Say What We Think</span>
+      <span style={{"fontSize": "13.5px", "lineHeight": "1.6", "opacity": ".82"}}>Sometimes we'll tell you an idea is good. Sometimes we'll tell you it isn't. That's part of the job.</span>
     </div>
+  </div>
+</section>
+<section data-screen-label="Founders" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)", "display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(300px,1fr))", "gap": "clamp(28px,4.5vw,72px)", "alignItems": "start"}}>
+  <div>
+    <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(14px,2vh,22px)"}}>Meet the founders</div>
+    <h2 data-rv data-rvd="1" style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(26px,3.2vw,46px)", "letterSpacing": "-.02em", "margin": "0", "maxWidth": "12ch"}}>Behind The Social Verse</h2>
+  </div>
+  <div style={{"display": "flex", "flexDirection": "column", "gap": "18px"}}>
+    <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0", "maxWidth": "60ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>We're two people who ended up building this together because we looked at marketing a little differently. One of us is more focused on ads, content and making sure the work actually reaches people. The other lives in design, creative ideas and constantly looking at what's new, what's working and what we can do differently.</p>
+    <p data-rv data-rvd="1" style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0", "maxWidth": "60ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>We bounce ideas off each other, disagree quite often, make things, scrap things and make them again. And somewhere in between all of that, The Social Verse happened. We're still building it. That's probably the best part.</p>
   </div>
 </section>
 <section data-screen-label="Build together" style={{"background": "var(--color-accent)", "color": "#14110c", "padding": "clamp(64px,8vw,120px) clamp(24px,6vw,96px)", "borderTop": "2px solid var(--color-divider)"}}>
   <h2 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(32px,4.6vw,72px)", "lineHeight": "1.04", "letterSpacing": "-.022em", "margin": "0", "maxWidth": "18ch"}}>
-    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Let's Build Your Brand Together</span></span>
+    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Have something in mind?</span></span>
   </h2>
-  <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "20px 0 0", "maxWidth": "62ch", "opacity": ".85"}}>Whether you are launching a new business, growing an existing brand, or looking to strengthen your digital presence — let's create something meaningful, impactful, and growth-driven together.</p>
+  <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "20px 0 0", "maxWidth": "62ch", "opacity": ".85"}}>Whether you are launching a new business, growing an existing brand, or looking to strengthen your digital presence, let's create something meaningful, impactful, and growth-driven together.</p>
   <div style={{"display": "flex", "alignItems": "center", "gap": "24px", "flexWrap": "wrap", "marginTop": "30px"}}>
-    <a data-mag href="contact.html" style={{"textDecoration": "none", "color": "#14110c", "border": "2px solid #14110c", "padding": "13px 24px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "transition": "background .25s"}} className="hv-9">Let's Work Together →</a>
+    <a data-mag href="contact.html" style={{"textDecoration": "none", "color": "#14110c", "border": "2px solid #14110c", "padding": "13px 24px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "transition": "background .25s"}} className="hv-9">Start A Conversation →</a>
     <a href="mailto:info@thesocialverse.co.in" style={{"color": "#14110c", "fontWeight": "600", "fontSize": "15px", "textUnderlineOffset": "5px"}} className="hv-10">info@thesocialverse.co.in</a>
   </div>
 </section>
@@ -271,7 +288,7 @@ export default function AboutPage() {
     <a href="tel:8099531944" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-12"><strong style={{"fontFamily": "var(--font-heading)"}}>Call:</strong> 8099531944</a>
     <a href="mailto:info@thesocialverse.co.in" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-13"><strong style={{"fontFamily": "var(--font-heading)"}}>Email:</strong> info@thesocialverse.co.in</a>
   </div>
-  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Social Verse is a full-service digital marketing agency helping brands grow through creative strategy, performance marketing, branding, website development, and content creation.</p>
+  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Strategy, content, ads, branding, websites and everything in between.</p>
   <div aria-label="The Social Verse" style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "10px"}}>
     <span style={{"display": "flex", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}><span aria-hidden="true" style={{"width": "clamp(14px,1.8vw,28px)", "height": "clamp(14px,1.8vw,28px)", "background": "var(--color-accent)", "flex": "none", "alignSelf": "center"}}></span><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(38px,9.6vw,164px)", "lineHeight": ".95", "letterSpacing": "-.03em", "color": "#f1ece1"}}>The Social Verse</span></span>
     <span style={{"fontSize": "clamp(10px,1.2vw,14px)", "letterSpacing": ".34em", "textTransform": "uppercase", "fontWeight": "600", "color": "#dcc89d"}}>All eyes on your brand</span>
@@ -293,7 +310,7 @@ export default function AboutPage() {
       <a href="https://linkedin.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-16">LinkedIn</a>
       <a href="https://youtube.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-17">YouTube</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© 2026 The Social Verse. All eyes on your brand.</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© The Social Verse</div>
   </div>
 </footer>
 

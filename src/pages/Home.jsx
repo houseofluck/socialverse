@@ -6,26 +6,26 @@ class Component extends DCLogic {
   renderVals() {
     const tick = [
       { a: 'All eyes on your brand', b: "Let's talk →" },
-      { a: '360° marketing — strategy, creativity, visibility', b: 'Our services →' },
+      { a: 'We handle the thinking, the creating and the execution', b: 'What we do →' },
       { a: 'New case study: Olive Heights', b: 'Read it →' }
     ];
-    const txt = "In today's fast-moving digital world, your brand needs more than just presence, it needs the right strategy, creativity, and visibility.";
-    const redSet = new Set(['strategy,', 'creativity,', 'visibility.']);
+    const txt = "At The Social Verse, we work with brands on the stuff that actually matters: how they look, how they sound, what they say, who they reach and, most importantly, what all of it does for the business.";
+    const redSet = new Set(['look,', 'sound,', 'say,', 'reach', 'business.']);
     return {
       tick4: [...tick, ...tick],
       shout4: ['All eyes on your brand', 'Stop the scroll', 'All eyes on your brand', 'Stop the scroll'],
       sh2: '#ab905c',
       close4: ['Build something', 'That stands out', 'Build something', 'That stands out'],
       closeWords: [
-        { w: "Let's", hc: '#f6f3ec' }, { w: 'build', hc: '#ff6b35' }, { w: 'something', hc: '#2ec4b6' },
-        { w: 'that', hc: '#ffd23f' }, { w: 'stands', hc: '#ff8fab' }, { w: 'out.', hc: '#f6f3ec' }
+        { w: 'You', hc: '#f6f3ec' }, { w: 'focus', hc: '#ff6b35' }, { w: 'on', hc: '#2ec4b6' },
+        { w: 'the', hc: '#ffd23f' }, { w: 'business.', hc: '#ff8fab' }
       ],
       maniWords: txt.split(' ').map(w => ({ w, r: redSet.has(w) ? '1' : '0' })),
       megaLinks: [
         { t: 'Social Media Marketing', href: 'services.html#s-smm', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Performance Marketing', href: 'services.html#s-perf', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Content Production', href: 'services.html#s-content', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' },
-        { t: 'Branding & Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
+        { t: 'Branding and Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
         { t: 'SEO', href: 'services.html#s-seo', sq: 'width:10px; height:10px; flex:none; background:#ab905c;' },
         { t: 'Website Development', href: 'services.html#s-web', sq: 'width:10px; height:10px; flex:none; background:#1d1a14;' },
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
@@ -33,9 +33,9 @@ class Component extends DCLogic {
         { t: 'Outdoor Marketing', href: 'services.html#s-outdoor', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' }
       ],
       pf: [
-        { t: 'Our creativity', d: 'Creative designs built to capture attention', href: 'portfolio.html#creativity', slot: 'home-pf-1', ph: 'Drop a creative design', img: 'work/creatives/social-grid.jpg', bg: '#ab905c', fg: '#14110c' },
-        { t: 'Hoarding Designs', d: 'Outdoor designs that stand out', href: 'portfolio.html#hoardings', slot: 'home-pf-2', ph: 'Drop a hoarding design', img: 'hoarding-design.jpg', bg: '#ab905c', fg: '#14110c' },
-        { t: 'Ticket Designs', d: 'Designed to make every entry special', href: 'portfolio.html#tickets', slot: 'home-pf-3', ph: 'Drop a ticket design', img: 'ticket-design.jpg', bg: '#ab905c', fg: '#14110c' }
+        { t: 'Creative Designs', d: 'The posts, campaigns and ideas that made it from our heads to the screen.', href: 'portfolio.html#creativity', slot: 'home-pf-1', ph: 'Drop a creative design', img: 'work/creatives/social-grid.jpg', bg: '#ab905c', fg: '#14110c' },
+        { t: 'Hoardings', d: "Because sometimes the screen isn't enough.", href: 'portfolio.html#hoardings', slot: 'home-pf-2', ph: 'Drop a hoarding design', img: 'hoarding-design.jpg', bg: '#ab905c', fg: '#14110c' },
+        { t: 'Tickets', d: 'Small piece of the campaign. Still part of the brand.', href: 'portfolio.html#tickets', slot: 'home-pf-3', ph: 'Drop a ticket design', img: 'ticket-design.jpg', bg: '#ab905c', fg: '#14110c' }
       ],
       reels: [
         { v: 'work/reels/reel-olive-heights-1.mp4', p: 'work/reels/posters/reel-olive-heights-1.jpg', cl: 'Olive Heights', k: 'Sundays are for indulgence' },
@@ -45,14 +45,15 @@ class Component extends DCLogic {
         { v: 'work/reels/reel-olive-heights-2.mp4', p: 'work/reels/posters/reel-olive-heights-2.jpg', cl: 'Olive Heights', k: 'Sounds of the kitchen' }
       ],
       cases: [
-        { n: '01', k: 'Rooftop dining — Guwahati', t: 'Olive Heights', d: 'How we helped to build a strong digital presence.', href: 'case-olive-heights.html', bg: '#ab905c', fg: '#14110c' },
-        { n: '02', k: 'Luxury hospitality', t: 'Awesome Palace', d: 'Creating a strong luxury hospitality presence.', href: 'case-awesome-palace.html', bg: '#ab905c', fg: '#14110c' },
-        { n: '03', k: 'Gold buying', t: 'Ahvi Gold', d: 'Transforming Ahvi Gold into a recognizable gold buying brand.', href: 'case-ahvi-gold.html', bg: '#ab905c', fg: '#14110c' }
+        { n: '01', k: 'Rooftop dining, Guwahati', t: 'Olive Heights', d: 'A rooftop restaurant that already looked good. The job was making people want to go.', href: 'case-olive-heights.html', bg: '#ab905c', fg: '#14110c' },
+        { n: '02', k: 'Luxury hospitality', t: 'Awesome Palace', d: 'A hotel has about five seconds to make you want to stay there.', href: 'case-awesome-palace.html', bg: '#ab905c', fg: '#14110c' },
+        { n: '03', k: 'Gold buying', t: 'Ahvi Gold', d: 'Selling gold is personal. The marketing had to understand that.', href: 'case-ahvi-gold.html', bg: '#ab905c', fg: '#14110c' }
       ],
       sols: [
-        { n: '01', t: 'Social Media Marketing', k: 'Stay relevant, stay loud', c: 'Strategic social media management designed to increase brand awareness, audience engagement, and customer conversion.', bg: '#ffd23f', fg: '#14110c', wm: 'rgba(20,17,12,.25)' },
-        { n: '02', t: 'Performance Marketing', k: 'Measurable growth', c: 'Data-driven advertising campaigns across Meta, Google and YouTube focused on leads, sales and maximum ROI.', bg: '#ff6b35', fg: '#14110c', wm: 'rgba(20,17,12,.25)' },
-        { n: '03', t: 'Branding & Creative Strategy', k: 'Be unforgettable', c: 'Strong, memorable brand identity through strategic design, storytelling, and visual communication.', bg: '#ff8fab', fg: '#14110c', wm: 'rgba(20,17,12,.25)' }
+        { n: '01', t: 'Social Media', k: 'Not just posting', c: 'Not just posting for the sake of posting. We plan your content, create it, manage the page and keep it moving.', bg: '#ffd23f', fg: '#14110c', wm: 'rgba(20,17,12,.25)' },
+        { n: '02', t: 'Ads', k: 'Spend smarter', c: "Good ads aren't about spending more. They're about spending smarter. We run campaigns built around what you actually want: leads, sales, bookings, enquiries or reach.", bg: '#ff6b35', fg: '#14110c', wm: 'rgba(20,17,12,.25)' },
+        { n: '03', t: 'Content', k: 'Stop and look', c: "Photos. Reels. Videos. Campaigns. Whatever your brand needs to say, we'll figure out how to make people stop and look.", bg: '#ff8fab', fg: '#14110c', wm: 'rgba(20,17,12,.25)' },
+        { n: '04', t: 'Branding', k: 'Be recognisable', c: "Your brand shouldn't look like it was picked from a Canva template. We work on the identity, visuals and creative direction that make people recognise you.", bg: '#2ec4b6', fg: '#14110c', wm: 'rgba(20,17,12,.25)' }
       ],
       clients: [
         { i: '0', name: 'Olive Heights', meta: 'Rooftop dining', logo: 'clients/olive-heights.png' }, { i: '1', name: 'Olive Garden', meta: 'Restaurant', logo: 'clients/olive-garden.png' },
@@ -157,7 +158,7 @@ class Component extends DCLogic {
           if (p) p.catch(() => {
             v.muted = true;
             const b = $('sndBtn');
-            if (b && v.id === 'reelVid') b.textContent = 'Sound — off';
+            if (b && v.id === 'reelVid') b.textContent = 'Sound off';
           });
         } else if (!vis && !v.paused) v.pause();
       });
@@ -169,7 +170,7 @@ class Component extends DCLogic {
     if (rvid && sb) this.on(sb, 'click', () => {
       rvid.muted = !rvid.muted;
       if (!rvid.muted) { rvid.volume = 1; const p = rvid.play(); if (p) p.catch(() => { }); }
-      sb.textContent = rvid.muted ? 'Sound — off' : 'Sound — on';
+      sb.textContent = rvid.muted ? 'Sound off' : 'Sound on';
     });
     const mls = [...document.querySelectorAll('[data-ml]')];
     mls.forEach(el => { el.style.transform = 'translateY(115%)'; });
@@ -376,11 +377,11 @@ export default function HomePage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative — drop an image" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case — drop an image" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Case studies</span>
         </a>
       </div>
@@ -393,12 +394,12 @@ export default function HomePage() {
   <div style={{"position": "absolute", "inset": "0", "background": "radial-gradient(560px circle at 72% 26%, rgba(171,144,92,.17), transparent 70%)", "pointerEvents": "none"}}></div>
   <div style={{"position": "relative"}}>
     <h1 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(44px,6.8vw,116px)", "lineHeight": "1.02", "letterSpacing": "-.028em", "margin": "0", "maxWidth": "15ch", "color": "var(--color-text)"}}>
-      <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Your Complete Partner</span></span>
-      <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="1" style={{"display": "block"}}>for <span style={{"color": "var(--color-accent-600)"}}>Digital Growth</span></span></span>
+      <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Your brand deserves</span></span>
+      <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="1" style={{"display": "block"}}>more than <span style={{"color": "var(--color-accent-600)"}}>just a post.</span></span></span>
     </h1>
-    <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,18px)", "lineHeight": "1.65", "margin": "clamp(24px,4vh,40px) 0 0", "maxWidth": "56ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>The Social Verse helps businesses build a strong digital identity and grow with result-driven marketing solutions — complete 360° marketing services designed to help your business stand out.</p>
+    <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,18px)", "lineHeight": "1.65", "margin": "clamp(24px,4vh,40px) 0 0", "maxWidth": "56ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>There are already a thousand brands posting every day. Another reel. Another “Happy Monday.” Another boosted post that nobody remembers. We don't want to add to that noise.</p>
     <div data-rv data-rvd="3" style={{"display": "flex", "alignItems": "center", "gap": "20px", "marginTop": "clamp(22px,3.5vh,34px)"}}>
-      <a href="portfolio.html" style={{"textDecoration": "none"}} className="btn btn-primary">See our work</a>
+      <a href="portfolio.html" style={{"textDecoration": "none"}} className="btn btn-primary">Let's Talk</a>
       <a href="services.html" style={{"textDecoration": "none", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ffd23f,#ffd23f)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "100% 2px", "paddingBottom": "3px"}} className="hv-5">Our services</a>
     </div>
   </div>
@@ -419,7 +420,7 @@ export default function HomePage() {
     <div style={{"position": "sticky", "top": "0", "height": "100vh", "overflow": "hidden", "display": "flex", "alignItems": "center", "justifyContent": "center", "background": "var(--color-bg)"}}>
       <div id="reelWrap" style={{"position": "relative", "overflow": "hidden", "width": "62%", "minWidth": "320px", "willChange": "width,transform,opacity"}}>
         <video id="reelVid" data-auto src="uploads/reel-landscape.mp4" autoPlay muted loop playsInline preload="auto" aria-label="Showreel" style={{"display": "block", "width": "100%", "aspectRatio": "16/9", "objectFit": "cover", "filter": "brightness(.97)"}}></video>
-        <button id="sndBtn" type="button" style={{"position": "absolute", "right": "16px", "bottom": "12px", "border": "2px solid rgba(255,255,255,.5)", "background": "rgba(14,13,11,.45)", "backdropFilter": "blur(8px)", "color": "#fff", "font": "inherit", "fontSize": "10px", "letterSpacing": ".18em", "textTransform": "uppercase", "padding": "7px 12px", "transition": "border-color .3s, color .3s"}} className="hv-6">Sound — off</button>
+        <button id="sndBtn" type="button" style={{"position": "absolute", "right": "16px", "bottom": "12px", "border": "2px solid rgba(255,255,255,.5)", "background": "rgba(14,13,11,.45)", "backdropFilter": "blur(8px)", "color": "#fff", "font": "inherit", "fontSize": "10px", "letterSpacing": ".18em", "textTransform": "uppercase", "padding": "7px 12px", "transition": "border-color .3s, color .3s"}} className="hv-6">Sound off</button>
       </div>
     </div>
   </div>
@@ -432,8 +433,8 @@ export default function HomePage() {
       <p id="maniWords" style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(24px,2.7vw,40px)", "lineHeight": "1.32", "letterSpacing": "-.015em", "margin": "0", "maxWidth": "28ch"}}>
         {vals.maniWords.map((wd, $index) => (<React.Fragment key={$index}><span data-red={wd.r} style={{"opacity": ".18", "transition": "opacity .4s, color .4s"}}>{wd.w} </span></React.Fragment>))}
       </p>
-      <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "26px 0 0", "maxWidth": "52ch", "color": "color-mix(in srgb, var(--color-text) 65%, transparent)"}}>From building your brand from scratch to scaling it across digital platforms, we provide complete 360° marketing services designed to help your business stand out, connect with the right audience, and drive measurable growth.</p>
-      <a data-rv data-rvd="1" href="about.html" style={{"textDecoration": "none", "marginTop": "28px"}} className="btn btn-primary">About the agency →</a>
+      <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "26px 0 0", "maxWidth": "52ch", "color": "color-mix(in srgb, var(--color-text) 65%, transparent)"}}>Sometimes that means fixing a social media page. Sometimes it means running ads. Sometimes it means figuring out what the brand should actually be saying in the first place.</p>
+      <a data-rv data-rvd="1" href="about.html" style={{"textDecoration": "none", "marginTop": "28px"}} className="btn btn-primary">More about us →</a>
     </div>
   </div>
 </section>
@@ -441,7 +442,7 @@ export default function HomePage() {
 <section data-screen-label="Portfolio teaser" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(70px,9vw,130px) clamp(24px,6vw,96px)"}}>
   <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "baseline", "gap": "16px", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
     <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(28px,3.4vw,48px)", "letterSpacing": "-.02em", "margin": "0"}}>Portfolio</h2>
-    <a data-rv data-rvd="1" href="portfolio.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ff6b35,#ff6b35)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">Know more →</a>
+    <a data-rv data-rvd="1" href="portfolio.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ff6b35,#ff6b35)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">View Portfolio →</a>
   </div>
   <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "clamp(18px,2.6vw,36px)"}}>
     {vals.pf.map((p, $index) => (<React.Fragment key={$index}>
@@ -484,7 +485,7 @@ export default function HomePage() {
 <section data-screen-label="Case studies teaser" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(70px,9vw,130px) clamp(24px,6vw,96px)"}}>
   <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "baseline", "gap": "16px", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
     <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(28px,3.4vw,48px)", "letterSpacing": "-.02em", "margin": "0"}}>Case studies</h2>
-    <a data-rv data-rvd="1" href="case-studies.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#2ec4b6,#2ec4b6)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">Know more →</a>
+    <a data-rv data-rvd="1" href="case-studies.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#2ec4b6,#2ec4b6)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">Read the case studies →</a>
   </div>
   <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(280px,1fr))", "gap": "clamp(18px,2.6vw,36px)"}}>
     {vals.cases.map((c, $index) => (<React.Fragment key={$index}>
@@ -503,8 +504,8 @@ export default function HomePage() {
 
 <section id="services" data-screen-label="Services rail" style={{"borderTop": "2px solid var(--color-divider)"}}>
   <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "baseline", "gap": "16px", "flexWrap": "wrap", "padding": "18px clamp(24px,6vw,96px)", "borderBottom": "2px solid var(--color-divider)"}}>
-    <h2 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(28px,3.4vw,48px)", "letterSpacing": "-.02em", "margin": "0"}}>Our Services</h2>
-    <a href="services.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ffd23f,#ffd23f)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">All 9 services →</a>
+    <h2 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(28px,3.4vw,48px)", "letterSpacing": "-.02em", "margin": "0"}}>What We Do</h2>
+    <a href="services.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ffd23f,#ffd23f)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">See What We Do →</a>
   </div>
   <div id="solRail" style={{"display": "flex", "minHeight": "64vh"}}>
     {vals.sols.map((s, $index) => (<React.Fragment key={$index}>
@@ -517,7 +518,7 @@ export default function HomePage() {
         <div data-full style={{"position": "absolute", "inset": "0", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "padding": "clamp(20px,2.6vw,40px)", "opacity": "0", "transition": "opacity .5s .08s", "color": `${s.fg}`}}>
           <div aria-hidden="true" style={{"position": "absolute", "right": "6px", "bottom": "-16px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(120px,13vw,210px)", "lineHeight": ".8", "color": "transparent", "WebkitTextStroke": `2px ${s.wm}`, "pointerEvents": "none"}}>{s.n}</div>
           <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}>
-            <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontVariantNumeric": "tabular-nums", "fontSize": "15px"}}>{s.n} / 03</span>
+            <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontVariantNumeric": "tabular-nums", "fontSize": "15px"}}>{s.n} / 04</span>
             <span style={{"fontSize": "10px", "letterSpacing": ".18em", "textTransform": "uppercase", "opacity": ".7"}}>{s.k}</span>
           </div>
           <div>
@@ -533,7 +534,7 @@ export default function HomePage() {
 
 <section data-screen-label="Clientele" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(70px,9vw,130px) clamp(24px,6vw,96px)"}}>
   <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "baseline", "gap": "16px", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
-    <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(28px,3.4vw,48px)", "letterSpacing": "-.02em", "margin": "0"}}>Our Clientele</h2>
+    <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(28px,3.4vw,48px)", "letterSpacing": "-.02em", "margin": "0"}}>Brands We've Worked With</h2>
     <a data-rv data-rvd="1" href="clients.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ffd23f,#ffd23f)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">All clients →</a>
   </div>
   <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(150px,1fr))", "gap": "2px", "background": "var(--color-divider)", "border": "2px solid var(--color-divider)"}}>
@@ -559,7 +560,7 @@ export default function HomePage() {
       <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>All eyes</span></span>
       <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="1" style={{"display": "block"}}>on <span style={{"color": "#ffd23f"}}>your brand</span>.</span></span>
     </h2>
-    <p data-rv style={{"fontSize": "15px", "lineHeight": "1.65", "margin": "22px 0 0", "maxWidth": "44ch", "color": "rgba(241,236,225,.85)"}}>Strategy, creativity and visibility — everywhere your audience looks.</p>
+    <p data-rv style={{"fontSize": "15px", "lineHeight": "1.65", "margin": "22px 0 0", "maxWidth": "44ch", "color": "rgba(241,236,225,.85)"}}>Strategy, creativity and visibility, everywhere your audience looks.</p>
   </div>
 </section>
 
@@ -573,12 +574,12 @@ export default function HomePage() {
     </React.Fragment>))}
   </div>
   <div style={{"padding": "0 clamp(24px,6vw,96px)"}}>
-    <div style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".7", "marginBottom": "20px"}}>Your brand deserves more than ordinary marketing</div>
+    <div style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".7", "marginBottom": "20px"}}>We handle the thinking, the creating and the execution.</div>
     <h2 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(38px,5.8vw,96px)", "lineHeight": "1.05", "letterSpacing": "-.025em", "margin": "0", "color": "#14110c", "display": "flex", "flexWrap": "wrap", "gap": "0 .26em"}}>
       {vals.closeWords.map((wd, $index) => (<React.Fragment key={$index}><span onMouseEnter={(e)=>{Object.assign(e.currentTarget.style,{"transform": "translateY(-12px) rotate(-3deg)", "color": wd.hc});}} onMouseLeave={(e)=>{Object.assign(e.currentTarget.style,{"transform": "", "color": ""});}} style={{"display": "inline-block", "transition": "transform .35s cubic-bezier(.34,1.56,.64,1), color .25s"}}>{wd.w}</span></React.Fragment>))}
     </h2>
     <div style={{"display": "flex", "alignItems": "center", "gap": "26px", "flexWrap": "wrap", "marginTop": "36px"}}>
-      <a data-mag href="contact.html" style={{"textDecoration": "none", "color": "#14110c", "border": "2px solid #14110c", "padding": "14px 26px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "display": "inline-flex", "alignItems": "center", "gap": "8px", "transition": "background .25s"}} className="hv-9">Let's Work Together →</a>
+      <a data-mag href="contact.html" style={{"textDecoration": "none", "color": "#14110c", "border": "2px solid #14110c", "padding": "14px 26px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "display": "inline-flex", "alignItems": "center", "gap": "8px", "transition": "background .25s"}} className="hv-9">Let's Talk →</a>
       <a href="mailto:info@thesocialverse.co.in" style={{"color": "#14110c", "fontWeight": "600", "fontSize": "15px", "textUnderlineOffset": "5px"}} className="hv-10">info@thesocialverse.co.in</a>
     </div>
   </div>
@@ -594,7 +595,7 @@ export default function HomePage() {
     <a href="tel:8099531944" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-12"><strong style={{"fontFamily": "var(--font-heading)"}}>Call:</strong> 8099531944</a>
     <a href="mailto:info@thesocialverse.co.in" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-13"><strong style={{"fontFamily": "var(--font-heading)"}}>Email:</strong> info@thesocialverse.co.in</a>
   </div>
-  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Social Verse is a full-service digital marketing agency helping brands grow through creative strategy, performance marketing, branding, website development, and content creation.</p>
+  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Strategy, content, ads, branding, websites and everything in between.</p>
   <div aria-label="The Social Verse" style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "10px"}}>
     <span style={{"display": "flex", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}><span aria-hidden="true" style={{"width": "clamp(14px,1.8vw,28px)", "height": "clamp(14px,1.8vw,28px)", "background": "var(--color-accent)", "flex": "none", "alignSelf": "center"}}></span><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(38px,9.6vw,164px)", "lineHeight": ".95", "letterSpacing": "-.03em", "color": "#f1ece1"}}>The Social Verse</span></span>
     <span style={{"fontSize": "clamp(10px,1.2vw,14px)", "letterSpacing": ".34em", "textTransform": "uppercase", "fontWeight": "600", "color": "#dcc89d"}}>All eyes on your brand</span>
@@ -616,7 +617,7 @@ export default function HomePage() {
       <a href="https://linkedin.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-16">LinkedIn</a>
       <a href="https://youtube.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-17">YouTube</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© 2026 The Social Verse. All eyes on your brand.</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© The Social Verse</div>
   </div>
 </footer>
 

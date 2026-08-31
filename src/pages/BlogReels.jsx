@@ -7,7 +7,7 @@ class Component extends DCLogic {
         { t: 'Social Media Marketing', href: 'services.html#s-smm', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Performance Marketing', href: 'services.html#s-perf', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Content Production', href: 'services.html#s-content', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' },
-        { t: 'Branding & Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
+        { t: 'Branding and Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
         { t: 'SEO', href: 'services.html#s-seo', sq: 'width:10px; height:10px; flex:none; background:#ab905c;' },
         { t: 'Website Development', href: 'services.html#s-web', sq: 'width:10px; height:10px; flex:none; background:#1d1a14;' },
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
@@ -186,11 +186,11 @@ export default function BlogReelsPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative — drop an image" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case — drop an image" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Case studies</span>
         </a>
       </div>
@@ -199,7 +199,7 @@ export default function BlogReelsPage() {
 </nav>
 
 <header data-screen-label="Post hero" style={{"padding": "clamp(64px,8vw,120px) clamp(24px,6vw,96px) clamp(36px,4.5vw,56px)"}}>
-  <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}><a href="blog.html" style={{"color": "inherit", "textDecoration": "none"}}>The Blog</a> — Social · Aug '26 · 5 min read</div>
+  <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}><a href="blog.html" style={{"color": "inherit", "textDecoration": "none"}}>The Blog</a> · Social · Aug '26 · 5 min read</div>
   <h1 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(30px,4.6vw,72px)", "lineHeight": "1.04", "letterSpacing": "-.024em", "margin": "0", "maxWidth": "24ch"}}>
     <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Why reels are the fastest way to grow a restaurant brand</span></span>
   </h1>
@@ -209,13 +209,13 @@ export default function BlogReelsPage() {
   <div style={{"maxWidth": "820px"}}>
     <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(160px,1fr))", "gap": "clamp(12px,1.6vw,20px)"}}>
       <div data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-        <video data-auto src="work/reels/reel-olive-garden.mp4" poster="work/reels/posters/reel-olive-garden.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Garden — reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+        <video data-auto src="work/reels/reel-olive-garden.mp4" poster="work/reels/posters/reel-olive-garden.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Garden reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
       </div>
       <div data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-        <video data-auto src="work/reels/reel-olive-heights-1.mp4" poster="work/reels/posters/reel-olive-heights-1.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights — reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+        <video data-auto src="work/reels/reel-olive-heights-1.mp4" poster="work/reels/posters/reel-olive-heights-1.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
       </div>
       <div data-rv data-rvd="2" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-        <video data-auto src="work/reels/reel-olive-heights-2.mp4" poster="work/reels/posters/reel-olive-heights-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights — reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+        <video data-auto src="work/reels/reel-olive-heights-2.mp4" poster="work/reels/posters/reel-olive-heights-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
       </div>
     </div>
     <div data-rv style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "14px"}}>Reels we produced for Olive Garden and Olive Heights</div>
@@ -224,7 +224,7 @@ export default function BlogReelsPage() {
 <article data-screen-label="Article" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(48px,6vw,90px) clamp(24px,6vw,96px)"}}>
   <div style={{"maxWidth": "820px"}}>
     <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}><span style={{"color": "var(--color-accent-700)", "fontVariantNumeric": "tabular-nums", "marginRight": "12px"}}>01</span>Ambience is the product</h2>
-    <p data-rv style={{"fontSize": "16px", "lineHeight": "1.75", "margin": "0", "maxWidth": "68ch", "color": "color-mix(in srgb, var(--color-text) 82%, transparent)"}}>For dining brands, what you're really selling is an evening. A 15-second reel of golden-hour light, a pour, a table arriving carries that better than any photo album — shoot the room, not just the plate.</p>
+    <p data-rv style={{"fontSize": "16px", "lineHeight": "1.75", "margin": "0", "maxWidth": "68ch", "color": "color-mix(in srgb, var(--color-text) 82%, transparent)"}}>For dining brands, what you're really selling is an evening. A 15-second reel of golden-hour light, a pour, a table arriving carries that better than any photo album. Shoot the room, not just the plate.</p>
     <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "40px 0 14px"}}><span style={{"color": "var(--color-accent-700)", "fontVariantNumeric": "tabular-nums", "marginRight": "12px"}}>02</span>Consistency beats virality</h2>
     <p data-rv style={{"fontSize": "16px", "lineHeight": "1.75", "margin": "0", "maxWidth": "68ch", "color": "color-mix(in srgb, var(--color-text) 82%, transparent)"}}>One viral reel brings a spike; three good reels a week build a habit. Audiences return to feeds that feel alive, and the algorithm rewards the rhythm.</p>
     <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "40px 0 14px"}}><span style={{"color": "var(--color-accent-700)", "fontVariantNumeric": "tabular-nums", "marginRight": "12px"}}>03</span>Make the profile a menu</h2>
@@ -265,7 +265,7 @@ export default function BlogReelsPage() {
     <a href="tel:8099531944" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-12"><strong style={{"fontFamily": "var(--font-heading)"}}>Call:</strong> 8099531944</a>
     <a href="mailto:info@thesocialverse.co.in" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-13"><strong style={{"fontFamily": "var(--font-heading)"}}>Email:</strong> info@thesocialverse.co.in</a>
   </div>
-  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Social Verse is a full-service digital marketing agency helping brands grow through creative strategy, performance marketing, branding, website development, and content creation.</p>
+  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Strategy, content, ads, branding, websites and everything in between.</p>
   <div aria-label="The Social Verse" style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "10px"}}>
     <span style={{"display": "flex", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}><span aria-hidden="true" style={{"width": "clamp(14px,1.8vw,28px)", "height": "clamp(14px,1.8vw,28px)", "background": "var(--color-accent)", "flex": "none", "alignSelf": "center"}}></span><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(38px,9.6vw,164px)", "lineHeight": ".95", "letterSpacing": "-.03em", "color": "#f1ece1"}}>The Social Verse</span></span>
     <span style={{"fontSize": "clamp(10px,1.2vw,14px)", "letterSpacing": ".34em", "textTransform": "uppercase", "fontWeight": "600", "color": "#dcc89d"}}>All eyes on your brand</span>
@@ -287,7 +287,7 @@ export default function BlogReelsPage() {
       <a href="https://linkedin.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-16">LinkedIn</a>
       <a href="https://youtube.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-17">YouTube</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© 2026 The Social Verse. All eyes on your brand.</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© The Social Verse</div>
   </div>
 </footer>
 

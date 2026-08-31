@@ -10,7 +10,7 @@ class Component extends DCLogic {
         { t: 'Social Media Marketing', href: 'services.html#s-smm', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Performance Marketing', href: 'services.html#s-perf', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Content Production', href: 'services.html#s-content', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' },
-        { t: 'Branding & Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
+        { t: 'Branding and Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
         { t: 'SEO', href: 'services.html#s-seo', sq: 'width:10px; height:10px; flex:none; background:#ab905c;' },
         { t: 'Website Development', href: 'services.html#s-web', sq: 'width:10px; height:10px; flex:none; background:#1d1a14;' },
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
@@ -23,9 +23,9 @@ class Component extends DCLogic {
       submit: (e) => {
         e.preventDefault();
         const fd = new FormData(e.target);
-        const subject = encodeURIComponent(`New business — ${fd.get('name') || 'inquiry'}${fd.get('brand') ? ', ' + fd.get('brand') : ''}`);
+        const subject = encodeURIComponent(`New business: ${fd.get('name') || 'inquiry'}${fd.get('brand') ? ', ' + fd.get('brand') : ''}`);
         const body = encodeURIComponent(
-          `Name: ${fd.get('name') || '—'}\nBrand: ${fd.get('brand') || '—'}\nEmail: ${fd.get('email') || '—'}\nServices: ${(fd.getAll('services') || []).join(', ') || '—'}\n\n${fd.get('msg') || ''}`
+          `Name: ${fd.get('name') || 'Not provided'}\nBrand: ${fd.get('brand') || 'Not provided'}\nEmail: ${fd.get('email') || 'Not provided'}\nServices: ${(fd.getAll('services') || []).join(', ') || 'Not provided'}\n\n${fd.get('msg') || ''}`
         );
         window.location.href = `mailto:info@thesocialverse.co.in?subject=${subject}&body=${body}`;
         this.setState({ sent: true });
@@ -210,11 +210,11 @@ export default function ContactPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative — drop an image" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case — drop an image" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Case studies</span>
         </a>
       </div>
@@ -225,9 +225,10 @@ export default function ContactPage() {
 <header id="chero" data-screen-label="Contact header" style={{"position": "relative", "overflow": "hidden", "padding": "clamp(70px,9vw,130px) clamp(24px,6vw,96px) clamp(36px,4.5vw,56px)"}}>
   <canvas id="dotCanvas" style={{"position": "absolute", "inset": "0", "width": "100%", "height": "100%", "display": "block", "pointerEvents": "none"}}></canvas>
   <h1 style={{"position": "relative", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(46px,6.8vw,110px)", "lineHeight": "1.03", "letterSpacing": "-.028em", "margin": "0"}}>
-    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Start something</span></span>
+    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Have Something In Mind?</span></span>
   </h1>
-  <p data-rv data-rvd="2" style={{"position": "relative", "fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(24px,3.5vh,40px) 0 0", "maxWidth": "46ch", "color": "color-mix(in srgb, var(--color-text) 72%, transparent)"}}>Tell us what needs to be impossible to ignore. First conversation is a phone call, not a deck.</p>
+  <p data-rv data-rvd="2" style={{"position": "relative", "fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(24px,3.5vh,40px) 0 0", "maxWidth": "46ch", "color": "color-mix(in srgb, var(--color-text) 72%, transparent)"}}>Maybe you're starting a brand. Maybe your current marketing isn't doing much. Maybe you just know your brand could be doing better. Whatever it is, tell us. We'll take it from there.</p>
+  <p data-rv data-rvd="3" style={{"position": "relative", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "lineHeight": "1.2", "letterSpacing": "-.02em", "margin": "clamp(16px,2vh,24px) 0 0", "color": "var(--color-text)"}}>Let's talk.</p>
 </header>
 
 <section data-screen-label="Contact form" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(48px,6vw,90px) clamp(24px,6vw,96px) clamp(90px,11vw,160px)", "display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(320px,1fr))", "gap": "clamp(36px,6vw,110px)", "alignItems": "start"}}>
@@ -254,7 +255,7 @@ export default function ContactPage() {
             <label className="seg-opt"><input type="checkbox" name="services" value="Social Media Marketing" /><span>Social Media Marketing</span></label>
             <label className="seg-opt"><input type="checkbox" name="services" value="Performance Marketing" /><span>Performance Marketing</span></label>
             <label className="seg-opt"><input type="checkbox" name="services" value="Content Production" /><span>Content Production</span></label>
-            <label className="seg-opt"><input type="checkbox" name="services" value="Branding & Creative Strategy" /><span>Branding &amp; Creative Strategy</span></label>
+            <label className="seg-opt"><input type="checkbox" name="services" value="Branding and Creative Strategy" /><span>Branding and Creative Strategy</span></label>
             <label className="seg-opt"><input type="checkbox" name="services" value="SEO" /><span>SEO</span></label>
             <label className="seg-opt"><input type="checkbox" name="services" value="Website Development" /><span>Website Development</span></label>
             <label className="seg-opt"><input type="checkbox" name="services" value="App Development" /><span>App Development</span></label>
@@ -267,7 +268,7 @@ export default function ContactPage() {
           <textarea id="cf-msg" name="msg" required placeholder="A launch, a rebrand, a platform…" className="input"></textarea>
         </div>
         <div style={{"display": "flex", "alignItems": "center", "gap": "16px", "flexWrap": "wrap"}}>
-          <button data-mag type="submit" className="btn btn-primary">Send</button>
+          <button data-mag type="submit" className="btn btn-primary">Start A Conversation</button>
           <span style={{"fontSize": "12px", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)"}}>Opens your mail app, pre-filled.</span>
         </div>
       </form>
@@ -276,7 +277,7 @@ export default function ContactPage() {
       <div style={{"border": "2px solid var(--color-divider)", "padding": "clamp(28px,4vw,48px)", "maxWidth": "560px"}}>
         <div style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "16px"}}>Message drafted</div>
         <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(26px,3.2vw,40px)", "lineHeight": "1.05", "letterSpacing": "-.02em", "marginBottom": "14px"}}>Loud and clear.</div>
-        <p style={{"fontSize": "15px", "lineHeight": "1.65", "margin": "0 0 22px", "maxWidth": "44ch", "color": "color-mix(in srgb, var(--color-text) 72%, transparent)"}}>Your mail app opened with everything filled in — send it there and we're on it. If it didn't, write to <a href="mailto:info@thesocialverse.co.in" style={{"color": "var(--color-accent-700)", "fontWeight": "600"}}>info@thesocialverse.co.in</a> directly.</p>
+        <p style={{"fontSize": "15px", "lineHeight": "1.65", "margin": "0 0 22px", "maxWidth": "44ch", "color": "color-mix(in srgb, var(--color-text) 72%, transparent)"}}>Your mail app opened with everything filled in. Send it there and we're on it. If it didn't, write to <a href="mailto:info@thesocialverse.co.in" style={{"color": "var(--color-accent-700)", "fontWeight": "600"}}>info@thesocialverse.co.in</a> directly.</p>
         <button type="button" onClick={vals.reset} className="btn btn-secondary">Write another</button>
       </div>
     </>) : null}
@@ -312,7 +313,7 @@ export default function ContactPage() {
     <a href="tel:8099531944" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hvc-6"><strong style={{"fontFamily": "var(--font-heading)"}}>Call:</strong> 8099531944</a>
     <a href="mailto:info@thesocialverse.co.in" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hvc-7"><strong style={{"fontFamily": "var(--font-heading)"}}>Email:</strong> info@thesocialverse.co.in</a>
   </div>
-  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Social Verse is a full-service digital marketing agency helping brands grow through creative strategy, performance marketing, branding, website development, and content creation.</p>
+  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Strategy, content, ads, branding, websites and everything in between.</p>
   <div aria-label="The Social Verse" style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "10px"}}>
     <span style={{"display": "flex", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}><span aria-hidden="true" style={{"width": "clamp(14px,1.8vw,28px)", "height": "clamp(14px,1.8vw,28px)", "background": "var(--color-accent)", "flex": "none", "alignSelf": "center"}}></span><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(38px,9.6vw,164px)", "lineHeight": ".95", "letterSpacing": "-.03em", "color": "#f1ece1"}}>The Social Verse</span></span>
     <span style={{"fontSize": "clamp(10px,1.2vw,14px)", "letterSpacing": ".34em", "textTransform": "uppercase", "fontWeight": "600", "color": "#dcc89d"}}>All eyes on your brand</span>
@@ -334,7 +335,7 @@ export default function ContactPage() {
       <a href="https://linkedin.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hvc-10">LinkedIn</a>
       <a href="https://youtube.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hvc-11">YouTube</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© 2026 The Social Verse. All eyes on your brand.</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© The Social Verse</div>
   </div>
 </footer>
 

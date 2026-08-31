@@ -7,7 +7,7 @@ class Component extends DCLogic {
         { t: 'Social Media Marketing', href: 'services.html#s-smm', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Performance Marketing', href: 'services.html#s-perf', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Content Production', href: 'services.html#s-content', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' },
-        { t: 'Branding & Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
+        { t: 'Branding and Creative Strategy', href: 'services.html#s-brand', sq: 'width:10px; height:10px; flex:none; background:#ff8fab;' },
         { t: 'SEO', href: 'services.html#s-seo', sq: 'width:10px; height:10px; flex:none; background:#ab905c;' },
         { t: 'Website Development', href: 'services.html#s-web', sq: 'width:10px; height:10px; flex:none; background:#1d1a14;' },
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
@@ -188,11 +188,11 @@ export default function CaseStudiesPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative — drop an image" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case — drop an image" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-2" shape="rect" placeholder="Featured case" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Case studies</span>
         </a>
       </div>
@@ -203,9 +203,9 @@ export default function CaseStudiesPage() {
 <header data-screen-label="Hero" style={{"position": "relative", "overflow": "hidden", "background": "var(--color-bg)", "color": "var(--color-text)", "padding": "clamp(70px,9vw,140px) clamp(24px,6vw,96px)"}}>
   <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}>Case Studies</div>
   <h1 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(34px,5vw,84px)", "lineHeight": "1.02", "letterSpacing": "-.025em", "margin": "0", "maxWidth": "20ch", "color": "inherit"}}>
-    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Growth stories, with the receipts</span></span>
+    <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>What Happened Behind The Posts.</span></span>
   </h1>
-  <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(20px,3vh,32px) 0 0", "maxWidth": "56ch", "opacity": ".85"}}>Three brands, three journeys — how strategy, content and performance marketing came together.</p>
+  <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(20px,3vh,32px) 0 0", "maxWidth": "56ch", "opacity": ".85"}}>Anyone can show you a nice looking Instagram feed. We'd rather show you why we did what we did. Here's a look at a few projects, the problems we were solving and how we approached them.</p>
 </header><div style={{"display": "flex", "flexDirection": "column", "gap": "clamp(20px,3vw,36px)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <a data-case data-rv href="case-olive-heights.html" style={{"textDecoration": "none", "display": "grid", "gridTemplateColumns": "minmax(0,190px) minmax(180px,300px) minmax(0,1fr)", "border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
     <span style={{"display": "block", "position": "relative", "overflow": "hidden", "aspectRatio": "4/5", "height": "100%", "background": "var(--color-neutral-200)", "borderRight": "2px solid var(--color-divider)"}}>
@@ -215,11 +215,11 @@ export default function CaseStudiesPage() {
     </span>
     <span style={{"position": "relative", "overflow": "hidden", "background": "#1d1a14", "color": "#f6f3ec", "padding": "clamp(20px,2.6vw,32px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "30px", "minHeight": "230px"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "2px", "bottom": "-14px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(90px,9vw,150px)", "lineHeight": ".8", "opacity": ".18"}}>01</span>
-      <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".75"}}>Rooftop dining — Guwahati</span>
+      <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".75"}}>Rooftop dining, Guwahati</span>
       <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(24px,2.6vw,38px)", "lineHeight": "1", "letterSpacing": "-.015em"}}>Olive Heights</span>
     </span>
     <span style={{"padding": "clamp(20px,2.6vw,32px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "18px", "background": "var(--color-bg)"}}>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(17px,1.8vw,24px)", "lineHeight": "1.15", "letterSpacing": "-.015em", "color": "var(--color-text)"}}>How We Helped to Build A Strong Digital Presence</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(17px,1.8vw,24px)", "lineHeight": "1.15", "letterSpacing": "-.015em", "color": "var(--color-text)"}}>The brief was simple: make people want to go there.</span>
       <span style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Significant improvement in overall social media engagement</span></span><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Increased audience interaction through premium reels and visual storytelling</span></span><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Enhanced brand perception with a more luxury-focused digital presence</span></span></span>
       <span style={{"display": "inline-block", "fontSize": "12px", "fontWeight": "600", "letterSpacing": ".08em", "textTransform": "uppercase", "color": "var(--color-accent-700)"}}>Know more →</span>
     </span>
@@ -232,11 +232,11 @@ export default function CaseStudiesPage() {
     </span>
     <span style={{"position": "relative", "overflow": "hidden", "background": "#1d1a14", "color": "#f6f3ec", "padding": "clamp(20px,2.6vw,32px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "30px", "minHeight": "230px"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "2px", "bottom": "-14px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(90px,9vw,150px)", "lineHeight": ".8", "opacity": ".18"}}>02</span>
-      <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".75"}}>Luxury hospitality — Borjhar</span>
+      <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".75"}}>Luxury hospitality, Borjhar</span>
       <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(24px,2.6vw,38px)", "lineHeight": "1", "letterSpacing": "-.015em"}}>Awesome Palace</span>
     </span>
     <span style={{"padding": "clamp(20px,2.6vw,32px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "18px", "background": "var(--color-bg)"}}>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(17px,1.8vw,24px)", "lineHeight": "1.15", "letterSpacing": "-.015em", "color": "var(--color-text)"}}>Creating A Strong Luxury Hospitality Presence For Awesome Palace</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(17px,1.8vw,24px)", "lineHeight": "1.15", "letterSpacing": "-.015em", "color": "var(--color-text)"}}>A hotel has about five seconds to make you want to stay there.</span>
       <span style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Significant growth in social media reach and engagement</span></span><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Improved online brand perception and luxury positioning</span></span><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Increased audience interaction through premium reels and visuals</span></span></span>
       <span style={{"display": "inline-block", "fontSize": "12px", "fontWeight": "600", "letterSpacing": ".08em", "textTransform": "uppercase", "color": "var(--color-accent-700)"}}>Know more →</span>
     </span>
@@ -249,11 +249,11 @@ export default function CaseStudiesPage() {
     </span>
     <span style={{"position": "relative", "overflow": "hidden", "background": "#1d1a14", "color": "#f6f3ec", "padding": "clamp(20px,2.6vw,32px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "30px", "minHeight": "230px"}}>
       <span aria-hidden="true" style={{"position": "absolute", "right": "2px", "bottom": "-14px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(90px,9vw,150px)", "lineHeight": ".8", "opacity": ".18"}}>03</span>
-      <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".75"}}>Gold buying — trust-first</span>
+      <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".75"}}>Gold buying, trust first</span>
       <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(24px,2.6vw,38px)", "lineHeight": "1", "letterSpacing": "-.015em"}}>Ahvi Gold</span>
     </span>
     <span style={{"padding": "clamp(20px,2.6vw,32px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "18px", "background": "var(--color-bg)"}}>
-      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(17px,1.8vw,24px)", "lineHeight": "1.15", "letterSpacing": "-.015em", "color": "var(--color-text)"}}>Transforming Ahvi Gold Into A Recognizable Gold Buying Brand</span>
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(17px,1.8vw,24px)", "lineHeight": "1.15", "letterSpacing": "-.015em", "color": "var(--color-text)"}}>Selling gold is personal. The marketing had to understand that.</span>
       <span style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Increased social media visibility and audience engagement</span></span><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Improved customer trust through educational and informative content</span></span><span style={{"display": "flex", "gap": "10px", "alignItems": "baseline"}}><span style={{"width": "9px", "height": "9px", "background": "var(--color-accent)", "flex": "none"}}></span><span style={{"fontSize": "13.5px", "lineHeight": "1.5", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Higher reach through premium reels and creative campaigns</span></span></span>
       <span style={{"display": "inline-block", "fontSize": "12px", "fontWeight": "600", "letterSpacing": ".08em", "textTransform": "uppercase", "color": "var(--color-accent-700)"}}>Know more →</span>
     </span>
@@ -263,7 +263,7 @@ export default function CaseStudiesPage() {
   <div style={{"position": "absolute", "inset": "0", "background": "linear-gradient(180deg, rgba(14,13,11,.25), rgba(14,13,11,.78))", "pointerEvents": "none"}}></div>
   <div style={{"position": "absolute", "left": "clamp(24px,6vw,96px)", "right": "clamp(24px,6vw,96px)", "bottom": "clamp(24px,4vw,48px)", "pointerEvents": "none"}}>
     <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(24px,3.4vw,52px)", "lineHeight": "1.08", "letterSpacing": "-.02em", "color": "#f6f3ec", "maxWidth": "24ch"}}>Your brand deserves more than ordinary marketing.<br /><span style={{"color": "#dcc89d"}}>Let's build something that stands out.</span></div>
-    <a data-mag href="contact.html" style={{"pointerEvents": "auto", "display": "inline-flex", "marginTop": "18px", "textDecoration": "none", "color": "#14110c", "background": "var(--color-accent)", "padding": "13px 24px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "transition": "background .25s"}} className="hv-18">Let's Work Together →</a>
+    <a data-mag href="contact.html" style={{"pointerEvents": "auto", "display": "inline-flex", "marginTop": "18px", "textDecoration": "none", "color": "#14110c", "background": "var(--color-accent)", "padding": "13px 24px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "transition": "background .25s"}} className="hv-18">Let's Talk →</a>
   </div>
 </section>
 
@@ -277,7 +277,7 @@ export default function CaseStudiesPage() {
     <a href="tel:8099531944" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-12"><strong style={{"fontFamily": "var(--font-heading)"}}>Call:</strong> 8099531944</a>
     <a href="mailto:info@thesocialverse.co.in" style={{"textDecoration": "none", "color": "#f1ece1", "border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center", "transition": "border-color .3s"}} className="hv-13"><strong style={{"fontFamily": "var(--font-heading)"}}>Email:</strong> info@thesocialverse.co.in</a>
   </div>
-  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Social Verse is a full-service digital marketing agency helping brands grow through creative strategy, performance marketing, branding, website development, and content creation.</p>
+  <p style={{"textAlign": "center", "fontSize": "13.5px", "lineHeight": "1.7", "maxWidth": "64ch", "margin": "0 auto clamp(24px,3.5vw,40px)", "color": "rgba(241,236,225,.7)"}}>Strategy, content, ads, branding, websites and everything in between.</p>
   <div aria-label="The Social Verse" style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "10px"}}>
     <span style={{"display": "flex", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}><span aria-hidden="true" style={{"width": "clamp(14px,1.8vw,28px)", "height": "clamp(14px,1.8vw,28px)", "background": "var(--color-accent)", "flex": "none", "alignSelf": "center"}}></span><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(38px,9.6vw,164px)", "lineHeight": ".95", "letterSpacing": "-.03em", "color": "#f1ece1"}}>The Social Verse</span></span>
     <span style={{"fontSize": "clamp(10px,1.2vw,14px)", "letterSpacing": ".34em", "textTransform": "uppercase", "fontWeight": "600", "color": "#dcc89d"}}>All eyes on your brand</span>
@@ -299,7 +299,7 @@ export default function CaseStudiesPage() {
       <a href="https://linkedin.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-16">LinkedIn</a>
       <a href="https://youtube.com" target="_blank" rel="noopener" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "#f1ece1"}} className="hv-17">YouTube</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© 2026 The Social Verse. All eyes on your brand.</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>© The Social Verse</div>
   </div>
 </footer>
 
