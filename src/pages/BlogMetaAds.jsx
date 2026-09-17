@@ -186,7 +186,7 @@ export default function BlogMetaAdsPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -208,7 +208,7 @@ export default function BlogMetaAdsPage() {
 <section data-screen-label="Hero media" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(32px,4vw,56px) clamp(24px,6vw,96px)"}}>
   <div style={{"maxWidth": "820px"}}>
     <div data-rv style={{"maxWidth": "520px", "border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-      <span style={{"display": "block", "aspectRatio": "2/3", "background": "var(--color-neutral-200)"}}><image-slot id="bma-hero" shape="rect" placeholder="Content production still" src="creative-content.jpg"></image-slot></span>
+      <span style={{"display": "block", "aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="bma-hero" shape="rect" placeholder="Olive Garden limited edition ad" src="work/creatives/creative-07.jpg"></image-slot></span>
     </div>
   </div>
 </section>

@@ -33,16 +33,16 @@ class Component extends DCLogic {
         { t: 'Outdoor Marketing', href: 'services.html#s-outdoor', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' }
       ],
       pf: [
-        { t: 'Creative Designs', d: 'The posts, campaigns and ideas that made it from our heads to the screen.', href: 'portfolio.html#creativity', slot: 'home-pf-1', ph: 'Drop a creative design', img: 'work/creatives/social-grid.jpg', bg: '#ab905c', fg: '#14110c' },
-        { t: 'Hoardings', d: "Because sometimes the screen isn't enough.", href: 'portfolio.html#hoardings', slot: 'home-pf-2', ph: 'Drop a hoarding design', img: 'hoarding-design.jpg', bg: '#ab905c', fg: '#14110c' },
-        { t: 'Tickets', d: 'Small piece of the campaign. Still part of the brand.', href: 'portfolio.html#tickets', slot: 'home-pf-3', ph: 'Drop a ticket design', img: 'ticket-design.jpg', bg: '#ab905c', fg: '#14110c' }
+        { t: 'Creative Designs', d: 'The posts, campaigns and ideas that made it from our heads to the screen.', href: 'portfolio.html#creativity', slot: 'home-pf-1', ph: 'Drop a creative design', img: 'work/teasers/creative-designs.jpg', bg: '#ab905c', fg: '#14110c' },
+        { t: 'Hoardings', d: "Because sometimes the screen isn't enough.", href: 'portfolio.html#hoardings', slot: 'home-pf-2', ph: 'Drop a hoarding design', img: 'work/hoardings/awesome-palace-under-one-roof.jpg', bg: '#ab905c', fg: '#14110c' },
+        { t: 'Tickets', d: 'Small piece of the campaign. Still part of the brand.', href: 'portfolio.html#tickets', slot: 'home-pf-3', ph: 'Drop a ticket design', img: 'work/tickets/ticket-1.jpg', bg: '#ab905c', fg: '#14110c' }
       ],
       reels: [
         { v: 'work/reels/reel-olive-heights-1.mp4', p: 'work/reels/posters/reel-olive-heights-1.jpg', cl: 'Olive Heights', k: 'Sundays are for indulgence' },
-        { v: 'work/reels/reel-olive-garden.mp4', p: 'work/reels/posters/reel-olive-garden.jpg', cl: 'Olive Garden', k: 'Plated, then posted' },
-        { v: 'work/reels/reel-awesome-palace.mp4', p: 'work/reels/posters/reel-awesome-palace.jpg', cl: 'Awesome Palace', k: 'Elegance in every detail' },
+        { v: 'work/reels/reel-olive-garden-2.mp4', p: 'work/reels/posters/reel-olive-garden-2.jpg', cl: 'Olive Garden', k: 'The art of hands' },
+        { v: 'work/reels/reel-awesome-palace-rooms.mp4', p: 'work/reels/posters/reel-awesome-palace-rooms.jpg', cl: 'Awesome Palace', k: 'Ready before you arrive' },
         { v: 'work/reels/reel-ahvi-gold.mp4', p: 'work/reels/posters/reel-ahvi-gold.jpg', cl: 'Ahvi Gold', k: 'Hook them in the first second' },
-        { v: 'work/reels/reel-olive-heights-2.mp4', p: 'work/reels/posters/reel-olive-heights-2.jpg', cl: 'Olive Heights', k: 'Sounds of the kitchen' }
+        { v: 'work/reels/reel-coriander.mp4', p: 'work/reels/posters/reel-coriander.jpg', cl: 'Coriander', k: 'Built for the launch' }
       ],
       cases: [
         { n: '01', k: 'Rooftop dining, Guwahati', t: 'Olive Heights', d: 'A rooftop restaurant that already looked good. The job was making people want to go.', href: 'case-olive-heights.html', bg: '#ab905c', fg: '#14110c' },
@@ -57,9 +57,9 @@ class Component extends DCLogic {
       ],
       clients: [
         { i: '0', name: 'Olive Heights', meta: 'Rooftop dining', logo: 'clients/olive-heights.png' }, { i: '1', name: 'Olive Garden', meta: 'Restaurant', logo: 'clients/olive-garden.png' },
-        { i: '2', name: 'Awesome Palace', meta: 'Luxury hotel', logo: 'clients/awesome-palace.png' }, { i: '3', name: 'Fix24', meta: 'Home services', logo: 'clients/fix24.png' },
+        { i: '2', name: 'Awesome Palace', meta: 'Luxury hotel', logo: 'clients/awesome-palace.png' }, { i: '3', name: 'Fix24', meta: 'Cloud infrastructure', logo: 'clients/fix24.png' },
         { i: '4', name: 'Ahvi Gold', meta: 'Gold buying', logo: 'clients/ahvi-gold.png' }, { i: '5', name: 'Jewellery Hub', meta: 'Jewellery', logo: 'clients/jewellery-hub.png' },
-        { i: '6', name: 'Paxmeet', meta: 'Digital platform', logo: 'clients/paxmeet.png' }
+        { i: '6', name: 'Paxmeet', meta: 'Digital platform', logo: 'clients/paxmeet.png' }, { i: '7', name: 'Coriander', meta: 'Café & bar', logo: 'clients/coriander.png' }
       ]
     };
   }
@@ -143,7 +143,7 @@ class Component extends DCLogic {
       this.on(window, 'scroll', () => { if (megaOpen && Math.abs(scrollY - openY) > 48) setMega(false); }, { passive: true });
     }
     const inView = v => { const r = v.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth; };
-    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (v.paused && inView(v)) { const p = v.play(); if (p) p.catch(() => { }); } });
+    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { if (v.dataset.snd !== '1') v.muted = true; if (v.paused && inView(v)) { const p = v.play(); if (p) p.catch(() => { }); } });
     kick();
     document.querySelectorAll('video[data-auto]').forEach(v => { ['canplay', 'loadeddata'].forEach(ev => this.on(v, ev, kick)); });
     const vids = [...document.querySelectorAll('video[data-auto]')];
@@ -156,7 +156,7 @@ class Component extends DCLogic {
         if (vis && v.paused) {
           const p = v.play();
           if (p) p.catch(() => {
-            v.muted = true;
+            v.muted = true; delete v.dataset.snd;
             const b = $('sndBtn');
             if (b && v.id === 'reelVid') b.textContent = 'Sound off';
           });
@@ -169,6 +169,7 @@ class Component extends DCLogic {
     const rvid = $('reelVid'), sb = $('sndBtn');
     if (rvid && sb) this.on(sb, 'click', () => {
       rvid.muted = !rvid.muted;
+      if (rvid.muted) delete rvid.dataset.snd; else rvid.dataset.snd = '1';
       if (!rvid.muted) { rvid.volume = 1; const p = rvid.play(); if (p) p.catch(() => { }); }
       sb.textContent = rvid.muted ? 'Sound off' : 'Sound on';
     });
@@ -377,7 +378,7 @@ export default function HomePage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -419,7 +420,7 @@ export default function HomePage() {
   <div id="reelSec" style={{"height": "240vh", "position": "relative"}}>
     <div style={{"position": "sticky", "top": "0", "height": "100vh", "overflow": "hidden", "display": "flex", "alignItems": "center", "justifyContent": "center", "background": "var(--color-bg)"}}>
       <div id="reelWrap" style={{"position": "relative", "overflow": "hidden", "width": "62%", "minWidth": "320px", "willChange": "width,transform,opacity"}}>
-        <video id="reelVid" data-auto src="uploads/reel-landscape.mp4" autoPlay muted loop playsInline preload="auto" aria-label="Showreel" style={{"display": "block", "width": "100%", "aspectRatio": "16/9", "objectFit": "cover", "filter": "brightness(.97)"}}></video>
+        <video id="reelVid" data-auto src="work/showreel/social-verse-showreel.mp4" poster="work/showreel/social-verse-showreel-poster.jpg" autoPlay muted loop playsInline preload="auto" aria-label="Showreel" style={{"display": "block", "width": "100%", "aspectRatio": "16/9", "objectFit": "cover", "filter": "brightness(.97)"}}></video>
         <button id="sndBtn" type="button" style={{"position": "absolute", "right": "16px", "bottom": "12px", "border": "2px solid rgba(255,255,255,.5)", "background": "rgba(14,13,11,.45)", "backdropFilter": "blur(8px)", "color": "#fff", "font": "inherit", "fontSize": "10px", "letterSpacing": ".18em", "textTransform": "uppercase", "padding": "7px 12px", "transition": "border-color .3s, color .3s"}} className="hv-6">Sound off</button>
       </div>
     </div>
@@ -537,15 +538,15 @@ export default function HomePage() {
     <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(28px,3.4vw,48px)", "letterSpacing": "-.02em", "margin": "0"}}>Brands We've Worked With</h2>
     <a data-rv data-rvd="1" href="clients.html" style={{"textDecoration": "none", "fontSize": "13px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ffd23f,#ffd23f)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">All clients →</a>
   </div>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(150px,1fr))", "gap": "2px", "background": "var(--color-divider)", "border": "2px solid var(--color-divider)"}}>
+  <div style={{"display": "flex", "flexWrap": "wrap", "gap": "2px", "background": "var(--color-divider)", "border": "2px solid var(--color-divider)"}}>
     {vals.clients.map((cl, $index) => (<React.Fragment key={$index}>
-      <div data-cl={cl.i} data-rv style={{"background": "var(--color-bg)", "padding": "clamp(16px,2.4vw,28px) 14px", "display": "flex", "flexDirection": "column", "alignItems": "center", "justifyContent": "center", "gap": "6px", "minHeight": "96px", "transition": "background .35s, transform .35s"}}>
+      <div data-cl={cl.i} data-rv style={{"flex": "1 1 130px", "background": "var(--color-bg)", "padding": "clamp(16px,2.4vw,28px) 14px", "display": "flex", "flexDirection": "column", "alignItems": "center", "justifyContent": "center", "gap": "6px", "minHeight": "96px", "transition": "background .35s, transform .35s"}}>
         <img src={cl.logo} alt="" style={{"display": "block", "height": "clamp(30px,3.4vw,44px)", "width": "auto", "maxWidth": "84%", "objectFit": "contain", "marginBottom": "4px"}} />
         <span data-cln style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.3vw,18px)", "letterSpacing": ".06em", "textTransform": "uppercase", "textAlign": "center", "color": "var(--color-neutral-500)", "transition": "color .3s"}}>{cl.name}</span>
         <span data-clm style={{"fontSize": "10px", "letterSpacing": ".14em", "textTransform": "uppercase", "textAlign": "center", "color": "rgba(20,17,12,.75)", "opacity": "0", "maxHeight": "0", "overflow": "hidden", "transition": "opacity .3s, max-height .3s"}}>{cl.meta}</span>
       </div>
     </React.Fragment>))}
-    <a href="contact.html" data-rv style={{"background": "var(--color-accent)", "color": "#14110c", "textDecoration": "none", "padding": "clamp(16px,2.4vw,28px) 14px", "display": "flex", "flexDirection": "column", "alignItems": "center", "justifyContent": "center", "gap": "6px", "minHeight": "96px", "transform": "rotate(-2deg)", "transition": "transform .35s"}} className="hv-8">
+    <a href="contact.html" data-rv style={{"flex": "1 1 130px", "background": "var(--color-accent)", "color": "#14110c", "textDecoration": "none", "padding": "clamp(16px,2.4vw,28px) 14px", "display": "flex", "flexDirection": "column", "alignItems": "center", "justifyContent": "center", "gap": "6px", "minHeight": "96px", "transform": "rotate(-2deg)", "transition": "transform .35s"}} className="hv-8">
       <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.3vw,18px)", "letterSpacing": ".06em", "textTransform": "uppercase", "textAlign": "center"}}>Your brand here</span>
       <span style={{"fontSize": "10px", "letterSpacing": ".14em", "textTransform": "uppercase", "opacity": ".7"}}>Let's talk →</span>
     </a>
@@ -553,8 +554,8 @@ export default function HomePage() {
 </section>
 
 <section id="reach" data-screen-label="Reach" style={{"position": "relative", "minHeight": "80vh", "display": "flex", "alignItems": "flex-end", "overflow": "hidden", "borderTop": "2px solid var(--color-divider)"}}>
-  <img id="reachImg" src="uploads/pexels-evonics-1058276-cc7b556d.jpg" alt="Billboards at night" style={{"position": "absolute", "left": "0", "top": "-12%", "width": "100%", "height": "124%", "objectFit": "cover", "filter": "brightness(.52)", "willChange": "transform"}} />
-  <div style={{"position": "absolute", "inset": "0", "background": "linear-gradient(180deg, rgba(14,13,11,.55) 0%, rgba(14,13,11,.18) 40%, rgba(14,13,11,.86) 100%)"}}></div>
+  <img id="reachImg" src="work/teasers/reach-billboard.jpg" alt="Billboard we designed for Jewellery Hub" style={{"position": "absolute", "left": "0", "top": "-12%", "width": "100%", "height": "124%", "objectFit": "cover", "objectPosition": "50% 22%", "filter": "brightness(.52)", "willChange": "transform"}} />
+  <div style={{"position": "absolute", "inset": "0", "background": "linear-gradient(180deg, rgba(14,13,11,.5) 0%, rgba(14,13,11,.34) 38%, rgba(14,13,11,.92) 100%)"}}></div>
   <div style={{"position": "relative", "width": "100%", "padding": "clamp(90px,12vw,180px) clamp(24px,6vw,96px) clamp(48px,7vw,88px)"}}>
     <h2 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(36px,5.4vw,84px)", "lineHeight": "1.04", "letterSpacing": "-.024em", "margin": "0", "maxWidth": "16ch", "color": "#f6f3ec"}}>
       <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>All eyes</span></span>

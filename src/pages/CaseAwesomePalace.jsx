@@ -188,7 +188,7 @@ export default function CaseAwesomePalacePage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -263,19 +263,37 @@ export default function CaseAwesomePalacePage() {
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}>Creative Output</h2>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>Rooms, location and events: a premium content grid built so the property reads as considered online as it feels in person.</p>
   <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(240px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
-    <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-1" shape="rect" placeholder="Awesome Palace rooms" src="work/creatives/creative-02.jpg"></image-slot></div></div></div>
+    <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-1" shape="rect" placeholder="Awesome Palace rooms" src="work/creatives/awesome-palace-view.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-2" shape="rect" placeholder="Awesome Palace location" src="work/creatives/creative-03.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="2" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-3" shape="rect" placeholder="Awesome Palace banquets" src="work/creatives/showcase-04.jpg"></image-slot></div></div></div>
+    <div data-case data-rv data-rvd="3" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-4" shape="rect" placeholder="Awesome Palace suites" src="work/creatives/awesome-palace-business-stays.jpg"></image-slot></div></div></div>
+  </div>
+  <div style={{"maxWidth": "980px", "marginTop": "clamp(14px,2vw,24px)", "marginInline": "auto"}}>
+    <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "3/2", "background": "var(--color-neutral-200)"}}><image-slot id="ap-hoard-1" shape="rect" placeholder="Awesome Palace hoarding" src="work/hoardings/awesome-palace-under-one-roof.jpg"></image-slot></div></div></div>
+    <div style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "10px"}}>Hoarding: everything under one roof</div>
   </div>
   <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "clamp(24px,4vw,56px)", "alignItems": "center", "borderTop": "2px solid var(--color-divider)", "marginTop": "clamp(32px,4.5vw,60px)", "paddingTop": "clamp(28px,4vw,48px)"}}>
-    <div style={{"width": "100%", "maxWidth": "320px"}}>
-      <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "overflow": "hidden"}}>
-        <div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}>
-          <video data-auto src="work/reels/reel-awesome-palace.mp4" poster="work/reels/posters/reel-awesome-palace.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Awesome Palace reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+    <div style={{"width": "100%", "display": "flex", "flexWrap": "wrap", "gap": "clamp(14px,2vw,24px)"}}>
+      <div style={{"flex": "1 1 140px", "maxWidth": "320px"}}>
+        <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "overflow": "hidden"}}>
+          <div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}>
+            <video data-auto src="work/reels/reel-awesome-palace.mp4" poster="work/reels/posters/reel-awesome-palace.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Awesome Palace reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+          </div>
+          <div style={{"padding": "12px 16px"}}>
+            <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.4vw,17px)"}}>Awesome Palace</span>
+            <span style={{"display": "block", "fontSize": "12px", "letterSpacing": ".06em", "color": "color-mix(in srgb, var(--color-text) 60%, transparent)"}}>Elegance in every detail</span>
+          </div>
         </div>
-        <div style={{"padding": "12px 16px"}}>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.4vw,17px)"}}>Awesome Palace</span>
-          <span style={{"display": "block", "fontSize": "12px", "letterSpacing": ".06em", "color": "color-mix(in srgb, var(--color-text) 60%, transparent)"}}>Elegance in every detail</span>
+      </div>
+      <div style={{"flex": "1 1 140px", "maxWidth": "320px"}}>
+        <div data-case data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "overflow": "hidden"}}>
+          <div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}>
+            <video data-auto src="work/reels/reel-awesome-palace-rooms.mp4" poster="work/reels/posters/reel-awesome-palace-rooms.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Awesome Palace reel, Ready before you arrive" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+          </div>
+          <div style={{"padding": "12px 16px"}}>
+            <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.4vw,17px)"}}>Awesome Palace</span>
+            <span style={{"display": "block", "fontSize": "12px", "letterSpacing": ".06em", "color": "color-mix(in srgb, var(--color-text) 60%, transparent)"}}>Ready before you arrive</span>
+          </div>
         </div>
       </div>
     </div>

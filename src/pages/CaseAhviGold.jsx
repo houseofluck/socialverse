@@ -188,7 +188,7 @@ export default function CaseAhviGoldPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -276,6 +276,10 @@ export default function CaseAhviGoldPage() {
     <div>
       <div data-case data-rv data-rvd="2" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ahvi-cre-3" shape="rect" placeholder="Ahvi Gold creative 3" src="work/creatives/showcase-01.jpg"></image-slot></div></div></div>
       <div style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "10px"}}>Instant value, transparent valuation</div>
+    </div>
+    <div>
+      <div data-case data-rv data-rvd="3" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ahvi-cre-4" shape="rect" placeholder="Ahvi Gold instant funds" src="work/creatives/ahvi-gold-instant-funds.jpg"></image-slot></div></div></div>
+      <div style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "10px"}}>Instant funds, when it matters most</div>
     </div>
   </div>
 </section>

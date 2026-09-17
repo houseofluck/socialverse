@@ -188,7 +188,7 @@ export default function CaseStudiesPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -259,8 +259,8 @@ export default function CaseStudiesPage() {
     </span>
   </a>
 </div><section data-screen-label="CTA" style={{"position": "relative", "overflow": "hidden", "borderTop": "2px solid var(--color-divider)"}}>
-  <div style={{"position": "relative", "aspectRatio": "21/8", "minHeight": "340px", "background": "var(--color-neutral-200)"}}><image-slot id="cta-team-cs" shape="rect" placeholder="Drop a photo of people working" src="showreel-poster.jpg"></image-slot></div>
-  <div style={{"position": "absolute", "inset": "0", "background": "linear-gradient(180deg, rgba(14,13,11,.25), rgba(14,13,11,.78))", "pointerEvents": "none"}}></div>
+  <div style={{"position": "relative", "aspectRatio": "21/8", "minHeight": "340px", "background": "var(--color-neutral-200)"}}><image-slot id="cta-team-cs" shape="rect" placeholder="Wall of client work" src="work/teasers/wall-case-studies.jpg"></image-slot></div>
+  <div style={{"position": "absolute", "inset": "0", "background": "linear-gradient(90deg, rgba(14,13,11,.9) 0%, rgba(14,13,11,.62) 45%, rgba(14,13,11,.22) 82%), linear-gradient(180deg, rgba(14,13,11,.15), rgba(14,13,11,.7))", "pointerEvents": "none"}}></div>
   <div style={{"position": "absolute", "left": "clamp(24px,6vw,96px)", "right": "clamp(24px,6vw,96px)", "bottom": "clamp(24px,4vw,48px)", "pointerEvents": "none"}}>
     <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(24px,3.4vw,52px)", "lineHeight": "1.08", "letterSpacing": "-.02em", "color": "#f6f3ec", "maxWidth": "24ch"}}>Your brand deserves more than ordinary marketing.<br /><span style={{"color": "#dcc89d"}}>Let's build something that stands out.</span></div>
     <a data-mag href="contact.html" style={{"pointerEvents": "auto", "display": "inline-flex", "marginTop": "18px", "textDecoration": "none", "color": "#14110c", "background": "var(--color-accent)", "padding": "13px 24px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "transition": "background .25s"}} className="hv-18">Let's Talk →</a>

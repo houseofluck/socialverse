@@ -186,7 +186,7 @@ export default function BlogGridPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -206,8 +206,16 @@ export default function BlogGridPage() {
   <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.35vw,18px)", "lineHeight": "1.65", "margin": "clamp(20px,3vh,32px) 0 0", "maxWidth": "58ch", "color": "color-mix(in srgb, var(--color-text) 72%, transparent)"}}>A recognisable feed is a brand asset that compounds. How we plan grids that hold together.</p>
 </header>
 <section data-screen-label="Hero image" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(32px,4vw,56px) clamp(24px,6vw,96px)"}}>
-  <div data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden", "maxWidth": "820px"}}>
-    <div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="bg-hero" shape="rect" placeholder="Instagram grid" src="work/creatives/social-grid.jpg"></image-slot></div>
+  <div style={{"maxWidth": "820px"}}>
+    <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(240px,1fr))", "gap": "clamp(12px,1.6vw,20px)"}}>
+      <div data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
+        <div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="bg-hero-1" shape="rect" placeholder="Olive Heights feed grid" src="work/grids/olive-heights-grid.jpg"></image-slot></div>
+      </div>
+      <div data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
+        <div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="bg-hero-2" shape="rect" placeholder="Olive Garden feed grid" src="work/grids/olive-garden-grid.jpg"></image-slot></div>
+      </div>
+    </div>
+    <div data-rv style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "14px"}}>Feeds we plan for Olive Heights and Olive Garden</div>
   </div>
 </section>
 <article data-screen-label="Article" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(48px,6vw,90px) clamp(24px,6vw,96px)"}}>

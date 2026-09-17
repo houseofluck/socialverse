@@ -186,7 +186,7 @@ export default function BlogHoardingsPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -207,7 +207,7 @@ export default function BlogHoardingsPage() {
 </header>
 <section data-screen-label="Hero media" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(32px,4vw,56px) clamp(24px,6vw,96px)"}}>
   <div data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden", "maxWidth": "820px"}}>
-    <div style={{"display": "block", "aspectRatio": "4/3", "background": "var(--color-neutral-200)"}}><image-slot id="bh-hero" shape="rect" placeholder="Night city billboards" src="hoarding-design.jpg"></image-slot></div>
+    <div style={{"display": "block", "aspectRatio": "3/2", "background": "var(--color-neutral-200)"}}><image-slot id="bh-hero" shape="rect" placeholder="Awesome Palace hoarding" src="work/hoardings/awesome-palace-under-one-roof.jpg"></image-slot></div>
   </div>
 </section>
 <article data-screen-label="Article" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(48px,6vw,90px) clamp(24px,6vw,96px)"}}>

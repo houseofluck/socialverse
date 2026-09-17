@@ -6,12 +6,12 @@ class Component extends DCLogic {
   renderVals() {
     const PAL = { gold: ['#ab905c', '#14110c'], terra: ['#1d1a14', '#f6f3ec'], teal: ['#ab905c', '#14110c'], rose: ['#1d1a14', '#f6f3ec'], ink: ['#1d1a14', '#f6f3ec'] };
     const posts = [
-      { n: '01', key: 'gold', tag: 'Social', date: "Aug '26", t: "Why reels are the fastest way to grow a restaurant brand", d: "Short-form video sells the feeling, and the feeling sells the table.", read: '5 min read', href: 'blog-reels.html', img: 'work/reels/posters/reel-olive-garden.jpg', fit: 'contain' },
-      { n: '02', key: 'terra', tag: 'Performance', date: "Jul '26", t: "Meta ads that drive footfall, not just likes", d: "For local businesses the point of an ad is a person walking in. The framework we use to make that happen.", read: '6 min read', href: 'blog-meta-ads.html', img: 'creative-content.jpg', fit: 'contain' },
+      { n: '01', key: 'gold', tag: 'Social', date: "Aug '26", t: "Why reels are the fastest way to grow a restaurant brand", d: "Short-form video sells the feeling, and the feeling sells the table.", read: '5 min read', href: 'blog-reels.html', img: 'work/reels/posters/reel-olive-garden-2.jpg', fit: 'contain' },
+      { n: '02', key: 'terra', tag: 'Performance', date: "Jul '26", t: "Meta ads that drive footfall, not just likes", d: "For local businesses the point of an ad is a person walking in. The framework we use to make that happen.", read: '6 min read', href: 'blog-meta-ads.html', img: 'work/creatives/creative-07.jpg', fit: 'contain' },
       { n: '03', key: 'gold', tag: 'Branding', date: "Jun '26", t: "Marketing a trust-first business", d: "In sensitive categories like gold buying, education outperforms promotion every time.", read: '5 min read', href: 'blog-trust.html', img: 'work/case/ahvi-storefront.jpg', fit: 'contain' },
-      { n: '04', key: 'terra', tag: 'Outdoor', date: "May '26", t: "What makes a hoarding impossible to ignore", d: "Outdoor gets six seconds of attention at 40 km/h. Everything about the design follows from that.", read: '4 min read', href: 'blog-hoardings.html', img: 'hoarding-design.jpg' },
-      { n: '05', key: 'gold', tag: 'SEO', date: "Apr '26", t: "Local SEO: getting found in your own city", d: "“Near me” searches are the cheapest growth channel most businesses ignore. The basics, done properly, beat tricks.", read: '6 min read', href: 'blog-local-seo.html', img: 'seo-loop-poster.jpg' },
-      { n: '06', key: 'terra', tag: 'Content', date: "Mar '26", t: "Building an Instagram grid people remember", d: "A recognisable feed is a brand asset that compounds. How we plan grids that hold together.", read: '5 min read', href: 'blog-grid.html', img: 'work/creatives/social-grid.jpg', fit: 'contain' }
+      { n: '04', key: 'terra', tag: 'Outdoor', date: "May '26", t: "What makes a hoarding impossible to ignore", d: "Outdoor gets six seconds of attention at 40 km/h. Everything about the design follows from that.", read: '4 min read', href: 'blog-hoardings.html', img: 'work/hoardings/awesome-palace-under-one-roof.jpg', fit: 'contain' },
+      { n: '05', key: 'terra', tag: 'SEO', date: "Apr '26", t: "Local SEO: getting found in your own city", d: "“Near me” searches are the cheapest growth channel most businesses ignore. The basics, done properly, beat tricks.", read: '6 min read', href: 'blog-local-seo.html', img: 'seo-loop-poster.jpg' },
+      { n: '06', key: 'terra', tag: 'Content', date: "Mar '26", t: "Building an Instagram grid people remember", d: "A recognisable feed is a brand asset that compounds. How we plan grids that hold together.", read: '5 min read', href: 'blog-grid.html', img: 'work/grids/olive-garden-grid.jpg', fit: 'contain' }
     ];
     return {
       megaLinks: [
@@ -193,7 +193,7 @@ export default function BlogPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>

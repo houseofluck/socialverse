@@ -186,7 +186,7 @@ export default function BlogReelsPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -209,7 +209,7 @@ export default function BlogReelsPage() {
   <div style={{"maxWidth": "820px"}}>
     <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(160px,1fr))", "gap": "clamp(12px,1.6vw,20px)"}}>
       <div data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-        <video data-auto src="work/reels/reel-olive-garden.mp4" poster="work/reels/posters/reel-olive-garden.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Garden reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+        <video data-auto src="work/reels/reel-olive-garden-2.mp4" poster="work/reels/posters/reel-olive-garden-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Garden reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
       </div>
       <div data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
         <video data-auto src="work/reels/reel-olive-heights-1.mp4" poster="work/reels/posters/reel-olive-heights-1.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>

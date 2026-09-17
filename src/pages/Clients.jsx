@@ -188,7 +188,7 @@ export default function ClientsPage() {
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
         <a href="portfolio.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/creatives/social-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="mega-feat-1" shape="rect" placeholder="Featured creative" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Our creativity</span>
         </a>
         <a href="case-studies.html" style={{"textDecoration": "none"}}>
@@ -233,8 +233,11 @@ export default function ClientsPage() {
   </div>
   <div data-case data-rv style={{"background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "minHeight": "190px", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "16px", "position": "relative", "overflow": "hidden", "transition": "transform .35s"}} className="hv-26">
     <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "76px", "lineHeight": ".8", "opacity": ".16"}}>04</span>
-    <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)"}}>Home services</span>
-    <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2vw,28px)", "lineHeight": "1.05", "letterSpacing": "-.015em"}}>Fix24</span>
+    <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)"}}>Cloud infrastructure</span>
+    <span style={{"display": "flex", "flexDirection": "column", "alignItems": "flex-start"}}>
+      <img src="clients/fix24.png" alt="" style={{"display": "block", "height": "clamp(30px,3.4vw,46px)", "width": "auto", "maxWidth": "84%", "objectFit": "contain", "marginBottom": "6px"}} />
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2vw,28px)", "lineHeight": "1.05", "letterSpacing": "-.015em"}}>Fix24</span>
+    </span>
   </div>
   <div data-case data-rv style={{"background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "minHeight": "190px", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "16px", "position": "relative", "overflow": "hidden", "transition": "transform .35s"}} className="hv-25">
     <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "76px", "lineHeight": ".8", "opacity": ".16"}}>05</span>
@@ -260,13 +263,21 @@ export default function ClientsPage() {
       <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2vw,28px)", "lineHeight": "1.05", "letterSpacing": "-.015em"}}>Paxmeet</span>
     </span>
   </div>
+  <div data-case data-rv style={{"background": "var(--color-bg)", "border": "2px solid var(--color-divider)", "color": "var(--color-text)", "minHeight": "190px", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "justifyContent": "space-between", "gap": "16px", "position": "relative", "overflow": "hidden", "transition": "transform .35s"}} className="hv-26">
+    <span aria-hidden="true" style={{"position": "absolute", "right": "4px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "76px", "lineHeight": ".8", "opacity": ".16"}}>08</span>
+    <span style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)"}}>Café & bar</span>
+    <span style={{"display": "flex", "flexDirection": "column", "alignItems": "flex-start"}}>
+      <img src="clients/coriander.png" alt="" style={{"display": "block", "height": "clamp(30px,3.4vw,46px)", "width": "auto", "maxWidth": "84%", "objectFit": "contain", "marginBottom": "6px"}} />
+      <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2vw,28px)", "lineHeight": "1.05", "letterSpacing": "-.015em"}}>Coriander</span>
+    </span>
+  </div>
   <a href="contact.html" data-rv style={{"background": "var(--color-bg)", "border": "2px dashed var(--color-divider)", "color": "var(--color-text)", "textDecoration": "none", "minHeight": "190px", "padding": "clamp(18px,2.2vw,28px)", "display": "flex", "flexDirection": "column", "justifyContent": "center", "alignItems": "center", "gap": "8px", "textAlign": "center", "transition": "border-color .3s, transform .3s"}} className="hv-27">
     <span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(18px,1.8vw,24px)"}}>Your brand here</span>
     <span style={{"fontSize": "11px", "letterSpacing": ".16em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)"}}>Let's talk →</span>
   </a>
 </div><section data-screen-label="CTA" style={{"position": "relative", "overflow": "hidden", "borderTop": "2px solid var(--color-divider)"}}>
-  <div style={{"position": "relative", "aspectRatio": "21/8", "minHeight": "340px", "background": "var(--color-neutral-200)"}}><image-slot id="cta-team-cl" shape="rect" placeholder="Drop a photo of people working" src="stop-the-scroll.jpg"></image-slot></div>
-  <div style={{"position": "absolute", "inset": "0", "background": "linear-gradient(180deg, rgba(14,13,11,.25), rgba(14,13,11,.78))", "pointerEvents": "none"}}></div>
+  <div style={{"position": "relative", "aspectRatio": "21/8", "minHeight": "340px", "background": "var(--color-neutral-200)"}}><image-slot id="cta-team-cl" shape="rect" placeholder="Wall of client work" src="work/teasers/wall-clients.jpg"></image-slot></div>
+  <div style={{"position": "absolute", "inset": "0", "background": "linear-gradient(90deg, rgba(14,13,11,.9) 0%, rgba(14,13,11,.62) 45%, rgba(14,13,11,.22) 82%), linear-gradient(180deg, rgba(14,13,11,.15), rgba(14,13,11,.7))", "pointerEvents": "none"}}></div>
   <div style={{"position": "absolute", "left": "clamp(24px,6vw,96px)", "right": "clamp(24px,6vw,96px)", "bottom": "clamp(24px,4vw,48px)", "pointerEvents": "none"}}>
     <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(24px,3.4vw,52px)", "lineHeight": "1.08", "letterSpacing": "-.02em", "color": "#f6f3ec", "maxWidth": "24ch"}}>Your brand deserves more than ordinary marketing.<br /><span style={{"color": "#dcc89d"}}>Let's build something that stands out.</span></div>
     <a data-mag href="contact.html" style={{"pointerEvents": "auto", "display": "inline-flex", "marginTop": "18px", "textDecoration": "none", "color": "#14110c", "background": "var(--color-accent)", "padding": "13px 24px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "transition": "background .25s"}} className="hv-18">Let's Work Together →</a>
