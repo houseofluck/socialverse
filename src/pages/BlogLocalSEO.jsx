@@ -199,7 +199,7 @@ export default function BlogLocalSEOPage() {
 </nav>
 
 <header data-screen-label="Post hero" style={{"padding": "clamp(64px,8vw,120px) clamp(24px,6vw,96px) clamp(36px,4.5vw,56px)"}}>
-  <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}><a href="blog.html" style={{"color": "inherit", "textDecoration": "none"}}>The Blog</a> · SEO · Apr '26  min read</div>
+  <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}><a href="blog.html" style={{"color": "inherit", "textDecoration": "none"}}>The Blog</a> · SEO · Apr '26 · 6 min read</div>
   <h1 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(30px,4.6vw,72px)", "lineHeight": "1.04", "letterSpacing": "-.024em", "margin": "0", "maxWidth": "24ch"}}>
     <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Local SEO: getting found in your own city</span></span>
   </h1>
