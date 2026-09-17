@@ -67,6 +67,7 @@ class Component extends DCLogic {
         setTimeout(() => { a.click(); }, 560);
       });
     }
+    if (innerWidth < 760) { const pill = document.querySelector('#nav a[data-mag]'); if (pill) pill.setAttribute('href', '#cf-name'); }
     // footer reveal + clocks
     const sheet = $('sheet'), foot = $('bigFoot'), space = $('footSpace');
     const fitFoot = () => {
@@ -153,15 +154,18 @@ class Component extends DCLogic {
       });
     }
     // gold dot field
-    import('../lib/three-fx.js').then(async fx => {
+    const startFx = () => import('../lib/three-fx.js').then(async fx => {
       const dc = $('dotCanvas');
       if (dc) {
         this.dots = await fx.dotField(dc, { calm });
+        if (dc.style.opacity === '0') requestAnimationFrame(() => { dc.style.opacity = '1'; });
         const hd = $('chero');
         this.on(hd, 'pointermove', e => this.dots.setPointer(e.clientX, e.clientY));
         this.on(hd, 'pointerleave', () => this.dots.clearPointer());
       }
     }).catch(err => console.warn('3D disabled:', err));
+    if (innerWidth >= 760) startFx();
+    else if (!(navigator.connection && navigator.connection.saveData)) { const c0 = $('dotCanvas'); if (c0) { c0.style.transition = 'opacity .6s'; c0.style.opacity = '0'; } const later = () => setTimeout(startFx, 800); if (document.readyState === 'complete') later(); else this.on(window, 'load', later, { once: true }); }
   }
 }
 
@@ -233,21 +237,20 @@ export default function ContactPage() {
 
 <section data-screen-label="Contact form" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(48px,6vw,90px) clamp(24px,6vw,96px) clamp(90px,11vw,160px)", "display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(320px,1fr))", "gap": "clamp(36px,6vw,110px)", "alignItems": "start"}}>
   <div>
-    {vals.notSent ? (<>
-      <form onSubmit={vals.submit} style={{"display": "flex", "flexDirection": "column", "gap": "24px", "maxWidth": "560px"}}>
+      <form onSubmit={vals.submit} style={{"display": vals.sent ? "none" : "flex", "flexDirection": "column", "gap": "24px", "maxWidth": "560px"}}>
         <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(220px,1fr))", "gap": "18px"}}>
           <div className="field">
             <label htmlFor="cf-name">Your name</label>
-            <input id="cf-name" name="name" type="text" required className="input" />
+            <input id="cf-name" name="name" type="text" autoComplete="name" required className="input" />
           </div>
           <div className="field">
             <label htmlFor="cf-brand">Brand / company</label>
-            <input id="cf-brand" name="brand" type="text" className="input" />
+            <input id="cf-brand" name="brand" type="text" autoComplete="organization" className="input" />
           </div>
         </div>
         <div className="field">
           <label htmlFor="cf-email">Email</label>
-          <input id="cf-email" name="email" type="email" required className="input" />
+          <input id="cf-email" name="email" type="email" autoComplete="email" required className="input" />
         </div>
         <div className="field">
           <label>What services can we provide you?</label>
@@ -272,7 +275,6 @@ export default function ContactPage() {
           <span style={{"fontSize": "12px", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)"}}>Opens your mail app, pre-filled.</span>
         </div>
       </form>
-    </>) : null}
     {vals.sent ? (<>
       <div style={{"border": "2px solid var(--color-divider)", "padding": "clamp(28px,4vw,48px)", "maxWidth": "560px"}}>
         <div style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "16px"}}>Message drafted</div>

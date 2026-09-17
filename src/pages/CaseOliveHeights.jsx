@@ -13,7 +13,7 @@ class Component extends DCLogic {
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Influencer Marketing', href: 'services.html#s-influencer', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Outdoor Marketing', href: 'services.html#s-outdoor', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' }
-      ] }; }
+      ], vidAuto: typeof window === 'undefined' || window.innerWidth >= 760 }; }
   componentDidMount() { this._c = []; this.boot(); }
   componentWillUnmount() { (this._c || []).forEach(f => { try { f() } catch (e) { } }); }
   on(t, ev, fn, o) { t.addEventListener(ev, fn, o); this._c.push(() => t.removeEventListener(ev, fn, o)); }
@@ -85,7 +85,7 @@ class Component extends DCLogic {
       this.on(mega, 'pointerenter', () => clearTimeout(megaT));
       this.on(window, 'scroll', () => { if (megaOpen && Math.abs(scrollY - openY) > 48) setMega(false); }, { passive: true });
     }
-    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
+    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (innerWidth < 760) { const r = v.getBoundingClientRect(); if (!(r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth)) return; } if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
     kick();
     let vAlive = true;
     const vPoll = () => {
@@ -129,7 +129,7 @@ class Component extends DCLogic {
     this._c.push(() => io.disconnect());
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     if (!calm && matchMedia('(pointer: fine)').matches) {
@@ -236,24 +236,24 @@ export default function CaseOliveHeightsPage() {
 </section>
 <section data-screen-label="Strategies" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 22px"}}>What We Worked On</h2>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+  <div style={{"display": "flex", "flexWrap": "wrap", "gap": "clamp(14px,2vw,24px)"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>The Look</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>01</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We built a more premium visual direction around the food, drinks, rooftop, sunsets and nightlife.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>The Feed</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>02</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Instead of treating every post separately, we worked towards making the entire page feel like Olive Heights.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Reels</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>03</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Trends where they made sense. Food when it looked good. Experiences when they told the story better.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Ads</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>04</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We ran Meta campaigns around offers, events, awareness and getting people through the door.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>The Content</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>05</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We focused on things people actually care about when deciding where to go: what they're eating, what the place feels like, what's happening this weekend and whether it's worth getting dressed for.</p>
     </div>
@@ -262,7 +262,7 @@ export default function CaseOliveHeightsPage() {
 <section data-screen-label="Creative work" style={{"borderTop": "2px solid var(--color-divider)", "background": "var(--color-neutral-100)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}>Creative Work</h2>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>Signature dishes, desserts and grills shot and designed to a single premium template: an aesthetically aligned grid that reads as one brand at a glance.</p>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(200px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
+  <div className="gal4" style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(200px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
     <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="oh-cre-1" shape="rect" placeholder="Olive Heights creative 1" src="work/creatives/creative-05.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="oh-cre-2" shape="rect" placeholder="Olive Heights feed grid" src="work/grids/olive-heights-grid.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="2" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="oh-cre-3" shape="rect" placeholder="Olive Heights creative 3" src="work/creatives/creative-09.jpg"></image-slot></div></div></div>
@@ -272,7 +272,7 @@ export default function CaseOliveHeightsPage() {
 <section data-screen-label="Menus and festivals" style={{"borderTop": "2px solid var(--color-divider)", "background": "var(--color-neutral-100)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}>Menus and Festivals</h2>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>The Mango Festival carousel and menu, a summer cocktail card and a hoarding shared with Awesome Palace. The same premium look, carried off the feed and onto the table.</p>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(200px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
+  <div className="gal4" style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(200px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
     <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="oh-menu-1" shape="rect" placeholder="Olive Heights Mango Festival" src="work/menus/olive-heights-mango-festival-1.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="oh-menu-2" shape="rect" placeholder="Olive Heights Mango Festival menu" src="work/menus/olive-heights-mango-festival-6.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="2" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="oh-menu-3" shape="rect" placeholder="Olive Heights summer cocktails" src="work/menus/olive-heights-summer-cocktails.jpg"></image-slot></div></div></div>
@@ -284,15 +284,15 @@ export default function CaseOliveHeightsPage() {
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>Storytelling-driven short form built around cravings, ambience and the weekend ritual: the format that carried most of the organic reach.</p>
   <div style={{"display": "flex", "gap": "clamp(14px,2vw,24px)", "flexWrap": "wrap"}}>
     <div data-rv style={{"flex": "1 1 220px", "maxWidth": "300px"}}>
-      <div data-case style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-olive-heights-1.mp4" poster="work/reels/posters/reel-olive-heights-1.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel, Sundays are for indulgence" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
+      <div data-case style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-olive-heights-1.mp4" poster="work/reels/posters/reel-olive-heights-1.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Olive Heights reel, Sundays are for indulgence" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
       <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13.5px", "marginTop": "10px", "color": "var(--color-text)"}}>Sundays are for indulgence</div>
     </div>
     <div data-rv data-rvd="1" style={{"flex": "1 1 220px", "maxWidth": "300px"}}>
-      <div data-case style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-olive-heights-2.mp4" poster="work/reels/posters/reel-olive-heights-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel, Sounds Of The Kitchen" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
+      <div data-case style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-olive-heights-2.mp4" poster="work/reels/posters/reel-olive-heights-2.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Olive Heights reel, Sounds Of The Kitchen" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
       <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13.5px", "marginTop": "10px", "color": "var(--color-text)"}}>Sounds Of The Kitchen</div>
     </div>
     <div data-rv data-rvd="2" style={{"flex": "1 1 220px", "maxWidth": "300px"}}>
-      <div data-case style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-olive-heights-3.mp4" poster="work/reels/posters/reel-olive-heights-3.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel, Let's do lunch" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
+      <div data-case style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-olive-heights-3.mp4" poster="work/reels/posters/reel-olive-heights-3.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Olive Heights reel, Let's do lunch" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
       <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13.5px", "marginTop": "10px", "color": "var(--color-text)"}}>Let's do lunch</div>
     </div>
   </div>

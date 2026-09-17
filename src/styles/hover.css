@@ -1,40 +1,42 @@
-/* generated from style-hover attributes; !important beats inline styles, same as the DC runtime */
-.hv-1:hover { background-size: 100% 2px !important; }
-.hv-2:hover { color: var(--color-accent-600) !important; }
-.hv-3:hover { background: var(--color-accent-600) !important; color: var(--color-bg) !important; }
-.hv-4:hover { background: var(--color-accent-100) !important; padding-left: 16px !important; }
-.hv-5:hover { color: var(--color-accent-700) !important; }
-.hv-6:hover { border-color: var(--color-accent-300) !important; color: var(--color-accent-200) !important; }
-.hv-7:hover { opacity: .75 !important; transform: rotate(-8deg) scale(1.08) !important; }
-.hv-8:hover { transform: rotate(0deg) scale(1.05) !important; color: #14110c !important; }
-.hv-9:hover { background: rgba(20,17,12,.12) !important; color: #14110c !important; }
-.hv-10:hover { color: #14110c !important; opacity: .72 !important; }
-.hv-11:hover { color: #ffd23f !important; border-color: #ffd23f !important; }
-.hv-12:hover { color: #ff6b35 !important; border-color: #ff6b35 !important; }
-.hv-13:hover { color: #2ec4b6 !important; border-color: #2ec4b6 !important; }
-.hv-14:hover { color: #ff8fab !important; }
-.hv-15:hover { color: #ffd23f !important; }
-.hv-16:hover { color: #ff6b35 !important; }
-.hv-17:hover { color: #2ec4b6 !important; }
-.hv-18:hover { background: #f6f3ec !important; color: #14110c !important; }
-.hv-19:hover { transform: translateY(-3px) !important; color: #14110c !important; }
-.hv-20:hover { background: #ffd23f !important; border-color: #ffd23f !important; color: #14110c !important; }
-.hv-21:hover { background: #ff6b35 !important; border-color: #ff6b35 !important; color: #14110c !important; }
-.hv-22:hover { background: #2ec4b6 !important; border-color: #2ec4b6 !important; color: #14110c !important; }
-.hv-23:hover { background: #ff8fab !important; border-color: #ff8fab !important; color: #14110c !important; }
-.hv-24:hover { background: var(--color-accent-100) !important; }
-.hv-25:hover { transform: rotate(-2deg) scale(1.03) !important; }
-.hv-26:hover { transform: rotate(2deg) scale(1.03) !important; }
-.hv-27:hover { border-color: var(--color-accent) !important; transform: scale(1.03) !important; color: var(--color-text) !important; }
-.hv-28:hover { transform: translateY(-6px) !important; box-shadow: var(--shadow-lg) !important; color: var(--color-text) !important; }
-.hvc-1:hover { background-size: 100% 2px !important; }
-.hvc-2:hover { color: var(--color-accent-600) !important; }
-.hvc-3:hover { background: var(--color-accent-600) !important; color: var(--color-bg) !important; }
-.hvc-4:hover { background: var(--color-accent-100) !important; padding-left: 16px !important; }
-.hvc-5:hover { color: #ffd23f !important; border-color: #ffd23f !important; }
-.hvc-6:hover { color: #ff6b35 !important; border-color: #ff6b35 !important; }
-.hvc-7:hover { color: #2ec4b6 !important; border-color: #2ec4b6 !important; }
-.hvc-8:hover { color: #ff8fab !important; }
-.hvc-9:hover { color: #ffd23f !important; }
-.hvc-10:hover { color: #ff6b35 !important; }
-.hvc-11:hover { color: #2ec4b6 !important; }
+/* generated from style-hover attributes; !important beats inline styles, same as the DC runtime; wrapped in (hover:hover) so touch taps do not leave sticky hover states; keep the wrapper if regenerated */
+@media (hover: hover) {
+  .hv-1:hover { background-size: 100% 2px !important; }
+  .hv-2:hover { color: var(--color-accent-600) !important; }
+  .hv-3:hover { background: var(--color-accent-600) !important; color: var(--color-bg) !important; }
+  .hv-4:hover { background: var(--color-accent-100) !important; padding-left: 16px !important; }
+  .hv-5:hover { color: var(--color-accent-700) !important; }
+  .hv-6:hover { border-color: var(--color-accent-300) !important; color: var(--color-accent-200) !important; }
+  .hv-7:hover { opacity: .75 !important; transform: rotate(-8deg) scale(1.08) !important; }
+  .hv-8:hover { transform: rotate(0deg) scale(1.05) !important; color: #14110c !important; }
+  .hv-9:hover { background: rgba(20,17,12,.12) !important; color: #14110c !important; }
+  .hv-10:hover { color: #14110c !important; opacity: .72 !important; }
+  .hv-11:hover { color: #ffd23f !important; border-color: #ffd23f !important; }
+  .hv-12:hover { color: #ff6b35 !important; border-color: #ff6b35 !important; }
+  .hv-13:hover { color: #2ec4b6 !important; border-color: #2ec4b6 !important; }
+  .hv-14:hover { color: #ff8fab !important; }
+  .hv-15:hover { color: #ffd23f !important; }
+  .hv-16:hover { color: #ff6b35 !important; }
+  .hv-17:hover { color: #2ec4b6 !important; }
+  .hv-18:hover { background: #f6f3ec !important; color: #14110c !important; }
+  .hv-19:hover { transform: translateY(-3px) !important; color: #14110c !important; }
+  .hv-20:hover { background: #ffd23f !important; border-color: #ffd23f !important; color: #14110c !important; }
+  .hv-21:hover { background: #ff6b35 !important; border-color: #ff6b35 !important; color: #14110c !important; }
+  .hv-22:hover { background: #2ec4b6 !important; border-color: #2ec4b6 !important; color: #14110c !important; }
+  .hv-23:hover { background: #ff8fab !important; border-color: #ff8fab !important; color: #14110c !important; }
+  .hv-24:hover { background: var(--color-accent-100) !important; }
+  .hv-25:hover { transform: rotate(-2deg) scale(1.03) !important; }
+  .hv-26:hover { transform: rotate(2deg) scale(1.03) !important; }
+  .hv-27:hover { border-color: var(--color-accent) !important; transform: scale(1.03) !important; color: var(--color-text) !important; }
+  .hv-28:hover { transform: translateY(-6px) !important; box-shadow: var(--shadow-lg) !important; color: var(--color-text) !important; }
+  .hvc-1:hover { background-size: 100% 2px !important; }
+  .hvc-2:hover { color: var(--color-accent-600) !important; }
+  .hvc-3:hover { background: var(--color-accent-600) !important; color: var(--color-bg) !important; }
+  .hvc-4:hover { background: var(--color-accent-100) !important; padding-left: 16px !important; }
+  .hvc-5:hover { color: #ffd23f !important; border-color: #ffd23f !important; }
+  .hvc-6:hover { color: #ff6b35 !important; border-color: #ff6b35 !important; }
+  .hvc-7:hover { color: #2ec4b6 !important; border-color: #2ec4b6 !important; }
+  .hvc-8:hover { color: #ff8fab !important; }
+  .hvc-9:hover { color: #ffd23f !important; }
+  .hvc-10:hover { color: #ff6b35 !important; }
+  .hvc-11:hover { color: #2ec4b6 !important; }
+}

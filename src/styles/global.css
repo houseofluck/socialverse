@@ -41,4 +41,119 @@
     a.btn-primary, a.btn-primary:hover, a.btn-primary:active { color: var(--color-bg); }
     ::selection { background: rgba(171,144,92,.35); }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  
+
+    /* Phone nav: one compact band. Row 1 = logo + pill, row 2 = links in a single swipe row.
+       Shared markup on every page: #nav > div (row) > a (logo), div (links), a[data-mag] (pill); #mega is a hover panel. */
+    @media (max-width: 759.98px) {
+      #nav > div:first-child { --nav-x: clamp(24px,6vw,96px); flex-wrap: wrap !important; row-gap: 8px !important; padding-top: 10px !important; padding-bottom: 8px !important; }
+      #nav > div:first-child > a:first-child img { height: 28px !important; }
+      #nav > div:first-child > a[data-mag] { order: 2; flex-shrink: 0; white-space: nowrap; line-height: 1.2; padding: 9px 16px !important; }
+      #nav > div:first-child > div { order: 3; flex: 0 0 calc(100% + 2 * var(--nav-x)); margin: 0 calc(-1 * var(--nav-x)) !important; padding: 0 var(--nav-x); flex-wrap: nowrap !important; white-space: nowrap; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none; -ms-overflow-style: none; }
+      #nav > div:first-child > div::-webkit-scrollbar { display: none; height: 0; }
+      #nav > div:first-child > div > * { flex-shrink: 0; }
+      #nav > div:first-child > div { margin-top: -8px !important; margin-bottom: -8px !important; padding-top: 8px; padding-bottom: 8px; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--nav-x), #000 calc(100% - var(--nav-x)), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 var(--nav-x), #000 calc(100% - var(--nav-x)), transparent 100%); }
+      #nav > div:first-child > div > a, #megaBtn { position: relative; }
+      #nav > div:first-child > div > a::after, #megaBtn::after { content: ''; position: absolute; inset: -8px -7px; }
+      #mega { display: none !important; }
+    }
+
+    /* Four-item case galleries: 4 across on wide screens, 2x2 below 900px (never 3 + 1). */
+    .gal4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+    @media (max-width: 900px) { .gal4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+
+    /* image-slot gives its shadow <img> touch-action:none (editor drag). On touch screens a swipe or pinch that starts on a photo then does nothing. */
+    image-slot::part(image) { touch-action: auto; }
+
+    /* Phone fixes (CSS only). Desktop is untouched: everything below applies at 760px and narrower. */
+    @media (max-width: 759.98px) {
+      /* Footer (all pages): fitFoot() toggles position:fixed on every resize to measure, so URL-bar resizes jumped the page. Links get 36px hit areas with no layout change. */
+      #bigFoot { position: static !important; }
+      #footSpace { height: 0 !important; }
+      #bigFoot > div:last-child > div > a { padding: 8px 6px; margin: -8px -6px; }
+
+      /* Tap targets and form zoom (iOS zooms focused fields under 16px). */
+      .btn { min-height: 44px; }
+      .input { font-size: 16px; min-height: 44px; }
+      section[data-screen-label] > div:first-child > a.hv-1, #hero a.hv-5 { position: relative; }
+      section[data-screen-label] > div:first-child > a.hv-1::after, #hero a.hv-5::after { content: ''; position: absolute; inset: -11px -8px; }
+      #sndBtn { font-size: 11px !important; background: rgba(14,13,11,.62) !important; }
+      #sndBtn::after { content: ''; position: absolute; inset: -8px; }
+      header[data-screen-label='Case hero'] a[href='case-studies.html'], header[data-screen-label='Post hero'] > div:first-child > a[href='blog.html'] { display: inline-block; padding: 12px 0; margin: -12px 0; position: relative; z-index: 1; }
+
+      /* Anchor offsets under the ~87px sticky nav. */
+      section[id^='s-'] { scroll-margin-top: 40px; }
+      :is(#creativity, #hoardings, #tickets, #menus, #videos, #reels, #social, #showcase) { scroll-margin-top: 96px; }
+      [data-sol] { scroll-margin-top: 100px; }
+      #cf-name { scroll-margin-top: 140px; }
+
+      /* Contact form: single column inside the gutter; service options as separate chips. */
+      section[data-screen-label='Contact form'] { grid-template-columns: minmax(0, 1fr) !important; }
+      .seg { display: flex; flex-wrap: wrap; gap: 8px; border: 0; border-radius: 0; overflow: visible; }
+      .seg-opt, .seg-opt + .seg-opt { border: 1px solid var(--color-divider); border-radius: var(--radius-md); min-height: 40px; padding: 8px 12px; }
+
+      /* Swipe rows for reels and menus (all items kept, next card peeks in). */
+      section[data-screen-label='Reels'] > div:last-child { display: flex !important; flex-wrap: nowrap !important; gap: 12px !important; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; margin-inline: calc(-1 * clamp(24px,6vw,96px)); padding-inline: clamp(24px,6vw,96px); scroll-padding-inline: clamp(24px,6vw,96px); scrollbar-width: none; }
+      section[data-screen-label='Reels'] > div:last-child::-webkit-scrollbar { display: none; }
+      section[data-screen-label='Reels'] > div:last-child > * { flex: 0 0 66% !important; max-width: none !important; scroll-snap-align: start; opacity: 1 !important; transform: none !important; }
+      #reels + div, #menus + div { display: flex !important; gap: 12px !important; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: clamp(24px,6vw,96px); scrollbar-width: none; }
+      #reels + div::-webkit-scrollbar, #menus + div::-webkit-scrollbar { display: none; }
+      #reels + div > [data-case] { flex: 0 0 58%; scroll-snap-align: start; opacity: 1 !important; transform: none !important; }
+      #menus + div > [data-case] { flex: 0 0 78%; scroll-snap-align: start; opacity: 1 !important; transform: none !important; }
+
+      /* Home: no blank gold under case cards; client category labels always shown (they were mouse-only). */
+      section[data-screen-label='Case studies teaser'] a[data-case] { min-height: 0 !important; }
+      [data-clm] { opacity: 1 !important; max-height: none !important; font-size: 11px !important; }
+
+      /* Portfolio: band subtitles stacked under titles; showreel inside the gutter; ticket 3 without letterbox bars. */
+      :is(#creativity, #hoardings, #tickets, #menus, #videos, #reels, #social, #showcase) { flex-direction: column; align-items: flex-start !important; gap: 4px !important; }
+      :is(#creativity, #hoardings, #tickets, #menus, #videos, #reels, #social, #showcase) > span { font-size: 13px !important; line-height: 1.45; }
+      #videos + div { grid-template-columns: minmax(0, 1fr) !important; }
+      #tickets + div > :nth-child(3) [data-zoom] > div { aspect-ratio: 5 / 2 !important; }
+
+      /* Case Studies index cards: the third column collapsed to 0px; brief, results and Know more move to a full-width row. The grid-template-columns match excludes Home's flex case cards. */
+      a[data-case][href^='case-'][style*='grid-template-columns'] { grid-template-columns: minmax(0,2fr) minmax(0,3fr) !important; }
+      a[data-case][href^='case-'][style*='grid-template-columns'] > span:nth-child(1) { aspect-ratio: auto !important; }
+      a[data-case][href^='case-'][style*='grid-template-columns'] > span:nth-child(2) { min-height: 180px !important; gap: 16px !important; }
+      a[data-case][href^='case-'][style*='grid-template-columns'] > span:nth-child(2) > span[aria-hidden] { font-size: 72px !important; bottom: -8px !important; }
+      a[data-case][href^='case-'][style*='grid-template-columns'] > span:nth-child(3) { grid-column: 1 / -1; border-top: 2px solid var(--color-divider); }
+
+      /* Case pages and pagers: headings before their reels; hero numeral clear of the copy; stacked pager links left-aligned. */
+      section[data-screen-label='Creative work'] > div:last-child > div:has(> h2) { order: -1; }
+      section[data-screen-label='Campaign reel'] > div:has(> h2) { order: -1; }
+      header[data-screen-label='Case hero'] > div[aria-hidden] { font-size: 120px !important; bottom: -24px !important; }
+      section[data-screen-label='Pager'] > a { text-align: left !important; }
+
+      /* About: why-choose cards sized to their copy; the padding keeps the 01-05 watermark clear. */
+      section[data-screen-label='Why choose'] [data-case] { min-height: 0 !important; padding-bottom: 56px !important; }
+
+      /* Clients: 2-up grid with 'Your brand here' spanning both columns (hv-25/26/27 are only used in Clients.jsx). */
+      div:has(> div[data-case].hv-25) { grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 12px !important; }
+      div[data-case].hv-25, div[data-case].hv-26, a.hv-27 { min-height: 150px !important; padding: 14px !important; gap: 10px !important; }
+      a.hv-27 { grid-column: 1 / -1; min-height: 110px !important; }
+      div[data-case].hv-25 > span[aria-hidden], div[data-case].hv-26 > span[aria-hidden] { font-size: 44px !important; bottom: -4px !important; }
+      div[data-case].hv-25 > span:nth-child(2), div[data-case].hv-26 > span:nth-child(2) { letter-spacing: .1em !important; font-size: 10.5px !important; }
+      div[data-case].hv-25 > span:last-child > span, div[data-case].hv-26 > span:last-child > span { font-size: 17px !important; }
+      div[data-case].hv-25 > span:last-child > img, div[data-case].hv-26 > span:last-child > img { height: 40px !important; }
+
+      /* Blog: reel strip 3 across like desktop; index tag and date labels readable over artwork. */
+      section[data-screen-label='Hero media'] > div > div:has(> div > video) { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+      section[data-screen-label='Articles'] [data-zoom] > span:not([aria-hidden]) { background: inherit; }
+      section[data-screen-label='Articles'] [data-zoom] > span:last-child { padding: 3px 7px; margin-left: -7px; }
+
+      /* Small-label contrast (11px labels at 50% ink measured about 3.3:1). */
+      section[data-screen-label='Pager'] a > span:first-child, section[data-screen-label='Articles'] a[data-case] > div:last-child > span:last-child, section[data-screen-label='Contact form'] > div:last-child > div > div:first-child { color: color-mix(in srgb, var(--color-text) 70%, transparent) !important; }
+
+      /* Image CTAs: the headline spans the full width on phones, so darken top to bottom instead of left to right. */
+      section[data-screen-label='CTA'] > div:first-child:has(> image-slot) + div { background: linear-gradient(180deg, rgba(14,13,11,.3) 0%, rgba(14,13,11,.86) 50%, rgba(14,13,11,.92) 100%) !important; }
+    }
+
+    /* Phone follow-ups from visual review. */
+    @media (max-width: 759.98px) {
+      /* About statement: balance each masked line instead of leaving 2-word fragments. */
+      section[data-screen-label='Statement'] h2 [data-ml] { text-wrap: balance; }
+      /* Blog numbered headings: wrapped lines hang next to the number, not under it. */
+      h2:has(> span[style*='tabular-nums']:first-child) { display: flex; }
+      h2 > span[style*='tabular-nums']:first-child { flex: none; }
+      /* Gold primary buttons: ink text reads in daylight (paper on gold is ~2.8:1). */
+      .btn-primary, a.btn-primary, a.btn-primary:hover, a.btn-primary:active { color: #14110c !important; }
+    }

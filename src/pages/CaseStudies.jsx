@@ -129,7 +129,7 @@ class Component extends DCLogic {
     this._c.push(() => io.disconnect());
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     if (!calm && matchMedia('(pointer: fine)').matches) {

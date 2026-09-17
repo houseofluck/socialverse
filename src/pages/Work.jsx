@@ -6,12 +6,13 @@ class Component extends DCLogic {
   state = { filter: 'All' };
   data() {
     return [
-      { cl: 'Halka Sneakers', tags: ['Social', 'Film'], meta: 'Social / Film — 2026', video: 'uploads/case-halka.mp4', sum: 'A launch film and social system for a drop that sold on restraint: one product, one week, one story told frame by frame.', result: '18M views — sold out in 41 min' },
-      { cl: 'Juno Bank', tags: ['Brand', 'Digital'], meta: 'Brand / Digital — 2025', slot: 'case-juno', ph: 'Juno Bank — identity', img: 'work/creatives/social-grid.jpg', ar: '4/3', sum: 'Rebrand and app experience for a neobank: plain language, honest numbers, interface stripped to what matters.', result: '4.9★ — 2.1M downloads in year one' },
-      { cl: 'Nimbus Air', tags: ['Film', 'Media'], meta: 'Campaign / Film — 2025', slot: 'case-nimbus', ph: 'Nimbus Air — film still', img: 'hoarding-design.jpg', ar: '4/3', sum: 'A mystery-fare campaign: the destination revealed at the gate. Four films followed the people who said yes.', result: 'Cannes shortlist — bookings +312%' },
-      { cl: 'Paltan FC', tags: ['Social', 'Media'], meta: 'Social / Media — 2026', slot: 'case-paltan', ph: 'Paltan FC — matchday', img: 'stop-the-scroll.jpg', ar: '4/3', sum: 'We handed the club\u2019s socials to its loudest fans for a season. Moderated chaos, broadcast to millions.', result: '1.2M new followers in a season' },
-      { cl: 'Café Bombil', tags: ['Brand'], meta: 'Identity — 2024', slot: 'case-bombil', ph: 'Café Bombil — identity', img: 'work/creatives/showcase-02.jpg', ar: '4/5', sum: 'Identity, interiors and menus for a late-night breakfast house. Quiet typography, loud butter.', result: '3 outlets to 11 in 18 months' },
-      { cl: 'Vella Gelato', tags: ['Social'], meta: 'Social — 2024', slot: 'case-vella', ph: 'Vella — campaign', img: 'work/creatives/showcase-05.jpg', ar: '4/5', sum: 'A season-long content system tied to the weather: the hotter the day, the colder the work.', result: '60K user posts — sales +89%' }
+      { cl: 'Awesome Palace', tags: ['Social', 'Ads', 'Branding'], meta: 'Luxury hotel', href: 'case-awesome-palace.html', slot: 'work-awesome-palace', ph: 'Awesome Palace hoarding', img: 'work/hoardings/awesome-palace-under-one-roof.jpg', ar: '4/3', sum: 'A hotel has about five seconds to make you want to stay there.', result: 'Reels, feed, hoarding, Meta ads' },
+      { cl: 'Olive Heights', tags: ['Social', 'Ads', 'Branding'], meta: 'Rooftop dining', href: 'case-olive-heights.html', slot: 'work-olive-heights', ph: 'Olive Heights Tropical Twist post', img: 'work/creatives/olive-heights-tropical-twist.jpg', ar: '4/5', sum: 'The brief was simple: make people want to go there.', result: 'Reels, feed, menus, Meta ads' },
+      { cl: 'Ahvi Gold', tags: ['Social', 'Ads', 'Branding'], meta: 'Gold buying', href: 'case-ahvi-gold.html', slot: 'work-ahvi-gold', ph: 'Ahvi Gold storefront', img: 'work/case/ahvi-storefront.jpg', ar: '4/5', sum: 'Selling gold is personal. The marketing had to understand that.', result: 'Trust-first reels, feed, Meta ads' },
+      { cl: 'Olive Garden', tags: ['Social'], meta: 'Restaurant', href: 'portfolio.html#social', slot: 'work-olive-garden', ph: 'Olive Garden feed', img: 'work/grids/olive-garden-grid.jpg', ar: '4/5', sum: 'Reels and a feed planned as one grid, for a rooftop restaurant.', result: 'Reels, feed' },
+      { cl: 'Fix24', tags: ['Social'], meta: 'Cloud infrastructure', href: 'portfolio.html#social', slot: 'work-fix24', ph: 'Fix24 feed', img: 'work/grids/fix24-grid.jpg', ar: '4/5', sum: 'Cloud infrastructure explained in plain language, for a unit of Datamation.', result: 'Reels, feed' },
+      { cl: 'Coriander', tags: ['Social'], meta: 'Caf\u00e9 & bar', href: 'portfolio.html#reels', slot: 'work-coriander', ph: 'Coriander reel', img: 'work/reels/posters/reel-coriander.jpg', ar: '4/5', sum: 'Short form built for the launch of a caf\u00e9 & bar in Guwahati.', result: 'Launch reel' },
+      { cl: 'Jewellery Hub', tags: ['Branding'], meta: 'Jewellery', href: 'portfolio.html#hoardings', slot: 'work-jewellery-hub', ph: 'Jewellery Hub billboard', img: 'work/teasers/reach-billboard.jpg', ar: '4/3', wide: true, sum: 'A billboard and event passes for the Backstage Siblings night that Jewellery Hub sponsored.', result: 'Hoarding, tickets' }
     ];
   }
   renderVals() {
@@ -26,8 +27,8 @@ class Component extends DCLogic {
         { t: 'Tech Solutions', d: 'Web, apps, commerce', href: 'Techsolutions.html', sq: 'width:10px; height:10px; flex:none; background:#1d1a14;' },
         { t: 'Film Solutions', d: 'Direction to post', href: 'Filmsolutions.html', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' }
       ],
-      shownLabel: String(list.length).padStart(2, '0') + ' / 85',
-      filters: ['All', 'Brand', 'Social', 'Film', 'Digital', 'Media'].map(f => ({
+      shownLabel: String(list.length).padStart(2, '0') + ' / ' + String(this.data().length).padStart(2, '0'),
+      filters: ['All', 'Social', 'Ads', 'Branding'].map(f => ({
         label: f,
         click: () => this.setState({ filter: f }),
         style: chipBase + (f === F
@@ -38,7 +39,7 @@ class Component extends DCLogic {
         ...w,
         isVideo: !!w.video,
         isSlot: !w.video,
-        wrapStyle: (i === 0 ? 'grid-column:span 2; ' : '') + 'min-width:0;'
+        wrapStyle: (i === 0 || (w.wide && F === 'All') ? 'grid-column:span 2; ' : '') + 'min-width:0; display:block; text-decoration:none; color:inherit;'
       }))
     };
   }
@@ -237,15 +238,15 @@ export default function WorkPage() {
         </React.Fragment>))}
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-halka" shape="rect" placeholder="Featured — Halka" src="work/creatives/social-grid.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Halka — The Monday Drop</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Sold out in 41 min</span>
+        <a href="case-olive-heights.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat" shape="rect" placeholder="Featured: Olive Heights" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Olive Heights: Make people want to go there</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Reels, feed, menus, ads</span>
         </a>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-juno" shape="rect" placeholder="Featured — Juno" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Juno Bank — Speaks plainly</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>2.1M downloads</span>
+        <a href="case-ahvi-gold.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat-2" shape="rect" placeholder="Featured: Ahvi Gold" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Ahvi Gold: Selling gold is personal</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Trust-first reels and ads</span>
         </a>
       </div>
     </div>
@@ -256,7 +257,7 @@ export default function WorkPage() {
   <h1 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(46px,6.8vw,110px)", "lineHeight": "1.03", "letterSpacing": "-.028em", "margin": "0"}}>
     <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Work that worked</span></span>
   </h1>
-  <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(24px,3.5vh,40px) 0 0", "maxWidth": "46ch", "color": "color-mix(in srgb, var(--color-text) 72%, transparent)"}}>Eighty-five projects to date. Six unpacked below — the rest travel by deck, in person.</p>
+  <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,17px)", "lineHeight": "1.65", "margin": "clamp(24px,3.5vh,40px) 0 0", "maxWidth": "46ch", "color": "color-mix(in srgb, var(--color-text) 72%, transparent)"}}>Seven brands, unpacked below. There's more in the portfolio.</p>
 </header>
 
 <section data-screen-label="Filters" style={{"borderTop": "2px solid var(--color-divider)", "borderBottom": "2px solid var(--color-divider)", "padding": "16px clamp(24px,6vw,96px)", "display": "flex", "alignItems": "baseline", "gap": "clamp(16px,2.4vw,32px)", "flexWrap": "wrap", "position": "sticky", "top": "64px", "zIndex": "80", "background": "rgba(246,243,236,.94)", "backdropFilter": "blur(10px)"}}>
@@ -269,11 +270,11 @@ export default function WorkPage() {
 <section data-screen-label="Case grid" style={{"padding": "clamp(48px,6vw,80px) clamp(24px,6vw,96px) clamp(90px,11vw,160px)"}}>
   <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fill,minmax(300px,1fr))", "gap": "clamp(28px,4vw,56px) clamp(20px,3vw,40px)"}}>
     {vals.works.map((w, $index) => (<React.Fragment key={$index}>
-      <article data-case style={cssText(w.wrapStyle)}>
+      <a data-case href={w.href} style={cssText(w.wrapStyle)}>
         <div style={{"overflow": "hidden", "border": "2px solid var(--color-divider)", "background": "var(--color-neutral-200)"}}>
           <div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}>
             {w.isVideo ? (<>
-              <video data-auto src={w.video} autoPlay muted loop playsInline preload="metadata" aria-label={w.cl} style={{"display": "block", "width": "100%", "aspectRatio": "4/3", "objectFit": "cover"}}></video>
+              <video data-auto src={w.video} poster={w.poster} autoPlay muted loop playsInline preload="metadata" aria-label={w.cl} style={{"display": "block", "width": "100%", "aspectRatio": "4/3", "objectFit": "cover"}}></video>
             </>) : null}
             {w.isSlot ? (<>
               <div style={{"aspectRatio": `${w.ar}`}}><image-slot id={w.slot} shape="rect" placeholder={w.ph} src={w.img}></image-slot></div>
@@ -286,7 +287,7 @@ export default function WorkPage() {
         </div>
         <div style={{"fontSize": "13.5px", "lineHeight": "1.55", "marginTop": "6px", "color": "color-mix(in srgb, var(--color-text) 62%, transparent)", "maxWidth": "52ch"}}>{w.sum}</div>
         <div style={{"display": "inline-flex", "alignItems": "center", "gap": "8px", "fontSize": "11px", "fontWeight": "600", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "10px", "color": "var(--color-accent-700)"}}>{w.result}</div>
-      </article>
+      </a>
     </React.Fragment>))}
   </div>
 </section>
@@ -302,9 +303,7 @@ export default function WorkPage() {
 
 <footer id="bigFoot" data-screen-label="Footer" style={{"position": "fixed", "left": "0", "right": "0", "bottom": "0", "zIndex": "1", "background": "#0f0d0a", "color": "#f1ece1", "padding": "clamp(36px,5vw,64px) clamp(24px,6vw,96px) 24px", "overflow": "hidden"}}>
   <div style={{"display": "flex", "justifyContent": "center", "gap": "clamp(12px,2vw,24px)", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Mumbai:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Bengaluru:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>New York:</strong> <span data-clock="America/New_York">—</span></span>
+    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Guwahati:</strong> <span data-clock="Asia/Kolkata">—</span></span>
   </div>
   <div aria-label="The Social Verse" style={{"display": "flex", "justifyContent": "center", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}>
     
@@ -326,7 +325,7 @@ export default function WorkPage() {
       <a href="journal.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Journal</a>
       <a href="contact.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Contact</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Proudly independent since 2016. All noise, no static. © 2026</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Based in Guwahati. All noise, no static. © 2026</div>
   </div>
 </footer>
 

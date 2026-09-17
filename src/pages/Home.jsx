@@ -12,6 +12,7 @@ class Component extends DCLogic {
     const txt = "At The Social Verse, we work with brands on the stuff that actually matters: how they look, how they sound, what they say, who they reach and, most importantly, what all of it does for the business.";
     const redSet = new Set(['look,', 'sound,', 'say,', 'reach', 'business.']);
     return {
+      vidAuto: typeof window === 'undefined' || window.innerWidth >= 760,
       tick4: [...tick, ...tick],
       shout4: ['All eyes on your brand', 'Stop the scroll', 'All eyes on your brand', 'Stop the scroll'],
       sh2: '#ab905c',
@@ -207,6 +208,7 @@ class Component extends DCLogic {
       panels.forEach((p, j) => {
         const on = j === i;
         p.style.flex = narrow() ? '1' : (on ? '2.6' : '1');
+        if (narrow()) p.style.minHeight = on ? '320px' : '72px';
         p.style.background = on ? (p.getAttribute('data-bg') || 'var(--color-accent)') : 'transparent';
         const g = p.querySelector('[data-ghost]'), f = p.querySelector('[data-full]');
         if (g) g.style.opacity = on ? '0' : '1';
@@ -217,32 +219,36 @@ class Component extends DCLogic {
       if (!rail) return;
       if (narrow()) {
         rail.style.flexDirection = 'column';
+        rail.style.minHeight = '0';
         panels.forEach(p => {
-          p.style.minHeight = '320px'; p.style.borderRight = '0'; p.style.borderBottom = '2px solid var(--color-divider)';
+          p.style.borderRight = '0'; p.style.borderBottom = '2px solid var(--color-divider)';
           const gv = p.querySelector('[data-gv]'); if (gv) { gv.style.writingMode = 'horizontal-tb'; gv.style.transform = 'none'; }
+          const gh = p.querySelector('[data-ghost]'); if (gh) { gh.style.flexDirection = 'row'; gh.style.padding = '0 clamp(24px,6vw,96px)'; }
         });
       } else {
         rail.style.flexDirection = 'row';
+        rail.style.minHeight = '64vh';
         panels.forEach(p => {
           p.style.minHeight = ''; p.style.borderRight = '2px solid var(--color-divider)'; p.style.borderBottom = '0';
           const gv = p.querySelector('[data-gv]'); if (gv) { gv.style.writingMode = 'vertical-rl'; gv.style.transform = 'rotate(180deg)'; }
+          const gh = p.querySelector('[data-ghost]'); if (gh) { gh.style.flexDirection = 'column'; gh.style.padding = '22px 8px'; }
         });
       }
     };
     layoutRail();
     setActive(0);
     panels.forEach((p, i) => {
-      this.on(p, 'pointerenter', () => setActive(i));
+      this.on(p, 'pointerenter', e => { if (e.pointerType !== 'touch') setActive(i); });
       this.on(p, 'focusin', () => setActive(i));
-      if (narrow()) this.on(p, 'click', () => setActive(i));
+      this.on(p, 'click', () => { if (!narrow()) return; setActive(i); requestAnimationFrame(() => p.scrollIntoView({ block: 'nearest', behavior: 'smooth' })); });
     });
-    this.on(window, 'resize', () => { layoutRail(); setActive(0); });
+    let railW = innerWidth; this.on(window, 'resize', () => { if (innerWidth === railW) return; railW = innerWidth; layoutRail(); setActive(0); });
     const clPal = [['#ffd23f', '#14110c'], ['#ff6b35', '#14110c'], ['#2ec4b6', '#14110c'], ['#ff8fab', '#14110c'], ['#1d1a14', '#f6f3ec']];
     document.querySelectorAll('[data-cl]').forEach(cell => {
       const i = +(cell.getAttribute('data-cl') || 0);
       const [bg, fg] = clPal[i % clPal.length];
       const nm = cell.querySelector('[data-cln]'), mt = cell.querySelector('[data-clm]');
-      this.on(cell, 'pointerenter', () => {
+      this.on(cell, 'pointerenter', e => { if (e.pointerType === 'touch') return;
         cell.style.background = bg;
         cell.style.transform = `rotate(${i % 2 ? 2 : -2}deg) scale(1.05)`;
         cell.style.zIndex = '2'; cell.style.position = 'relative';
@@ -252,7 +258,7 @@ class Component extends DCLogic {
       this.on(cell, 'pointerleave', () => {
         cell.style.background = 'var(--color-bg)';
         cell.style.transform = 'none'; cell.style.zIndex = '';
-        if (nm) nm.style.color = 'var(--color-neutral-500)';
+        if (nm) nm.style.color = 'var(--color-neutral-700)';
         if (mt) { mt.style.opacity = '0'; mt.style.maxHeight = '0'; }
       });
     });
@@ -265,10 +271,29 @@ class Component extends DCLogic {
     }
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]'), tt = cs.querySelector('[data-ttl]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (tt) tt.style.color = 'var(--color-accent-700)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (tt) tt.style.color = 'var(--color-accent-700)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (tt) tt.style.color = 'var(--color-text)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     const reelSec = $('reelSec'), reelWrap = $('reelWrap');
+    const reelStage = reelWrap && reelWrap.parentElement;
+    const reelOrig = reelSec && reelStage ? { h: reelSec.style.height, pos: reelStage.style.position, sh: reelStage.style.height, pad: reelStage.style.padding, w: reelWrap.style.width, mw: reelWrap.style.minWidth } : null;
+    let reelNarrow = false;
+    const layoutReel = () => {
+      if (!reelOrig || narrow() === reelNarrow) return;
+      reelNarrow = narrow();
+      if (reelNarrow) {
+        reelSec.style.height = 'auto';
+        reelStage.style.position = 'static'; reelStage.style.height = 'auto'; reelStage.style.padding = 'clamp(24px,6vw,96px)';
+        reelWrap.style.width = '100%'; reelWrap.style.minWidth = '0'; reelWrap.style.transform = ''; reelWrap.style.opacity = '';
+      } else {
+        reelSec.style.height = reelOrig.h;
+        reelStage.style.position = reelOrig.pos; reelStage.style.height = reelOrig.sh; reelStage.style.padding = reelOrig.pad;
+        reelWrap.style.width = reelOrig.w; reelWrap.style.minWidth = reelOrig.mw;
+      }
+    };
+    layoutReel();
+    this.on(window, 'resize', layoutReel);
+    this.on(window, 'orientationchange', layoutReel);
     const mani = $('defines'), maniP = $('maniWords');
     const words = maniP ? [...maniP.querySelectorAll('span')] : [];
     let ri = 0;
@@ -276,9 +301,11 @@ class Component extends DCLogic {
     const reachImg = $('reachImg'), reach = $('reach');
     const c01 = v => v < 0 ? 0 : v > 1 ? 1 : v;
     let alive = true, lastWord = -1;
+    let queued = false;
+    const schedule = () => { if (queued || !alive) return; queued = true; requestAnimationFrame(() => { queued = false; tickFn(); }); };
     const tickFn = () => {
       if (!alive) return;
-      if (reelSec && reelWrap) {
+      if (reelSec && reelWrap && !reelNarrow) {
         const r = reelSec.getBoundingClientRect();
         const d = r.height - innerHeight;
         const p = d > 0 ? c01(-r.top / d) : 0;
@@ -306,19 +333,22 @@ class Component extends DCLogic {
         const p = c01((innerHeight - r.top) / (innerHeight + r.height));
         reachImg.style.transform = `translateY(${(p - 0.5) * 60}px)`;
       }
-      requestAnimationFrame(tickFn);
+      if (!narrow()) schedule();
     };
-    requestAnimationFrame(tickFn);
+    this.on(window, 'scroll', schedule, { passive: true }); this.on(window, 'resize', schedule); schedule();
     this._c.push(() => { alive = false; });
-    import('../lib/three-fx.js').then(async fx => {
+    const startFx = () => import('../lib/three-fx.js').then(async fx => {
       const hc = $('heroCanvas');
       if (hc) {
         this.dots = await fx.dotField(hc, { calm });
+        if (hc.style.opacity === '0') requestAnimationFrame(() => { hc.style.opacity = '1'; });
         const hs = $('hero');
         this.on(hs, 'pointermove', e => this.dots.setPointer(e.clientX, e.clientY));
         this.on(hs, 'pointerleave', () => this.dots.clearPointer());
       }
     }).catch(err => console.warn('3D disabled:', err));
+    if (!narrow()) startFx();
+    else if (!(navigator.connection && navigator.connection.saveData)) { const hc0 = $('heroCanvas'); if (hc0) { hc0.style.transition = 'opacity .6s'; hc0.style.opacity = '0'; } const later = () => setTimeout(() => { if (alive) startFx(); }, 800); if (document.readyState === 'complete') later(); else this.on(window, 'load', later, { once: true }); }
   }
 }
 
@@ -400,7 +430,7 @@ export default function HomePage() {
     </h1>
     <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,18px)", "lineHeight": "1.65", "margin": "clamp(24px,4vh,40px) 0 0", "maxWidth": "56ch", "color": "color-mix(in srgb, var(--color-text) 78%, transparent)"}}>There are already a thousand brands posting every day. Another reel. Another “Happy Monday.” Another boosted post that nobody remembers. We don't want to add to that noise.</p>
     <div data-rv data-rvd="3" style={{"display": "flex", "alignItems": "center", "gap": "20px", "marginTop": "clamp(22px,3.5vh,34px)"}}>
-      <a href="portfolio.html" style={{"textDecoration": "none"}} className="btn btn-primary">Let's Talk</a>
+      <a href="contact.html" style={{"textDecoration": "none"}} className="btn btn-primary">Let's Talk</a>
       <a href="services.html" style={{"textDecoration": "none", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ffd23f,#ffd23f)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "100% 2px", "paddingBottom": "3px"}} className="hv-5">Our services</a>
     </div>
   </div>
@@ -420,7 +450,7 @@ export default function HomePage() {
   <div id="reelSec" style={{"height": "240vh", "position": "relative"}}>
     <div style={{"position": "sticky", "top": "0", "height": "100vh", "overflow": "hidden", "display": "flex", "alignItems": "center", "justifyContent": "center", "background": "var(--color-bg)"}}>
       <div id="reelWrap" style={{"position": "relative", "overflow": "hidden", "width": "62%", "minWidth": "320px", "willChange": "width,transform,opacity"}}>
-        <video id="reelVid" data-auto src="work/showreel/social-verse-showreel.mp4" poster="work/showreel/social-verse-showreel-poster.jpg" autoPlay muted loop playsInline preload="auto" aria-label="Showreel" style={{"display": "block", "width": "100%", "aspectRatio": "16/9", "objectFit": "cover", "filter": "brightness(.97)"}}></video>
+        <video id="reelVid" data-auto src="work/showreel/social-verse-showreel.mp4" poster="work/showreel/social-verse-showreel-poster.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'auto' : 'metadata'} aria-label="Showreel" style={{"display": "block", "width": "100%", "aspectRatio": "16/9", "objectFit": "cover", "filter": "brightness(.97)"}}></video>
         <button id="sndBtn" type="button" style={{"position": "absolute", "right": "16px", "bottom": "12px", "border": "2px solid rgba(255,255,255,.5)", "background": "rgba(14,13,11,.45)", "backdropFilter": "blur(8px)", "color": "#fff", "font": "inherit", "fontSize": "10px", "letterSpacing": ".18em", "textTransform": "uppercase", "padding": "7px 12px", "transition": "border-color .3s, color .3s"}} className="hv-6">Sound off</button>
       </div>
     </div>
@@ -472,7 +502,7 @@ export default function HomePage() {
     {vals.reels.map((r, $index) => (<React.Fragment key={$index}>
       <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
         <div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}>
-          <video data-auto src={r.v} poster={r.p} autoPlay muted loop playsInline preload="metadata" aria-label={r.cl} style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+          <video data-auto src={r.v} poster={r.p} autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label={r.cl} style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
         </div>
         <div style={{"padding": "12px 16px"}}>
           <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.4vw,17px)"}}>{r.cl}</span>
@@ -542,7 +572,7 @@ export default function HomePage() {
     {vals.clients.map((cl, $index) => (<React.Fragment key={$index}>
       <div data-cl={cl.i} data-rv style={{"flex": "1 1 130px", "background": "var(--color-bg)", "padding": "clamp(16px,2.4vw,28px) 14px", "display": "flex", "flexDirection": "column", "alignItems": "center", "justifyContent": "center", "gap": "6px", "minHeight": "96px", "transition": "background .35s, transform .35s"}}>
         <img src={cl.logo} alt="" style={{"display": "block", "height": "clamp(30px,3.4vw,44px)", "width": "auto", "maxWidth": "84%", "objectFit": "contain", "marginBottom": "4px"}} />
-        <span data-cln style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.3vw,18px)", "letterSpacing": ".06em", "textTransform": "uppercase", "textAlign": "center", "color": "var(--color-neutral-500)", "transition": "color .3s"}}>{cl.name}</span>
+        <span data-cln style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.3vw,18px)", "letterSpacing": ".06em", "textTransform": "uppercase", "textAlign": "center", "color": "var(--color-neutral-700)", "transition": "color .3s"}}>{cl.name}</span>
         <span data-clm style={{"fontSize": "10px", "letterSpacing": ".14em", "textTransform": "uppercase", "textAlign": "center", "color": "rgba(20,17,12,.75)", "opacity": "0", "maxHeight": "0", "overflow": "hidden", "transition": "opacity .3s, max-height .3s"}}>{cl.meta}</span>
       </div>
     </React.Fragment>))}
@@ -577,7 +607,7 @@ export default function HomePage() {
   <div style={{"padding": "0 clamp(24px,6vw,96px)"}}>
     <div style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "opacity": ".7", "marginBottom": "20px"}}>We handle the thinking, the creating and the execution.</div>
     <h2 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(38px,5.8vw,96px)", "lineHeight": "1.05", "letterSpacing": "-.025em", "margin": "0", "color": "#14110c", "display": "flex", "flexWrap": "wrap", "gap": "0 .26em"}}>
-      {vals.closeWords.map((wd, $index) => (<React.Fragment key={$index}><span onMouseEnter={(e)=>{Object.assign(e.currentTarget.style,{"transform": "translateY(-12px) rotate(-3deg)", "color": wd.hc});}} onMouseLeave={(e)=>{Object.assign(e.currentTarget.style,{"transform": "", "color": ""});}} style={{"display": "inline-block", "transition": "transform .35s cubic-bezier(.34,1.56,.64,1), color .25s"}}>{wd.w}</span></React.Fragment>))}
+      {vals.closeWords.map((wd, $index) => (<React.Fragment key={$index}><span onMouseEnter={(e)=>{if (!matchMedia('(hover: hover)').matches) return; Object.assign(e.currentTarget.style,{"transform": "translateY(-12px) rotate(-3deg)", "color": wd.hc});}} onMouseLeave={(e)=>{Object.assign(e.currentTarget.style,{"transform": "", "color": ""});}} style={{"display": "inline-block", "transition": "transform .35s cubic-bezier(.34,1.56,.64,1), color .25s"}}>{wd.w}</span></React.Fragment>))}
     </h2>
     <div style={{"display": "flex", "alignItems": "center", "gap": "26px", "flexWrap": "wrap", "marginTop": "36px"}}>
       <a data-mag href="contact.html" style={{"textDecoration": "none", "color": "#14110c", "border": "2px solid #14110c", "padding": "14px 26px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "display": "inline-flex", "alignItems": "center", "gap": "8px", "transition": "background .25s"}} className="hv-9">Let's Talk →</a>

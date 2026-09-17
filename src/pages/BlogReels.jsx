@@ -13,7 +13,7 @@ class Component extends DCLogic {
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Influencer Marketing', href: 'services.html#s-influencer', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Outdoor Marketing', href: 'services.html#s-outdoor', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' }
-      ] }; }
+      ], vidAuto: typeof window === 'undefined' || window.innerWidth >= 760 }; }
   componentDidMount() { this._c = []; this.boot(); }
   componentWillUnmount() { (this._c || []).forEach(f => { try { f() } catch (e) { } }); }
   on(t, ev, fn, o) { t.addEventListener(ev, fn, o); this._c.push(() => t.removeEventListener(ev, fn, o)); }
@@ -85,7 +85,7 @@ class Component extends DCLogic {
       this.on(mega, 'pointerenter', () => clearTimeout(megaT));
       this.on(window, 'scroll', () => { if (megaOpen && Math.abs(scrollY - openY) > 48) setMega(false); }, { passive: true });
     }
-    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
+    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (innerWidth < 760) { const r = v.getBoundingClientRect(); if (!(r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth)) return; } if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
     kick();
     let vAlive = true;
     const vPoll = () => {
@@ -129,7 +129,7 @@ class Component extends DCLogic {
     this._c.push(() => io.disconnect());
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     if (!calm && matchMedia('(pointer: fine)').matches) {
@@ -199,7 +199,7 @@ export default function BlogReelsPage() {
 </nav>
 
 <header data-screen-label="Post hero" style={{"padding": "clamp(64px,8vw,120px) clamp(24px,6vw,96px) clamp(36px,4.5vw,56px)"}}>
-  <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}><a href="blog.html" style={{"color": "inherit", "textDecoration": "none"}}>The Blog</a> · Social · Aug '26 · 5 min read</div>
+  <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "clamp(18px,3vh,30px)"}}><a href="blog.html" style={{"color": "inherit", "textDecoration": "none"}}>The Blog</a> · Social · Aug '26  min read</div>
   <h1 style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(30px,4.6vw,72px)", "lineHeight": "1.04", "letterSpacing": "-.024em", "margin": "0", "maxWidth": "24ch"}}>
     <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Why reels are the fastest way to grow a restaurant brand</span></span>
   </h1>
@@ -209,13 +209,13 @@ export default function BlogReelsPage() {
   <div style={{"maxWidth": "820px"}}>
     <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(160px,1fr))", "gap": "clamp(12px,1.6vw,20px)"}}>
       <div data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-        <video data-auto src="work/reels/reel-olive-garden-2.mp4" poster="work/reels/posters/reel-olive-garden-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Garden reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+        <video data-auto src="work/reels/reel-olive-garden-2.mp4" poster="work/reels/posters/reel-olive-garden-2.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Olive Garden reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
       </div>
       <div data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-        <video data-auto src="work/reels/reel-olive-heights-1.mp4" poster="work/reels/posters/reel-olive-heights-1.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+        <video data-auto src="work/reels/reel-olive-heights-1.mp4" poster="work/reels/posters/reel-olive-heights-1.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Olive Heights reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
       </div>
       <div data-rv data-rvd="2" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}>
-        <video data-auto src="work/reels/reel-olive-heights-2.mp4" poster="work/reels/posters/reel-olive-heights-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+        <video data-auto src="work/reels/reel-olive-heights-2.mp4" poster="work/reels/posters/reel-olive-heights-2.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Olive Heights reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
       </div>
     </div>
     <div data-rv style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "14px"}}>Reels we produced for Olive Garden and Olive Heights</div>

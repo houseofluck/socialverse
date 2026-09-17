@@ -9,7 +9,7 @@ class Component extends DCLogic {
       { n: '01', key: 'gold', tag: 'Social', date: "Aug '26", t: "Why reels are the fastest way to grow a restaurant brand", d: "Short-form video sells the feeling, and the feeling sells the table.", read: '5 min read', href: 'blog-reels.html', img: 'work/reels/posters/reel-olive-garden-2.jpg', fit: 'contain' },
       { n: '02', key: 'terra', tag: 'Performance', date: "Jul '26", t: "Meta ads that drive footfall, not just likes", d: "For local businesses the point of an ad is a person walking in. The framework we use to make that happen.", read: '6 min read', href: 'blog-meta-ads.html', img: 'work/creatives/creative-07.jpg', fit: 'contain' },
       { n: '03', key: 'gold', tag: 'Branding', date: "Jun '26", t: "Marketing a trust-first business", d: "In sensitive categories like gold buying, education outperforms promotion every time.", read: '5 min read', href: 'blog-trust.html', img: 'work/case/ahvi-storefront.jpg', fit: 'contain' },
-      { n: '04', key: 'terra', tag: 'Outdoor', date: "May '26", t: "What makes a hoarding impossible to ignore", d: "Outdoor gets six seconds of attention at 40 km/h. Everything about the design follows from that.", read: '4 min read', href: 'blog-hoardings.html', img: 'work/hoardings/awesome-palace-under-one-roof.jpg', fit: 'contain' },
+      { n: '04', key: 'terra', tag: 'Outdoor', date: "May '26", t: "What makes a hoarding impossible to ignore", d: "Outdoor gets six seconds of attention at 40 km/h. Everything about the design follows from that.", read: '4 min read', href: 'blog-hoardings.html', img: 'work/hoardings/awesome-palace-under-one-roof.jpg', fit: 'contain', num: false },
       { n: '05', key: 'terra', tag: 'SEO', date: "Apr '26", t: "Local SEO: getting found in your own city", d: "“Near me” searches are the cheapest growth channel most businesses ignore. The basics, done properly, beat tricks.", read: '6 min read', href: 'blog-local-seo.html', img: 'seo-loop-poster.jpg' },
       { n: '06', key: 'terra', tag: 'Content', date: "Mar '26", t: "Building an Instagram grid people remember", d: "A recognisable feed is a brand asset that compounds. How we plan grids that hold together.", read: '5 min read', href: 'blog-grid.html', img: 'work/grids/olive-garden-grid.jpg', fit: 'contain' }
     ];
@@ -135,7 +135,7 @@ class Component extends DCLogic {
     this._c.push(() => io.disconnect());
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]'), tt = cs.querySelector('[data-ttl]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (tt) tt.style.color = 'var(--color-accent-700)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (tt) tt.style.color = 'var(--color-accent-700)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (tt) tt.style.color = 'var(--color-text)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     if (!calm && matchMedia('(pointer: fine)').matches) {
@@ -219,7 +219,7 @@ export default function BlogPage() {
         <div style={{"overflow": "hidden"}}>
           <div data-zoom style={{"position": "relative", "aspectRatio": "16/9", "transition": "transform .9s cubic-bezier(.22,1,.36,1)", "background": `${p.bg}`, "color": `${p.fg}`}}>
             <image-slot id={`bl-thumb-${p.n}`} shape="rect" placeholder="Article thumbnail" src={p.img} fit={p.fit || 'cover'} style={{"position": "absolute", "inset": "0", "width": "100%", "height": "100%"}}></image-slot>
-            <span aria-hidden="true" style={{"position": "absolute", "right": "10px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(90px,9vw,140px)", "lineHeight": ".8", "opacity": ".25"}}>{p.n}</span>
+            {p.num !== false && (<span aria-hidden="true" style={{"position": "absolute", "right": "10px", "bottom": "-12px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(90px,9vw,140px)", "lineHeight": ".8", "opacity": ".25"}}>{p.n}</span>)}
             <span style={{"position": "absolute", "left": "14px", "top": "14px", "border": "2px solid currentColor", "padding": "4px 10px", "fontSize": "10px", "letterSpacing": ".14em", "textTransform": "uppercase", "fontWeight": "600"}}>{p.tag}</span>
             <span style={{"position": "absolute", "left": "14px", "bottom": "12px", "fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "opacity": ".8"}}>{p.date}</span>
           </div>

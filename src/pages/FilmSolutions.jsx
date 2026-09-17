@@ -4,7 +4,7 @@ import { cssText } from '../lib/cssText.js';
 
 class Component extends DCLogic {
   renderVals() {
-    const SOL = {"n":"05","title":"Film Solutions","k":"Press record","c":"Direction, production and post, in-house — from six-second bumpers to sixty-minute brand films.","tags":["Direction","Production","Post","Photography"],"dels":[{"t":"Direction & scripting","m":"Story first"},{"t":"Production","m":"In-house studio"},{"t":"Post & motion","m":"Edit, grade, sound"},{"t":"Photography","m":"Stills that sell"}],"steps":[{"n":"01","t":"Script","d":"Story and shot list locked before anyone touches a camera."},{"n":"02","t":"Shoot","d":"In-house studio and crew — fast setups, no day-rate drama."},{"n":"03","t":"Cut","d":"Edit, grade and sound design tuned per platform, delivered in every ratio."}],"stat":"120+","statL":"Commissioned films","prevT":"Tech Solutions","prevHref":"Techsolutions.html","nextT":"Brand Solutions","nextHref":"Brandsolutions.html"};
+    const SOL = {"n":"05","title":"Film Solutions","k":"Press record","c":"Direction, production and post for reels, promos, campaigns and everything that moves.","tags":["Direction","Production","Post","Photography"],"dels":[{"t":"Direction & scripting","m":"Story first"},{"t":"Production","m":"In-house studio"},{"t":"Post & motion","m":"Edit, grade, sound"},{"t":"Photography","m":"Stills that sell"}],"steps":[{"n":"01","t":"Script","d":"Story and shot list locked before anyone touches a camera."},{"n":"02","t":"Shoot","d":"In-house studio and crew — fast setups, no day-rate drama."},{"n":"03","t":"Cut","d":"Edit, grade and sound design tuned per platform, delivered in every ratio."}],"stat":"Reels","statL":"Short form that does the work","prevT":"Tech Solutions","prevHref":"Techsolutions.html","nextT":"Brand Solutions","nextHref":"Brandsolutions.html"};
     return {
       ...SOL,
       megaLinks: [
@@ -173,15 +173,15 @@ export default function FilmSolutionsPage() {
         </React.Fragment>))}
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-halka" shape="rect" placeholder="Featured — Halka" src="work/creatives/social-grid.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Halka — The Monday Drop</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Sold out in 41 min</span>
+        <a href="case-olive-heights.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat" shape="rect" placeholder="Featured: Olive Heights" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Olive Heights: Make people want to go there</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Reels, feed, menus, ads</span>
         </a>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-juno" shape="rect" placeholder="Featured — Juno" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Juno Bank — Speaks plainly</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>2.1M downloads</span>
+        <a href="case-ahvi-gold.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat-2" shape="rect" placeholder="Featured: Ahvi Gold" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Ahvi Gold: Selling gold is personal</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Trust-first reels and ads</span>
         </a>
       </div>
     </div>
@@ -252,9 +252,7 @@ export default function FilmSolutionsPage() {
 
 <footer id="bigFoot" data-screen-label="Footer" style={{"position": "fixed", "left": "0", "right": "0", "bottom": "0", "zIndex": "1", "background": "#0f0d0a", "color": "#f1ece1", "padding": "clamp(36px,5vw,64px) clamp(24px,6vw,96px) 24px", "overflow": "hidden"}}>
   <div style={{"display": "flex", "justifyContent": "center", "gap": "clamp(12px,2vw,24px)", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Mumbai:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Bengaluru:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>New York:</strong> <span data-clock="America/New_York">—</span></span>
+    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Guwahati:</strong> <span data-clock="Asia/Kolkata">—</span></span>
   </div>
   <div aria-label="The Social Verse" style={{"display": "flex", "justifyContent": "center", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}>
     
@@ -276,7 +274,7 @@ export default function FilmSolutionsPage() {
       <a href="journal.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Journal</a>
       <a href="contact.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Contact</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Proudly independent since 2016. All noise, no static. © 2026</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Based in Guwahati. All noise, no static. © 2026</div>
   </div>
 </footer>
 

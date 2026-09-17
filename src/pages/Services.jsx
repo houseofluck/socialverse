@@ -13,7 +13,7 @@ class Component extends DCLogic {
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Influencer Marketing', href: 'services.html#s-influencer', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Outdoor Marketing', href: 'services.html#s-outdoor', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' }
-      ] }; }
+      ], vidAuto: typeof window === 'undefined' || window.innerWidth >= 760 }; }
   componentDidMount() { this._c = []; this.boot(); }
   componentWillUnmount() { (this._c || []).forEach(f => { try { f() } catch (e) { } }); }
   on(t, ev, fn, o) { t.addEventListener(ev, fn, o); this._c.push(() => t.removeEventListener(ev, fn, o)); }
@@ -85,7 +85,7 @@ class Component extends DCLogic {
       this.on(mega, 'pointerenter', () => clearTimeout(megaT));
       this.on(window, 'scroll', () => { if (megaOpen && Math.abs(scrollY - openY) > 48) setMega(false); }, { passive: true });
     }
-    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
+    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (innerWidth < 760) { const r = v.getBoundingClientRect(); if (!(r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth)) return; } if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
     kick();
     let vAlive = true;
     const vPoll = () => {
@@ -129,7 +129,7 @@ class Component extends DCLogic {
     this._c.push(() => io.disconnect());
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     if (!calm && matchMedia('(pointer: fine)').matches) {
@@ -170,7 +170,7 @@ export default function ServicesPage() {
       <a href="portfolio.html" style={{"textDecoration": "none", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ff6b35,#ff6b35)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">Portfolio</a>
       <a href="case-studies.html" style={{"textDecoration": "none", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#2ec4b6,#2ec4b6)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">Case Studies</a>
       <div id="megaWrap" style={{"position": "static"}}>
-        <button id="megaBtn" type="button" style={{"border": "0", "background": "none", "font": "inherit", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-text)", "padding": "0 0 2px", "display": "inline-flex", "alignItems": "center", "gap": "6px"}} className="hv-2">Services <span id="megaCaret" style={{"fontSize": "10px", "transition": "transform .3s"}}>▾</span></button>
+        <button id="megaBtn" type="button" aria-current="page" style={{"border": "0", "borderBottom": "2px solid var(--color-accent)", "background": "none", "font": "inherit", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-accent-700)", "padding": "0 0 2px", "display": "inline-flex", "alignItems": "center", "gap": "6px"}} className="hv-2">Services <span id="megaCaret" style={{"fontSize": "10px", "transition": "transform .3s"}}>▾</span></button>
       </div>
       <a href="about.html" style={{"textDecoration": "none", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#ff8fab,#ff8fab)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">About us</a>
       <a href="contact.html" style={{"textDecoration": "none", "fontSize": "14px", "fontWeight": "600", "color": "var(--color-text)", "backgroundImage": "linear-gradient(#2ec4b6,#2ec4b6)", "backgroundRepeat": "no-repeat", "backgroundPosition": "0 100%", "backgroundSize": "0 2px", "transition": "background-size .4s cubic-bezier(.22,1,.36,1)", "paddingBottom": "2px"}} className="hv-1">Contact us</a>
@@ -232,7 +232,7 @@ export default function ServicesPage() {
     <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "16px"}}>03 / 09</div>
     <h2 data-rv data-rvd="1" style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "textTransform": "uppercase", "fontSize": "clamp(28px,3.8vw,58px)", "lineHeight": ".98", "letterSpacing": "-.02em", "margin": "0"}}>Content Production</h2>
     <p data-rv data-rvd="2" style={{"fontSize": "15.5px", "lineHeight": "1.7", "margin": "20px 0 0", "maxWidth": "64ch", "opacity": ".85"}}>Got something worth showing? Let's shoot it properly. Reels, product shoots, photography, promotional videos, brand films, ad creatives: whatever makes sense for your brand. No unnecessary production jargon. Just good content that gives people a reason to stop scrolling.</p>
-    <div data-case data-rv data-rvd="3" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden", "maxWidth": "400px", "marginTop": "clamp(28px,3.5vw,44px)"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "2/3", "background": "var(--color-neutral-200)"}}><video data-auto src="work/reels/reel-olive-garden-2.mp4" poster="work/reels/posters/reel-olive-garden-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Garden reel, The art of hands" style={{"display": "block", "width": "100%", "height": "100%", "objectFit": "cover"}}></video></div></div></div>
+    <div data-case data-rv data-rvd="3" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden", "maxWidth": "400px", "marginTop": "clamp(28px,3.5vw,44px)"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "2/3", "background": "var(--color-neutral-200)"}}><video data-auto src="work/reels/reel-olive-garden-2.mp4" poster="work/reels/posters/reel-olive-garden-2.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Olive Garden reel, The art of hands" style={{"display": "block", "width": "100%", "height": "100%", "objectFit": "cover"}}></video></div></div></div>
     <a data-rv data-rvd="4" href="contact.html" style={{"display": "inline-flex", "marginTop": "24px", "textDecoration": "none", "color": "inherit", "border": "2px solid currentColor", "padding": "11px 20px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "transition": "opacity .25s"}} className="hv-22">Start a project →</a>
   </div>
 </section>
@@ -251,7 +251,7 @@ export default function ServicesPage() {
     <div data-rv style={{"fontSize": "11px", "letterSpacing": ".22em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginBottom": "16px"}}>05 / 09</div>
     <h2 data-rv data-rvd="1" style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "textTransform": "uppercase", "fontSize": "clamp(28px,3.8vw,58px)", "lineHeight": ".98", "letterSpacing": "-.02em", "margin": "0"}}>Search Engine Optimization (SEO)</h2>
     <p data-rv data-rvd="2" style={{"fontSize": "15.5px", "lineHeight": "1.7", "margin": "20px 0 0", "maxWidth": "64ch", "opacity": ".85"}}>Google isn't going away. If people are searching for what you sell, we'd like your brand to show up. We work on keywords, content, technical SEO and local search to help improve your visibility organically.</p>
-    <div data-case data-rv data-rvd="3" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden", "maxWidth": "620px", "marginTop": "clamp(28px,3.5vw,44px)"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="seo-loop.mp4" poster="seo-loop-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Search engine optimization search results" style={{"display": "block", "width": "100%", "aspectRatio": "16/9", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
+    <div data-case data-rv data-rvd="3" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden", "maxWidth": "620px", "marginTop": "clamp(28px,3.5vw,44px)"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="seo-loop.mp4" poster="seo-loop-poster.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Search engine optimization search results" style={{"display": "block", "width": "100%", "aspectRatio": "16/9", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
     <a data-rv data-rvd="4" href="contact.html" style={{"display": "inline-flex", "marginTop": "24px", "textDecoration": "none", "color": "inherit", "border": "2px solid currentColor", "padding": "11px 20px", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "transition": "opacity .25s"}} className="hv-20">Start a project →</a>
   </div>
 </section>

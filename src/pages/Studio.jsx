@@ -234,15 +234,15 @@ export default function StudioPage() {
         </React.Fragment>))}
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-halka" shape="rect" placeholder="Featured — Halka" src="work/creatives/social-grid.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Halka — The Monday Drop</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Sold out in 41 min</span>
+        <a href="case-olive-heights.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat" shape="rect" placeholder="Featured: Olive Heights" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Olive Heights: Make people want to go there</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Reels, feed, menus, ads</span>
         </a>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-juno" shape="rect" placeholder="Featured — Juno" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Juno Bank — Speaks plainly</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>2.1M downloads</span>
+        <a href="case-ahvi-gold.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat-2" shape="rect" placeholder="Featured: Ahvi Gold" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Ahvi Gold: Selling gold is personal</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Trust-first reels and ads</span>
         </a>
       </div>
     </div>
@@ -256,7 +256,7 @@ export default function StudioPage() {
       <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="0" style={{"display": "block"}}>Nice people.</span></span>
       <span style={{"display": "block", "overflow": "hidden", "paddingBottom": ".12em", "marginBottom": "-.12em"}}><span data-ml data-mld="1" style={{"display": "block"}}>Mean work</span></span>
     </h1>
-    <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,18px)", "lineHeight": "1.65", "margin": "clamp(24px,4vh,40px) 0 0", "maxWidth": "44ch", "color": "color-mix(in srgb, var(--color-text) 76%, transparent)"}}>240 strategists, designers, writers and engineers. One shared standard, sharpened daily.</p>
+    <p data-rv data-rvd="2" style={{"fontSize": "clamp(15px,1.3vw,18px)", "lineHeight": "1.65", "margin": "clamp(24px,4vh,40px) 0 0", "maxWidth": "44ch", "color": "color-mix(in srgb, var(--color-text) 76%, transparent)"}}>Strategy, content, ads and branding. One shared standard, sharpened daily.</p>
   </div>
 </header>
 
@@ -267,26 +267,26 @@ export default function StudioPage() {
       <p data-rv data-rvd="2" style={{"fontSize": "15px", "lineHeight": "1.65", "margin": "22px 0 0", "maxWidth": "42ch", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Briefs move through the building in days, not quarters. Strategy sits next to design, design next to engineering — arguments stay short because the desks are close.</p>
       <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(120px,1fr))", "gap": "20px", "marginTop": "36px"}}>
         <div data-rv style={{"borderTop": "2px solid var(--color-divider)", "paddingTop": "12px"}}>
-          <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "24px", "fontVariantNumeric": "tabular-nums"}}>2016</div>
-          <div style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)", "marginTop": "6px"}}>Founded</div>
+          <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "24px", "fontVariantNumeric": "tabular-nums"}}>Guwahati</div>
+          <div style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)", "marginTop": "6px"}}>Home base</div>
         </div>
         <div data-rv data-rvd="1" style={{"borderTop": "2px solid var(--color-divider)", "paddingTop": "12px"}}>
-          <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "24px", "fontVariantNumeric": "tabular-nums"}}>240</div>
-          <div style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)", "marginTop": "6px"}}>People</div>
+          <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "24px", "fontVariantNumeric": "tabular-nums"}}>Social</div>
+          <div style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)", "marginTop": "6px"}}>Content and reels</div>
         </div>
         <div data-rv data-rvd="2" style={{"borderTop": "2px solid var(--color-divider)", "paddingTop": "12px"}}>
-          <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "24px", "fontVariantNumeric": "tabular-nums"}}>05</div>
-          <div style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)", "marginTop": "6px"}}>Disciplines</div>
+          <div style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "24px", "fontVariantNumeric": "tabular-nums"}}>Ads</div>
+          <div style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 55%, transparent)", "marginTop": "6px"}}>Meta campaigns</div>
         </div>
       </div>
     </div>
     <figure data-rv data-rvd="1" style={{"margin": "0", "justifySelf": "end", "width": "100%", "maxWidth": "420px"}}>
       <div style={{"overflow": "hidden", "border": "2px solid var(--color-divider)"}}>
         <div data-zoom style={{"transition": "transform 1.4s cubic-bezier(.22,1,.36,1)"}}>
-          <video data-auto data-vsrc="uploads/studio-portrait.mp4" poster="uploads/studio-poster.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Inside the studio" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+          <video data-auto data-vsrc="work/reels/reel-olive-heights-2.mp4" poster="work/reels/posters/reel-olive-heights-2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Olive Heights reel: sounds of the kitchen" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
         </div>
       </div>
-      <figcaption style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)", "marginTop": "12px"}}>Floor two, most afternoons</figcaption>
+      <figcaption style={{"fontSize": "11px", "letterSpacing": ".14em", "textTransform": "uppercase", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)", "marginTop": "12px"}}>From our Olive Heights kitchen reel</figcaption>
     </figure>
   </div>
 </section>
@@ -371,9 +371,7 @@ export default function StudioPage() {
 
 <footer id="bigFoot" data-screen-label="Footer" style={{"position": "fixed", "left": "0", "right": "0", "bottom": "0", "zIndex": "1", "background": "#0f0d0a", "color": "#f1ece1", "padding": "clamp(36px,5vw,64px) clamp(24px,6vw,96px) 24px", "overflow": "hidden"}}>
   <div style={{"display": "flex", "justifyContent": "center", "gap": "clamp(12px,2vw,24px)", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Mumbai:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Bengaluru:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>New York:</strong> <span data-clock="America/New_York">—</span></span>
+    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Guwahati:</strong> <span data-clock="Asia/Kolkata">—</span></span>
   </div>
   <div aria-label="The Social Verse" style={{"display": "flex", "justifyContent": "center", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}>
     
@@ -394,7 +392,7 @@ export default function StudioPage() {
       <a href="journal.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Journal</a>
       <a href="contact.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Contact</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Proudly independent since 2016. All noise, no static. © 2026</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Based in Guwahati. All noise, no static. © 2026</div>
   </div>
 </footer>
 

@@ -6,12 +6,12 @@ class Component extends DCLogic {
   renderVals() {
     const PAL = { gold: ['#ab905c', '#14110c'], terra: ['#ff6b35', '#14110c'], teal: ['#2ec4b6', '#14110c'], rose: ['#ff8fab', '#14110c'], ink: ['#1d1a14', '#f6f3ec'] };
     const posts = [
-      { n: '01', key: 'terra', tag: 'Case notes', date: "Aug '26", t: 'The 41-minute sellout: anatomy of a drop', d: 'What actually happened in the war room the Monday Halka went live — hour by hour.', read: '6 min read' },
-      { n: '02', key: 'teal', tag: 'POV', date: "Jul '26", t: 'Memes are a media channel now. Budget like it.', d: 'Why the funniest line in the room deserves a line in the plan.', read: '4 min read' },
-      { n: '03', key: 'gold', tag: 'Film', date: "Jun '26", t: 'Boarding Pass to Nowhere — the full story', d: 'Selling 41,000 blind tickets took 4 films, 9 lawyers and one very brave airline.', read: '8 min read' },
-      { n: '04', key: 'ink', tag: 'Tech', date: "May '26", t: 'Design systems that survive rebrands', d: 'Tokens, not tantrums: how we build interfaces that outlive their logos.', read: '5 min read' },
-      { n: '05', key: 'rose', tag: 'Social', date: "Apr '26", t: 'What 60K user posts taught us about summer', d: 'Vella\u2019s weather-triggered content system, decoded for your category.', read: '5 min read' },
-      { n: '06', key: 'teal', tag: 'Media', date: "Mar '26", t: 'Media math your CFO will actually enjoy', d: 'A plain-language framework for proving attention turned into revenue.', read: '7 min read' }
+      { n: '01', key: 'terra', tag: 'Social', date: "Aug '26", t: "Why reels are the fastest way to grow a restaurant brand", d: "Short-form video sells the feeling, and the feeling sells the table.", read: '5 min read' },
+      { n: '02', key: 'teal', tag: 'Performance', date: "Jul '26", t: "Meta ads that drive footfall, not just likes", d: "For local businesses the point of an ad is a person walking in. The framework we use to make that happen.", read: '6 min read' },
+      { n: '03', key: 'gold', tag: 'Branding', date: "Jun '26", t: "Marketing a trust-first business", d: "In sensitive categories like gold buying, education outperforms promotion every time.", read: '5 min read' },
+      { n: '04', key: 'ink', tag: 'Outdoor', date: "May '26", t: "What makes a hoarding impossible to ignore", d: "Outdoor gets six seconds of attention at 40 km/h. Everything about the design follows from that.", read: '4 min read' },
+      { n: '05', key: 'rose', tag: 'SEO', date: "Apr '26", t: "Local SEO: getting found in your own city", d: "“Near me” searches are the cheapest growth channel most businesses ignore. The basics, done properly, beat tricks.", read: '6 min read' },
+      { n: '06', key: 'teal', tag: 'Content', date: "Mar '26", t: "Building an Instagram grid people remember", d: "A recognisable feed is a brand asset that compounds. How we plan grids that hold together.", read: '5 min read' }
     ];
     return {
       megaLinks: [
@@ -186,15 +186,15 @@ export default function JournalPage() {
         </React.Fragment>))}
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-halka" shape="rect" placeholder="Featured — Halka" src="work/creatives/social-grid.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Halka — The Monday Drop</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Sold out in 41 min</span>
+        <a href="case-olive-heights.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat" shape="rect" placeholder="Featured: Olive Heights" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Olive Heights: Make people want to go there</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Reels, feed, menus, ads</span>
         </a>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-juno" shape="rect" placeholder="Featured — Juno" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Juno Bank — Speaks plainly</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>2.1M downloads</span>
+        <a href="case-ahvi-gold.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat-2" shape="rect" placeholder="Featured: Ahvi Gold" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Ahvi Gold: Selling gold is personal</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Trust-first reels and ads</span>
         </a>
       </div>
     </div>
@@ -240,9 +240,7 @@ export default function JournalPage() {
 
 <footer id="bigFoot" data-screen-label="Footer" style={{"position": "fixed", "left": "0", "right": "0", "bottom": "0", "zIndex": "1", "background": "#0f0d0a", "color": "#f1ece1", "padding": "clamp(36px,5vw,64px) clamp(24px,6vw,96px) 24px", "overflow": "hidden"}}>
   <div style={{"display": "flex", "justifyContent": "center", "gap": "clamp(12px,2vw,24px)", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Mumbai:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Bengaluru:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>New York:</strong> <span data-clock="America/New_York">—</span></span>
+    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Guwahati:</strong> <span data-clock="Asia/Kolkata">—</span></span>
   </div>
   <div aria-label="The Social Verse" style={{"display": "flex", "justifyContent": "center", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}>
     
@@ -263,7 +261,7 @@ export default function JournalPage() {
       <a href="studio.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Studio</a>
       <a href="contact.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Contact</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Proudly independent since 2016. All noise, no static. © 2026</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Based in Guwahati. All noise, no static. © 2026</div>
   </div>
 </footer>
 

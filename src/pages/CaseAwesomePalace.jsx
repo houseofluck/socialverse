@@ -13,7 +13,7 @@ class Component extends DCLogic {
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Influencer Marketing', href: 'services.html#s-influencer', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Outdoor Marketing', href: 'services.html#s-outdoor', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' }
-      ] }; }
+      ], vidAuto: typeof window === 'undefined' || window.innerWidth >= 760 }; }
   componentDidMount() { this._c = []; this.boot(); }
   componentWillUnmount() { (this._c || []).forEach(f => { try { f() } catch (e) { } }); }
   on(t, ev, fn, o) { t.addEventListener(ev, fn, o); this._c.push(() => t.removeEventListener(ev, fn, o)); }
@@ -85,7 +85,7 @@ class Component extends DCLogic {
       this.on(mega, 'pointerenter', () => clearTimeout(megaT));
       this.on(window, 'scroll', () => { if (megaOpen && Math.abs(scrollY - openY) > 48) setMega(false); }, { passive: true });
     }
-    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
+    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (innerWidth < 760) { const r = v.getBoundingClientRect(); if (!(r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth)) return; } if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
     kick();
     let vAlive = true;
     const vPoll = () => {
@@ -129,7 +129,7 @@ class Component extends DCLogic {
     this._c.push(() => io.disconnect());
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     if (!calm && matchMedia('(pointer: fine)').matches) {
@@ -226,34 +226,34 @@ export default function CaseAwesomePalacePage() {
 <section data-screen-label="Challenges" style={{"borderTop": "2px solid var(--color-divider)", "background": "var(--color-neutral-100)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}>The Real Challenge</h2>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>The challenge wasn't really “make the hotel look premium.” It was: how do we make someone scrolling on their phone actually consider staying here?</p>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "12px"}}>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>01</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Establishing a premium and trustworthy digital identity</span></div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>02</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Standing out in a saturated hospitality market</span></div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>03</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Creating visually appealing content consistently</span></div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>04</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Driving actual guest enquiries rather than only engagement</span></div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>05</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Showcasing the property experience effectively through digital content</span></div>
+  <div style={{"display": "flex", "flexWrap": "wrap", "gap": "12px"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 225px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>01</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Establishing a premium and trustworthy digital identity</span></div>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 225px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>02</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Standing out in a saturated hospitality market</span></div>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 225px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>03</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Creating visually appealing content consistently</span></div>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 225px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>04</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Driving actual guest enquiries rather than only engagement</span></div>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 225px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>05</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>Showcasing the property experience effectively through digital content</span></div>
   </div>
 </section>
 <section data-screen-label="Strategies" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 22px"}}>What We Worked On</h2>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+  <div style={{"display": "flex", "flexWrap": "wrap", "gap": "clamp(14px,2vw,24px)"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Rooms and Interiors</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>01</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We put the property itself front and centre: rooms, spaces, details and the little things that make a stay feel premium.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Dining and Banquets</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>02</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Not just photos of a room. We showed what people could actually do there.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Social Media</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>03</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>A cleaner and more consistent visual direction helped the page feel more like the property itself.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Reels</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>04</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>Short form content gave us a way to show the hotel rather than simply tell people about it.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 215px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Ads</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>05</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We used Meta campaigns to reach travellers, local audiences and people who were actually relevant to the property.</p>
     </div>
@@ -262,7 +262,7 @@ export default function CaseAwesomePalacePage() {
 <section data-screen-label="Creative work" style={{"borderTop": "2px solid var(--color-divider)", "background": "var(--color-neutral-100)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}>Creative Output</h2>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>Rooms, location and events: a premium content grid built so the property reads as considered online as it feels in person.</p>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(240px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
+  <div className="gal4" style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(240px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
     <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-1" shape="rect" placeholder="Awesome Palace rooms" src="work/creatives/awesome-palace-view.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-2" shape="rect" placeholder="Awesome Palace location" src="work/creatives/creative-03.jpg"></image-slot></div></div></div>
     <div data-case data-rv data-rvd="2" style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ap-cre-3" shape="rect" placeholder="Awesome Palace banquets" src="work/creatives/showcase-04.jpg"></image-slot></div></div></div>
@@ -277,7 +277,7 @@ export default function CaseAwesomePalacePage() {
       <div style={{"flex": "1 1 140px", "maxWidth": "320px"}}>
         <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "overflow": "hidden"}}>
           <div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}>
-            <video data-auto src="work/reels/reel-awesome-palace.mp4" poster="work/reels/posters/reel-awesome-palace.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Awesome Palace reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+            <video data-auto src="work/reels/reel-awesome-palace.mp4" poster="work/reels/posters/reel-awesome-palace.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Awesome Palace reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
           </div>
           <div style={{"padding": "12px 16px"}}>
             <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.4vw,17px)"}}>Awesome Palace</span>
@@ -288,7 +288,7 @@ export default function CaseAwesomePalacePage() {
       <div style={{"flex": "1 1 140px", "maxWidth": "320px"}}>
         <div data-case data-rv data-rvd="1" style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "overflow": "hidden"}}>
           <div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}>
-            <video data-auto src="work/reels/reel-awesome-palace-rooms.mp4" poster="work/reels/posters/reel-awesome-palace-rooms.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Awesome Palace reel, Ready before you arrive" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
+            <video data-auto src="work/reels/reel-awesome-palace-rooms.mp4" poster="work/reels/posters/reel-awesome-palace-rooms.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Awesome Palace reel, Ready before you arrive" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video>
           </div>
           <div style={{"padding": "12px 16px"}}>
             <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(14px,1.4vw,17px)"}}>Awesome Palace</span>

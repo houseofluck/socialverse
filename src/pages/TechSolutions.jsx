@@ -4,7 +4,7 @@ import { cssText } from '../lib/cssText.js';
 
 class Component extends DCLogic {
   renderVals() {
-    const SOL = {"n":"04","title":"Tech Solutions","k":"Ship it fast","c":"Websites, apps, commerce and the design systems behind them — prototypes on Monday, production on Friday.","tags":["Web & apps","Commerce","Design systems","AI tooling"],"dels":[{"t":"Websites & platforms","m":"Fast and findable"},{"t":"Apps & commerce","m":"Load fast, sell faster"},{"t":"Design systems","m":"Built to survive rebrands"},{"t":"AI pipelines","m":"Useful, not gimmicky"}],"steps":[{"n":"01","t":"Prototype Monday","d":"A clickable answer to the brief inside the first week."},{"n":"02","t":"Build in sprints","d":"Design and engineering at the same desk, shipping every fortnight."},{"n":"03","t":"Launch & measure","d":"Performance budgets, analytics and a roadmap that survives contact."}],"stat":"90s","statL":"Fastest onboarding built","prevT":"Media Solutions","prevHref":"Mediasolutions.html","nextT":"Film Solutions","nextHref":"Filmsolutions.html"};
+    const SOL = {"n":"04","title":"Tech Solutions","k":"Ship it fast","c":"Websites, apps, commerce and the design systems behind them — prototypes on Monday, production on Friday.","tags":["Web & apps","Commerce","Design systems","AI tooling"],"dels":[{"t":"Websites & platforms","m":"Fast and findable"},{"t":"Apps & commerce","m":"Load fast, sell faster"},{"t":"Design systems","m":"Built to survive rebrands"},{"t":"AI pipelines","m":"Useful, not gimmicky"}],"steps":[{"n":"01","t":"Prototype Monday","d":"A clickable answer to the brief inside the first week."},{"n":"02","t":"Build in sprints","d":"Design and engineering at the same desk, shipping every fortnight."},{"n":"03","t":"Launch & measure","d":"Performance budgets, analytics and a roadmap that survives contact."}],"stat":"Web","statL":"Websites & platforms","prevT":"Media Solutions","prevHref":"Mediasolutions.html","nextT":"Film Solutions","nextHref":"Filmsolutions.html"};
     return {
       ...SOL,
       megaLinks: [
@@ -173,15 +173,15 @@ export default function TechSolutionsPage() {
         </React.Fragment>))}
       </div>
       <div style={{"display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "18px", "alignContent": "start"}}>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-halka" shape="rect" placeholder="Featured — Halka" src="work/creatives/social-grid.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Halka — The Monday Drop</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Sold out in 41 min</span>
+        <a href="case-olive-heights.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat" shape="rect" placeholder="Featured: Olive Heights" src="work/grids/olive-heights-grid.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Olive Heights: Make people want to go there</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Reels, feed, menus, ads</span>
         </a>
-        <a href="work.html" style={{"textDecoration": "none"}}>
-          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-juno" shape="rect" placeholder="Featured — Juno" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
-          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Juno Bank — Speaks plainly</span>
-          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>2.1M downloads</span>
+        <a href="case-ahvi-gold.html" style={{"textDecoration": "none"}}>
+          <span style={{"display": "block", "overflow": "hidden", "border": "2px solid var(--color-divider)"}}><span style={{"display": "block", "aspectRatio": "16/10", "background": "var(--color-neutral-200)"}}><image-slot id="case-feat-2" shape="rect" placeholder="Featured: Ahvi Gold" src="work/case/ahvi-storefront.jpg"></image-slot></span></span>
+          <span style={{"display": "block", "fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "14px", "marginTop": "10px", "color": "var(--color-text)"}}>Ahvi Gold: Selling gold is personal</span>
+          <span style={{"display": "block", "fontSize": "11px", "letterSpacing": ".12em", "textTransform": "uppercase", "marginTop": "4px", "color": "color-mix(in srgb, var(--color-text) 50%, transparent)"}}>Trust-first reels and ads</span>
         </a>
       </div>
     </div>
@@ -252,9 +252,7 @@ export default function TechSolutionsPage() {
 
 <footer id="bigFoot" data-screen-label="Footer" style={{"position": "fixed", "left": "0", "right": "0", "bottom": "0", "zIndex": "1", "background": "#0f0d0a", "color": "#f1ece1", "padding": "clamp(36px,5vw,64px) clamp(24px,6vw,96px) 24px", "overflow": "hidden"}}>
   <div style={{"display": "flex", "justifyContent": "center", "gap": "clamp(12px,2vw,24px)", "flexWrap": "wrap", "marginBottom": "clamp(28px,4vw,48px)"}}>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Mumbai:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Bengaluru:</strong> <span data-clock="Asia/Kolkata">—</span></span>
-    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>New York:</strong> <span data-clock="America/New_York">—</span></span>
+    <span style={{"border": "2px solid rgba(241,236,225,.3)", "borderRadius": "999px", "padding": "9px 18px", "fontSize": "12px", "display": "inline-flex", "gap": "8px", "alignItems": "center"}}><strong style={{"fontFamily": "var(--font-heading)"}}>Guwahati:</strong> <span data-clock="Asia/Kolkata">—</span></span>
   </div>
   <div aria-label="The Social Verse" style={{"display": "flex", "justifyContent": "center", "alignItems": "baseline", "gap": "clamp(8px,1vw,18px)", "whiteSpace": "nowrap"}}>
     
@@ -276,7 +274,7 @@ export default function TechSolutionsPage() {
       <a href="journal.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Journal</a>
       <a href="contact.html" style={{"textDecoration": "none", "fontSize": "13px", "color": "#f1ece1"}} className="hv-11">Contact</a>
     </div>
-    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Proudly independent since 2016. All noise, no static. © 2026</div>
+    <div style={{"textAlign": "right", "fontSize": "11px", "color": "rgba(241,236,225,.55)"}}>Based in Guwahati. All noise, no static. © 2026</div>
   </div>
 </footer>
 

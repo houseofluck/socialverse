@@ -1,4 +1,5 @@
 import { useEffect, useRef, useReducer } from 'react';
+import { phoneEnhance } from './phone.js';
 // Minimal port of the DC logic-class runtime: the page classes run unchanged.
 export class DCLogic {}
 export function useDC(Cls) {
@@ -13,7 +14,7 @@ export function useDC(Cls) {
   }
   ref.current.__bump = bump;
   const mounted = useRef(false);
-  useEffect(() => { const i = ref.current; i.componentDidMount && i.componentDidMount(); return () => { i.componentWillUnmount && i.componentWillUnmount(); }; }, []);
+  useEffect(() => { const i = ref.current; i.componentDidMount && i.componentDidMount(); const undoPhone = phoneEnhance(); return () => { undoPhone(); i.componentWillUnmount && i.componentWillUnmount(); }; }, []);
   useEffect(() => { if (mounted.current) { ref.current.componentDidUpdate && ref.current.componentDidUpdate(); } else mounted.current = true; });
   return ref.current.renderVals();
 }

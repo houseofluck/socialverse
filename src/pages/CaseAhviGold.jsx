@@ -13,7 +13,7 @@ class Component extends DCLogic {
         { t: 'App Development', href: 'services.html#s-app', sq: 'width:10px; height:10px; flex:none; background:#ffd23f;' },
         { t: 'Influencer Marketing', href: 'services.html#s-influencer', sq: 'width:10px; height:10px; flex:none; background:#ff6b35;' },
         { t: 'Outdoor Marketing', href: 'services.html#s-outdoor', sq: 'width:10px; height:10px; flex:none; background:#2ec4b6;' }
-      ] }; }
+      ], vidAuto: typeof window === 'undefined' || window.innerWidth >= 760 }; }
   componentDidMount() { this._c = []; this.boot(); }
   componentWillUnmount() { (this._c || []).forEach(f => { try { f() } catch (e) { } }); }
   on(t, ev, fn, o) { t.addEventListener(ev, fn, o); this._c.push(() => t.removeEventListener(ev, fn, o)); }
@@ -85,7 +85,7 @@ class Component extends DCLogic {
       this.on(mega, 'pointerenter', () => clearTimeout(megaT));
       this.on(window, 'scroll', () => { if (megaOpen && Math.abs(scrollY - openY) > 48) setMega(false); }, { passive: true });
     }
-    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
+    const kick = () => document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; if (innerWidth < 760) { const r = v.getBoundingClientRect(); if (!(r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth)) return; } if (v.paused) { const p = v.play(); if (p) p.catch(() => { }); } });
     kick();
     let vAlive = true;
     const vPoll = () => {
@@ -129,7 +129,7 @@ class Component extends DCLogic {
     this._c.push(() => io.disconnect());
     document.querySelectorAll('[data-case]').forEach(cs => {
       const z = cs.querySelector('[data-zoom]');
-      this.on(cs, 'pointerenter', () => { if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
+      this.on(cs, 'pointerenter', e => { if (e.pointerType === 'touch') return; if (z && !calm) z.style.transform = 'scale(1.04)'; if (!calm && cs.style.borderWidth) { if (cs.__b === undefined) cs.__b = cs.style.borderColor; cs.style.borderColor = ['#ff6b35','#2ec4b6','#ffd23f','#ff8fab'][Math.floor(Math.random()*4)]; } });
       this.on(cs, 'pointerleave', () => { if (z) z.style.transform = 'scale(1)'; if (cs.__b !== undefined) cs.style.borderColor = cs.__b; });
     });
     if (!calm && matchMedia('(pointer: fine)').matches) {
@@ -232,30 +232,30 @@ export default function CaseAhviGoldPage() {
 <section data-screen-label="Challenges" style={{"borderTop": "2px solid var(--color-divider)", "background": "var(--color-neutral-100)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}>It Comes Down To Trust</h2>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>But there's something bigger behind the business. Trust. People aren't casually walking in and selling their jewellery. They have questions.</p>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "12px"}}>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>01</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“How much is it worth?”</span></div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>02</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“How do you check the purity?”</span></div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>03</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“Am I getting the right price?”</span></div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>04</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“Can I trust this place?”</span></div>
+  <div style={{"display": "flex", "flexWrap": "wrap", "gap": "12px"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 200px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>01</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“How much is it worth?”</span></div>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 200px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>02</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“How do you check the purity?”</span></div>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 200px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>03</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“Am I getting the right price?”</span></div>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "background": "var(--color-bg)", "padding": "14px 16px", "display": "flex", "gap": "12px", "alignItems": "baseline", "flex": "1 1 200px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "13px", "color": "var(--color-accent-700)"}}>04</span><span style={{"fontSize": "14px", "lineHeight": "1.55"}}>“Can I trust this place?”</span></div>
   </div>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "22px 0 0", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>That's where our content started.</p>
 </section>
 <section data-screen-label="Strategies" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 22px"}}>What We Worked On</h2>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+  <div style={{"display": "flex", "flexWrap": "wrap", "gap": "clamp(14px,2vw,24px)"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 200px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Making The Process Easy To Understand</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>01</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We took things like purity testing and valuation and turned them into content that people could actually understand.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 200px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Building Trust</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>02</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>The brand needed to feel professional without feeling distant.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 200px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Reels and Creatives</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>03</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We used short form content to answer questions, explain the process and make the brand more approachable.</p>
     </div>
-    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column"}}>
+    <div data-rv style={{"border": "2px solid var(--color-divider)", "display": "flex", "flexDirection": "column", "flex": "1 1 200px"}}>
       <div style={{"background": "var(--color-surface)", "color": "var(--color-text)", "padding": "12px 16px", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "gap": "10px"}}><span style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "15px"}}>Meta Ads</span><span style={{"fontSize": "11px", "fontWeight": "800", "opacity": ".6"}}>04</span></div>
       <p style={{"fontSize": "13.5px", "lineHeight": "1.6", "margin": "0", "padding": "14px 16px", "color": "color-mix(in srgb, var(--color-text) 70%, transparent)"}}>We focused on reaching people locally, generating enquiries and bringing customers into the stores.</p>
     </div>
@@ -264,7 +264,7 @@ export default function CaseAhviGoldPage() {
 <section data-screen-label="The creative" style={{"borderTop": "2px solid var(--color-divider)", "background": "var(--color-neutral-100)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)"}}>
   <h2 data-rv style={{"fontFamily": "var(--font-heading)", "fontWeight": "800", "fontSize": "clamp(20px,2.2vw,30px)", "letterSpacing": "-.015em", "margin": "0 0 14px"}}>The Creative</h2>
   <p data-rv style={{"fontSize": "15px", "lineHeight": "1.7", "margin": "0 0 22px", "maxWidth": "70ch", "color": "color-mix(in srgb, var(--color-text) 75%, transparent)"}}>A premium, consistent feed built on one promise: old gold in, instant value out.</p>
-  <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(220px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
+  <div className="gal4" style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(220px,1fr))", "gap": "clamp(14px,2vw,24px)"}}>
     <div>
       <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><div style={{"aspectRatio": "4/5", "background": "var(--color-neutral-200)"}}><image-slot id="ahvi-cre-1" shape="rect" placeholder="Ahvi Gold creative 1" src="work/creatives/creative-01.jpg"></image-slot></div></div></div>
       <div style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "10px"}}>Turn old gold into new beginnings</div>
@@ -285,7 +285,7 @@ export default function CaseAhviGoldPage() {
 </section>
 <section data-screen-label="Campaign reel" style={{"borderTop": "2px solid var(--color-divider)", "padding": "clamp(56px,7vw,110px) clamp(24px,6vw,96px)", "display": "grid", "gridTemplateColumns": "repeat(auto-fit,minmax(260px,1fr))", "gap": "clamp(28px,4vw,64px)", "alignItems": "center"}}>
   <div style={{"width": "100%", "maxWidth": "320px"}}>
-    <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-ahvi-gold.mp4" poster="work/reels/posters/reel-ahvi-gold.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Ahvi Gold campaign reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
+    <div data-case data-rv style={{"border": "2px solid var(--color-divider)", "overflow": "hidden"}}><div data-zoom style={{"transition": "transform 1.3s cubic-bezier(.22,1,.36,1)"}}><video data-auto src="work/reels/reel-ahvi-gold.mp4" poster="work/reels/posters/reel-ahvi-gold.jpg" autoPlay={vals.vidAuto} muted loop playsInline preload={vals.vidAuto ? 'metadata' : 'none'} aria-label="Ahvi Gold campaign reel" style={{"display": "block", "width": "100%", "aspectRatio": "9/16", "objectFit": "cover", "background": "var(--color-neutral-200)"}}></video></div></div>
     <div style={{"fontSize": "11px", "letterSpacing": ".18em", "textTransform": "uppercase", "fontWeight": "600", "color": "var(--color-accent-700)", "marginTop": "10px"}}>Reel: the dream home hook</div>
   </div>
   <div>

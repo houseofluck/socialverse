@@ -496,12 +496,14 @@
       // multi-MB sidecar data-URLs into serialized page HTML.)
       const root = this.shadowRoot ||
         this.attachShadow({ mode: 'open', clonable: true });
+      // Phone-only: lazy-load slot images (and never fetch the display:none #mega images). Re-apply if copy_starter_component overwrites this file.
+      const lz = (typeof matchMedia === 'function' && matchMedia('(max-width: 759.98px)').matches) ? ' loading="lazy" decoding="async"' : '';
       // .spill and .ctl sit OUTSIDE .frame so overflow:hidden + border-radius
       // on the frame (circle, pill, rounded) can't clip them.
       root.innerHTML =
         '<style>' + stylesheet + '</style>' +
         '<div class="frame" part="frame">' +
-        '  <img part="image" alt="" draggable="false" style="display:none">' +
+        '  <img part="image" alt="" draggable="false"' + lz + ' style="display:none">' +
         '  <div class="empty" part="empty">' + icon +
         '    <div class="cap"></div>' +
         '    <div class="sub">or <u>browse files</u></div></div>' +
@@ -516,7 +518,7 @@
         // (photographer + Unsplash), built per-render in _render().
         '<span class="credit" part="credit"></span>' +
         '<div class="spill" popover="manual" data-dc-edit-transparent>' +
-        '  <img class="ghost" alt="" draggable="false">' +
+        '  <img class="ghost" alt="" draggable="false"' + lz + '>' +
         '  <div class="handle" data-c="nw"></div><div class="handle" data-c="ne"></div>' +
         '  <div class="handle" data-c="sw"></div><div class="handle" data-c="se"></div>' +
         '</div>' +
